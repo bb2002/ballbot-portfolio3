@@ -1,0 +1,4149 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "RZAPN",
+      "x": 0,
+      "y": -460,
+      "name": "Image Placeholder",
+      "reusable": true,
+      "clip": true,
+      "width": 250,
+      "height": 170,
+      "fill": "$surface",
+      "stroke": "$placeholder-stroke",
+      "strokeWidth": 1,
+      "strokeAlignment": "inner",
+      "children": [
+        {
+          "type": "path",
+          "id": "jgN6V",
+          "name": "X Mark",
+          "geometry": "M0 0l100 100m0-100l-100 100",
+          "viewBox": [
+            0,
+            0,
+            100,
+            100
+          ],
+          "width": "fill_container",
+          "height": "fill_container",
+          "stroke": "$placeholder-stroke",
+          "strokeWidth": 1
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "gK817",
+      "x": 340,
+      "y": -460,
+      "name": "Nav Bar",
+      "reusable": true,
+      "gap": 10,
+      "padding": [
+        8,
+        0
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "gZqzt",
+          "name": "Projects",
+          "width": 96,
+          "height": 96,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "Cp2ZF",
+              "name": "Projects Icon",
+              "width": 24,
+              "height": 24,
+              "icon": "folder-dot",
+              "library": "lucide",
+              "fill": "$text-primary"
+            },
+            {
+              "type": "text",
+              "id": "zts9R",
+              "name": "Projects Label",
+              "fill": "$text-primary",
+              "content": "Projects",
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "FM0dA",
+          "name": "Experience",
+          "width": 96,
+          "height": 96,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "KfcCT",
+              "name": "Experience Icon",
+              "width": 24,
+              "height": 24,
+              "icon": "building-2",
+              "library": "lucide",
+              "fill": "$text-primary"
+            },
+            {
+              "type": "text",
+              "id": "F2ml0B",
+              "name": "Experience Label",
+              "fill": "$text-primary",
+              "content": "Experience",
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tcleM",
+          "name": "Awards",
+          "width": 96,
+          "height": 96,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "J1yRH",
+              "name": "Awards Icon",
+              "width": 24,
+              "height": 24,
+              "icon": "award",
+              "library": "lucide",
+              "fill": "$text-primary"
+            },
+            {
+              "type": "text",
+              "id": "s4aVSG",
+              "name": "Awards Label",
+              "fill": "$text-primary",
+              "content": "Awards",
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TJvkZ",
+          "name": "Education",
+          "width": 96,
+          "height": 96,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "YffHE",
+              "name": "Education Icon",
+              "width": 24,
+              "height": 24,
+              "icon": "graduation-cap",
+              "library": "lucide",
+              "fill": "$text-primary"
+            },
+            {
+              "type": "text",
+              "id": "pmOVD",
+              "name": "Education Label",
+              "fill": "$text-primary",
+              "content": "Education",
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AXdGH",
+          "name": "Journey",
+          "width": 96,
+          "height": 96,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "OmiK5",
+              "name": "Journey Icon",
+              "width": 24,
+              "height": 24,
+              "icon": "route",
+              "library": "lucide",
+              "fill": "$text-primary"
+            },
+            {
+              "type": "text",
+              "id": "Z9EJr",
+              "name": "Journey Label",
+              "fill": "$text-primary",
+              "content": "Journey",
+              "fontFamily": "$font-sans",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZlMRx",
+      "x": 0,
+      "y": 0,
+      "name": "Hero (Desktop)(KR)",
+      "clip": true,
+      "width": 1512,
+      "height": 982,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "CQY8g",
+          "name": "Hero Body",
+          "width": "fill_container",
+          "height": 831,
+          "children": [
+            {
+              "type": "frame",
+              "id": "nFNO8",
+              "name": "Intro",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                10,
+                96
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CaSyQ",
+                  "name": "Headline Group",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BbDBC",
+                      "name": "Eyebrow",
+                      "fill": "$text-secondary",
+                      "content": "ballbot.dev | Software Engineer",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "H8hgg",
+                      "name": "Headline",
+                      "fill": "$text-primary",
+                      "content": "이곳에 멋진\n캐치 프라이즈를 작성",
+                      "lineHeight": 1.1875,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 64,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wZBzX",
+                  "name": "Actions",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "h27lo",
+                      "name": "Primary Button",
+                      "fill": "$button-bg",
+                      "cornerRadius": 4,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "I8xcRe",
+                          "name": "Primary Button Label",
+                          "fill": "$text-inverse",
+                          "content": "프로젝트 보기",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "scSnZ",
+                      "name": "GitHub ↗ Button",
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "q8qULh",
+                          "name": "GitHub ↗ Label",
+                          "fill": "$text-secondary",
+                          "content": "GitHub ↗",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "o54qT",
+                      "name": "Resume ↗ Button",
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "EAizi",
+                          "name": "Resume ↗ Label",
+                          "fill": "$text-secondary",
+                          "content": "Resume ↗",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KR676",
+                  "name": "Japanese Notice",
+                  "height": 40,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "N5HtD",
+                      "name": "JP Lead",
+                      "fill": "$text-secondary",
+                      "content": "日本からご覧になっていますか？",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "g4KAow",
+                      "name": "Emphasis",
+                      "stroke": "$text-secondary",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "strokeAlignment": "inner",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "O1uDq",
+                          "name": "Emphasis Label",
+                          "fill": "$text-secondary",
+                          "content": "日本語版",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "YerkK",
+                      "name": "JP Tail",
+                      "fill": "$text-secondary",
+                      "content": "もご用意しております。",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "POS8G",
+              "name": "Overview",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "stroke": "$border",
+              "strokeWidth": {
+                "left": 0.5
+              },
+              "strokeAlignment": "inner",
+              "layout": "vertical",
+              "gap": 56,
+              "padding": [
+                10,
+                96
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fYPMD",
+                  "name": "Overview Label",
+                  "fill": "$text-secondary",
+                  "content": "Overview",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 16,
+                  "fontWeight": "300"
+                },
+                {
+                  "type": "frame",
+                  "id": "nlZiH",
+                  "name": "Career Stat",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "duRDE",
+                      "name": "Career Heading",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "j4mz2",
+                          "name": "Career Value",
+                          "fill": "$text-strong",
+                          "content": "2 Years",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 32,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WeODH",
+                          "name": "Career Caption",
+                          "fill": "$text-secondary",
+                          "content": "넛지헬스케어 타임스프레드 팀 백엔드 담당",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X4rUt3",
+                      "name": "Career Highlights",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "DUJPb",
+                          "name": "Highlight Migration",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "NqNFC",
+                              "name": "Bullet",
+                              "width": 24,
+                              "height": 19,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "dL6Yr",
+                                  "name": "Dot",
+                                  "fill": "$text-strong",
+                                  "width": 4,
+                                  "height": 4
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Vjmeo",
+                              "name": "Emphasis",
+                              "stroke": "$text-strong",
+                              "strokeWidth": {
+                                "bottom": 1
+                              },
+                              "strokeAlignment": "inner",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "hcyp7",
+                                  "name": "Emphasis Label",
+                                  "fill": "$text-strong",
+                                  "content": "19억 건 규모 데이터 테이블",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "DNaBz",
+                              "name": "Detail",
+                              "fill": "$text-strong",
+                              "content": " 마이그레이션 ",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "IesI8",
+                          "name": "Highlight Legacy",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "aum0W",
+                              "name": "Bullet",
+                              "width": 24,
+                              "height": 19,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "SbGds",
+                                  "name": "Dot",
+                                  "fill": "$text-strong",
+                                  "width": 4,
+                                  "height": 4
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "mXmkn",
+                              "name": "Emphasis",
+                              "stroke": "$text-strong",
+                              "strokeWidth": {
+                                "bottom": 1
+                              },
+                              "strokeAlignment": "inner",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "pnIuS",
+                                  "name": "Emphasis Label",
+                                  "fill": "$text-strong",
+                                  "content": "분당 1,500건 요청",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "k9f4fT",
+                              "name": "Detail",
+                              "fill": "$text-strong",
+                              "content": " 레거시 서비스 마이그레이션",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zdfqA",
+                  "name": "Honors Stat",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kkrev",
+                      "name": "Honors Value",
+                      "fill": "$text-strong",
+                      "content": "3 Honors",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 32,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GFC5w",
+                      "name": "Honors List",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "q5mLdm",
+                          "name": "Honor Cosmo",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "fUHX1",
+                              "name": "Bullet",
+                              "width": 24,
+                              "height": 19,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "ubwZw",
+                                  "name": "Dot",
+                                  "fill": "$text-strong",
+                                  "width": 4,
+                                  "height": 4
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "xDmll",
+                              "name": "Emphasis",
+                              "stroke": "$text-strong",
+                              "strokeWidth": {
+                                "bottom": 1
+                              },
+                              "strokeAlignment": "inner",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Yn0Iw",
+                                  "name": "Emphasis Label",
+                                  "fill": "$text-strong",
+                                  "content": "코스모의 노트",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "qJus6",
+                              "name": "Detail",
+                              "fill": "$text-strong",
+                              "content": " 동아대학교 총장상 (최우수상) ",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "miYIS",
+                          "name": "Honor Helix",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "UZmlJ",
+                              "name": "Bullet",
+                              "width": 24,
+                              "height": 19,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "TV5d1",
+                                  "name": "Dot",
+                                  "fill": "$text-strong",
+                                  "width": 4,
+                                  "height": 4
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "a6DqM",
+                              "name": "Emphasis",
+                              "stroke": "$text-strong",
+                              "strokeWidth": {
+                                "bottom": 1
+                              },
+                              "strokeAlignment": "inner",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "sNkMZ",
+                                  "name": "Emphasis Label",
+                                  "fill": "$text-strong",
+                                  "content": "헬릭스",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "ocGOi",
+                              "name": "Detail",
+                              "fill": "$text-strong",
+                              "content": "영림소프트원장상 (2등)",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "GOqcG",
+                          "name": "Honor Scholarship",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "iTLHP",
+                              "name": "Bullet",
+                              "width": 24,
+                              "height": 19,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "fXwF2",
+                                  "name": "Dot",
+                                  "fill": "$text-strong",
+                                  "width": 4,
+                                  "height": 4
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "id6G4",
+                              "name": "Detail",
+                              "fill": "$text-strong",
+                              "content": "국가이공계장학금 (과학기술정보통신부장관상)",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uvOlQ",
+                  "name": "GPA Stat",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nV94K",
+                      "name": "GPA Value",
+                      "fill": "$text-strong",
+                      "content": "4.43 / 4.5",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 32,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Omxhl",
+                      "name": "GPA Caption",
+                      "fill": "$text-secondary",
+                      "content": "강원대학교 컴퓨터공학과 재학 ",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "T6VqNC",
+          "name": "Bottom Nav",
+          "clip": true,
+          "width": "fill_container",
+          "height": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "N16aJn",
+              "type": "ref",
+              "ref": "gK817",
+              "name": "Nav Bar"
+            },
+            {
+              "type": "frame",
+              "id": "I7WsX",
+              "name": "Scroll Cue",
+              "width": "fill_container",
+              "height": "fill_container",
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 1
+              },
+              "strokeAlignment": "inner",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "CDdEf",
+                  "name": "Scroll Down",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "chevrons-down",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "b0itF9",
+      "x": 1752,
+      "y": 0,
+      "name": "Projects",
+      "clip": true,
+      "width": 1512,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "IGZOL",
+          "name": "Nav Section",
+          "clip": true,
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "a50hIY",
+              "type": "ref",
+              "ref": "gK817",
+              "name": "Nav Bar"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "X3wY86",
+          "name": "Content",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "gs6G8",
+              "name": "Projects Label",
+              "width": "fill_container",
+              "padding": [
+                24,
+                96
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "caagl",
+                  "name": "Label",
+                  "fill": "$text-secondary",
+                  "content": "Projects",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 16,
+                  "fontWeight": "300"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jpQgv",
+              "name": "Featured Row",
+              "width": 1512,
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 0.5,
+                "bottom": 0.5
+              },
+              "strokeAlignment": "inner",
+              "gap": 12,
+              "padding": [
+                0,
+                96
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Q3vKh",
+                  "name": "코스모의 노트 Card",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 322.5,
+                  "gap": 10,
+                  "padding": [
+                    16,
+                    0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dy90L",
+                      "name": "Thumbnail",
+                      "clip": true,
+                      "width": 250,
+                      "height": 170,
+                      "fill": "$surface",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "Xdnyt",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Thumbnail Image",
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bTGl7",
+                      "name": "Info",
+                      "clip": true,
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "z6v9l",
+                          "name": "Period",
+                          "fill": "$text-secondary",
+                          "content": "2025 ~ 현재",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dAfjN",
+                          "name": "Title Row",
+                          "gap": 10,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "id": "xhle4",
+                              "type": "ref",
+                              "ref": "RZAPN",
+                              "name": "App Icon",
+                              "width": 32,
+                              "height": 32,
+                              "cornerRadius": 8
+                            },
+                            {
+                              "type": "text",
+                              "id": "V1F6H2",
+                              "name": "Title",
+                              "fill": "$text-strong",
+                              "content": "코스모의 노트",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 32,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "C7VIo",
+                          "name": "Description Row",
+                          "width": "fill_container",
+                          "padding": [
+                            0,
+                            0,
+                            12,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "W0y2Up",
+                              "name": "Description",
+                              "fill": "$text-secondary",
+                              "content": "여기에 설명을 두 줄 정도 렌더링 합니다. 여기에\n설명을 두 줄 정도 렌더링 합니다.",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "DsivI",
+                          "name": "Stat Row",
+                          "clip": true,
+                          "width": "fill_container",
+                          "stroke": "$border",
+                          "strokeWidth": {
+                            "top": 0.5
+                          },
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": 10,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "HGvq3",
+                              "name": "누적 가입자",
+                              "clip": true,
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "hfBg8",
+                                  "name": "Value",
+                                  "fill": "$text-strong",
+                                  "content": "200+",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "QkIZs",
+                                  "name": "Label",
+                                  "fill": "$text-secondary",
+                                  "content": "누적 가입자",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "300"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "sAfmB",
+                              "name": "Divider",
+                              "fill": "$border",
+                              "width": 0.5,
+                              "height": 43
+                            },
+                            {
+                              "type": "frame",
+                              "id": "K1bqYZ",
+                              "name": "월 매출",
+                              "clip": true,
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "C4qBO",
+                                  "name": "Value",
+                                  "fill": "$text-strong",
+                                  "content": "30만",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "t3eIZ",
+                                  "name": "Label",
+                                  "fill": "$text-secondary",
+                                  "content": "월 매출",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "300"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "jRiFm",
+                              "name": "Divider",
+                              "fill": "$border",
+                              "width": 0.5,
+                              "height": 43
+                            },
+                            {
+                              "type": "frame",
+                              "id": "q6UwRN",
+                              "name": "DAU",
+                              "clip": true,
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "fRdq5",
+                                  "name": "Value",
+                                  "fill": "$text-strong",
+                                  "content": "20",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "llgzt",
+                                  "name": "Label",
+                                  "fill": "$text-secondary",
+                                  "content": "DAU",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "300"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dAXve",
+                          "name": "Tag Row",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "y0TZqs",
+                              "name": "Fully Serverless Tag",
+                              "clip": true,
+                              "fill": "$surface",
+                              "cornerRadius": 32,
+                              "padding": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "cX6AI",
+                                  "name": "Tag Label",
+                                  "fill": "$text-secondary",
+                                  "content": "Fully Serverless",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "FmjyH",
+                              "name": "Cloudflare Tag",
+                              "clip": true,
+                              "fill": "$surface",
+                              "cornerRadius": 32,
+                              "padding": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "hxHfq",
+                                  "name": "Tag Label",
+                                  "fill": "$text-secondary",
+                                  "content": "Cloudflare",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "b0uabT",
+                  "name": "Divider",
+                  "fill": "$border",
+                  "width": 0.5,
+                  "height": 322.5
+                },
+                {
+                  "type": "frame",
+                  "id": "i8KI6y",
+                  "name": "enqor Card",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 322.5,
+                  "gap": 10,
+                  "padding": [
+                    16,
+                    0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "a17E3Z",
+                      "name": "Thumbnail",
+                      "clip": true,
+                      "width": 250,
+                      "height": 170,
+                      "fill": "$surface",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "R5Lr8a",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Thumbnail Image",
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "B3sHki",
+                      "name": "Info",
+                      "clip": true,
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Hk2de",
+                          "name": "Period",
+                          "fill": "$text-secondary",
+                          "content": "2025 ~ 현재",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "T2xuy",
+                          "name": "Title Row",
+                          "gap": 10,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "id": "P6qWS",
+                              "type": "ref",
+                              "ref": "RZAPN",
+                              "name": "App Icon",
+                              "width": 32,
+                              "height": 32,
+                              "cornerRadius": 8
+                            },
+                            {
+                              "type": "text",
+                              "id": "Rij0u",
+                              "name": "Title",
+                              "fill": "$text-strong",
+                              "content": "enqor",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 32,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Fab95",
+                          "name": "Description Row",
+                          "width": "fill_container",
+                          "padding": [
+                            0,
+                            0,
+                            12,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "z6Vdh",
+                              "name": "Description",
+                              "fill": "$text-secondary",
+                              "content": "여기에 설명을 두 줄 정도 렌더링 합니다. 여기에\n설명을 두 줄 정도 렌더링 합니다.",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QLnIo",
+                          "name": "Stat Row",
+                          "clip": true,
+                          "width": "fill_container",
+                          "stroke": "$border",
+                          "strokeWidth": {
+                            "top": 0.5
+                          },
+                          "strokeAlignment": "inner",
+                          "gap": 10,
+                          "padding": 10,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "QLz6t",
+                              "name": "누적 가입자",
+                              "clip": true,
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "G6mhU",
+                                  "name": "Value",
+                                  "fill": "$text-strong",
+                                  "content": "200+",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "SD1ni",
+                                  "name": "Label",
+                                  "fill": "$text-secondary",
+                                  "content": "누적 가입자",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "300"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "d7vKY",
+                              "name": "Divider",
+                              "fill": "$border",
+                              "width": 0.5,
+                              "height": 43
+                            },
+                            {
+                              "type": "frame",
+                              "id": "rdm93",
+                              "name": "월 매출",
+                              "clip": true,
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "NSGbH",
+                                  "name": "Value",
+                                  "fill": "$text-strong",
+                                  "content": "30만",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Sw6Ax",
+                                  "name": "Label",
+                                  "fill": "$text-secondary",
+                                  "content": "월 매출",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "300"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "uULji",
+                              "name": "Divider",
+                              "fill": "$border",
+                              "width": 0.5,
+                              "height": 43
+                            },
+                            {
+                              "type": "frame",
+                              "id": "OGC3J",
+                              "name": "DAU",
+                              "clip": true,
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "g17vJ",
+                                  "name": "Value",
+                                  "fill": "$text-strong",
+                                  "content": "20",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 16,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "JuaiZ",
+                                  "name": "Label",
+                                  "fill": "$text-secondary",
+                                  "content": "DAU",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 14,
+                                  "fontWeight": "300"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "K2idP",
+                          "name": "Tag Row",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "yG6kS",
+                              "name": "Fully Serverless Tag",
+                              "clip": true,
+                              "fill": "$surface",
+                              "cornerRadius": 32,
+                              "padding": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ogE2Y",
+                                  "name": "Tag Label",
+                                  "fill": "$text-secondary",
+                                  "content": "Fully Serverless",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "I7cSK",
+                              "name": "Cloudflare Tag",
+                              "clip": true,
+                              "fill": "$surface",
+                              "cornerRadius": 32,
+                              "padding": 8,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "OUpKr",
+                                  "name": "Tag Label",
+                                  "fill": "$text-secondary",
+                                  "content": "Cloudflare",
+                                  "fontFamily": "$font-sans",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LcNsD",
+              "name": "Archive Label",
+              "width": "fill_container",
+              "padding": [
+                24,
+                96
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "THzUs",
+                  "name": "Label",
+                  "fill": "$text-secondary",
+                  "content": "Archive",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 16,
+                  "fontWeight": "300"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bSh9e",
+              "name": "Archive Row",
+              "width": 1512,
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 0.5,
+                "bottom": 0.5
+              },
+              "strokeAlignment": "inner",
+              "gap": 12,
+              "padding": [
+                0,
+                96
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "QHRAp",
+                  "name": "Archive Card 1",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": [
+                    24,
+                    0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vMuJS",
+                      "name": "Thumbnail",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 4,
+                      "layout": "vertical",
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "qWbrF",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Thumbnail Image",
+                          "width": "fill_container",
+                          "height": 125
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "se54j",
+                      "name": "Info",
+                      "clip": true,
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LinNt",
+                          "name": "Period",
+                          "fill": "$text-secondary",
+                          "content": "2025",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vKOdv",
+                          "name": "Title Row",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "e7Vd6",
+                              "name": "Title",
+                              "fill": "$text-strong",
+                              "content": "앗쏼라말라니꿍",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 24,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "M31r1",
+                          "name": "Description Row",
+                          "width": "fill_container",
+                          "padding": [
+                            0,
+                            0,
+                            12,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mhkAQ",
+                              "name": "Description",
+                              "fill": "$text-secondary",
+                              "content": "여기에 단 한줄만 렌더링 합니다.",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "psiIC",
+                  "name": "Divider",
+                  "fill": "$border",
+                  "width": 0.5,
+                  "height": 189
+                },
+                {
+                  "type": "frame",
+                  "id": "ff6Yl",
+                  "name": "Archive Card 2",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": [
+                    24,
+                    0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Mhfxc",
+                      "name": "Thumbnail",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 4,
+                      "layout": "vertical",
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "bcbXH",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Thumbnail Image",
+                          "width": "fill_container",
+                          "height": 125
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Gh8me",
+                      "name": "Info",
+                      "clip": true,
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Gti09",
+                          "name": "Period",
+                          "fill": "$text-secondary",
+                          "content": "2025",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "IY4qz",
+                          "name": "Title Row",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GtO3N",
+                              "name": "Title",
+                              "fill": "$text-strong",
+                              "content": "앗쏼라말라니꿍",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 24,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QPmK4",
+                          "name": "Description Row",
+                          "width": "fill_container",
+                          "padding": [
+                            0,
+                            0,
+                            12,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "lP44H",
+                              "name": "Description",
+                              "fill": "$text-secondary",
+                              "content": "여기에 단 한줄만 렌더링 합니다.",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "puo78",
+                  "name": "Divider",
+                  "fill": "$border",
+                  "width": 0.5,
+                  "height": 189
+                },
+                {
+                  "type": "frame",
+                  "id": "M7vt7",
+                  "name": "Archive Card 3",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": [
+                    24,
+                    0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "L0nyjm",
+                      "name": "Thumbnail",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 4,
+                      "layout": "vertical",
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "Ok79W",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Thumbnail Image",
+                          "width": "fill_container",
+                          "height": 125
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CoTuk",
+                      "name": "Info",
+                      "clip": true,
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "QaYy4",
+                          "name": "Period",
+                          "fill": "$text-secondary",
+                          "content": "2025",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "W41sEt",
+                          "name": "Title Row",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "p8PTSo",
+                              "name": "Title",
+                              "fill": "$text-strong",
+                              "content": "앗쏼라말라니꿍",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 24,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "fIlEj",
+                          "name": "Description Row",
+                          "width": "fill_container",
+                          "padding": [
+                            0,
+                            0,
+                            12,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "F3XOU",
+                              "name": "Description",
+                              "fill": "$text-secondary",
+                              "content": "여기에 단 한줄만 렌더링 합니다.",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ufnen",
+              "name": "Journey List",
+              "width": 1512,
+              "layout": "vertical",
+              "padding": [
+                0,
+                96
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WoDQI",
+                  "name": "Journey Row 1",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gexak",
+                      "name": "Year",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "2016",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BgaP3",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "키365 외주 프로젝트 담당",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "r98AA",
+                      "name": "Summary",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "개인 프로젝트를 외주로 담당한적이 있습니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "F5Zsw",
+                      "name": "Chevron",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GQ3Qy",
+                  "name": "Journey Row 2",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wOVAh",
+                      "name": "Year",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "2016",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "z1WLQj",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "키365 외주 프로젝트 담당",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ARbDK",
+                      "name": "Summary",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "개인 프로젝트를 외주로 담당한적이 있습니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "bOblS",
+                      "name": "Chevron",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cFnhj",
+                  "name": "Journey Row 3",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kxeQQ",
+                      "name": "Year",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "2016",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rLRa9",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "키365 외주 프로젝트 담당",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HP4Ug",
+                      "name": "Summary",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "개인 프로젝트를 외주로 담당한적이 있습니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "tUZMd",
+                      "name": "Chevron",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "U3y8V",
+                  "name": "Journey Row 4",
+                  "clip": true,
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KJQNb",
+                      "name": "Year",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "2016",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y8qEZ9",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "키365 외주 프로젝트 담당",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "p8XXr",
+                      "name": "Summary",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "개인 프로젝트를 외주로 담당한적이 있습니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "Kb6rF",
+                      "name": "Chevron",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xBit4",
+              "name": "Bottom Spacer",
+              "width": "fill_container",
+              "height": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ug4LU",
+      "x": 3504,
+      "y": 0,
+      "name": "Experience",
+      "clip": true,
+      "width": 1512,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "HYjF7",
+          "name": "Nav Section",
+          "clip": true,
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "wbWWn",
+              "type": "ref",
+              "ref": "gK817",
+              "name": "Nav Bar"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "S7eJgm",
+          "name": "Experiences Label",
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "bottom": 0.5
+          },
+          "strokeAlignment": "inner",
+          "padding": [
+            24,
+            96
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "usVXW",
+              "name": "Label",
+              "fill": "$text-secondary",
+              "content": "Experiences",
+              "fontFamily": "$font-mono",
+              "fontSize": 16,
+              "fontWeight": "300"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xyPMY",
+          "name": "Experience Body",
+          "width": "fill_container",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Y3tmAt",
+              "name": "Company",
+              "clip": true,
+              "layout": "vertical",
+              "padding": [
+                0,
+                96
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "glaaQ",
+                  "name": "Company Block",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": [
+                    24,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tRcgS",
+                      "name": "Period",
+                      "fill": "$text-strong",
+                      "content": "2021.12 ~ 2023.12",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "whK6h",
+                      "name": "Identity",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        40,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "O3t6Zd",
+                          "name": "Company Name",
+                          "fill": "$text-strong",
+                          "content": "Nudge\nHealthcare",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 48,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iOJA1",
+                          "name": "Role",
+                          "fill": "$text-strong",
+                          "content": "Backend Engineer",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 20,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "K9wYcc",
+                          "name": "Teams",
+                          "fill": "$text-secondary",
+                          "content": "타임스프레드, 링커리어 팀",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "v4jjU",
+                          "name": "Team Logos",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "kb1TC",
+                              "type": "ref",
+                              "ref": "RZAPN",
+                              "name": "Team Logo 1",
+                              "width": 40,
+                              "height": 40
+                            },
+                            {
+                              "id": "P6RPf8",
+                              "type": "ref",
+                              "ref": "RZAPN",
+                              "name": "Team Logo 2",
+                              "width": 40,
+                              "height": 40
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "C2vUp",
+                      "name": "Notes",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qvIZ3",
+                          "name": "Note 1",
+                          "fill": "$text-secondary",
+                          "content": "2년간 폭발할뻔한 서비스 몇개 구출했고",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Wpbto",
+                          "name": "Note 2",
+                          "fill": "$text-secondary",
+                          "content": "용병같은 느낌이었다 이런 이야기를 쓰면 될듯.",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "Gd2FF",
+              "name": "Divider",
+              "fill": "$border",
+              "width": 0.5,
+              "height": 475
+            },
+            {
+              "type": "frame",
+              "id": "vi8k9",
+              "name": "Highlights",
+              "clip": true,
+              "width": "fill_container",
+              "height": 475,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UmAWw",
+                  "name": "Highlight 2022",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 40,
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "x3OAGz",
+                      "name": "Highlight Head",
+                      "clip": true,
+                      "width": 270,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        32,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NDx1L",
+                          "name": "Year",
+                          "fill": "$text-secondary",
+                          "content": "2022",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 16,
+                          "fontWeight": "300"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Q8CAn",
+                          "name": "Highlight Title",
+                          "fill": "$text-strong",
+                          "content": "약 19억 건의\n대규모 데이터 마이그레이션",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 24,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "uJB57",
+                      "name": "Divider",
+                      "fill": "$border",
+                      "width": 0.5,
+                      "height": "fill_container"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wbgQf",
+                      "name": "Highlight Detail",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        32,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "f4VrY",
+                          "name": "Detail Paragraph 1",
+                          "fill": "$text-secondary",
+                          "content": "  이 테이블은 21억까지 저장 가능한데 19억임. 누가 설계를 이딴식으로 했나 몰라??  그래서 새 테이블\n만들고 BIGINT 로 다시 바꿔서 설계 함. 이 과정에서 테이블 데이터를 이동 시켰다고. 근데 생각해보니\n그냥 테이블 명 바꾸고 기존 데이터에서 최신 데이터만 1시간 어치 이동시키고 나머지는 천천히 옮겼\n다고 말하기에는 뭐 딱히 쓸게 없긴 한다.",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hly0F",
+                          "name": "Detail Paragraph 2",
+                          "fill": "$text-secondary",
+                          "content": "  이 테이블은 21억까지 저장 가능한데 19억임. 누가 설계를 이딴식으로 했나 몰라??  그래서 새 테이블\n만들고 BIGINT 로 다시 바꿔서 설계 함. 이 과정에서 테이블 데이터를 이동 시켰다고. 근데 생각해보니\n그냥 테이블 명 바꾸고 기존 데이터에서 최신 데이터만 1시간 어치 이동시키고 나머지는 천천히 옮겼\n다고 말하기에는 뭐 딱히 쓸게 없긴 한다.",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "rJbbt",
+                  "name": "Entry Divider",
+                  "fill": "$border",
+                  "width": "fill_container",
+                  "height": 0.5
+                },
+                {
+                  "type": "frame",
+                  "id": "X94ba",
+                  "name": "Highlight 2023",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 40,
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GfYD0",
+                      "name": "Highlight Head",
+                      "clip": true,
+                      "width": 270,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        32,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qcG8Z",
+                          "name": "Year",
+                          "fill": "$text-secondary",
+                          "content": "2023",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 16,
+                          "fontWeight": "300"
+                        },
+                        {
+                          "type": "text",
+                          "id": "UPPok",
+                          "name": "Highlight Title",
+                          "fill": "$text-strong",
+                          "content": "분당 1,500개의 요청을 받는\n서비스 마이그레이션",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 24,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "hrsRl",
+                      "name": "Divider",
+                      "fill": "$border",
+                      "width": 0.5,
+                      "height": "fill_container"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tTmaC",
+                      "name": "Highlight Detail",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        32,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "N1eyc",
+                          "name": "Detail Paragraph 1",
+                          "fill": "$text-secondary",
+                          "content": "  이 테이블은 21억까지 저장 가능한데 19억임. 누가 설계를 이딴식으로 했나 몰라??  그래서 새 테이블\n만들고 BIGINT 로 다시 바꿔서 설계 함. 이 과정에서 테이블 데이터를 이동 시켰다고. 근데 생각해보니\n그냥 테이블 명 바꾸고 기존 데이터에서 최신 데이터만 1시간 어치 이동시키고 나머지는 천천히 옮겼\n다고 말하기에는 뭐 딱히 쓸게 없긴 한다.",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "x4eIDv",
+                          "name": "Detail Paragraph 2",
+                          "fill": "$text-secondary",
+                          "content": "  이 테이블은 21억까지 저장 가능한데 19억임. 누가 설계를 이딴식으로 했나 몰라??  그래서 새 테이블\n만들고 BIGINT 로 다시 바꿔서 설계 함. 이 과정에서 테이블 데이터를 이동 시켰다고. 근데 생각해보니\n그냥 테이블 명 바꾸고 기존 데이터에서 최신 데이터만 1시간 어치 이동시키고 나머지는 천천히 옮겼\n다고 말하기에는 뭐 딱히 쓸게 없긴 한다.",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cQZyS",
+          "name": "Bottom Spacer",
+          "width": "fill_container",
+          "height": 32
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "puTvU",
+      "x": 5256,
+      "y": 0,
+      "name": "Awards",
+      "clip": true,
+      "width": 1512,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "rwxyC",
+          "name": "Nav Section",
+          "clip": true,
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "HAOvy",
+              "type": "ref",
+              "ref": "gK817",
+              "name": "Nav Bar"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "c831OG",
+          "name": "Awards Label",
+          "width": "fill_container",
+          "padding": [
+            24,
+            96
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "h3dozj",
+              "name": "Label",
+              "fill": "$text-secondary",
+              "content": "Awards",
+              "fontFamily": "$font-mono",
+              "fontSize": 16,
+              "fontWeight": "300"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "p6a8K",
+          "name": "Featured Row",
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 0.5,
+            "bottom": 0.5
+          },
+          "strokeAlignment": "inner",
+          "gap": 12,
+          "padding": [
+            0,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "iODXb",
+              "name": "코스모의 노트 Card",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "padding": [
+                16,
+                0
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fv5KK",
+                  "name": "Certificate",
+                  "clip": true,
+                  "width": 200,
+                  "height": 270,
+                  "fill": "$surface",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "DWzaJ",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Certificate Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YceL6",
+                  "name": "Info",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NtOy7",
+                      "name": "Period",
+                      "fill": "$text-secondary",
+                      "content": "2025",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pGsFt",
+                      "name": "Title Row",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "J2vGL",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Host Emblem",
+                          "width": 32,
+                          "height": 32,
+                          "cornerRadius": 8
+                        },
+                        {
+                          "type": "text",
+                          "id": "iy64E",
+                          "name": "Title",
+                          "fill": "$text-strong",
+                          "content": "동아대학교 총장상",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 32,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qk8x3",
+                      "name": "Project Row",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "zzRbx",
+                          "name": "Emphasis",
+                          "stroke": "$text-strong",
+                          "strokeWidth": {
+                            "bottom": 1
+                          },
+                          "strokeAlignment": "inner",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ujALm",
+                              "name": "Emphasis Label",
+                              "fill": "$text-strong",
+                              "content": "코스모의 노트",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "B0koFf",
+                          "name": "Project Tail",
+                          "fill": "$text-secondary",
+                          "content": " 프로젝트로 수상",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "300"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aWw40",
+                      "name": "Description Row",
+                      "width": "fill_container",
+                      "padding": [
+                        0,
+                        0,
+                        12,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "eVHzI",
+                          "name": "Description",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "전국 규모 대회에 출품해 본선 심사를 거쳐 최우수상을 받았습니다. 수상 작품은 Projects 섹션에서 이어서 볼 수 있습니다.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zezdD",
+                      "name": "Stat Row",
+                      "clip": true,
+                      "width": "fill_container",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "top": 0.5
+                      },
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "SIOTc",
+                          "name": "수상 등급",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Ryfin",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "최우수상",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ZY71g",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "수상 등급",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "MVHDB",
+                          "name": "Divider",
+                          "fill": "$border",
+                          "width": 0.5,
+                          "height": 43
+                        },
+                        {
+                          "type": "frame",
+                          "id": "O2xf9u",
+                          "name": "대회 구분",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "C7vHva",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "전국 대회",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ujtlV",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "대회 구분",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "xVx9G",
+                          "name": "Divider",
+                          "fill": "$border",
+                          "width": 0.5,
+                          "height": 43
+                        },
+                        {
+                          "type": "frame",
+                          "id": "RmrMf",
+                          "name": "시상",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xLHbA",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "동아대 총장",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ie6Ne",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "시상",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "baUQz",
+                      "name": "Tag Row",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "r0AxN",
+                          "name": "전국 대회 Tag",
+                          "clip": true,
+                          "fill": "$surface",
+                          "cornerRadius": 32,
+                          "padding": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "r6TzAl",
+                              "name": "Tag Label",
+                              "fill": "$text-secondary",
+                              "content": "전국 대회",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "T9vUDu",
+                          "name": "서비스 개발 Tag",
+                          "clip": true,
+                          "fill": "$surface",
+                          "cornerRadius": 32,
+                          "padding": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "X0ZIvW",
+                              "name": "Tag Label",
+                              "fill": "$text-secondary",
+                              "content": "서비스 개발",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "JaF16",
+              "name": "Divider",
+              "fill": "$border",
+              "width": 0.5,
+              "height": 345
+            },
+            {
+              "type": "frame",
+              "id": "GnYqR",
+              "name": "헬릭스 Card",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 10,
+              "padding": [
+                16,
+                0
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qZO2i",
+                  "name": "Certificate",
+                  "clip": true,
+                  "width": 200,
+                  "height": 270,
+                  "fill": "$surface",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "YUn0H",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Certificate Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DGmSt",
+                  "name": "Info",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XabXX",
+                      "name": "Period",
+                      "fill": "$text-secondary",
+                      "content": "2024",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qOjyi",
+                      "name": "Title Row",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "P8fOi",
+                          "type": "ref",
+                          "ref": "RZAPN",
+                          "name": "Host Emblem",
+                          "width": 32,
+                          "height": 32,
+                          "cornerRadius": 8
+                        },
+                        {
+                          "type": "text",
+                          "id": "pAfkB",
+                          "name": "Title",
+                          "fill": "$text-strong",
+                          "content": "영림소프트원장상",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 32,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mGox3",
+                      "name": "Project Row",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ZFC30",
+                          "name": "Emphasis",
+                          "stroke": "$text-strong",
+                          "strokeWidth": {
+                            "bottom": 1
+                          },
+                          "strokeAlignment": "inner",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "L3raB",
+                              "name": "Emphasis Label",
+                              "fill": "$text-strong",
+                              "content": "헬릭스",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "I9IChS",
+                          "name": "Project Tail",
+                          "fill": "$text-secondary",
+                          "content": " 프로젝트로 수상",
+                          "fontFamily": "$font-sans",
+                          "fontSize": 16,
+                          "fontWeight": "300"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BY3hO",
+                      "name": "Description Row",
+                      "width": "fill_container",
+                      "padding": [
+                        0,
+                        0,
+                        12,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PASFp",
+                          "name": "Description",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "전국 규모 대회 본선에서 2위에 올라 영림소프트원장상을 받았습니다. 팀으로 참가해 백엔드 설계와 구현을 맡았습니다.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "$font-sans",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bdDem",
+                      "name": "Stat Row",
+                      "clip": true,
+                      "width": "fill_container",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "top": 0.5
+                      },
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "tNt8R",
+                          "name": "수상 등급",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "KlAdn",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "2등",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JKTvW",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "수상 등급",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "voWVy",
+                          "name": "Divider",
+                          "fill": "$border",
+                          "width": 0.5,
+                          "height": 43
+                        },
+                        {
+                          "type": "frame",
+                          "id": "K1wFuA",
+                          "name": "대회 구분",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "I7uoT1",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "전국 대회",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "KKlZv",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "대회 구분",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "w0gvRp",
+                          "name": "Divider",
+                          "fill": "$border",
+                          "width": 0.5,
+                          "height": 43
+                        },
+                        {
+                          "type": "frame",
+                          "id": "P7KvO",
+                          "name": "시상",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "tBhE0",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "영림소프트 원장",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ZVU5I",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "시상",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZErzt",
+                      "name": "Tag Row",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "MxIW2",
+                          "name": "전국 대회 Tag",
+                          "clip": true,
+                          "fill": "$surface",
+                          "cornerRadius": 32,
+                          "padding": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JMjIc",
+                              "name": "Tag Label",
+                              "fill": "$text-secondary",
+                              "content": "전국 대회",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "q8U7q",
+                          "name": "팀 프로젝트 Tag",
+                          "clip": true,
+                          "fill": "$surface",
+                          "cornerRadius": 32,
+                          "padding": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mNX1m",
+                              "name": "Tag Label",
+                              "fill": "$text-secondary",
+                              "content": "팀 프로젝트",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "O6amxn",
+          "name": "Scholarship Label",
+          "width": "fill_container",
+          "padding": [
+            24,
+            96
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "lG8i1",
+              "name": "Label",
+              "fill": "$text-secondary",
+              "content": "Scholarship",
+              "fontFamily": "$font-mono",
+              "fontSize": 16,
+              "fontWeight": "300"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mQq6K",
+          "name": "Scholarship Row",
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 0.5,
+            "bottom": 0.5
+          },
+          "strokeAlignment": "inner",
+          "padding": [
+            0,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Eiz79",
+              "name": "Certificate Block",
+              "clip": true,
+              "width": 520,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                24,
+                40,
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FcwnQ",
+                  "name": "Period",
+                  "fill": "$text-strong",
+                  "content": "2024",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 16,
+                  "fontWeight": "300"
+                },
+                {
+                  "type": "frame",
+                  "id": "ZJALV",
+                  "name": "Identity",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    40,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UWcoJ",
+                      "name": "Scholarship Name",
+                      "fill": "$text-strong",
+                      "content": "국가이공계\n장학금",
+                      "lineHeight": 1.15,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 48,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fDG3k",
+                      "name": "Grantor",
+                      "fill": "$text-strong",
+                      "content": "과학기술정보통신부장관",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m6aiQH",
+                      "name": "Affiliation",
+                      "fill": "$text-secondary",
+                      "content": "강원대학교 컴퓨터공학과",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GCWJu",
+                  "name": "Kind Tag",
+                  "clip": true,
+                  "fill": "$surface",
+                  "cornerRadius": 32,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SpWUw",
+                      "name": "Tag Label",
+                      "fill": "$text-secondary",
+                      "content": "수상이 아닌 장학 증서",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "LIo1x",
+              "name": "Divider",
+              "fill": "$border",
+              "width": 0.5,
+              "height": 380
+            },
+            {
+              "type": "frame",
+              "id": "ZkrQX",
+              "name": "Scholarship Detail",
+              "clip": true,
+              "width": "fill_container",
+              "gap": 40,
+              "padding": [
+                32,
+                40
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "U5VFO",
+                  "name": "Certificate",
+                  "clip": true,
+                  "width": 200,
+                  "height": 270,
+                  "fill": "$surface",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "kmnK3",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Certificate Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wsTp3",
+                  "name": "Detail Column",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wOZhU",
+                      "name": "Detail Paragraph",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "학업 성적을 기준으로 선발되는 국가이공계 장학생에 선정되어, 과학기술정보통신부장관 명의의 장학증서를 받았습니다.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Jnuzk",
+                      "name": "Detail Paragraph",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "대회에서 받은 수상 이력이 아니라 학부 성적에 따라 받은 장학 증서라, 위의 수상 내역과 구분해 표기했습니다.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "u9cd5G",
+                      "name": "Stat Row",
+                      "clip": true,
+                      "width": "fill_container",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "top": 0.5
+                      },
+                      "strokeAlignment": "inner",
+                      "gap": 10,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "a6cNL",
+                          "name": "선발 기준",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mmxVq",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "학업 성적",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FqZW9",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "선발 기준",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "VZ33W",
+                          "name": "Divider",
+                          "fill": "$border",
+                          "width": 0.5,
+                          "height": 43
+                        },
+                        {
+                          "type": "frame",
+                          "id": "XnRLv",
+                          "name": "수여",
+                          "clip": true,
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "justifyContent": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Jdor2",
+                              "name": "Value",
+                              "fill": "$text-strong",
+                              "content": "과학기술정보통신부장관",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Fc4Rh",
+                              "name": "Label",
+                              "fill": "$text-secondary",
+                              "content": "수여",
+                              "fontFamily": "$font-sans",
+                              "fontSize": 14,
+                              "fontWeight": "300"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LkZPZ",
+          "name": "Archive Label",
+          "width": "fill_container",
+          "padding": [
+            24,
+            96
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VI6FE",
+              "name": "Label",
+              "fill": "$text-secondary",
+              "content": "Archive",
+              "fontFamily": "$font-mono",
+              "fontSize": 16,
+              "fontWeight": "300"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "B10iN",
+          "name": "Archive Row",
+          "width": "fill_container",
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 0.5,
+            "bottom": 0.5
+          },
+          "strokeAlignment": "inner",
+          "gap": 12,
+          "padding": [
+            0,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "YpdoL",
+              "name": "Archive Card 1",
+              "clip": true,
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aIJqt",
+                  "name": "Thumbnail",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 150,
+                  "fill": "$surface",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "ROrTw",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Thumbnail Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y4l4ej",
+                  "name": "Info",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "B8w0I",
+                      "name": "Period",
+                      "fill": "$text-secondary",
+                      "content": "2025",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "brYxk",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "앗쏼라말라니꿍",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ccu41",
+                      "name": "Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "여기에 단 한줄만 렌더링 합니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "EBvcB",
+              "name": "Divider",
+              "fill": "$border",
+              "width": 0.5,
+              "height": 309
+            },
+            {
+              "type": "frame",
+              "id": "S8NaK",
+              "name": "Archive Card 2",
+              "clip": true,
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "sXNVt",
+                  "name": "Thumbnail",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 150,
+                  "fill": "$surface",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "Xp0tG",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Thumbnail Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WM8hp",
+                  "name": "Info",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "p7mfFQ",
+                      "name": "Period",
+                      "fill": "$text-secondary",
+                      "content": "2024",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cF5Jm",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "앗쏼라말라니꿍",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "r65DhC",
+                      "name": "Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "여기에 단 한줄만 렌더링 합니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "ZGlYL",
+              "name": "Divider",
+              "fill": "$border",
+              "width": 0.5,
+              "height": 309
+            },
+            {
+              "type": "frame",
+              "id": "kZuZ6",
+              "name": "Archive Card 3",
+              "clip": true,
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d4uZc",
+                  "name": "Thumbnail",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 150,
+                  "fill": "$surface",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "fHSdv",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Thumbnail Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zPZeX",
+                  "name": "Info",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GrrdQ",
+                      "name": "Period",
+                      "fill": "$text-secondary",
+                      "content": "2023",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "D5ikPG",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "앗쏼라말라니꿍",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "n7AUon",
+                      "name": "Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "여기에 단 한줄만 렌더링 합니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "XcqGL",
+              "name": "Divider",
+              "fill": "$border",
+              "width": 0.5,
+              "height": 309
+            },
+            {
+              "type": "frame",
+              "id": "jqVIS",
+              "name": "Archive Card 4",
+              "clip": true,
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Sb7cg",
+                  "name": "Thumbnail",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 150,
+                  "fill": "$surface",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "jD2NJ",
+                      "type": "ref",
+                      "ref": "RZAPN",
+                      "name": "Thumbnail Image",
+                      "width": "fill_container",
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i6cjz9",
+                  "name": "Info",
+                  "clip": true,
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HawUw",
+                      "name": "Period",
+                      "fill": "$text-secondary",
+                      "content": "2022",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M4S4c9",
+                      "name": "Title",
+                      "fill": "$text-strong",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "앗쏼라말라니꿍",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kYEwG",
+                      "name": "Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "여기에 단 한줄만 렌더링 합니다.",
+                      "fontFamily": "$font-sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UNQma",
+          "name": "Bottom Spacer",
+          "width": "fill_container",
+          "height": 32
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#1F1F1F"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#474747"
+    },
+    "text-strong": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "text-inverse": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "border": {
+      "type": "color",
+      "value": "#E8E8E8"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#F5F5F5"
+    },
+    "button-bg": {
+      "type": "color",
+      "value": "#0D0D0D"
+    },
+    "placeholder-stroke": {
+      "type": "color",
+      "value": "#D4D4D4"
+    },
+    "font-sans": {
+      "type": "string",
+      "value": "Noto Sans KR"
+    },
+    "font-mono": {
+      "type": "string",
+      "value": "IBM Plex Mono"
+    }
+  },
+  "fileToken": "ed7102ca-4306-4f57-a277-1a3e91a771cf"
+}
