@@ -6,9 +6,18 @@
 	// The apex is the only host that decides for a reader, so it answers on its
 	// own Worker rather than inside either market build: nothing here has to boot
 	// a framework to write one redirect.
+	//
+	// A route, not a custom domain. The apex still carries an externally managed
+	// A record from whatever was parked there before, and Cloudflare refuses to
+	// attach a custom domain over one. A route runs ahead of the origin, so the
+	// stale record is shadowed rather than followed. Delete that record and this
+	// can become `{ "pattern": "ballbot.dev", "custom_domain": true }`, which is
+	// the tidier form — the route only works while the record stays proxied.
+	//
+	// www has no DNS record at all, so it is not listed: a route cannot fire on a
+	// hostname that never reaches Cloudflare.
 	"routes": [
-		{ "pattern": "ballbot.dev", "custom_domain": true },
-		{ "pattern": "www.ballbot.dev", "custom_domain": true }
+		{ "pattern": "ballbot.dev/*", "zone_name": "ballbot.dev" }
 	],
 	"observability": {
 		"enabled": true
