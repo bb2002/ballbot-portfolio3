@@ -2,17 +2,18 @@
  * For more details on how to configure Wrangler, refer to:
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "ballbot-portfolio3",
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+	"name": "ballbot-kr",
 	"main": ".open-next/worker.js",
 	"compatibility_date": "2026-09-03",
 	"compatibility_flags": [
 		"global_fetch_strictly_public"
+	],
+	// The Korean market build. The apex (ballbot-router) decides who lands here;
+	// this host only ever serves the Korean site, so nothing in it is locale-aware.
+	"routes": [
+		{ "pattern": "kr.ballbot.dev", "custom_domain": true }
 	],
 	"assets": {
 		"binding": "ASSETS",
@@ -28,7 +29,7 @@
 			// Self-reference service binding, the service name must match the worker name
 			// see https://opennext.js.org/cloudflare/caching
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "ballbot-portfolio3"
+			"service": "ballbot-kr"
 		}
 	],
 	"observability": {
@@ -36,21 +37,9 @@
 	},
 	"upload_source_maps": true
 	/**
-	 * Smart Placement
-	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+	 * Resume delivery is off until the mailbox is wired. To turn it on, add:
+	 *   "send_email": [{ "name": "SEND_EMAIL" }]
+	 * and set RESUME_FROM to an address on a zone verified for sending. Until
+	 * then /api/resume answers 503 and the form hands out the direct address.
 	 */
-	// "placement": {  "mode": "smart" }
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
 }

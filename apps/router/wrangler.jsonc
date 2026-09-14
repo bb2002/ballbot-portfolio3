@@ -1,0 +1,17 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ballbot-router",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-09-03",
+	// The apex is the only host that decides for a reader, so it answers on its
+	// own Worker rather than inside either market build: nothing here has to boot
+	// a framework to write one redirect.
+	"routes": [
+		{ "pattern": "ballbot.dev", "custom_domain": true },
+		{ "pattern": "www.ballbot.dev", "custom_domain": true }
+	],
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true
+}
