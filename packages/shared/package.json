@@ -6,6 +6,7 @@
 	"exports": {
 		".": "./src/index.ts",
 		"./lib/resume-request": "./src/lib/resume-request.ts",
+		"./markets": "./src/markets.ts",
 		"./styles/theme.css": "./styles/theme.css",
 		"./package.json": "./package.json"
 	},

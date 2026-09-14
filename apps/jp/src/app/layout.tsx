@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import { LANGUAGE_ALTERNATES, MARKETS } from "@ballbot/shared/markets";
+
 import "./globals.css";
 
 /**
@@ -29,22 +31,18 @@ const ibmPlexMono = IBM_Plex_Mono({
  * the apex, which is the only URL that decides for the reader.
  */
 export const metadata: Metadata = {
-	metadataBase: new URL("https://jp.ballbot.dev"),
+	metadataBase: new URL(MARKETS.ja),
 	title: "ballbot.dev | Software Engineer",
 	description:
 		"バックエンドエンジニア ballbot のポートフォリオ。19億件規模の無停止マイグレーション、プロジェクト、資格、日本語能力試験 N1 までをまとめています。",
 	alternates: {
 		canonical: "/",
-		languages: {
-			ko: "https://kr.ballbot.dev",
-			ja: "https://jp.ballbot.dev",
-			"x-default": "https://ballbot.dev",
-		},
+		languages: LANGUAGE_ALTERNATES,
 	},
 	openGraph: {
 		title: "ballbot.dev | Software Engineer",
 		description: "バックエンドエンジニア ballbot のポートフォリオ。",
-		url: "https://jp.ballbot.dev",
+		url: MARKETS.ja,
 		locale: "ja_JP",
 		type: "website",
 	},
