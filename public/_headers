@@ -2,3 +2,8 @@
 # https://opennext.js.org/cloudflare/caching#static-assets-caching
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
+
+# Pretendard's dynamic subset is content-addressed by slice index and only ever
+# replaced wholesale by a version bump, so the slices can be cached forever.
+/fonts/*
+  Cache-Control: public,max-age=31536000,immutable

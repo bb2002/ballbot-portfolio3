@@ -53,3 +53,7 @@ next-env.d.ts
 
 # gstack local daemon state (contains tokens)
 /.gstack
+.gstack/
+
+# gstack review artifacts (screenshots + findings)
+/.review/

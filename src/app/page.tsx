@@ -1,52 +1,45 @@
-import Image from "next/image";
+import { Hero } from "@/components/hero";
+import { NavBar } from "@/components/nav-bar";
+import { ScrollCue } from "@/components/scroll-cue";
+import { SectionPager } from "@/components/section-pager";
+import { Certificates } from "@/components/sections/certificates";
+import { Experience } from "@/components/sections/experience";
+import { Journey } from "@/components/sections/journey";
+import { Projects } from "@/components/sections/projects";
+import { Resume } from "@/components/sections/resume";
 
+/**
+ * The .pen file draws six frames. The nav bar repeats identically at the foot
+ * of the hero and the head of the other five, so it is rendered once here and
+ * pinned with `position: sticky` — it starts at the hero's lower edge and rides
+ * to the top of the viewport as the sections scroll past.
+ *
+ * NavBar must stay a direct child of this flow (not nested inside the hero) or
+ * its sticky containing block would end with the hero. It also stays outside
+ * <main>, so the page's only navigation landmark is not buried inside it.
+ *
+ * `data-section` marks the six screens: the pager jumps from the first to the
+ * second and animates nav links to any of them, reading the order off the DOM.
+ * The hero's marker sits on <header> even though the nav and cue below it close
+ * that screen — they are sticky and full-bleed, and wrapping them would end the
+ * nav's sticky containing block at the hero's foot.
+ */
 export default function Home() {
 	return (
-		<div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-				<Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={180} height={38} priority />
-				<ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-					<li className="mb-2 tracking-[-.01em]">
-						Get started by editing{" "}
-						<code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-							src/app/page.tsx
-						</code>
-						.
-					</li>
-					<li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-				</ol>
-
-				<div className="flex gap-4 items-center flex-col sm:flex-row">
-					<a
-						className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-						href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Read our docs
-					</a>
-				</div>
+		<>
+			<header data-section>
+				<Hero />
+			</header>
+			<NavBar />
+			<ScrollCue />
+			<main>
+				<Projects />
+				<Experience />
+				<Certificates />
+				<Journey />
+				<Resume />
 			</main>
-			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-					Learn
-				</a>
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-					Go to nextjs.org →
-				</a>
-			</footer>
-		</div>
+			<SectionPager />
+		</>
 	);
 }
