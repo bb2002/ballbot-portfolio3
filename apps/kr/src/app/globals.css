@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "@ballbot/shared/styles/theme.css";
+
+/* Tailwind scans this app from its own root; the shared components live outside
+   it, so their class names have to be pointed at explicitly or every utility
+   they use is purged out of the build. */
+@source "../../../../packages/shared/src";

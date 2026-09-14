@@ -1,0 +1,28 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"ui": "stream",
+	"tasks": {
+		"sync-public": {
+			"outputs": ["public/fonts/**", "public/mock/**", "public/_headers"]
+		},
+		"build": {
+			"dependsOn": ["sync-public", "^build"],
+			"outputs": [".next/**", "!.next/cache/**", ".open-next/**"]
+		},
+		"dev": {
+			"dependsOn": ["sync-public"],
+			"cache": false,
+			"persistent": true
+		},
+		"lint": {
+			"dependsOn": ["sync-public"]
+		},
+		"typecheck": {
+			"dependsOn": ["sync-public"]
+		},
+		"deploy": {
+			"dependsOn": ["sync-public"],
+			"cache": false
+		}
+	}
+}
