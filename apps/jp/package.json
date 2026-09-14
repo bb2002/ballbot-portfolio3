@@ -1,10 +1,10 @@
 {
-	"name": "@ballbot/kr",
+	"name": "@ballbot/jp",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"sync-public": "node ../../packages/shared/scripts/sync-public.mjs ../../node_modules/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css:fonts/pretendard/pretendardvariable-dynamic-subset.css ../../node_modules/pretendard/dist/web/variable/woff2-dynamic-subset:fonts/pretendard/woff2-dynamic-subset",
-		"dev": "next dev --port 3000",
+		"sync-public": "node ../../packages/shared/scripts/sync-public.mjs ../../node_modules/pretendard-jp/dist/web/variable/pretendardvariable-jp-dynamic-subset.css:fonts/pretendard-jp/pretendardvariable-jp-dynamic-subset.css ../../node_modules/pretendard-jp/dist/web/variable/woff2-dynamic-subset:fonts/pretendard-jp/woff2-dynamic-subset",
+		"dev": "next dev --port 3001",
 		"build": "next build",
 		"start": "next start",
 		"lint": "eslint",
@@ -19,7 +19,7 @@
 		"@opennextjs/cloudflare": "^1.20.3",
 		"lucide-react": "^1.45.0",
 		"next": "16.3.4",
-		"pretendard": "^1.3.9",
+		"pretendard-jp": "^1.3.9",
 		"react": "^19.1.7",
 		"react-dom": "^19.1.7"
 	},

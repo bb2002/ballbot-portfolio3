@@ -94,17 +94,23 @@ export function Hero({ content, overview }: { content: HeroContent; overview: Ov
 				    `lang` and the browser picks the right face for it. */}
 				<p
 					lang={content.otherMarket.lang}
-					className="anim-in text-text-secondary flex min-h-10 flex-wrap items-end text-[14px]"
+					className="anim-in text-text-secondary flex min-h-10 items-end text-[14px]"
 					style={{ animationDelay: "360ms" }}
 				>
-					<span>{content.otherMarket.lead}</span>
-					<a
-						href={content.otherMarket.href}
-						className="border-text-secondary hover:border-text-strong hover:text-text-strong border-b font-semibold transition-colors duration-300"
-					>
-						{content.otherMarket.emphasis}
-					</a>
-					<span>{content.otherMarket.tail}</span>
+					{/* One flex item, not three: a flex container drops the whitespace
+					    between its children, which silently eats the space a language
+					    that writes them needs on either side of the link. Inside a
+					    single inline run the copy spaces itself and wraps normally. */}
+					<span>
+						{content.otherMarket.lead}
+						<a
+							href={content.otherMarket.href}
+							className="border-text-secondary hover:border-text-strong hover:text-text-strong border-b font-semibold transition-colors duration-300"
+						>
+							{content.otherMarket.emphasis}
+						</a>
+						{content.otherMarket.tail}
+					</span>
 				</p>
 			</div>
 

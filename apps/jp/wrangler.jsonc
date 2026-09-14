@@ -1,0 +1,45 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+	"name": "ballbot-jp",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2026-09-03",
+	"compatibility_flags": [
+		"global_fetch_strictly_public"
+	],
+	// The Japanese market build. The apex (ballbot-router) decides who lands here;
+	// this host only ever serves the Japanese site, so nothing in it is locale-aware.
+	"routes": [
+		{ "pattern": "jp.ballbot.dev", "custom_domain": true }
+	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".open-next/assets"
+	},
+	"images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	},
+	"services": [
+		{
+			// Self-reference service binding, the service name must match the worker name
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "ballbot-jp"
+		}
+	],
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true
+	/**
+	 * Resume delivery is off until the mailbox is wired. To turn it on, add:
+	 *   "send_email": [{ "name": "SEND_EMAIL" }]
+	 * and set RESUME_FROM to an address on a zone verified for sending. Until
+	 * then /api/resume answers 503 and the form hands out the direct address.
+	 */
+}

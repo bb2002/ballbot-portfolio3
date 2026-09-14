@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "@ballbot/shared/styles/theme.css";
+
+/* Tailwind scans this app from its own root; the shared components live outside
+   it, so their class names have to be pointed at explicitly or every utility
+   they use is purged out of the build. */
+@source "../../../../packages/shared/src";
+
+/* Pretendard's base build covers Hangul and Latin but carries no kana and no
+   Japanese kanji — on this market every line of body copy would fall through to
+   a system face. The JP cut of the same family has the same metrics and the
+   same variable axis, so swapping it in changes the coverage and nothing the
+   design depends on. Hangul is not in the fallback chain on purpose: nothing on
+   this build is written in Korean. */
+@theme {
+	--font-sans: "Pretendard JP Variable", "Pretendard JP", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;
+	--font-mono: var(--font-ibm-plex-mono), "Pretendard JP Variable", "Hiragino Sans", ui-monospace, SFMono-Regular,
+		Menlo, monospace;
+}
