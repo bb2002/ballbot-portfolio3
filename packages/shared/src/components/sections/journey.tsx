@@ -1,4 +1,5 @@
 import type { JourneyContent } from "../../content-types";
+import { Emphasised } from "../ui/emphasised";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
 import { page } from "../ui/layout";
@@ -56,6 +57,7 @@ export function Journey({ content }: { content: JourneyContent }) {
 									className="jy-event"
 									data-featured={event.featured ? "" : undefined}
 									data-stack={event.stack ? "" : undefined}
+									data-detail={event.detail ? "" : undefined}
 									data-last={eventIndex === chapter.events.length - 1 ? "" : undefined}
 								>
 									<span aria-hidden="true" className="jy-rail">
@@ -76,12 +78,21 @@ export function Journey({ content }: { content: JourneyContent }) {
 														: "text-text-strong text-[16px] leading-[1.4] font-semibold"
 												}
 											>
-												{event.title}
+												<Emphasised text={event.title} />
 											</h4>
 
+											{/* A featured row's prose is the chapter's one paragraph and
+											    holds the body step. An ordinary row's steps down to 14px:
+											    its title is only 16px, and at 15px the description — always
+											    the longer of the two — read louder than the thing it
+											    describes, which is what flattened the chapter. */}
 											{event.detail ? (
-												<p className="text-text-secondary max-w-[600px] text-[15px] leading-[1.6]">
-													{event.detail}
+												<p
+													className={`text-text-secondary max-w-[600px] leading-[1.6] ${
+														event.featured ? "text-[15px]" : "text-[14px]"
+													}`}
+												>
+													<Emphasised text={event.detail} />
 												</p>
 											) : null}
 										</div>

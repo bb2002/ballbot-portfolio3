@@ -176,6 +176,8 @@ export const projects: ProjectsContent = {
 		{ year: "2020", platform: "VR", title: "Unrevived", summary: "사방에서 오는 적을 처치하는 VR 기반 서바이벌 게임입니다." },
 		{ year: "2020", platform: "Unreal Engine", title: "RunCatGame", summary: "고등학교 친구와 협업하여 만든 달리기 게임입니다. 구글 스토어에 출시까지 경험했습니다." },
 		{ year: "2020", platform: "Unreal Engine", title: "WebMediaPlayer", summary: "언리얼 엔진에서 영상 재생을 돕는 플러그인입니다. GitHub에 공개해 스타 12개를 받았습니다." },
+		{ year: "2019", platform: "VR", title: "VRTetris", summary: "VR에서 동작하는 간단한 테트리스 게임입니다." },
+		{ year: "2019", platform: "VR", title: "Tooth", summary: "위아래에 울퉁불퉁한 블록이 있어, 천장이 떨어지기 전에 틈으로 캐릭터를 옮겨 살아남는 아케이드 게임입니다." },
 		{ year: "2018", platform: "Android", title: "스크린 번역기", summary: "중학생 때 처음 만들어 수익화까지 성공한 앱입니다. 휴대폰을 흔들면 화면을 캡처해 오버레이로 번역문을 띄웁니다." },
 	],
 };
@@ -235,6 +237,7 @@ export const certificates: CertificatesContent = {
 			event: "제3회 전국대학 소프트웨어 성과 공유포럼",
 			title: "최우수상 1등",
 			awardName: "동아대학교 총장상",
+			description: "**코스모의 노트**로 전국 13개의 팀이 모인 대회에서 수상했습니다.",
 			image: { src: "/mock/award-donga.svg", alt: "동아대학교 총장상 상장" },
 		},
 		{
@@ -242,6 +245,7 @@ export const certificates: CertificatesContent = {
 			event: "멋쟁이사자처럼 대학 12기 중앙 해커톤",
 			title: "최우수상 2등",
 			awardName: "영림원소프트랩 특별상",
+			description: "**HEALIX**로 전국 55개 학교 1,500여 명이 모인 대회에서 수상했습니다.",
 			image: { src: "/mock/award-likelion.svg", alt: "영림원소프트랩 특별상 상장" },
 		},
 	],
@@ -250,16 +254,16 @@ export const certificates: CertificatesContent = {
 		items: [
 			{
 				period: "2024",
-				title: "국가이공계 장학생 선정",
-				awardName: "과학기술정보통신부장관 장학증서",
-				description: "강원대학교 컴퓨터공학과 재학 중 학부 성적을 기준으로 선발되는 국가이공계 장학생에 선정되었습니다.",
-				image: { src: "/mock/scholarship.svg", alt: "국가이공계 장학증서" },
+				title: "국가우수장학(이공계)",
+				awardName: "과학기술정보통신부장관 증서",
+				description: "전국에서 약 1,000여 명만 선발되는 국가우수장학금(이공계)를 수여받았습니다.",
+				image: { src: "/mock/scholarship.svg", alt: "국가우수장학(이공계) 증서" },
 			},
 			{
 				period: "2025",
-				title: "당근 빌더스캠프 선발",
-				awardName: "당근마켓",
-				description: "스무 명을 뽑는 당근마켓의 빌더스캠프에 선발되었습니다.",
+				title: "Daangn Builder’s Camp",
+				awardName: "당근마켓 수료증",
+				description: "당근마켓에서 선발한 20여 명의 소수정예 해커톤에 선발되었습니다.",
 				// Scan pending: an omitted `src` renders the design's placeholder tile.
 				image: { alt: "당근 빌더스캠프 수료증" },
 			},
@@ -278,25 +282,40 @@ export const certificates: CertificatesContent = {
 
 /**
  * The trunk carries the chapters — where I was — and each chapter branches
- * into what actually happened there. Enrolments and graduations are the
- * chapter heads themselves, so they are deliberately not repeated as events.
+ * into what actually happened there. A chapter head is the place itself, so an
+ * enrolment is never repeated as an event under it; a graduation is, but only
+ * where it is the turn that the next chapter came out of.
  */
 export const journey: JourneyContent = {
 	label: "Journey",
 	chapters: [
 		{
-			period: "2014 – 2018",
+			period: "2013 – 2018",
 			title: "초·중학교",
 			events: [
 				{
 					year: "2014",
-					title: "Linux 마인크래프트 서버 구축",
+					title: "리눅스 환경에서 마인크래프트 24시간 서버 구축",
 					featured: true,
-					stack: "Linux",
-					detail: "가상 서버를 빌려 24시간 도는 서버를 올리고 리눅스와 네트워크를 익혔습니다.",
+					detail: "VPS 서버를 빌려 서버를 구축하고, 120명의 최고 동시접속자를 달성했습니다.",
 				},
-				{ year: "2015", title: "PHP 텍스처팩 공유 사이트" },
-				{ year: "2017", title: "안드로이드 스크린 번역기" },
+				{
+					year: "2015",
+					title: "초등학교 졸업",
+					detail: "컴퓨터 프로그래머를 장래희망으로 하여 지금까지 이어지고 있습니다.",
+				},
+				{
+					year: "2015",
+					title: "**택스팩 커뮤니티** 개발",
+					featured: true,
+					detail: "PHP로 동작하는 소모임 서비스를 개발하여 가입자 100여 명을 달성했습니다.",
+				},
+				{
+					year: "2017",
+					title: "**스크린번역기** 개발",
+					featured: true,
+					detail: "휴대폰을 흔들면 화면 위에 번역 오버레이를 띄워주는 앱을 개발해 1천 다운로드와 수익화를 경험했습니다.",
+				},
 			],
 		},
 		{
@@ -304,15 +323,34 @@ export const journey: JourneyContent = {
 			title: "선린인터넷고등학교",
 			subtitle: "소프트웨어과",
 			events: [
-				{ year: "2018", title: "교내 해커톤 2등" },
+				{
+					year: "2018",
+					title: "IWOP 동아리 활동",
+					detail: "3년간 웹 개발 동아리에서 멘토링 등 활동을 했습니다.",
+				},
+				{
+					year: "2018",
+					title: "모바일콘텐츠경진대회 수상",
+					featured: true,
+					detail: "**스크린번역기**로 교내 대회에서 2등을 수상했습니다.",
+				},
 				{
 					year: "2019",
-					title: "언리얼 엔진 게임 개발",
+					title: "VR 게임 개발",
 					featured: true,
-					stack: "Unreal · C++",
-					detail: "MyRunnerGame, 런 켓. 처음으로 팀을 이뤄 게임을 끝까지 완성했습니다.",
+					detail: "언리얼 엔진을 활용해 **VRTetris**, **Tooth**, **Unrevived** VR 게임을 개발했습니다.",
 				},
-				{ year: "2020", title: "VR 게임 Tooth, Unrevived" },
+				{
+					year: "2019",
+					title: "선린해커톤 수상",
+					detail: "서울 시내 빈 주차 자리 찾기 프로젝트로 교내 대회에서 3등을 수상했습니다.",
+				},
+				{
+					year: "2020",
+					title: "모바일 게임 개발",
+					featured: true,
+					detail: "언리얼 엔진을 활용해 **RunCatGame**, **MyRunnerGame** 모바일 게임을 개발했습니다.",
+				},
 			],
 		},
 		{

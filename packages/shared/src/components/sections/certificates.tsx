@@ -1,4 +1,5 @@
 import type { AwardCard, CertificatesContent, CompactCard } from "../../content-types";
+import { Emphasised } from "../ui/emphasised";
 import { ThumbFrame } from "../ui/image-placeholder";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
@@ -72,11 +73,22 @@ function FeaturedAward({ award }: { award: AwardCard }) {
 				    two flank the title at the same size so neither outranks it. */}
 				<div className="flex min-w-0 flex-col gap-1.5">
 					{award.event ? <p className="text-text-secondary text-[14px]">{award.event}</p> : null}
-					<h3 className="text-text-strong sm:text-title text-[26px] leading-tight font-bold">{award.title}</h3>
+					{/* Off the shared `text-title` step (32–42px) and onto a quieter clamp:
+					    at 42px the prize shouted down every other line on the screen,
+					    and this block sits under Certifications, whose own titles have
+					    come up a step. The ratio between the two is now ~1.3 instead of
+					    ~1.9, so the award still leads its card without flattening the
+					    certification titles below it. Projects keeps `text-title` — its
+					    featured cards are the loudest thing on their own screen. */}
+					<h3 className="text-text-strong text-[24px] leading-tight font-bold sm:text-[clamp(28px,2.1vw,38px)]">
+						{award.title}
+					</h3>
 					<p className="text-text-secondary text-[14px]">{award.awardName}</p>
 				</div>
 				{award.description ? (
-					<p className="text-text-secondary text-body leading-relaxed font-medium">{award.description}</p>
+					<p className="text-text-secondary text-body leading-relaxed font-medium">
+						<Emphasised text={award.description} />
+					</p>
 				) : null}
 			</div>
 		</article>
@@ -108,7 +120,10 @@ function CompactAward({ item }: { item: CompactCard }) {
 				    outer gap the score read as a separate field from the name it
 				    belongs to. A card with no detail keeps the old spacing exactly. */}
 				<div className="flex min-w-0 flex-col gap-1">
-					<h3 className="text-text-strong sm:text-card text-[17px] leading-snug font-bold whitespace-pre-line">
+					{/* One ramp step up — `text-card` (18–21px) read as a caption beside a
+					    144px scan, on the screen the section is *named* after. `text-subtitle`
+					    is the step that holds its own against the award titles under it. */}
+					<h3 className="text-text-strong sm:text-subtitle text-[19px] leading-snug font-bold whitespace-pre-line">
 						{item.title}
 					</h3>
 					{item.detail ? <p className="text-text-primary text-[13px] font-medium">{item.detail}</p> : null}
@@ -131,6 +146,14 @@ const CELL_RULES_3 = [
 	"border-t-[0.5px] xl:border-t-0 xl:border-l-[0.5px]",
 ];
 
+/**
+ * The rule tables above describe one row and are indexed by position in it, so
+ * they hold for up to as many items as there are tracks — three in the group of
+ * three, four otherwise, which is every group either market ships. A fifth
+ * compact card would wrap onto a second row and take the first cell's blank
+ * entry with it, leaving that row open at the top; adding one means writing the
+ * row-two case rather than lengthening the list.
+ */
 function CompactGrid({ items }: { items: readonly CompactCard[] }) {
 	const three = items.length === 3;
 	const grid = three ? GRID_3 : GRID;

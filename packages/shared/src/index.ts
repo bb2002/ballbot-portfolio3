@@ -22,6 +22,7 @@ export { Journey } from "./components/sections/journey";
 export { Projects } from "./components/sections/projects";
 export { Resume } from "./components/sections/resume";
 
+export { Emphasised } from "./components/ui/emphasised";
 export { ImagePlaceholder, ThumbFrame } from "./components/ui/image-placeholder";
 export { page } from "./components/ui/layout";
 export { Reveal } from "./components/ui/reveal";

@@ -178,6 +178,8 @@ export const projects: ProjectsContent = {
 		{ year: "2020", platform: "VR", title: "Unrevived", summary: "四方から迫る敵を倒す VR のサバイバルゲームです。" },
 		{ year: "2020", platform: "Unreal Engine", title: "RunCatGame", summary: "高校の友人と協力して作ったランニングゲーム。Google Play での配信まで経験しました。" },
 		{ year: "2020", platform: "Unreal Engine", title: "WebMediaPlayer", summary: "Unreal Engine での動画再生を助けるプラグインです。GitHub で公開し、スターを 12 いただきました。" },
+		{ year: "2019", platform: "VR", title: "VRTetris", summary: "VR で動くシンプルなテトリスです。" },
+		{ year: "2019", platform: "VR", title: "Tooth", summary: "上下にでこぼこのブロックがあり、天井が落ちる前に隙間へキャラクターを移して生き延びるアーケードゲームです。" },
 		{ year: "2018", platform: "Android", title: "スクリーン翻訳機", summary: "中学生のときにはじめて作り、収益化まで到達したアプリです。端末を振ると画面をキャプチャし、オーバーレイで訳文を表示します。" },
 	],
 };
@@ -237,6 +239,7 @@ export const certificates: CertificatesContent = {
 			event: "第3回 全国大学ソフトウェア成果共有フォーラム",
 			title: "最優秀賞 1位",
 			awardName: "東亜大学校 総長賞",
+			description: "**コスモのノート**で、全国13チームが集まった大会で受賞しました。",
 			image: { src: "/mock/award-donga.svg", alt: "東亜大学校 総長賞の賞状" },
 		},
 		{
@@ -244,6 +247,7 @@ export const certificates: CertificatesContent = {
 			event: "LIKELION 大学12期 中央ハッカソン",
 			title: "最優秀賞 2位",
 			awardName: "ヨンリムウォンソフトラボ 特別賞",
+			description: "**HEALIX**で、全国55校・約1,500名が集まった大会で受賞しました。",
 			image: { src: "/mock/award-likelion.svg", alt: "ヨンリムウォンソフトラボ 特別賞の賞状" },
 		},
 	],
@@ -252,16 +256,16 @@ export const certificates: CertificatesContent = {
 		items: [
 			{
 				period: "2024",
-				title: "国家理工系奨学生に選出",
-				awardName: "科学技術情報通信部長官 奨学証書",
-				description: "江原大学校 コンピュータ工学科の在学中、学部成績をもとに選抜される韓国の国家理工系奨学生に選ばれました。",
-				image: { src: "/mock/scholarship.svg", alt: "国家理工系奨学証書" },
+				title: "国家優秀奨学金（理工系）",
+				awardName: "科学技術情報通信部長官 証書",
+				description: "全国で約1,000名のみが選抜される韓国の国家優秀奨学金（理工系）を授与されました。",
+				image: { src: "/mock/scholarship.svg", alt: "国家優秀奨学金（理工系）の証書" },
 			},
 			{
 				period: "2025",
-				title: "ビルダーズキャンプ 選抜",
-				awardName: "Karrot（タングンマーケット）",
-				description: "20名を選ぶ Karrot のビルダーズキャンプに選ばれました。",
+				title: "Daangn Builder’s Camp",
+				awardName: "Karrot 修了証",
+				description: "Karrot が選抜した20名ほどの少数精鋭ハッカソンに選ばれました。",
 				// Scan pending: an omitted `src` renders the design's placeholder tile.
 				image: { alt: "ビルダーズキャンプの修了証" },
 			},
@@ -280,25 +284,40 @@ export const certificates: CertificatesContent = {
 
 /**
  * The trunk carries the chapters — where I was — and each chapter branches
- * into what actually happened there. Enrolments and graduations are the
- * chapter heads themselves, so they are deliberately not repeated as events.
+ * into what actually happened there. A chapter head is the place itself, so an
+ * enrolment is never repeated as an event under it; a graduation is, but only
+ * where it is the turn that the next chapter came out of.
  */
 export const journey: JourneyContent = {
 	label: "Journey",
 	chapters: [
 		{
-			period: "2014 – 2018",
+			period: "2013 – 2018",
 			title: "小・中学校",
 			events: [
 				{
 					year: "2014",
-					title: "Linux Minecraft サーバーの構築",
+					title: "Linux 環境で Minecraft の24時間サーバーを構築",
 					featured: true,
-					stack: "Linux",
-					detail: "仮想サーバーを借りて24時間動くサーバーを立ち上げ、Linux とネットワークを覚えました。",
+					detail: "VPS を借りてサーバーを構築し、最高同時接続120人を記録しました。",
 				},
-				{ year: "2015", title: "PHP テクスチャパック共有サイト" },
-				{ year: "2017", title: "Android スクリーン翻訳機" },
+				{
+					year: "2015",
+					title: "小学校 卒業",
+					detail: "将来の夢をコンピュータープログラマーと決め、それが今まで続いています。",
+				},
+				{
+					year: "2015",
+					title: "**テクスチャパック コミュニティ**の開発",
+					featured: true,
+					detail: "PHP で動く小規模コミュニティを開発し、登録者100人あまりを集めました。",
+				},
+				{
+					year: "2017",
+					title: "**スクリーン翻訳機**の開発",
+					featured: true,
+					detail: "スマホを振ると画面の上に翻訳を重ねて表示するアプリを開発し、1,000ダウンロードと収益化を経験しました。",
+				},
 			],
 		},
 		{
@@ -306,15 +325,34 @@ export const journey: JourneyContent = {
 			title: "善隣インターネット高等学校",
 			subtitle: "ソフトウェア科",
 			events: [
-				{ year: "2018", title: "校内ハッカソン 2位" },
+				{
+					year: "2018",
+					title: "IWOP 部の活動",
+					detail: "3年間、Web 開発の部活でメンタリングなどの活動をしました。",
+				},
+				{
+					year: "2018",
+					title: "モバイルコンテンツコンテスト 受賞",
+					featured: true,
+					detail: "**スクリーン翻訳機**で校内コンテストの2位を受賞しました。",
+				},
 				{
 					year: "2019",
-					title: "Unreal Engine でのゲーム開発",
+					title: "VR ゲームの開発",
 					featured: true,
-					stack: "Unreal · C++",
-					detail: "MyRunnerGame、ラン・ケット。はじめてチームを組んでゲームを最後まで完成させました。",
+					detail: "Unreal Engine を使って **VRTetris**、**Tooth**、**Unrevived** の VR ゲームを開発しました。",
 				},
-				{ year: "2020", title: "VRゲーム Tooth, Unrevived" },
+				{
+					year: "2019",
+					title: "善隣ハッカソン 受賞",
+					detail: "ソウル市内の空き駐車スペースを探すプロジェクトで校内ハッカソンの3位を受賞しました。",
+				},
+				{
+					year: "2020",
+					title: "モバイルゲームの開発",
+					featured: true,
+					detail: "Unreal Engine を使って **RunCatGame**、**MyRunnerGame** のモバイルゲームを開発しました。",
+				},
 			],
 		},
 		{

@@ -479,6 +479,14 @@ html[data-paging] {
 	padding-bottom: 24px;
 }
 
+/* An ordinary row that carries prose needs more than the 14px a one-liner
+   does, or its description sits as close to the next row's year as to the
+   title it belongs to. Still under the featured step, so the anchor keeps the
+   most air around it. */
+.jy-event[data-detail]:not([data-featured]) .jy-body {
+	padding-bottom: 20px;
+}
+
 .jy-text {
 	position: relative;
 	display: flex;

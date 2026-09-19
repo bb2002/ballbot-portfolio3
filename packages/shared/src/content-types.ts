@@ -102,7 +102,6 @@ export type FeaturedProject = {
 	links?: readonly ProjectLink[];
 	thumbnail: Media;
 	appIcon: Media;
-	href?: string;
 };
 
 export type ArchiveProject = {
@@ -110,7 +109,6 @@ export type ArchiveProject = {
 	title: string;
 	description: string;
 	thumbnail: Media;
-	href?: string;
 };
 
 export type ProjectListItem = {
@@ -119,6 +117,7 @@ export type ProjectListItem = {
 	platform: string;
 	title: string;
 	summary: string;
+	/** Where the row goes. Without it the row renders as plain text, not a link. */
 	href?: string;
 };
 
@@ -163,6 +162,10 @@ export type AwardCard = {
 	event?: string;
 	title: string;
 	awardName: string;
+	/**
+	 * The card's one line of prose — what the contest actually was, or what the
+	 * prize was won with. `**…**` lifts a project's name out of the sentence.
+	 */
 	description?: string;
 	image: Media;
 };
@@ -203,6 +206,7 @@ export type CertificatesContent = {
 
 export type JourneyEvent = {
 	year: string;
+	/** `**…**` lifts a project's name out of the title, where the title is the thing. */
 	title: string;
 	/**
 	 * A chapter's turning point: set at the featured step, with the stack it
@@ -212,6 +216,7 @@ export type JourneyEvent = {
 	featured?: boolean;
 	/** Mono caption above a featured title — what the thing was made with. */
 	stack?: string;
+	/** `**…**` lifts a project's name out of the line, as an award's does. */
 	detail?: string;
 };
 
