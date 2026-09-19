@@ -15,7 +15,7 @@ export type Media = {
 };
 
 /** Section anchors. Market-independent — only the labels are translated. */
-export type NavItemId = "projects" | "experience" | "certificates" | "journey" | "resume";
+export type NavItemId = "projects" | "experience" | "certificates" | "journey";
 
 export type NavItem = { id: NavItemId; label: string };
 
@@ -111,22 +111,10 @@ export type ArchiveProject = {
 	thumbnail: Media;
 };
 
-export type ProjectListItem = {
-	year: string;
-	/** What it was built on or with — "VR", "Unreal Engine", "Android". */
-	platform: string;
-	title: string;
-	summary: string;
-	/** Where the row goes. Without it the row renders as plain text, not a link. */
-	href?: string;
-};
-
 export type ProjectsContent = {
 	label: string;
-	archiveLabel: string;
 	featured: readonly FeaturedProject[];
 	archive: readonly ArchiveProject[];
-	list: readonly ProjectListItem[];
 };
 
 /* ------------------------------------------------------------------ *
@@ -142,62 +130,56 @@ export type ExperienceContent = {
 		role: string;
 		teams: string;
 		logos: readonly Media[];
-		notes: readonly string[];
+		/** Omitted when the column has nothing to say under the logos — the block disappears, not just its text. */
+		notes?: readonly string[];
 	};
-	highlights: readonly {
-		year: string;
-		/** Line breaks are honoured. */
-		title: string;
-		paragraphs: readonly string[];
-	}[];
+	/** One row each on the section's list; each opens its own page. */
+	highlights: readonly ExperienceHighlight[];
+};
+
+export type ExperienceHighlight = {
+	/** URL segment: the story lives at `/experience/<slug>`. */
+	slug: string;
+	/** Omitted while the story is undated. */
+	year?: string;
+	/** The whole list row, so it is one line — no authored breaks. */
+	title: string;
+	/** One quieter line under the title on the list row: the story in a sentence. */
+	subtitle?: string;
+	/** The story page body, one entry per paragraph. */
+	paragraphs: readonly string[];
 };
 
 /* ------------------------------------------------------------------ *
  * Certificates
  * ------------------------------------------------------------------ */
 
-export type AwardCard = {
+export type CertificateCard = {
 	period: string;
-	/** Where it was won. Sits above the title, so the prize stays the headline. */
+	/** Where it was won — the contest or programme. Sits above the title so the prize stays the headline. */
 	event?: string;
+	/** The prize, the certificate, the selection. Line breaks are honoured. */
 	title: string;
-	awardName: string;
 	/**
-	 * The card's one line of prose — what the contest actually was, or what the
-	 * prize was won with. `**…**` lifts a project's name out of the sentence.
+	 * The line under the title: a prize's name, a level, a score. Sits at the
+	 * issuer's type size, so the title stays the loudest thing on the card.
 	 */
+	detail?: string;
+	/** Who issued or hosted it — the card's last line. */
+	host?: string;
+	/** One line of prose; `**…**` lifts a project's name out of the sentence. */
 	description?: string;
 	image: Media;
 };
 
-export type CompactCard = {
-	period: string;
-	/** Line breaks are honoured. */
-	title: string;
-	/**
-	 * A result the title cannot carry on its own — a score, a level. Sits
-	 * under the title at the issuer's type size, so the name stays the loudest
-	 * thing on the card. Omit it where the title says everything.
-	 */
-	detail?: string;
-	host: string;
-	image: Media;
-};
-
 export type CertificatesContent = {
-	awardsLabel: string;
-	certificationsLabel: string;
-	featured: readonly AwardCard[];
-	/** The smaller awards under the featured pair. Omit to drop the block. */
-	sub?: readonly CompactCard[];
-	certifications: readonly CompactCard[];
+	label: string;
 	/**
-	 * Things someone else picked them for rather than things they won — a
-	 * scholarship, a place in a programme. Kept apart from Awards because the
-	 * claim is different: not "I came first" but "they chose me".
-	 * Omit the block entirely in a market where it carries no weight.
+	 * Certifications, awards and selections together, three to a row and in
+	 * the order they should be read. The grid draws six as two full rows;
+	 * any other count leaves the last row short.
 	 */
-	selections?: { label: string; items: readonly AwardCard[] };
+	items: readonly CertificateCard[];
 };
 
 /* ------------------------------------------------------------------ *
@@ -233,32 +215,4 @@ export type JourneyContent = {
 	chapters: readonly JourneyChapter[];
 	/** The open end of the trunk — the row the timeline stops on. */
 	now: { label: string; detail: string };
-};
-
-/* ------------------------------------------------------------------ *
- * Resume
- * ------------------------------------------------------------------ */
-
-export type ResumeContent = {
-	eyebrow: string;
-	/** Line breaks are honoured. */
-	headline: string;
-	lead: string;
-	direct: { label: string; address: string };
-	fields: {
-		name: { label: string; placeholder: string };
-		email: { label: string; placeholder: string };
-	};
-	submit: string;
-	submitting: string;
-	privacy: string;
-	errors: {
-		"name-required": string;
-		"name-too-long": string;
-		"email-required": string;
-		"email-format": string;
-		/** Delivery failed. Hands the reader the address instead of a dead end. */
-		send: string;
-	};
-	sent: { title: string; detail: string; again: string };
 };

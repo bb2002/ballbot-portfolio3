@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Building2, FileText, FolderDot, Route, type LucideIcon } from "lucide-react";
+import { Award, Building2, FolderDot, Route, type LucideIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import type { NavContent, NavItemId } from "../content-types";
@@ -10,7 +10,6 @@ const ICONS: Record<NavItemId, LucideIcon> = {
 	experience: Building2,
 	certificates: Award,
 	journey: Route,
-	resume: FileText,
 };
 
 /**

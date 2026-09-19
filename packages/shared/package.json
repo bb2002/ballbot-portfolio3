@@ -5,7 +5,6 @@
 	"type": "module",
 	"exports": {
 		".": "./src/index.ts",
-		"./lib/resume-request": "./src/lib/resume-request.ts",
 		"./markets": "./src/markets.ts",
 		"./styles/theme.css": "./styles/theme.css",
 		"./package.json": "./package.json"
@@ -13,7 +12,6 @@
 	"scripts": {
 		"build": "node -e \"console.log('@ballbot/shared is consumed as source; nothing to build.')\"",
 		"lint": "eslint",
-		"test": "node --test \"src/**/*.test.ts\"",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {

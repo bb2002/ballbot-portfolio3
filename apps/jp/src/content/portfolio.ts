@@ -21,7 +21,6 @@ import type {
 	NavContent,
 	OverviewContent,
 	ProjectsContent,
-	ResumeContent,
 	ScrollCueContent,
 } from "@ballbot/shared";
 
@@ -35,7 +34,6 @@ export const nav: NavContent = {
 		{ id: "experience", label: "Experience" },
 		{ id: "certificates", label: "Certificates" },
 		{ id: "journey", label: "Journey" },
-		{ id: "resume", label: "Resume" },
 	],
 };
 
@@ -57,7 +55,6 @@ export const hero: HeroContent = {
 		primary: { label: "プロジェクトを見る", href: "#projects" },
 		secondary: [
 			{ label: "GitHub ↗", href: "https://github.com/" },
-			{ label: "Resume ↗", href: "#resume" },
 		],
 	},
 	otherMarket: {
@@ -105,7 +102,6 @@ export const overview: OverviewContent = {
 
 export const projects: ProjectsContent = {
 	label: "Projects",
-	archiveLabel: "Archive",
 	featured: [
 		{
 			period: "2025 ~ 現在",
@@ -146,14 +142,6 @@ export const projects: ProjectsContent = {
 	],
 	archive: [
 		{
-			period: "2025",
-			title: "newtrospect",
-			description:
-				"ニュース本文から難しい用語・数値・煽情的な表現をハイライトする拡張機能です。ユーザーが訪れるすべてのページを検査するため、最適化を重点的に検討しました。",
-			// No art yet: an omitted `src` renders the design's placeholder tile.
-			thumbnail: { alt: "newtrospect の画面。ニュース記事の本文にハイライトが重なっている様子" },
-		},
-		{
 			period: "2024",
 			title: "HEALIX",
 			description:
@@ -168,19 +156,14 @@ export const projects: ProjectsContent = {
 			// No art yet: an omitted `src` renders the design's placeholder tile.
 			thumbnail: { alt: "WATERFLAKE の画面。トンネルが張られた Minecraft サーバーのドメイン" },
 		},
-	],
-	list: [
-		{ year: "2023", platform: "NestJS", title: "toshort.video", summary: "ショート動画を作る動画編集サービスです。editly と Cloudflare を使いました。" },
-		{ year: "2022", platform: "Node.js", title: "オートミリ", summary: "個人用に作った、毎朝10時に通勤バスの座席を代わりに予約してくれるマクロです。" },
-		{ year: "2021", platform: "React", title: "KNU コーディングプラットフォーム", summary: "江原大学校 SW 中心大学の学内コーディング教育プラットフォーム構築プログラムに、チームリーダーとして参加しました。" },
-		{ year: "2021", platform: "React", title: "スタートアップのサイト・管理コンソール", summary: "会社紹介ページと社内運用コンソールを受託で構築しました。" },
-		{ year: "2020", platform: "Unreal Engine", title: "MyRunnerGame", summary: "マッチメイキングと専用サーバーでマルチプレイができるランニングゲームです。" },
-		{ year: "2020", platform: "VR", title: "Unrevived", summary: "四方から迫る敵を倒す VR のサバイバルゲームです。" },
-		{ year: "2020", platform: "Unreal Engine", title: "RunCatGame", summary: "高校の友人と協力して作ったランニングゲーム。Google Play での配信まで経験しました。" },
-		{ year: "2020", platform: "Unreal Engine", title: "WebMediaPlayer", summary: "Unreal Engine での動画再生を助けるプラグインです。GitHub で公開し、スターを 12 いただきました。" },
-		{ year: "2019", platform: "VR", title: "VRTetris", summary: "VR で動くシンプルなテトリスです。" },
-		{ year: "2019", platform: "VR", title: "Tooth", summary: "上下にでこぼこのブロックがあり、天井が落ちる前に隙間へキャラクターを移して生き延びるアーケードゲームです。" },
-		{ year: "2018", platform: "Android", title: "スクリーン翻訳機", summary: "中学生のときにはじめて作り、収益化まで到達したアプリです。端末を振ると画面をキャプチャし、オーバーレイで訳文を表示します。" },
+		{
+			period: "2018",
+			title: "スクリーン翻訳機",
+			description:
+				"中学生のときにはじめて作り、収益化まで到達したアプリです。端末を振ると画面をキャプチャし、オーバーレイで訳文を表示します。",
+			// No art yet: an omitted `src` renders the design's placeholder tile.
+			thumbnail: { alt: "スクリーン翻訳機の画面。キャプチャした画面の上にオーバーレイで訳文が重なっている様子" },
+		},
 	],
 };
 
@@ -204,8 +187,9 @@ export const experience: ExperienceContent = {
 	},
 	highlights: [
 		{
+			slug: "bigint-migration",
 			year: "2022",
-			title: "約19億件の\n大規模データマイグレーション",
+			title: "約19億件の大規模データマイグレーション",
 			paragraphs: [
 				"Timespread のランダムボックスは、広告を見るとキャッシュを引ける機能です。広告を見るたびに、等級と当選金額、時刻がテーブルに一行ずつ積まれ、ユーザーが次第に増え、レコード数は19億件に達しました。主キーが INT で宣言されていたため、上限である21億件まで2か月しか残っていない状況でした。",
 				"まず、サービスの特徴を調べました。ボックスは24時間後に期限切れになり、ランキングも1か月分までしか使わないため、必要なのは直近1か月分のデータだけでした。また、MySQL でテーブル名を変える操作は容量に左右されないことも分かりました。",
@@ -214,8 +198,9 @@ export const experience: ExperienceContent = {
 			],
 		},
 		{
+			slug: "realtime-redesign",
 			year: "2023",
-			title: "毎分1,500リクエストを受ける\nサービスのマイグレーション",
+			title: "毎分1,500リクエストを受けるサービスのマイグレーション",
 			paragraphs: [
 				"ランダムボックスのマイグレーションを終えてから、リファクタリングまで1年待ちました。アプリが ID を整数として扱っていたため文字列に変えるアップデートを配信し、そのバージョンがユーザーの99%まで行き渡るのに時間がかかったからです。",
 				"リファクタリングでは性能とコストを一度に解決するため、ストレージを3つに分けました。当選確率や1日の当選上限といった管理者設定は MySQL に置き、ボックスの記録は DynamoDB に保存しました。ランキングは Redis の Sorted Set に保存しました。とくに DynamoDB はパーティションキーで読み書きするときの速度とコストがどちらも良く、Sorted Set はランキングの実装に最適化された構造でした。",
@@ -231,14 +216,15 @@ export const experience: ExperienceContent = {
  * ------------------------------------------------------------------ */
 
 export const certificates: CertificatesContent = {
-	awardsLabel: "Awards",
-	certificationsLabel: "Certifications",
-	featured: [
+	label: "Certificates",
+	items: [
+		{ period: "2026.02", title: "JLPT N1", host: "国際交流基金", image: { src: "/mock/cert-jlpt-n1.svg", alt: "JLPT N1 の合格証" } },
+		{ period: "2026.09", title: "情報処理技師\n韓国国家資格", host: "韓国産業人力公団", image: { src: "/mock/cert-engineer.svg", alt: "情報処理技師の資格証" } },
 		{
 			period: "2026",
 			event: "第3回 全国大学ソフトウェア成果共有フォーラム",
 			title: "最優秀賞 1位",
-			awardName: "東亜大学校 総長賞",
+			detail: "東亜大学校 総長賞",
 			description: "**コスモのノート**で、全国13チームが集まった大会で受賞しました。",
 			image: { src: "/mock/award-donga.svg", alt: "東亜大学校 総長賞の賞状" },
 		},
@@ -246,35 +232,25 @@ export const certificates: CertificatesContent = {
 			period: "2024",
 			event: "LIKELION 大学12期 中央ハッカソン",
 			title: "最優秀賞 2位",
-			awardName: "ヨンリムウォンソフトラボ 特別賞",
+			detail: "ヨンリムウォンソフトラボ 特別賞",
 			description: "**HEALIX**で、全国55校・約1,500名が集まった大会で受賞しました。",
 			image: { src: "/mock/award-likelion.svg", alt: "ヨンリムウォンソフトラボ 特別賞の賞状" },
 		},
-	],
-	selections: {
-		label: "Selections",
-		items: [
-			{
-				period: "2024",
-				title: "国家優秀奨学金（理工系）",
-				awardName: "科学技術情報通信部長官 証書",
-				description: "全国で約1,000名のみが選抜される韓国の国家優秀奨学金（理工系）を授与されました。",
-				image: { src: "/mock/scholarship.svg", alt: "国家優秀奨学金（理工系）の証書" },
-			},
-			{
-				period: "2025",
-				title: "Daangn Builder’s Camp",
-				awardName: "Karrot 修了証",
-				description: "Karrot が選抜した20名ほどの少数精鋭ハッカソンに選ばれました。",
-				// Scan pending: an omitted `src` renders the design's placeholder tile.
-				image: { alt: "ビルダーズキャンプの修了証" },
-			},
-		],
-	},
-	certifications: [
-		{ period: "2026.02", title: "JLPT N1", host: "国際交流基金", image: { src: "/mock/cert-jlpt-n1.svg", alt: "JLPT N1 の合格証" } },
-		{ period: "2026.09", title: "情報処理技師\n韓国国家資格", host: "韓国産業人力公団", image: { src: "/mock/cert-engineer.svg", alt: "情報処理技師の資格証" } },
-		{ period: "2026.05", title: "TOPCIT", detail: "レベル4 / 677点", host: "情報通信企画評価院", image: { alt: "TOPCIT の成績表" } },
+		{
+			period: "2024",
+			title: "国家優秀奨学金（理工系）",
+			detail: "科学技術情報通信部長官 証書",
+			description: "全国で約1,000名のみが選抜される韓国の国家優秀奨学金（理工系）を授与されました。",
+			image: { src: "/mock/scholarship.svg", alt: "国家優秀奨学金（理工系）の証書" },
+		},
+		{
+			period: "2025",
+			title: "Daangn Builder’s Camp",
+			detail: "Karrot 修了証",
+			description: "Karrot が選抜した20名ほどの少数精鋭ハッカソンに選ばれました。",
+			// Scan pending: an omitted `src` renders the design's placeholder tile.
+			image: { alt: "ビルダーズキャンプの修了証" },
+		},
 	],
 };
 
@@ -422,43 +398,5 @@ export const journey: JourneyContent = {
 	now: {
 		label: "現在",
 		detail: "江原大学校に復学、コスモのノートと enqor を運営中",
-	},
-};
-
-/* ------------------------------------------------------------------ *
- * Resume
- * ------------------------------------------------------------------ */
-
-/**
- * The closing screen: an invitation on the left, the form that answers it on
- * the right. `sent` and `errors` are the states the .pen does not draw — the
- * frame shows the form at rest, and a form that only has a resting state is
- * not a form.
- */
-export const resume: ResumeContent = {
-	eyebrow: "Resume",
-	/** The line break is deliberate in the design. */
-	headline: "履歴書をメールで\nお送りします",
-	lead: "お名前とメールアドレスをご記入いただければ、最新の履歴書を PDF でお送りします。",
-	direct: { label: "Direct", address: "ballbot@alignnetworks.io" },
-	fields: {
-		name: { label: "お名前", placeholder: "山田 花子" },
-		email: { label: "メールアドレス", placeholder: "hanako.yamada@gmail.com" },
-	},
-	submit: "履歴書を受け取る",
-	submitting: "送信中",
-	privacy: "ご記入いただいたアドレスは履歴書の送付にのみ使用し、保管はいたしません。",
-	errors: {
-		"name-required": "お名前をご記入ください。",
-		"name-too-long": "お名前が長すぎます。",
-		"email-required": "メールアドレスをご記入ください。",
-		"email-format": "メールアドレスをもう一度ご確認ください。",
-		/** Delivery failed. The line hands the reader the address instead of a dead end. */
-		send: "ただいまリクエストを受け付けられません。こちらのアドレスへ直接お送りください。",
-	},
-	sent: {
-		title: "リクエストを受け付けました",
-		detail: "宛てに履歴書をお送りします。",
-		again: "もう一度送る",
 	},
 };

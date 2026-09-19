@@ -15,8 +15,7 @@ const HERO_VIEWPORT = "min-h-[calc(100svh-var(--nav-h)-var(--cue-h))]";
  * two columns hang off the raw viewport edge, so on a display wider than the
  * canvas its copy starts 44px left of the mono label on every screen under it,
  * and the page opens on a margin it never uses again. Capping here also pins
- * the rule between the columns to the canvas centre — the same x as the centre
- * divider in the Certificates grid.
+ * the rule between the columns to the canvas centre.
  */
 const CANVAS = "mx-auto flex w-full max-w-[1512px] flex-1 flex-col lg:flex-row";
 

@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react";
+
 import type { ExperienceContent } from "../../content-types";
 import { ImagePlaceholder } from "../ui/image-placeholder";
 import { Reveal } from "../ui/reveal";
@@ -40,52 +42,50 @@ export function Experience({ content }: { content: ExperienceContent }) {
 							</div>
 						</div>
 
-						<div className="flex flex-col justify-center gap-1">
-							{company.notes.map((note) => (
-								<p key={note} className="text-text-secondary text-[15px]">
-									{note}
-								</p>
-							))}
-						</div>
+						{company.notes?.length ? (
+							<div className="flex flex-col justify-center gap-1">
+								{company.notes.map((note) => (
+									<p key={note} className="text-text-secondary text-[15px]">
+										{note}
+									</p>
+								))}
+							</div>
+						) : null}
 					</div>
 				</Reveal>
 
 				<div aria-hidden="true" className="bg-border h-[0.5px] w-full shrink-0 lg:h-auto lg:w-[0.5px]" />
 
-				<div className="flex min-w-0 flex-1 flex-col">
-					{highlights.map((highlight, index) => (
-						<Reveal
-							key={highlight.year}
-							delay={index * 110}
-							className={`flex flex-1 flex-col gap-6 px-[var(--page-x)] py-8 min-[1400px]:flex-row min-[1400px]:gap-10 min-[1400px]:px-10 min-[1400px]:py-0 ${
-								index > 0 ? "border-border border-t-[0.5px]" : ""
-							}`}
-						>
-							{/* `justify-center`, not top-aligned: the row now owns half a viewport,
-							    so both halves centre on the same line instead of hanging off the top.
-							    The width tracks the viewport for the same reason the type does — the
-							    authored two-line break needs the room once the title grows. */}
-							<div className="flex flex-col justify-center gap-2.5 min-[1400px]:w-[clamp(320px,21vw,376px)] min-[1400px]:shrink-0 min-[1400px]:py-10">
-								<p className="text-text-secondary text-meta font-mono font-light">{highlight.year}</p>
-								<h4 className="text-text-strong sm:text-heading text-[22px] leading-snug font-semibold whitespace-pre-line">
-									{highlight.title}
-								</h4>
-							</div>
-
-							<div aria-hidden="true" className="bg-border hidden w-[0.5px] shrink-0 min-[1400px]:block" />
-
-							<div className="flex min-w-0 flex-1 flex-col justify-center gap-2 min-[1400px]:py-10">
-								{highlight.paragraphs.map((paragraph, paragraphIndex) => (
-									<p
-										key={paragraphIndex}
-										className="text-text-secondary text-body indent-[1em] leading-[1.7]"
+				{/* One row per story. The body that used to sit here lives on the story's
+				    own page now, so the column is a list: title, chevron, hairline. The
+				    rows are centred in the column the same way the company block is. */}
+				<div className="flex min-w-0 flex-1 flex-col justify-center px-[var(--page-x)] py-8 lg:px-10 lg:py-10">
+					<ul className="flex flex-col">
+						{highlights.map((story, index) => (
+							<li key={story.slug} className={index > 0 ? "border-border border-t-[0.5px]" : ""}>
+								<Reveal delay={index * 70}>
+									<a
+										href={`/experience/${story.slug}`}
+										className="group hover:bg-surface/60 flex items-center gap-4 px-2.5 py-5 transition-colors duration-300"
 									>
-										{paragraph}
-									</p>
-								))}
-							</div>
-						</Reveal>
-					))}
+										<span className="flex min-w-0 flex-1 flex-col gap-1">
+											<span className="text-text-strong sm:text-card text-[17px] leading-snug font-semibold">
+												{story.title}
+											</span>
+											{story.subtitle ? (
+												<span className="text-text-secondary text-[14px] leading-snug">{story.subtitle}</span>
+											) : null}
+										</span>
+										<ChevronRight
+											aria-hidden="true"
+											strokeWidth={1.75}
+											className="text-text-secondary group-hover:text-text-strong h-6 w-6 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover:translate-x-1"
+										/>
+									</a>
+								</Reveal>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</section>

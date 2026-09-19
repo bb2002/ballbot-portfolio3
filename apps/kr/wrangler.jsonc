@@ -36,10 +36,4 @@
 		"enabled": true
 	},
 	"upload_source_maps": true
-	/**
-	 * Resume delivery is off until the mailbox is wired. To turn it on, add:
-	 *   "send_email": [{ "name": "SEND_EMAIL" }]
-	 * and set RESUME_FROM to an address on a zone verified for sending. Until
-	 * then /api/resume answers 503 and the form hands out the direct address.
-	 */
 }

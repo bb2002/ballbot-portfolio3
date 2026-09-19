@@ -5,16 +5,15 @@ import {
 	Journey,
 	NavBar,
 	Projects,
-	Resume,
 	ScrollCue,
 	SectionPager,
 } from "@ballbot/shared";
 
-import { certificates, experience, hero, journey, nav, overview, projects, resume, scrollCue } from "@/content/portfolio";
+import { certificates, experience, hero, journey, nav, overview, projects, scrollCue } from "@/content/portfolio";
 
 /**
- * The .pen file draws six frames. The nav bar repeats identically at the foot
- * of the hero and the head of the other five, so it is rendered once here and
+ * The page is five screens. The nav bar repeats identically at the foot
+ * of the hero and the head of the other four, so it is rendered once here and
  * pinned with `position: sticky` — it starts at the hero's lower edge and rides
  * to the top of the viewport as the sections scroll past.
  *
@@ -22,7 +21,7 @@ import { certificates, experience, hero, journey, nav, overview, projects, resum
  * its sticky containing block would end with the hero. It also stays outside
  * <main>, so the page's only navigation landmark is not buried inside it.
  *
- * `data-section` marks the six screens: the pager jumps from the first to the
+ * `data-section` marks the five screens: the pager jumps from the first to the
  * second and animates nav links to any of them, reading the order off the DOM.
  * The hero's marker sits on <header> even though the nav and cue below it close
  * that screen — they are sticky and full-bleed, and wrapping them would end the
@@ -46,7 +45,6 @@ export default function Home() {
 				<Experience content={experience} />
 				<Certificates content={certificates} />
 				<Journey content={journey} />
-				<Resume content={resume} />
 			</main>
 			<SectionPager />
 		</>
