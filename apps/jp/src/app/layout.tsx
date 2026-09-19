@@ -17,10 +17,16 @@ import "./globals.css";
  */
 const PRETENDARD_JP_CSS = "/fonts/pretendard-jp/pretendardvariable-jp-dynamic-subset.css";
 
-/** 600 is the section-label weight; 300/400 are the mono meta lines. */
+/**
+ * The three weights the mono face is actually asked for: 300 and 400 on the
+ * meta lines, 700 on the section labels. It used to ship 600 instead of 700 —
+ * a weight nothing in the design uses — so every mono label fell back to a
+ * browser-synthesised faux bold over the 600 file. Same three requests, one of
+ * them now the file the page asks for.
+ */
 const ibmPlexMono = IBM_Plex_Mono({
 	subsets: ["latin"],
-	weight: ["300", "400", "600"],
+	weight: ["300", "400", "700"],
 	display: "swap",
 	variable: "--font-ibm-plex-mono",
 });

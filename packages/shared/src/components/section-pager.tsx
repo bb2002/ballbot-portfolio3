@@ -118,12 +118,24 @@ export function SectionPager() {
 			frame = requestAnimationFrame(step);
 		};
 
-		const goTo = (el: HTMLElement) => {
+		/**
+		 * `push` is what an intercepted link gets and a gesture does not.
+		 *
+		 * Neither writes the hash the anchor's own jump would have — that is what
+		 * would yank the scroller mid-animation — but a click still has to leave
+		 * the history entry the browser would have left, or Back walks the reader
+		 * off the site instead of back up the page they were reading. A wheel
+		 * notch is not a navigation, so the hero jump only rewrites the entry it
+		 * is already on. Going back fires `hashchange`, which lands the reader
+		 * through the same animator.
+		 */
+		const goTo = (el: HTMLElement, { push = false } = {}) => {
 			animateTo(snapOf(el, navHeight()));
-			// replaceState, not the anchor's own jump: the hash stays shareable
-			// without the browser yanking the scroller mid-animation.
 			const hash = el.id ? `#${el.id}` : "";
-			if (location.hash !== hash) history.replaceState(null, "", hash || location.pathname + location.search);
+			if (location.hash === hash) return;
+			const url = hash || location.pathname + location.search;
+			if (push) history.pushState(null, "", url);
+			else history.replaceState(null, "", url);
 		};
 
 		const onWheel = (e: WheelEvent) => {
@@ -188,10 +200,13 @@ export function SectionPager() {
 			if (!target?.hasAttribute("data-section")) return;
 
 			e.preventDefault();
-			goTo(target);
+			goTo(target, { push: true });
 			// An intercepted anchor still has to move the keyboard's place in the
-			// document, which preventDefault would otherwise cost us.
+			// document, which preventDefault would otherwise cost us. The attribute
+			// comes off again on blur: a section left permanently focusable is a
+			// stop on the tab order that nothing on the page asked for.
 			target.setAttribute("tabindex", "-1");
+			target.addEventListener("blur", () => target.removeAttribute("tabindex"), { once: true });
 			target.focus({ preventScroll: true });
 		};
 

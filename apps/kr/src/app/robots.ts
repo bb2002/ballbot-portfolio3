@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: { userAgent: "*", allow: "/" },
 		sitemap: `${MARKETS.ko}/sitemap.xml`,
-		host: MARKETS.ko,
+		// `Host` takes a bare hostname; a full URL is not a value the directive accepts.
+		host: new URL(MARKETS.ko).host,
 	};
 }

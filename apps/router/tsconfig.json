@@ -7,8 +7,11 @@
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"isolatedModules": true,
+		// The tests import the worker by its real filename, which is what Node's
+		// runner resolves; nothing is emitted, so the extension costs nothing.
+		"allowImportingTsExtensions": true,
 		"skipLibCheck": true,
-		"types": ["./worker-configuration.d.ts"]
+		"types": ["./worker-configuration.d.ts", "node"]
 	},
 	"include": ["src/**/*.ts", "worker-configuration.d.ts"],
 	"exclude": ["node_modules"]

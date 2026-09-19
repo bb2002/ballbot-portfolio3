@@ -10,9 +10,13 @@
  * Nothing here may be cached. One URL answers differently per reader, and a
  * redirect held in a shared cache would pin whoever asked first on everyone
  * after them.
+ *
+ * The decision rules are exported alongside the handler so `index.test.ts` can
+ * exercise them without a Worker runtime. Wrangler reads the default export and
+ * nothing else, so the extra names cost the bundle nothing.
  */
 
-const MARKETS = {
+export const MARKETS = {
 	ko: "https://kr.ballbot.dev",
 	ja: "https://jp.ballbot.dev",
 } as const;
@@ -41,11 +45,11 @@ const NO_STORE = {
  */
 type EdgeRequest = Request<unknown, IncomingRequestCfProperties>;
 
-function isLocale(value: string | null | undefined): value is Locale {
+export function isLocale(value: string | null | undefined): value is Locale {
 	return value === "ko" || value === "ja";
 }
 
-function readCookie(header: string | null, name: string): string | null {
+export function readCookie(header: string | null, name: string): string | null {
 	if (!header) return null;
 	for (const part of header.split(";")) {
 		const eq = part.indexOf("=");
@@ -62,7 +66,7 @@ type Decision = {
 	country: string | null;
 };
 
-function decide(request: EdgeRequest): Decision {
+export function decide(request: EdgeRequest): Decision {
 	// `cf.country` is set at the edge; the header is the same value and covers
 	// the local `wrangler dev` case where `cf` is not populated.
 	const country = request.cf?.country ?? request.headers.get("cf-ipcountry") ?? null;
@@ -77,6 +81,24 @@ function decide(request: EdgeRequest): Decision {
 
 function remember(locale: Locale): string {
 	return `${COOKIE}=${locale}; Domain=${COOKIE_DOMAIN}; Path=/; Max-Age=${COOKIE_MAX_AGE}; SameSite=Lax; Secure`;
+}
+
+/**
+ * The requested path and query, re-hung on a market host.
+ *
+ * The host is taken from MARKETS and never from the request: `//evil.com` and
+ * `/\evil.com` are legal *paths*, and resolving one against a base — as
+ * `new URL(url.pathname, base)` does — reads it as a protocol-relative
+ * authority and yields `https://evil.com/`. That would make the apex an open
+ * redirect for anyone who can get a reader to click a ballbot.dev link.
+ * Setting `pathname` on a URL that already has a host cannot move the host, and
+ * the leading separators are collapsed so the path never reads as one either.
+ */
+export function carry(url: URL, base: string): URL {
+	const target = new URL(base);
+	target.pathname = url.pathname.replace(/^[/\\]+/, "/");
+	target.search = url.search;
+	return target;
 }
 
 export default {
@@ -120,7 +142,7 @@ export default {
 
 		// Path and query carry over, so a deep link into either build survives
 		// being shared as an apex URL.
-		const target = new URL(url.pathname + url.search, MARKETS[decision.locale]);
+		const target = carry(url, MARKETS[decision.locale]);
 		return new Response(null, {
 			status: 302,
 			headers: {

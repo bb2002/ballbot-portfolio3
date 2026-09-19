@@ -2,8 +2,23 @@
 	"$schema": "https://turbo.build/schema.json",
 	"ui": "stream",
 	"tasks": {
+		/*
+		 * `^build` on every task, including this one: a task's hash covers its own
+		 * package plus the hashes of the tasks it depends on, and nothing else.
+		 * Without an edge into @ballbot/shared, editing a shared component left
+		 * every app task a cache hit — turbo replayed a stale "passed" for code it
+		 * had never seen. @ballbot/shared is consumed as source and has no build
+		 * step of its own, so its `build` script is a no-op that exists purely to
+		 * carry that hash.
+		 */
 		"sync-public": {
-			"outputs": ["public/fonts/**", "public/mock/**", "public/_headers"]
+			"dependsOn": ["^build"],
+			/*
+			 * The whole tree, not the three subpaths it used to name: `public/` is
+			 * generated in full (gitignored) and `favicon.svg` sits at its root, so
+			 * a narrower list let a cache hit restore a site with no favicon.
+			 */
+			"outputs": ["public/**"]
 		},
 		"build": {
 			"dependsOn": ["sync-public", "^build"],
@@ -15,13 +30,16 @@
 			"persistent": true
 		},
 		"lint": {
-			"dependsOn": ["sync-public"]
+			"dependsOn": ["sync-public", "^build"]
+		},
+		"test": {
+			"dependsOn": ["^build"]
 		},
 		"typecheck": {
-			"dependsOn": ["sync-public"]
+			"dependsOn": ["sync-public", "^build"]
 		},
 		"deploy": {
-			"dependsOn": ["sync-public"],
+			"dependsOn": ["sync-public", "^build"],
 			"cache": false
 		}
 	}

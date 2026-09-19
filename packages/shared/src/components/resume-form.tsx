@@ -1,9 +1,9 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import type { ResumeContent } from "../content-types";
-import { NAME_MAX, validateResumeRequest, type ResumeRequestErrorCode } from "../lib/resume-request";
+import { EMAIL_MAX, NAME_MAX, validateResumeRequest, type ResumeRequestErrorCode } from "../lib/resume-request";
 
 /**
  * The design draws the form at rest: two fields, a filled button, a privacy
@@ -24,6 +24,14 @@ const BUTTON =
 
 type Status = "idle" | "sending" | "sent" | "failed";
 
+/**
+ * Long enough for a cold Worker to boot and a mail API to answer, short enough
+ * that the reader is not left watching a disabled button. Without it a request
+ * that never resolves — a dropped connection, a proxy holding the socket open —
+ * parks the form in `sending` for the rest of the visit with no way back.
+ */
+const SEND_TIMEOUT_MS = 15_000;
+
 type FieldErrors = { name?: ResumeRequestErrorCode; email?: ResumeRequestErrorCode };
 
 export function ResumeForm({ content }: { content: ResumeContent }) {
@@ -35,8 +43,19 @@ export function ResumeForm({ content }: { content: ResumeContent }) {
 	const [sentTo, setSentTo] = useState("");
 	const nameRef = useRef<HTMLInputElement>(null);
 	const emailRef = useRef<HTMLInputElement>(null);
+	const sentRef = useRef<HTMLParagraphElement>(null);
 
 	const sending = status === "sending";
+
+	/*
+	 * The confirmation replaces the form, which takes the submit button — and
+	 * with it the keyboard's place in the document — out from under the reader.
+	 * Focus moves to the line that answers them, so a screen reader hears the
+	 * result instead of being dropped back at the top of the page.
+	 */
+	useEffect(() => {
+		if (status === "sent") sentRef.current?.focus();
+	}, [status]);
 
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
@@ -59,6 +78,7 @@ export function ResumeForm({ content }: { content: ResumeContent }) {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({ name, email }),
+				signal: AbortSignal.timeout(SEND_TIMEOUT_MS),
 			});
 			if (!response.ok) throw new Error(`resume request: ${response.status}`);
 			setSentTo(email.trim());
@@ -77,7 +97,9 @@ export function ResumeForm({ content }: { content: ResumeContent }) {
 	if (status === "sent") {
 		return (
 			<div role="status" className="flex flex-col gap-3">
-				<p className="text-text-strong text-[20px] font-bold sm:text-[24px]">{content.sent.title}</p>
+				<p ref={sentRef} tabIndex={-1} className="text-text-strong text-[20px] font-bold sm:text-[24px]">
+					{content.sent.title}
+				</p>
 				<p className="text-text-secondary text-[15px] leading-[1.6] sm:text-[16px]">
 					<span className="text-text-strong font-semibold break-all">{sentTo}</span> {content.sent.detail}
 				</p>
@@ -133,6 +155,7 @@ export function ResumeForm({ content }: { content: ResumeContent }) {
 					error={errors.email}
 					disabled={sending}
 					autoComplete="email"
+					maxLength={EMAIL_MAX}
 					onChange={(next) => {
 						setEmail(next);
 						clear("email");

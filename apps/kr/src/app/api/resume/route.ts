@@ -32,14 +32,42 @@ declare global {
 const FROM = "noreply@ballbot.dev";
 const TO = "ballbot@alignnetworks.io";
 
+/**
+ * A name and an address, with room to spare for the JSON around them. The
+ * endpoint is public and unauthenticated, so it reads a bounded string rather
+ * than handing an arbitrary body to the parser.
+ */
+const MAX_BODY = 2048;
+
 function fail(error: string, status: number) {
 	return Response.json({ error }, { status });
 }
 
 export async function POST(request: Request) {
+	/*
+	 * `application/json` is also the cheapest CSRF guard there is: a plain
+	 * cross-origin <form> can only send urlencoded, plain text or multipart, so
+	 * requiring JSON means anything reaching the mailer had to clear a preflight.
+	 */
+	if (!(request.headers.get("content-type") ?? "").startsWith("application/json")) {
+		return fail("malformed", 415);
+	}
+
+	const declared = Number(request.headers.get("content-length"));
+	if (Number.isFinite(declared) && declared > MAX_BODY) return fail("too-large", 413);
+
+	let body: string;
+	try {
+		body = await request.text();
+	} catch {
+		return fail("malformed", 400);
+	}
+	// Re-checked after the read: `content-length` is absent on a chunked body.
+	if (body.length > MAX_BODY) return fail("too-large", 413);
+
 	let payload: unknown;
 	try {
-		payload = await request.json();
+		payload = JSON.parse(body);
 	} catch {
 		return fail("malformed", 400);
 	}

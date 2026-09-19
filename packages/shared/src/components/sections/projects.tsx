@@ -1,7 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 
-import type { ArchiveProject, FeaturedProject, ProjectsContent } from "../../content-types";
+import type { ArchiveProject, FeaturedProject, ProjectListItem, ProjectsContent } from "../../content-types";
 import { ImagePlaceholder, ThumbFrame } from "../ui/image-placeholder";
 import { Reveal } from "../ui/reveal";
 import { Rule } from "../ui/rule";
@@ -136,6 +136,37 @@ function ArchiveCard({ project }: { project: ArchiveProject }) {
 	);
 }
 
+/**
+ * A list row is a link only where the project has somewhere to go.
+ *
+ * Every row used to be an `<a href={item.href ?? "#projects"}>`, and no entry
+ * in either market carries an `href` — so the page shipped eleven links that
+ * all pointed at the label directly above them, each one wearing a chevron
+ * promising a destination. A screen reader read out eleven identical targets,
+ * and a click threw the reader back to the top of the screen they were already
+ * on. Without an href the row is a plain block: no hover tint, no chevron, and
+ * the 44px the chevron and its gap took is held as padding so the summary
+ * column still ends where it always did.
+ */
+function ListRow({ item, children }: { item: ProjectListItem; children: ReactNode }) {
+	const shared = "flex w-full min-w-0 items-center gap-2.5 px-2.5 py-1.5";
+
+	if (!item.href) {
+		return <div className={`${shared} pr-11`}>{children}</div>;
+	}
+
+	return (
+		<a href={item.href} className={`group hover:bg-surface/60 ${shared} transition-colors duration-300`}>
+			{children}
+			<ChevronRight
+				aria-hidden="true"
+				strokeWidth={1.75}
+				className="text-text-secondary group-hover:text-text-strong h-6 w-6 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover:translate-x-1"
+			/>
+		</a>
+	);
+}
+
 export function Projects({ content }: { content: ProjectsContent }) {
 	return (
 		<section id="projects" data-section aria-labelledby="projects-label">
@@ -163,7 +194,7 @@ export function Projects({ content }: { content: ProjectsContent }) {
 			<div className="border-border flex flex-1 flex-col border-y-[0.5px]">
 				<div className={`${page} flex flex-1 flex-col xl:flex-row xl:gap-3`}>
 					{content.archive.map((project, index) => (
-						<Fragment key={index}>
+						<Fragment key={project.title}>
 							{index > 0 ? <Rule stack="xl" /> : null}
 							<Reveal delay={index * 90} className="flex min-w-0 flex-1">
 								<ArchiveCard project={project} />
@@ -175,11 +206,8 @@ export function Projects({ content }: { content: ProjectsContent }) {
 
 			<div className={`${page} flex flex-1 flex-col py-3`}>
 				{content.list.map((item, index) => (
-					<Reveal key={index} delay={index * 60} className="flex flex-1">
-						<a
-							href={item.href ?? "#projects"}
-							className="group hover:bg-surface/60 flex w-full min-w-0 items-center gap-2.5 px-2.5 py-1.5 transition-colors duration-300"
-						>
+					<Reveal key={`${item.year}-${item.title}`} delay={index * 60} className="flex flex-1">
+						<ListRow item={item}>
 							<span className="text-text-secondary w-12 shrink-0 text-[14px] font-light sm:w-16 sm:text-[15px] md:w-20 lg:w-[clamp(96px,7vw,130px)]">
 								{item.year}
 							</span>
@@ -211,12 +239,7 @@ export function Projects({ content }: { content: ProjectsContent }) {
 							<span className="text-text-secondary hidden min-w-0 flex-[2] truncate text-[15px] xl:block">
 								{item.summary}
 							</span>
-							<ChevronRight
-								aria-hidden="true"
-								strokeWidth={1.75}
-								className="text-text-secondary group-hover:text-text-strong h-6 w-6 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover:translate-x-1"
-							/>
-						</a>
+						</ListRow>
 					</Reveal>
 				))}
 			</div>

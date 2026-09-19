@@ -1,48 +1,57 @@
-# OpenNext Starter
+# ballbot-portfolio3
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A one-page portfolio, built twice — once for Korea, once for Japan — plus the
+apex that decides which of the two a reader belongs to. Every screen is
+composed from the same components; the only thing a market owns is its content
+file and the order it arranges the sections in.
 
-## Getting Started
+## Layout
 
-Read the documentation at https://opennext.js.org/cloudflare.
+| Path               | What it is                                                                 |
+| ------------------ | -------------------------------------------------------------------------- |
+| `apps/kr`          | `kr.ballbot.dev` — Next.js on Cloudflare Workers via OpenNext               |
+| `apps/jp`          | `jp.ballbot.dev` — the same build with its own content and font             |
+| `apps/router`      | `ballbot.dev` — a bare Worker that redirects; renders nothing               |
+| `packages/shared`  | Every component, the design tokens, the content schema, the shared `public/` |
 
-## Develop
+`packages/shared` is consumed as TypeScript source, not as a build artefact —
+the apps compile it. Its `build` script is a no-op that exists so Turborepo
+folds the package's file hashes into the tasks that depend on it.
 
-Run the Next.js development server:
+`public/` inside an app is **generated** and gitignored: `sync-public` mirrors
+`packages/shared/public` into it and copies the market's font slices on top.
+Edit the shared tree, never the app's copy.
 
-```bash
-npm run dev
-# or similar package manager command
-```
-
-The Korean build serves on [http://localhost:7770](http://localhost:7770) and the Japanese one on
-[http://localhost:7771](http://localhost:7771).
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Preview
-
-Preview the application locally on the Cloudflare runtime:
-
-```bash
-npm run preview
-# or similar package manager command
-```
-
-## Deploy
-
-Deploy the application to Cloudflare:
+## Working on it
 
 ```bash
-npm run deploy
-# or similar package manager command
+npm install
+npm run dev        # kr on :7770, jp on :7771
+npm run lint
+npm run typecheck
+npm test           # node --test, no runner to install
+npm run build
 ```
 
-## Learn More
+Every task runs through Turborepo, so a single app is `npx turbo run dev
+--filter=@ballbot/kr`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run deploy                          # all three Workers
+npx turbo run deploy --filter=@ballbot/router
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Each app previews on the real runtime with `npm run preview` inside it
+(`opennextjs-cloudflare build && … preview`).
+
+Resume delivery is off until the mailbox is wired: `/api/resume` answers `503`
+and the form hands the reader the direct address instead. Turning it on means
+adding a `send_email` binding to the market's `wrangler.jsonc` and setting
+`RESUME_FROM` — the route handler carries the details.
+
+## Reference
+
+- [OpenNext for Cloudflare](https://opennext.js.org/cloudflare)
+- Next.js docs ship with the package: `node_modules/next/dist/docs/`

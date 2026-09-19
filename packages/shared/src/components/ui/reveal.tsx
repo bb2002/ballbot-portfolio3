@@ -8,6 +8,9 @@ import { useEffect, useRef, type ReactNode } from "react";
  */
 let observer: IntersectionObserver | null = null;
 
+/** Whether the head script's watchdog has been told React booted. */
+let marked = false;
+
 function getObserver() {
 	if (typeof IntersectionObserver === "undefined") return null;
 	observer ??= new IntersectionObserver(
@@ -39,8 +42,12 @@ export function Reveal({ children, delay = 0, className = "" }: Props) {
 
 	useEffect(() => {
 		// Proof of life for the head script's watchdog: React is running, so the
-		// `html.js` hiding rules are safe to keep.
-		document.documentElement.classList.add("hydrated");
+		// `html.js` hiding rules are safe to keep. Once for the document, not once
+		// per card — the page mounts several dozen of these.
+		if (!marked) {
+			marked = true;
+			document.documentElement.classList.add("hydrated");
+		}
 
 		const el = ref.current;
 		if (!el) return;

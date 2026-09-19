@@ -10,17 +10,33 @@
  * Extra sources (the JP font build, say) are passed as arguments and copied on
  * top, in order, so a market can override a shared file.
  */
-import { cp, stat } from "node:fs/promises";
+import { cp, rm, stat } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const shared = resolve(dirname(fileURLToPath(import.meta.url)), "../public");
 const dest = resolve(process.cwd(), "public");
 
-/** `[source, subdirectory of public/]` — later entries win. */
-const sources = [[shared, ""], ...process.argv.slice(2).map((arg) => arg.split(":"))];
+/**
+ * `source:subdirectory-of-public` — later entries win. Split on the *last*
+ * colon: a Windows source path opens with a drive letter, and splitting on the
+ * first one would hand `cp` the bare letter as its source.
+ */
+function parseSource(arg) {
+	const cut = arg.lastIndexOf(":");
+	return cut === -1 ? [arg, ""] : [arg.slice(0, cut), arg.slice(cut + 1)];
+}
 
-for (const [from, into = ""] of sources) {
+const sources = [[shared, ""], ...process.argv.slice(2).map(parseSource)];
+
+// Emptied first, because `cp` only ever adds: a file dropped from the shared
+// tree — or left behind by a font package that changed its slice names — would
+// otherwise sit in every app's public/ forever, get picked up by the turbo
+// cache as an output, and ship. The whole directory is generated and
+// gitignored, so there is nothing here to lose.
+await rm(dest, { recursive: true, force: true });
+
+for (const [from, into] of sources) {
 	const src = resolve(from);
 	try {
 		await stat(src);
