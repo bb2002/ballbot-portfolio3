@@ -55,6 +55,14 @@ export type HeroContent = {
 	eyebrow: string;
 	/** Line breaks are honoured. */
 	headline: string;
+	/**
+	 * The line under the headline — who is speaking. Optional, because a market
+	 * whose headline is already a whole sentence has nothing to finish; the
+	 * Korean one is a 관형형 clause that only closes on this line, so there the
+	 * two read as one statement broken across two type steps.
+	 * Line breaks are honoured.
+	 */
+	subtitle?: string;
 	actions: { primary: HeroAction; secondary: readonly HeroAction[] };
 	/**
 	 * Points a reader who landed on the wrong market at their own build,
@@ -75,12 +83,23 @@ export type HeroContent = {
  * Projects
  * ------------------------------------------------------------------ */
 
+/**
+ * Where a shipped project actually lives: the domain a service runs on, or
+ * each store an app is published to. `label` is what the card prints — a bare
+ * domain reads as the address itself, a store name as the place to get it.
+ */
+export type ProjectLink = { label: string; href: string };
+
 export type FeaturedProject = {
 	period: string;
 	title: string;
 	description: string;
 	stats: readonly { value: string; label: string }[];
-	tags: readonly string[];
+	/**
+	 * Omitted on a project with nothing public to open — the row disappears
+	 * rather than leaving an empty foot under the copy.
+	 */
+	links?: readonly ProjectLink[];
 	thumbnail: Media;
 	appIcon: Media;
 	href?: string;
@@ -96,6 +115,8 @@ export type ArchiveProject = {
 
 export type ProjectListItem = {
 	year: string;
+	/** What it was built on or with — "VR", "Unreal Engine", "Android". */
+	platform: string;
 	title: string;
 	summary: string;
 	href?: string;
@@ -138,9 +159,11 @@ export type ExperienceContent = {
 
 export type AwardCard = {
 	period: string;
+	/** Where it was won. Sits above the title, so the prize stays the headline. */
+	event?: string;
 	title: string;
 	awardName: string;
-	description: string;
+	description?: string;
 	image: Media;
 };
 
@@ -148,6 +171,12 @@ export type CompactCard = {
 	period: string;
 	/** Line breaks are honoured. */
 	title: string;
+	/**
+	 * A result the title cannot carry on its own — a score, a level. Sits
+	 * under the title at the issuer's type size, so the name stays the loudest
+	 * thing on the card. Omit it where the title says everything.
+	 */
+	detail?: string;
 	host: string;
 	image: Media;
 };
@@ -156,10 +185,16 @@ export type CertificatesContent = {
 	awardsLabel: string;
 	certificationsLabel: string;
 	featured: readonly AwardCard[];
-	sub: readonly CompactCard[];
+	/** The smaller awards under the featured pair. Omit to drop the block. */
+	sub?: readonly CompactCard[];
 	certifications: readonly CompactCard[];
-	/** Omit the block entirely in a market where it carries no weight. */
-	scholarship?: { label: string; award: AwardCard };
+	/**
+	 * Things someone else picked them for rather than things they won — a
+	 * scholarship, a place in a programme. Kept apart from Awards because the
+	 * claim is different: not "I came first" but "they chose me".
+	 * Omit the block entirely in a market where it carries no weight.
+	 */
+	selections?: { label: string; items: readonly AwardCard[] };
 };
 
 /* ------------------------------------------------------------------ *

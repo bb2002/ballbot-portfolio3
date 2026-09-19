@@ -15,7 +15,8 @@ npm run dev
 # or similar package manager command
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Korean build serves on [http://localhost:7770](http://localhost:7770) and the Japanese one on
+[http://localhost:7771](http://localhost:7771).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 
 import type { ArchiveProject, FeaturedProject, ProjectsContent } from "../../content-types";
 import { ImagePlaceholder, ThumbFrame } from "../ui/image-placeholder";
@@ -34,29 +34,80 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
 				<div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-3 py-1 sm:px-2.5">
 					<p className="text-text-secondary text-meta font-mono">{project.period}</p>
 
-					<div className="flex min-w-0 items-center gap-2.5">
+					{/* `items-start`, and no `truncate` on the title: two-up between 1024
+					    and 1280 the text column is ~165px wide, which cut "코스모의 노트"
+					    to "코스모의 …". A project's own name is the one string on the card
+					    that must never be clipped, so it wraps and the icon stays on the
+					    first line of it. */}
+					<div className="flex min-w-0 items-start gap-2.5">
 						{/* The design draws a bare 32px placeholder here, not a padded surface tile. */}
-						<ImagePlaceholder media={project.appIcon} sizes="32px" className="h-8 w-8 shrink-0 rounded-lg" />
-						<h3 className="text-text-strong sm:text-title min-w-0 truncate text-[26px] font-bold">
+						<ImagePlaceholder
+							media={project.appIcon}
+							sizes="32px"
+							className="mt-0.5 h-8 w-8 shrink-0 rounded-lg"
+						/>
+						{/* `lg:text-[26px]`: lg is where the cards go two-up and the text
+						    column drops to ~165px. Holding the title at the stacked layout's
+						    32px there wrapped it and left the two stat feet off each other's
+						    line; the display step comes back at xl, where the column is wide
+						    enough to carry it on one line. */}
+						<h3 className="text-text-strong sm:text-title xl:text-title min-w-0 text-[26px] leading-tight font-bold lg:text-[26px]">
 							{project.title}
 						</h3>
 					</div>
 
 					<p className="text-text-secondary text-body leading-relaxed font-medium">{project.description}</p>
 
-					<ul className="flex flex-wrap gap-1">
-						{project.tags.map((tag) => (
-							<li key={tag} className="bg-surface text-text-secondary rounded-[32px] p-2 text-[12px] font-semibold">
-								{tag}
-							</li>
-						))}
-					</ul>
+					{/* Where the thing actually is. The design put the stack in pills
+					    here; on a project that ships, the address is worth more to a
+					    reader than the list of what it was built with — and a pill that
+					    is also a link invites a click the stack name cannot honour. So
+					    these read as links, borrowing the hero's sliding underline. */}
+					{project.links?.length ? (
+						<ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+							{project.links.map((link) => (
+								<li key={link.href}>
+									<a
+										href={link.href}
+										target="_blank"
+										rel="noreferrer noopener"
+										// The visible label leads, so the accessible name still
+										// opens with the text on screen; the suffix is only there to
+										// tell a reader tabbing a list of links which card it is in.
+										aria-label={`${link.label} — ${project.title}`}
+										className="group/link text-text-strong inline-flex items-center gap-1 text-[14px] font-semibold"
+									>
+										<span className="relative">
+											{link.label}
+											<span
+												aria-hidden="true"
+												className="bg-text-strong absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:scale-x-100"
+											/>
+										</span>
+										<ArrowUpRight
+											aria-hidden="true"
+											strokeWidth={2}
+											className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:-translate-y-px group-hover/link:translate-x-px"
+										/>
+									</a>
+								</li>
+							))}
+						</ul>
+					) : null}
 				</div>
 			</div>
 
 			{/* The numbers sit under image and copy as a full-width foot, so the text
-			    column beside the thumbnail stays short and the two never fight for width. */}
-			<div className="border-border flex items-stretch border-t-[0.5px] px-1 pt-4">
+			    column beside the thumbnail stays short and the two never fight for width.
+
+			    `lg:mt-auto` is what keeps the two feet on one line once the cards go
+			    two-up. The cards are equal height, but the copy inside them is not —
+			    one description wrapping to a fourth line, or carrying a link row its
+			    neighbour has not got yet, centred the shorter card 30px lower and
+			    split the stat band across two lines. Pinning the foot to the bottom
+			    lands both on the same baseline and tops the titles off each other.
+			    Stacked, each card owns its own row and centring still reads better. */}
+			<div className="border-border flex items-stretch border-t-[0.5px] px-1 pt-4 lg:mt-auto">
 				{project.stats.map((stat, index) => (
 					<Fragment key={stat.label}>
 						{index > 0 ? <div aria-hidden="true" className="bg-border mx-4 w-[0.5px] shrink-0" /> : null}
@@ -129,13 +180,35 @@ export function Projects({ content }: { content: ProjectsContent }) {
 							href={item.href ?? "#projects"}
 							className="group hover:bg-surface/60 flex w-full min-w-0 items-center gap-2.5 px-2.5 py-1.5 transition-colors duration-300"
 						>
-							<span className="text-text-secondary w-16 shrink-0 text-[14px] font-light sm:text-[15px] md:w-24 lg:w-[clamp(120px,12vw,220px)]">
+							<span className="text-text-secondary w-12 shrink-0 text-[14px] font-light sm:w-16 sm:text-[15px] md:w-20 lg:w-[clamp(96px,7vw,130px)]">
 								{item.year}
 							</span>
-							<span className="text-text-strong min-w-0 flex-1 truncate text-[15px] font-semibold">
+							{/* The stack, between the year and the name: when, with what, what
+							    — the order a reader scans the row in. Giving it a column is
+							    what let the titles drop their "VR 게임 …" / "언리얼 엔진 …"
+							    prefixes, so the name column carries only the name. Mono, like
+							    every other metadata label in the design.
+
+							    Held back to `sm` and set `nowrap`: at 390 the row has ~276px
+							    for year, stack and name together, and a column wide enough for
+							    "Unreal Engine" leaves the longest name short enough to wrap.
+							    A wrapped stack label broke the list's even rhythm, so below
+							    `sm` the row falls back to year and name — the same trade the
+							    summary already makes at `xl`. */}
+							<span className="text-text-secondary hidden shrink-0 font-mono text-[13px] whitespace-nowrap sm:block sm:w-[116px] lg:w-[clamp(120px,9vw,170px)]">
+								{item.platform}
+							</span>
+							{/* The project's own name, so it wraps rather than truncating —
+							    a Japanese title at 390 was 24px longer than its column and
+							    lost its last two characters to an ellipsis. */}
+							<span className="text-text-strong min-w-0 flex-1 text-[15px] font-semibold">
 								{item.title}
 							</span>
-							<span className="text-text-secondary hidden min-w-0 flex-1 truncate text-[15px] lg:block">
+							{/* The summary is the one string here that may end in an ellipsis:
+							    it is a gloss, not a name. Twice the title's share, and held
+							    back to `xl` — at 1024 an even split cut a Japanese summary a
+							    third of the way through. */}
+							<span className="text-text-secondary hidden min-w-0 flex-[2] truncate text-[15px] xl:block">
 								{item.summary}
 							</span>
 							<ChevronRight

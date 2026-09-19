@@ -110,9 +110,15 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
-	/* Korean text must break between words, not inside them. */
-	word-break: keep-all;
 	overflow-wrap: break-word;
+}
+
+/* Korean must break between words, not inside them. Japanese is the opposite:
+   it wraps at almost any character boundary, and `keep-all` forbids every one
+   of those breaks — a kana run then overflows its column instead of wrapping.
+   So the rule is scoped to the market that needs it. */
+html[lang="ko"] body {
+	word-break: keep-all;
 }
 
 /* ------------------------------------------------------------------ *
@@ -164,19 +170,6 @@ main [data-section] + [data-section] {
 	}
 }
 
-/* Resume is the one screen that closes on a centred layout instead of a label
-   at the top, and centring is what makes the nav's height visible: the section
-   starts under a 98-114px sticky bar, so a full 100svh puts its midpoint that
-   far below the middle of the screen and leaves the page ending bottom-heavy.
-   Measuring the viewport *minus* the bar puts the midpoint back where the eye
-   expects it, and the head pad goes with it — there is no section head here to
-   give air to, and the columns already carry their own. Taller than the
-   viewport (stacked on a phone) nothing binds and the screen just grows. */
-main [data-section].screen--centered {
-	min-height: calc(100svh - var(--nav-h));
-	padding-top: 0;
-}
-
 /* While the pager's rAF loop owns the scroller, native smooth scrolling
    must stand down or the two fight over the same pixels. Touch devices get
    no snapping at all: the hero overflows a phone viewport, so a snap point
@@ -219,7 +212,6 @@ html[data-paging] {
 	--jy-trunk-w: 28px; /* trunk column; the line sits at its centre */
 	--jy-branch-w: 26px; /* branch column: branch line → event body */
 	--jy-tick-w: 16px;
-	--jy-arm-w: 24px; /* how far the connector reaches past the branch */
 	--jy-drop-h: 12px; /* connector → first event, on the lg layout */
 
 	/* Head and body. */
@@ -246,7 +238,6 @@ html[data-paging] {
 		--jy-trunk-w: 24px;
 		--jy-branch-w: 40px;
 		--jy-tick-w: 24px;
-		--jy-arm-w: 40px;
 		--jy-pt: 64px;
 		--jy-head-x: 40px;
 		--jy-head-w: 400px;
@@ -291,8 +282,12 @@ html[data-paging] {
 }
 
 /* Trunk ------------------------------------------------------------ */
+/* Above the branch: the grey arm leaves from the centre of the trunk, so
+   it crosses the right half of the chapter's filled mark. The mark is the
+   thing being pointed at — it wins. */
 .jy-trunk {
 	position: relative;
+	z-index: 1;
 	grid-area: trunk;
 }
 
@@ -342,9 +337,11 @@ html[data-paging] {
 	}
 }
 
-/* The branch leaving the trunk. Both pieces hang off the head, not the
-   event column: below lg the events are a grid row lower, and only the
-   head knows where that row begins (its own bottom edge). */
+/* The branch leaving the trunk: out to the corner, then down. Both pieces
+   hang off the head, not the event column — below lg the events are a grid
+   row lower, and only the head knows where that row begins (its own bottom
+   edge). The arm stops on the drop rather than running past it: a horizontal
+   that overshoots the turn is a line pointing at nothing. */
 .jy-arm,
 .jy-drop {
 	position: absolute;
@@ -365,9 +362,10 @@ html[data-paging] {
 }
 
 @media (min-width: 1024px) {
+	/* The head swaps to the far side of the trunk, so the arm leaves to the
+	   right instead of the left. Same length either way — half a trunk. */
 	.jy-arm {
 		left: calc(var(--jy-head-w) + var(--jy-trunk-w) / 2);
-		width: calc(var(--jy-trunk-w) / 2 + var(--jy-arm-w));
 	}
 
 	.jy-drop {
@@ -447,8 +445,12 @@ html[data-paging] {
 	background: var(--color-placeholder-stroke);
 }
 
+/* `z-index`: the tick is a later child of the rail than the mark is, so
+   without this the grey line crosses the open ring a featured event is
+   marked with instead of stopping at it. */
 .jy-mark {
 	position: absolute;
+	z-index: 1;
 	top: var(--jy-tick-y);
 	left: var(--jy-tick-w);
 	width: 6px;
