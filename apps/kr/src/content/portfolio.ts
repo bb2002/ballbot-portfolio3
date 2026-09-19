@@ -360,12 +360,15 @@ export const journey: JourneyContent = {
 			events: [
 				{
 					year: "2021",
-					title: "KNU 코딩 플랫폼 개발",
+					title: "KNU 코딩플랫폼 개발",
 					featured: true,
-					stack: "React",
-					detail: "교내 프로그래밍 과제를 브라우저에서 채점하는 온라인 저지.",
+					detail: "강원대학교 SW중심대학사업단에서 진행한 코딩 플랫폼 구축 사업에서 팀장 역할을 맡았습니다.",
 				},
-				{ year: "2021", title: "창업경진대회 2등" },
+				{
+					year: "2021",
+					title: "SW창업도전챌린지 수상",
+					detail: "PLACEHOLDER — 대회 내용과 수상 내역 확인 필요.",
+				},
 			],
 		},
 		{

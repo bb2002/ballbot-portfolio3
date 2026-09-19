@@ -364,10 +364,13 @@ export const journey: JourneyContent = {
 					year: "2021",
 					title: "KNU コーディングプラットフォームの開発",
 					featured: true,
-					stack: "React",
-					detail: "学内のプログラミング課題をブラウザで採点するオンラインジャッジ。",
+					detail: "江原大学校 SW 中心大学事業団が進めたコーディングプラットフォーム構築事業で、チームリーダーを務めました。",
 				},
-				{ year: "2021", title: "起業コンテスト 2位" },
+				{
+					year: "2021",
+					title: "SW 起業チャレンジ 受賞",
+					detail: "PLACEHOLDER — 大会の内容と受賞歴の確認が必要。",
+				},
 			],
 		},
 		{
