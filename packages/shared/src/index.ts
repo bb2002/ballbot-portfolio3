@@ -10,6 +10,7 @@ export { ExperienceStory } from "./components/experience-story";
 export { Footer } from "./components/footer";
 export { Hero } from "./components/hero";
 export { NavBar } from "./components/nav-bar";
+export { ProjectStory } from "./components/project-story";
 export { ScrollCue } from "./components/scroll-cue";
 
 export { Certificates } from "./components/sections/certificates";
@@ -23,6 +24,9 @@ export { ImagePlaceholder, ThumbFrame } from "./components/ui/image-placeholder"
 export { Lightbox } from "./components/ui/lightbox";
 export { page } from "./components/ui/layout";
 export { LinkMenu } from "./components/ui/link-menu";
+export { ProjectLinks } from "./components/ui/project-links";
 export { Reveal } from "./components/ui/reveal";
 export { Rule } from "./components/ui/rule";
+export { ScreenSlider } from "./components/ui/screen-slider";
 export { SectionLabel } from "./components/ui/section-label";
+export { ZoomImage } from "./components/ui/zoom-image";

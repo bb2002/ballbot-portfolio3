@@ -139,6 +139,70 @@ export function isLinkGroup(entry: ProjectLinkEntry): entry is ProjectLinkGroup 
 	return "items" in entry;
 }
 
+/**
+ * One step of the build, on a project's own page: when, what changed, the
+ * screen it left behind, and a paragraph on why. The steps are in the order
+ * they happened, so the page reads as the thing being built.
+ */
+export type ProjectStep = {
+	/** Mono, "2025.05" — the month the step shipped. */
+	period: string;
+	title: string;
+	/** The screen or two the step is remembered by. Sized like a gallery slide, so `width`/`height` are expected. */
+	images?: readonly Media[];
+	/** One entry per paragraph. */
+	paragraphs: readonly string[];
+};
+
+/**
+ * One question the project had to answer, worked through in prose with the
+ * diagrams it needs: the body is paragraphs and figures in reading order —
+ * a string is a paragraph, a `Media` is a figure dropped between them, at
+ * the point the text starts referring to it.
+ */
+export type ProjectEssay = {
+	title: string;
+	body: readonly (string | Media)[];
+};
+
+/**
+ * The long form of a project, on a page of its own — what the card's two
+ * lines cannot hold. The card stays the summary; this is the record.
+ */
+export type ProjectStoryContent = {
+	/** One line under the title: what the service is, in a phrase. */
+	tagline: string;
+	/** Three or so things worth knowing before the rest — the section is titled by `labels.highlights`. */
+	highlights: readonly string[];
+	/**
+	 * The facts of the project — team size, period, stack — as term/detail
+	 * pairs. They sit under the title, beside the slider, in the page's head.
+	 */
+	facts: readonly { term: string; detail: string }[];
+	/** Why it was started. Paragraphs. */
+	motivation: readonly string[];
+	/**
+	 * The design questions, under one mono head (`label`, "Architecture").
+	 * Each item opens on its own title, and they are parted by hairlines.
+	 */
+	architecture?: { label: string; items: readonly ProjectEssay[] };
+	/** The build, step by step. Omitted on a project that has no dated history to tell. */
+	steps?: readonly ProjectStep[];
+	/**
+	 * Section heads and the slider's controls, in the market's language. On
+	 * the story rather than on the section, because a story is what a page
+	 * renders — the page has no other content to read labels from.
+	 */
+	labels: {
+		highlights: string;
+		motivation: string;
+		/** The head over `steps`; unused when there are none. */
+		process: string;
+		/** The "back to the list" link at the top of the page. */
+		back: string;
+	};
+};
+
 export type FeaturedProject = {
 	period: string;
 	title: string;
@@ -151,6 +215,13 @@ export type FeaturedProject = {
 	links?: readonly ProjectLinkEntry[];
 	thumbnail: Media;
 	appIcon: Media;
+	/**
+	 * URL segment: with a `story`, the project lives at `/projects/<slug>` and
+	 * the card's title opens it. Both or neither — a slug with nothing behind
+	 * it is a link to a 404, and a story with no address cannot be reached.
+	 */
+	slug?: string;
+	story?: ProjectStoryContent;
 	/**
 	 * Screens from the product, in the order a reader would walk through it.
 	 * Given one, the card's thumbnail becomes the way in: it opens the viewer
@@ -167,6 +238,9 @@ export type ArchiveProject = {
 	/** As on a featured project: where the thing actually is, or its source. */
 	links?: readonly ProjectLinkEntry[];
 	thumbnail: Media;
+	/** As on a featured project: both or neither. */
+	slug?: string;
+	story?: ProjectStoryContent;
 	/** As on a featured project: given one, the thumbnail opens the viewer. */
 	gallery?: readonly Media[];
 };

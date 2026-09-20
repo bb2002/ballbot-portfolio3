@@ -1,17 +1,9 @@
 import { Fragment } from "react";
-import { ArrowUpRight } from "lucide-react";
 
-import type {
-	ArchiveProject,
-	FeaturedProject,
-	GalleryLabels,
-	ProjectLinkEntry,
-	ProjectsContent,
-} from "../../content-types";
-import { isLinkGroup } from "../../content-types";
+import type { ArchiveProject, FeaturedProject, GalleryLabels, ProjectsContent } from "../../content-types";
 import { GalleryThumb } from "../ui/gallery-thumb";
 import { ImagePlaceholder, ThumbFrame } from "../ui/image-placeholder";
-import { LinkMenu } from "../ui/link-menu";
+import { ProjectLinks } from "../ui/project-links";
 import { Reveal } from "../ui/reveal";
 import { Rule } from "../ui/rule";
 import { SectionLabel } from "../ui/section-label";
@@ -27,55 +19,28 @@ const FEATURED_THUMB = "aspect-[25/17] w-full max-w-[320px] rounded-lg sm:w-[cla
 const ARCHIVE_THUMB = "aspect-[205/141] w-full max-w-[280px] rounded-[4px] sm:w-[clamp(120px,32%,170px)]";
 
 /**
- * Where the thing actually is: the domain a service runs on, each store an app
- * is published to, or the repositories it was built in — several of those
- * behind one label, as a menu. The design put the
- * stack in pills here; on a project that ships, the address is worth more to a
- * reader than the list of what it was built with — and a pill that is also a
- * link invites a click the stack name cannot honour. So these read as links,
- * borrowing the hero's sliding underline.
- *
- * Both cards draw the same row, so it lives here rather than twice.
+ * A title that is also the way into the project's own page. It borrows the
+ * hero's sliding underline and adds nothing else: the title reads as the
+ * title, and the page behind it is found by the pointer, not announced.
  */
-function ProjectLinks({ links, title }: { links?: readonly ProjectLinkEntry[]; title: string }) {
-	if (!links?.length) return null;
-
+function StoryLink({ href, children }: { href: string; children: string }) {
 	return (
-		<ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-			{links.map((link) =>
-				isLinkGroup(link) ? (
-					<li key={link.label}>
-						<LinkMenu group={link} title={title} />
-					</li>
-				) : (
-					<li key={link.href}>
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noreferrer noopener"
-							// The visible label leads, so the accessible name still opens with
-							// the text on screen; the suffix is only there to tell a reader
-							// tabbing a list of links which card it is in.
-							aria-label={`${link.label} — ${title}`}
-							className="group/link text-text-strong inline-flex items-center gap-1 text-[14px] font-semibold"
-						>
-							<span className="relative">
-								{link.label}
-								<span
-									aria-hidden="true"
-									className="bg-text-strong absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:scale-x-100"
-								/>
-							</span>
-							<ArrowUpRight
-								aria-hidden="true"
-								strokeWidth={2}
-								className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:-translate-y-px group-hover/link:translate-x-px"
-							/>
-						</a>
-					</li>
-				),
-			)}
-		</ul>
+		<a href={href} className="group/story relative inline-block">
+			{children}
+			<span
+				aria-hidden="true"
+				className="bg-text-strong absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/story:scale-x-100"
+			/>
+		</a>
+	);
+}
+
+/** The title, as a link when the project has a page of its own and plain text when it has not. */
+function Title({ project }: { project: FeaturedProject | ArchiveProject }) {
+	return project.slug && project.story ? (
+		<StoryLink href={`/projects/${project.slug}`}>{project.title}</StoryLink>
+	) : (
+		<>{project.title}</>
 	);
 }
 
@@ -123,7 +88,7 @@ function FeaturedCard({ project, galleryLabels }: { project: FeaturedProject; ga
 						    line; the display step comes back at xl, where the column is wide
 						    enough to carry it on one line. */}
 						<h3 className="text-text-strong sm:text-title xl:text-title min-w-0 text-[26px] leading-tight font-bold lg:text-[26px]">
-							{project.title}
+							<Title project={project} />
 						</h3>
 					</div>
 
@@ -178,7 +143,9 @@ function ArchiveCard({ project, galleryLabels }: { project: ArchiveProject; gall
 
 			<div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-3 py-2 sm:px-2.5">
 				<p className="text-text-secondary text-meta font-mono">{project.period}</p>
-				<h3 className="text-text-strong sm:text-subtitle text-[20px] font-bold">{project.title}</h3>
+				<h3 className="text-text-strong sm:text-subtitle text-[20px] font-bold">
+					<Title project={project} />
+				</h3>
 				<p className="text-text-secondary text-[14px] font-medium">{project.description}</p>
 				<ProjectLinks links={project.links} title={project.title} />
 			</div>

@@ -1,0 +1,363 @@
+import { ArrowLeft } from "lucide-react";
+
+import type {
+  ArchiveProject,
+  FeaturedProject,
+  GalleryLabels,
+  Media,
+  ProjectsContent,
+  ProjectStoryContent,
+} from "../content-types";
+import { ImagePlaceholder } from "./ui/image-placeholder";
+import { page } from "./ui/layout";
+import { ProjectLinks } from "./ui/project-links";
+import { Reveal } from "./ui/reveal";
+import { ScreenSlider } from "./ui/screen-slider";
+import { SectionLabel } from "./ui/section-label";
+import { ZoomImage } from "./ui/zoom-image";
+
+type Project = FeaturedProject | ArchiveProject;
+
+/** The reading measure. Prose stops here; the slider and the figures may run the page. */
+const PROSE = "max-w-[760px]";
+
+/**
+ * The 4px dot the hero's Overview rows are drawn with, in a 24px column one
+ * line box tall — 15 × 1.5 and 17 × 1.5, the two steps the row text takes —
+ * so with `items-start` on the row it centres on the *first* line and a row
+ * that wraps does not leave it hanging between two.
+ */
+function Bullet() {
+  return (
+    <span
+      aria-hidden="true"
+      className="flex h-[22px] w-6 shrink-0 items-center justify-center sm:h-[25px]"
+    >
+      <span className="bg-text-strong h-1 w-1 rounded-full" />
+    </span>
+  );
+}
+
+function Paragraphs({ text }: { text: readonly string[] }) {
+  return (
+    <div className={`flex flex-col gap-4 ${PROSE}`}>
+      {text.map((paragraph, index) => (
+        <p key={index} className="text-text-secondary text-body leading-[1.8]">
+          {paragraph}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * A figure in the run of an essay. It runs the width of the page rather than
+ * the prose, because a diagram at a reading measure is a diagram nobody can
+ * read. Under `lg` the same picture would be narrower still, so there it
+ * keeps a floor of its own and the reader slides across it — the viewer
+ * behind the click is the other way to read it close.
+ */
+function Figure({
+  media,
+  title,
+  labels,
+}: {
+  media: Media;
+  title: string;
+  labels?: GalleryLabels;
+}) {
+  return (
+    <figure className="flex flex-col gap-3">
+      <div className="-mx-[var(--page-x)] overflow-x-auto px-[var(--page-x)]">
+        <div className="min-w-[880px] lg:min-w-0">
+          <ZoomImage
+            media={media}
+            title={title}
+            labels={labels}
+            sizes="(max-width: 1024px) 880px, 1320px"
+          />
+        </div>
+      </div>
+      {media.caption ? (
+        <figcaption className="text-text-secondary font-mono text-[13px]">
+          {media.caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+/** Runs of paragraphs become one block each; a figure stands on its own. */
+function groupBody(
+  body: readonly (string | Media)[],
+): (readonly string[] | Media)[] {
+  const blocks: (string[] | Media)[] = [];
+  for (const item of body) {
+    const last = blocks[blocks.length - 1];
+    if (typeof item !== "string") blocks.push(item);
+    else if (Array.isArray(last)) last.push(item);
+    else blocks.push([item]);
+  }
+  return blocks;
+}
+
+/**
+ * The design questions, one after another under a single head. Each opens
+ * on its own title; the body is paragraphs and figures in the order the
+ * content file put them, so a diagram lands where the text turns to it.
+ * Consecutive paragraphs share one block so their spacing matches the prose
+ * everywhere else on the page.
+ */
+function Architecture({
+  content,
+  title,
+  labels,
+}: {
+  content: NonNullable<ProjectStoryContent["architecture"]>;
+  title: string;
+  labels?: GalleryLabels;
+}) {
+  return (
+    <section data-section aria-labelledby="story-architecture">
+      <SectionLabel id="story-architecture">{content.label}</SectionLabel>
+      <div className={`${page} flex flex-col pb-6`}>
+        {content.items.map((essay, index) => (
+          <article
+            key={essay.title}
+            className={`flex flex-col gap-8 py-10 sm:gap-10 ${index > 0 ? "border-border border-t-[0.5px]" : "pt-0"}`}
+          >
+            <Reveal>
+              <h3
+                className={`text-text-strong text-heading leading-[1.25] font-bold tracking-[-0.01em] ${PROSE}`}
+              >
+                {essay.title}
+              </h3>
+            </Reveal>
+            {groupBody(essay.body).map((block, at) => (
+              <Reveal key={at}>
+                {Array.isArray(block) ? (
+                  <Paragraphs text={block} />
+                ) : (
+                  <Figure
+                    media={block as Media}
+                    title={title}
+                    labels={labels}
+                  />
+                )}
+              </Reveal>
+            ))}
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/**
+ * One project, on a page of its own — the long form the card's two lines stand
+ * in for. It is built from the same screens as the home page: each block opens
+ * on the mono head and the 2px rule every section there opens on, the prose
+ * sits at a reading measure, and the media runs wider where it has to.
+ *
+ * The bar at the top stands in for the site nav, whose links are `#section`
+ * anchors that only resolve on the home page. It goes back to the list the
+ * reader came from, not to the top of the site.
+ *
+ * `anim-in` on the header and <Reveal> below it: the title block is what the
+ * page opens on, so it takes the hero's load-time entrance; everything under
+ * it arrives as it is scrolled to, like the sections on the home page.
+ */
+export function ProjectStory({
+  content,
+  project,
+  story,
+}: {
+  content: ProjectsContent;
+  project: Project;
+  story: ProjectStoryContent;
+}) {
+  const labels = content.gallery;
+  const appIcon = "appIcon" in project ? project.appIcon : undefined;
+
+  return (
+    <main className="flex min-h-svh flex-col">
+      <div className="border-border border-b-[0.5px]">
+        <div className={`${page} py-6`}>
+          <a
+            href="/#projects"
+            className="group text-text-secondary hover:text-text-strong inline-flex items-center gap-1.5 font-mono text-[14px] transition-colors duration-300"
+          >
+            <ArrowLeft
+              aria-hidden="true"
+              strokeWidth={1.75}
+              className="h-4 w-4 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover:-translate-x-0.5"
+            />
+            {story.labels.back}
+          </a>
+        </div>
+      </div>
+
+      {/* The head is the home page's hero, turned to one project: the title
+			    block on the left, the screens on the right, the facts under the title.
+			    Three blocks, so a phone can read them in its own order — title, then
+			    the screens, then the facts — while from `lg` the grid puts the facts
+			    back under the title and hands the slider the wider column. */}
+      <header
+        className={`${page} flex flex-col gap-10 pt-12 pb-12 sm:pt-16 sm:pb-16 lg:grid lg:grid-cols-[400px_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-10`}
+      >
+        <div className="flex flex-col gap-4 sm:gap-5 lg:col-start-1 lg:row-start-1">
+          <p
+            className="anim-in text-text-secondary text-meta font-mono font-light"
+            style={{ animationDelay: "60ms" }}
+          >
+            {project.period}
+          </p>
+          <div
+            className="anim-in flex items-start gap-3"
+            style={{ animationDelay: "120ms" }}
+          >
+            {appIcon ? (
+              <ImagePlaceholder
+                media={appIcon}
+                sizes="48px"
+                className="mt-0.5 h-10 w-10 shrink-0 rounded-lg sm:mt-1 sm:h-12 sm:w-12"
+              />
+            ) : null}
+            {/* One line, whatever the viewport: a project's own name is the one
+						    string on the page that must never break, and the column is sized
+						    to carry it beside the icon at the display step. */}
+            <h1 className="text-text-strong sm:text-display text-[34px] leading-[1.15] font-bold tracking-[-0.02em] whitespace-nowrap">
+              {project.title}
+            </h1>
+          </div>
+          <p
+            className="anim-in text-text-secondary text-[17px] leading-[1.5] font-medium tracking-[-0.01em] sm:text-[20px]"
+            style={{ animationDelay: "180ms" }}
+          >
+            {story.tagline}
+          </p>
+          <div className="anim-in" style={{ animationDelay: "240ms" }}>
+            <ProjectLinks links={project.links} title={project.title} />
+          </div>
+        </div>
+
+        {project.gallery?.length && labels ? (
+          <div
+            className="anim-in min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1"
+            style={{ animationDelay: "300ms" }}
+          >
+            <ScreenSlider
+              items={project.gallery}
+              title={project.title}
+              labels={labels}
+            />
+          </div>
+        ) : null}
+
+        {/* Every row opens on a hairline, the first included: on a phone it is
+				    what parts the list from the rail above it, and under the title it
+				    is the rule the hero draws under a figure. */}
+        <dl
+          className="anim-in flex flex-col lg:col-start-1 lg:row-start-2 lg:self-start"
+          style={{ animationDelay: "360ms" }}
+        >
+          {story.facts.map((fact) => (
+            <div
+              key={fact.term}
+              className="border-border flex flex-col gap-1 border-t-[0.5px] py-4"
+            >
+              <dt className="text-text-secondary text-meta font-mono">
+                {fact.term}
+              </dt>
+              <dd className="text-text-strong text-[17px] leading-snug font-semibold">
+                {fact.detail}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </header>
+
+      <section data-section aria-labelledby="story-highlights">
+        <SectionLabel id="story-highlights">
+          {story.labels.highlights}
+        </SectionLabel>
+        <Reveal className={`${page} pb-14`}>
+          <ul className={`flex flex-col gap-2.5 ${PROSE}`}>
+            {story.highlights.map((line) => (
+              <li key={line} className="flex items-start">
+                <Bullet />
+                <span className="text-text-strong min-w-0 text-[15px] leading-[1.5] sm:text-[17px]">
+                  {line}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
+
+      <section data-section aria-labelledby="story-motivation">
+        <SectionLabel id="story-motivation">
+          {story.labels.motivation}
+        </SectionLabel>
+        <Reveal className={`${page} pb-14`}>
+          <Paragraphs text={story.motivation} />
+        </Reveal>
+      </section>
+
+      {story.architecture ? (
+        <Architecture
+          content={story.architecture}
+          title={project.title}
+          labels={labels}
+        />
+      ) : null}
+
+      {story.steps?.length ? (
+        <section data-section aria-labelledby="story-process">
+          <SectionLabel id="story-process">{story.labels.process}</SectionLabel>
+          <div className={`${page} pb-4`}>
+            {/* One row per step, split by hairlines: when and what on the left,
+					    the screen it left behind and the account of it on the right.
+					    Below `lg` the head stacks over the body, the period still first. */}
+            <ol className="flex flex-col">
+              {story.steps.map((step, index) => (
+                <li
+                  key={step.title}
+                  className={index > 0 ? "border-border border-t-[0.5px]" : ""}
+                >
+                  <Reveal className="flex flex-col gap-5 py-10 lg:flex-row lg:gap-10">
+                    <div className="flex flex-col gap-2 lg:w-[260px] lg:shrink-0">
+                      <p className="text-text-secondary text-meta font-mono">
+                        {step.period}
+                      </p>
+                      <h3 className="text-text-strong text-card leading-snug font-bold">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <div
+                      className={`flex min-w-0 flex-1 flex-col gap-6 ${PROSE}`}
+                    >
+                      {step.images?.length ? (
+                        <div className="flex flex-col gap-3">
+                          {step.images.map((media, at) => (
+                            <ZoomImage
+                              key={media.src ?? at}
+                              media={media}
+                              title={step.title}
+                              labels={labels}
+                            />
+                          ))}
+                        </div>
+                      ) : null}
+                      <Paragraphs text={step.paragraphs} />
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      ) : null}
+    </main>
+  );
+}

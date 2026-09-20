@@ -327,9 +327,9 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 								    to the top of a 685px column would read as a caption that had
 								    floated away from its picture. */}
 								{withPanel ? (
-									<figcaption className="w-full shrink-0 text-center lg:w-[clamp(240px,26%,340px)] lg:self-center lg:text-left">
-										{item.caption ? <p className="text-text-inverse text-[15px] font-bold">{item.caption}</p> : null}
-										{item.note ? <p className="mt-2.5 text-[13px] leading-relaxed text-white/60">{item.note}</p> : null}
+									<figcaption className="w-full shrink-0 text-center lg:w-[clamp(260px,28%,380px)] lg:self-center lg:text-left">
+										{item.caption ? <p className="text-text-inverse text-[17px] font-bold">{item.caption}</p> : null}
+										{item.note ? <p className="mt-3 text-[15px] leading-[1.7] text-white/70">{item.note}</p> : null}
 									</figcaption>
 								) : null}
 							</figure>
