@@ -12,6 +12,33 @@ export type Media = {
 	/** Path under /public. Leave undefined to render the placeholder tile. */
 	src?: string;
 	alt: string;
+	/**
+	 * Intrinsic pixel size. Only the gallery needs it, and not to lay the image
+	 * out — the viewer fits it to the stage. It is the shape: the rail draws
+	 * each thumbnail at its own proportions, and how much of the viewport a
+	 * picture ends up covering (which is what the browser is told, so it can
+	 * fetch a file that size) follows from the same ratio.
+	 */
+	width?: number;
+	height?: number;
+	/**
+	 * One terse line naming the screen — where in the service it sits. It titles
+	 * the viewer's panel, and names the slide on the thumbnail rail and to a
+	 * screen reader whether the panel is open or not. The `alt` still carries the
+	 * full description for a reader who cannot see the image; this is the label
+	 * beside it, not a replacement.
+	 */
+	caption?: string;
+	/**
+	 * A sentence or two on what the screen is doing, shown beside the image.
+	 *
+	 * This is what opens the panel, and it is all or nothing per gallery: one
+	 * `note` anywhere gives every slide in that set a panel — an image that grew
+	 * and shrank as the reader paged past the slides that had one would be worse
+	 * than a little repetition — and with none, the images go out on their own,
+	 * with no caption line under them either.
+	 */
+	note?: string;
 };
 
 /** Section anchors. Market-independent — only the labels are translated. */
@@ -25,6 +52,13 @@ export type NavContent = {
 };
 
 export type ScrollCueContent = { ariaLabel: string; href: string };
+
+export type FooterContent = {
+	/** The year the copyright range opens on; it closes on the year of the build. */
+	since: number;
+	/** Rights holder and notice, in the market's language. */
+	notice: string;
+};
 
 /* ------------------------------------------------------------------ *
  * Hero
@@ -90,6 +124,21 @@ export type HeroContent = {
  */
 export type ProjectLink = { label: string; href: string };
 
+/**
+ * One label standing in for several addresses — four repositories behind
+ * "Github", say. It opens a short menu rather than going anywhere itself, so
+ * the card keeps one row however many places the project actually lives in.
+ * A single address stays a plain `ProjectLink`: a menu of one is a door that
+ * opens onto a door.
+ */
+export type ProjectLinkGroup = { label: string; items: readonly ProjectLink[] };
+
+export type ProjectLinkEntry = ProjectLink | ProjectLinkGroup;
+
+export function isLinkGroup(entry: ProjectLinkEntry): entry is ProjectLinkGroup {
+	return "items" in entry;
+}
+
 export type FeaturedProject = {
 	period: string;
 	title: string;
@@ -99,22 +148,50 @@ export type FeaturedProject = {
 	 * Omitted on a project with nothing public to open — the row disappears
 	 * rather than leaving an empty foot under the copy.
 	 */
-	links?: readonly ProjectLink[];
+	links?: readonly ProjectLinkEntry[];
 	thumbnail: Media;
 	appIcon: Media;
+	/**
+	 * Screens from the product, in the order a reader would walk through it.
+	 * Given one, the card's thumbnail becomes the way in: it opens the viewer
+	 * and the reader pages the flow from there. Omitted on a project with
+	 * nothing to show, and the thumbnail stays a plain tile.
+	 */
+	gallery?: readonly Media[];
 };
 
 export type ArchiveProject = {
 	period: string;
 	title: string;
 	description: string;
+	/** As on a featured project: where the thing actually is, or its source. */
+	links?: readonly ProjectLinkEntry[];
 	thumbnail: Media;
+	/** As on a featured project: given one, the thumbnail opens the viewer. */
+	gallery?: readonly Media[];
+};
+
+/**
+ * The viewer's own chrome, in the market's language. Every string here names a
+ * control rather than describing content, so it lives beside the section label
+ * instead of on each project.
+ */
+export type GalleryLabels = {
+	/** Suffixed with the project's name on the thumbnail button and the dialog. */
+	open: string;
+	previous: string;
+	next: string;
+	close: string;
+	/** Accessible name for the rail of thumbnails under the image. */
+	pick: string;
 };
 
 export type ProjectsContent = {
 	label: string;
 	featured: readonly FeaturedProject[];
 	archive: readonly ArchiveProject[];
+	/** Required once any project in either row carries a `gallery`. */
+	gallery?: GalleryLabels;
 };
 
 /* ------------------------------------------------------------------ *
@@ -170,10 +247,19 @@ export type CertificateCard = {
 	/** One line of prose; `**…**` lifts a project's name out of the sentence. */
 	description?: string;
 	image: Media;
+	/**
+	 * The scans, opened from the tile. A card whose award came with two
+	 * certificates carries both; one with a single page still gets a gallery,
+	 * because a certificate cannot be read in a 144px tile. `image` stays the
+	 * face of the card — it need not be the first page.
+	 */
+	gallery?: readonly Media[];
 };
 
 export type CertificatesContent = {
 	label: string;
+	/** Required once any card carries a `gallery`. The same strings Projects uses. */
+	gallery?: GalleryLabels;
 	/**
 	 * Certifications, awards and selections together, three to a row and in
 	 * the order they should be read. The grid draws six as two full rows;
@@ -213,6 +299,4 @@ export type JourneyChapter = {
 export type JourneyContent = {
 	label: string;
 	chapters: readonly JourneyChapter[];
-	/** The open end of the trunk — the row the timeline stops on. */
-	now: { label: string; detail: string };
 };

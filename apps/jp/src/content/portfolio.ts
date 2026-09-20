@@ -16,6 +16,7 @@
 import type {
 	CertificatesContent,
 	ExperienceContent,
+	FooterContent,
 	HeroContent,
 	JourneyContent,
 	NavContent,
@@ -40,6 +41,11 @@ export const nav: NavContent = {
 export const scrollCue: ScrollCueContent = {
 	ariaLabel: "プロジェクトのセクションへ移動",
 	href: "#projects",
+};
+
+export const footer: FooterContent = {
+	since: 2015,
+	notice: "Ballbot Company, All rights reserved.",
 };
 
 /* ------------------------------------------------------------------ *
@@ -85,8 +91,10 @@ export const overview: OverviewContent = {
 			value: "2 Years",
 			caption: "Nudge Healthcare・Timespread チームでバックエンドを担当",
 			items: [
-				{ emphasis: "19億件規模のテーブル", detail: " を無停止でマイグレーション" },
-				{ emphasis: "毎分1,500リクエスト", detail: " のレガシー移行、サーバー費用を40%削減" },
+				{ emphasis: "19億件のテーブルを", detail: "点検時間1時間以内にマイグレーション" },
+				{ emphasis: "毎分1,500件のリクエストを受ける", detail: "サービスをマイグレーション" },
+				{ emphasis: "月1,000万ウォンを超えていた AWS 費用を", detail: "30%削減" },
+				{ emphasis: "32GB を超えるメモリを占有して停止していた", detail: "API サーバーを正常化" },
 			],
 		},
 		{
@@ -115,7 +123,7 @@ export const projects: ProjectsContent = {
 			],
 			links: [{ label: "cosmonote.site", href: "https://cosmonote.site" }],
 			thumbnail: { src: "/mock/cosmo-thumb.svg", alt: "コスモのノートの画面。オペレーティングシステム第5週のまとめノートと復習クイズ" },
-			appIcon: { src: "/mock/cosmo-icon.svg", alt: "コスモのノートのアプリアイコン" },
+			appIcon: { src: "/brand/cosmonote-icon.png", alt: "コスモのノートのアプリアイコン" },
 		},
 		{
 			period: "2025 ~ 現在",
@@ -137,7 +145,7 @@ export const projects: ProjectsContent = {
 				{ label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.enqor.app" },
 			],
 			thumbnail: { src: "/mock/enqor-thumb.svg", alt: "enqor の画面。日本語の文を書き取る入力欄" },
-			appIcon: { src: "/mock/enqor-icon.svg", alt: "enqor のアプリアイコン" },
+			appIcon: { src: "/brand/enqor-icon.png", alt: "enqor のアプリアイコン" },
 		},
 	],
 	archive: [
@@ -146,6 +154,8 @@ export const projects: ProjectsContent = {
 			title: "HEALIX",
 			description:
 				"症状を伝えると、最も近くて適した病院を提案します。公共データポータルの医療情報とアプリ内の GPS 座標をまとめて AI に渡す設計です。",
+			// 공개된 저장소가 백엔드 하나뿐이라 메뉴 없이 바로 간다.
+			links: [{ label: "Github", href: "https://github.com/bb2002/healix-backend" }],
 			thumbnail: { src: "/mock/helix-thumb.svg", alt: "HEALIX の画面。症状の選択とおすすめ病院の一覧" },
 		},
 		{
@@ -153,6 +163,18 @@ export const projects: ProjectsContent = {
 			title: "WATERFLAKE",
 			description:
 				"プラグインを入れるだけで、外部から接続できないゲームサーバーに接続用のドメインが生まれます。TCP トンネリングと SRV レコードを軸にしています。",
+			// 저장소가 넷이라 카드에 네 줄을 세우는 대신 한 줄이 메뉴를 연다.
+			links: [
+				{
+					label: "Github",
+					items: [
+						{ label: "waterflake-api", href: "https://github.com/bb2002/waterflake-api" },
+						{ label: "waterflake-front", href: "https://github.com/bb2002/waterflake-front" },
+						{ label: "waterflake-tunnel", href: "https://github.com/bb2002/waterflake-tunnel" },
+						{ label: "waterflake-plugin", href: "https://github.com/bb2002/waterflake-plugin" },
+					],
+				},
+			],
 			// No art yet: an omitted `src` renders the design's placeholder tile.
 			thumbnail: { alt: "WATERFLAKE の画面。トンネルが張られた Minecraft サーバーのドメイン" },
 		},
@@ -161,6 +183,8 @@ export const projects: ProjectsContent = {
 			title: "スクリーン翻訳機",
 			description:
 				"中学生のときにはじめて作り、収益化まで到達したアプリです。端末を振ると画面をキャプチャし、オーバーレイで訳文を表示します。",
+			// 저장소가 하나뿐이라 메뉴 없이 바로 간다.
+			links: [{ label: "Github", href: "https://github.com/bb2002/ProjectScreenTranslator" }],
 			// No art yet: an omitted `src` renders the design's placeholder tile.
 			thumbnail: { alt: "スクリーン翻訳機の画面。キャプチャした画面の上にオーバーレイで訳文が重なっている様子" },
 		},
@@ -188,8 +212,9 @@ export const experience: ExperienceContent = {
 	highlights: [
 		{
 			slug: "bigint-migration",
-			year: "2022",
-			title: "約19億件の大規模データマイグレーション",
+			year: "2023",
+			title: "19億件のテーブルを点検時間1時間以内にマイグレーション",
+			subtitle: "データに優先順位をつけ、ロールバック可能なマイグレーションスクリプトを用意しました。",
 			paragraphs: [
 				"Timespread のランダムボックスは、広告を見るとキャッシュを引ける機能です。広告を見るたびに、等級と当選金額、時刻がテーブルに一行ずつ積まれ、ユーザーが次第に増え、レコード数は19億件に達しました。主キーが INT で宣言されていたため、上限である21億件まで2か月しか残っていない状況でした。",
 				"まず、サービスの特徴を調べました。ボックスは24時間後に期限切れになり、ランキングも1か月分までしか使わないため、必要なのは直近1か月分のデータだけでした。また、MySQL でテーブル名を変える操作は容量に左右されないことも分かりました。",
@@ -200,7 +225,8 @@ export const experience: ExperienceContent = {
 		{
 			slug: "realtime-redesign",
 			year: "2023",
-			title: "毎分1,500リクエストを受けるサービスのマイグレーション",
+			title: "毎分1,500件のリクエストを受けるサービスのマイグレーション",
+			subtitle: "DynamoDB と Redis でサービスを再設計し、6時間ごとに更新されていたランキングをリアルタイムで動くよう最適化しました。",
 			paragraphs: [
 				"ランダムボックスのマイグレーションを終えてから、リファクタリングまで1年待ちました。アプリが ID を整数として扱っていたため文字列に変えるアップデートを配信し、そのバージョンがユーザーの99%まで行き渡るのに時間がかかったからです。",
 				"リファクタリングでは性能とコストを一度に解決するため、ストレージを3つに分けました。当選確率や1日の当選上限といった管理者設定は MySQL に置き、ボックスの記録は DynamoDB に保存しました。ランキングは Redis の Sorted Set に保存しました。とくに DynamoDB はパーティションキーで読み書きするときの速度とコストがどちらも良く、Sorted Set はランキングの実装に最適化された構造でした。",
@@ -303,13 +329,7 @@ export const journey: JourneyContent = {
 			events: [
 				{
 					year: "2018",
-					title: "IWOP 部の活動",
-					detail: "3年間、Web 開発の部活でメンタリングなどの活動をしました。",
-				},
-				{
-					year: "2018",
 					title: "モバイルコンテンツコンテスト 受賞",
-					featured: true,
 					detail: "**スクリーン翻訳機**で校内コンテストの2位を受賞しました。",
 				},
 				{
@@ -317,11 +337,6 @@ export const journey: JourneyContent = {
 					title: "VR ゲームの開発",
 					featured: true,
 					detail: "Unreal Engine を使って **VRTetris**、**Tooth**、**Unrevived** の VR ゲームを開発しました。",
-				},
-				{
-					year: "2019",
-					title: "善隣ハッカソン 受賞",
-					detail: "ソウル市内の空き駐車スペースを探すプロジェクトで校内ハッカソンの3位を受賞しました。",
 				},
 				{
 					year: "2020",
@@ -339,13 +354,7 @@ export const journey: JourneyContent = {
 				{
 					year: "2021",
 					title: "KNU コーディングプラットフォームの開発",
-					featured: true,
 					detail: "江原大学校 SW 中心大学事業団が進めたコーディングプラットフォーム構築事業で、チームリーダーを務めました。",
-				},
-				{
-					year: "2021",
-					title: "SW 起業チャレンジ 受賞",
-					detail: "PLACEHOLDER — 大会の内容と受賞歴の確認が必要。",
 				},
 			],
 		},
@@ -354,49 +363,68 @@ export const journey: JourneyContent = {
 			title: "Nudge Healthcare",
 			subtitle: "Backend Engineer\nTimespread・Linkareer チーム",
 			events: [
-				{ year: "2022", title: "「今日のボックス」のサービス移行" },
 				{
 					year: "2022",
-					title: "19億件テーブルの無停止マイグレーション",
-					featured: true,
-					stack: "NestJS · MySQL",
-					detail: "INT の上限に達したログテーブルを BIGINT へ移しました。サービスは止まっていません。",
+					title: "32GB を超えるメモリを占有して停止していた API サーバーの正常化",
+					detail: "エラーも出さずにインスタンスのメモリを使い切って OOM が起きる問題を、メモリダンプの調査で解決しました。",
 				},
-				{ year: "2022", title: "Linkareer 自己PR添削サービスの開発" },
+				{
+					year: "2022",
+					title: "月1,000万ウォンを超えていた AWS 費用を30%削減",
+					detail: "インスタンスの増減ルールを見直し、安価で高性能な Graviton インスタンスを導入しました。",
+				},
 				{
 					year: "2023",
-					title: "月1,000万ウォンを超えるサーバー費用を40%削減",
+					title: "19億件のテーブルを点検時間1時間以内にマイグレーション",
 					featured: true,
-					stack: "GraphQL · Node.js",
-					detail: "レガシーの PHP サービスを移し、空いたサーバーを返却しました。",
+					detail: "データに優先順位をつけ、ロールバック可能なマイグレーションスクリプトを用意しました。",
+				},
+				{
+					year: "2023",
+					title: "毎分1,500件のリクエストを受けるサービスのマイグレーション",
+					featured: true,
+					detail: "DynamoDB と Redis でサービスを再設計し、6時間ごとに更新されていたランキングをリアルタイムで動くよう最適化しました。",
 				},
 			],
 		},
 		{
 			period: "2024 – 現在",
-			title: "江原大学校に復学",
+			title: "江原大学校",
+			subtitle: "コンピュータ工学科",
 			events: [
-				{ year: "2024", title: "LIKELION 連合ハッカソン 2位" },
-				{ year: "2024", title: "学科首席 · GPA 4.5" },
+				{
+					year: "2024",
+					title: "LIKELION 大学12期 中央ハッカソン 2位",
+					detail: "**HEALIX**で、全国55校・約1,500名が集まった大会で受賞しました。",
+				},
+				{
+					year: "2024",
+					title: "国際交流課のバディプログラム",
+					detail: "日本から来た交換留学生を一人受け持ち、学校生活を支え、サークルで良い思い出をつくれるよう手伝いました。",
+				},
+				{
+					year: "2025",
+					title: "国家優秀奨学金（理工系）",
+					detail: "全国で約1,000名のみが選抜される韓国の国家優秀奨学金（理工系）を授与されました。",
+				},
 				{
 					year: "2025",
 					title: "鳥取大学へ交換留学",
 					featured: true,
-					stack: "JLPT N1",
-					detail: "3年後期に派遣。国際交流課のバディプログラムで日本人留学生の生活を支援しました。",
+					detail: "日本での実際の暮らしを体験し、茶道部で伝統文化を学びました。",
 				},
 				{
-					year: "2025",
-					title: "コスモのノートの開発",
+					year: "2026",
+					title: "第3回 全国大学ソフトウェア成果共有フォーラム 1位",
 					featured: true,
-					stack: "Cloudflare Workers",
-					detail: "サーバーを持たずに運用する学習サービス。釜山地域大会 2位。",
+					detail: "**コスモのノート**で、全国13チームが集まった大会で受賞しました。",
+				},
+				{
+					year: "2026",
+					title: "enqor の開発",
+					detail: "Align Networks で開発部門のすべてを任されています。",
 				},
 			],
 		},
 	],
-	now: {
-		label: "現在",
-		detail: "江原大学校に復学、コスモのノートと enqor を運営中",
-	},
 };

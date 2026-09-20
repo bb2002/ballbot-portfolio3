@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import { Footer } from "@ballbot/shared";
 import { LANGUAGE_ALTERNATES, MARKETS } from "@ballbot/shared/markets";
+
+import { footer } from "@/content/portfolio";
 
 import "./globals.css";
 
@@ -82,7 +85,11 @@ export default function RootLayout({
 					}}
 				/>
 			</head>
-			<body className="antialiased">{children}</body>
+			<body className="antialiased">
+				{children}
+				{/* Here rather than in each page: it closes the story pages too. */}
+				<Footer content={footer} />
+			</body>
 		</html>
 	);
 }

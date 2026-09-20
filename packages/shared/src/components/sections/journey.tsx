@@ -28,7 +28,7 @@ export function Journey({ content }: { content: JourneyContent }) {
 			<div className={`${page} jy pt-12 pb-16`}>
 				{content.chapters.map((chapter, chapterIndex) => (
 					<Reveal
-						key={chapter.title}
+						key={`${chapter.period}-${chapter.title}`}
 						className={`jy-chapter${chapterIndex === 0 ? " jy-chapter--first" : ""}`}
 					>
 						<div aria-hidden="true" className="jy-trunk" />
@@ -103,19 +103,12 @@ export function Journey({ content }: { content: JourneyContent }) {
 					</Reveal>
 				))}
 
-				<Reveal className="jy-now">
-					<div aria-hidden="true" className="jy-trunk" />
-
-					<div className="jy-head">
-						<p className="text-text-secondary font-mono text-[15px] leading-[1.4] font-light">
-							{content.now.label}
-						</p>
-					</div>
-
-					<div className="jy-right">
-						<p className="text-text-secondary text-[15px] leading-[1.5]">{content.now.detail}</p>
-					</div>
-				</Reveal>
+				{/* The trunk's open end. It carried a "현재 / …" line beside it until
+				    that read as one more event on the branch below; the ring alone
+				    says the last chapter has not closed. */}
+				<div aria-hidden="true" className="jy-now">
+					<div className="jy-trunk" />
+				</div>
 			</div>
 		</section>
 	);

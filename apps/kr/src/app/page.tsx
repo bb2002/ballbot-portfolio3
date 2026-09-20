@@ -6,7 +6,6 @@ import {
 	NavBar,
 	Projects,
 	ScrollCue,
-	SectionPager,
 } from "@ballbot/shared";
 
 import { certificates, experience, hero, journey, nav, overview, projects, scrollCue } from "@/content/portfolio";
@@ -21,11 +20,18 @@ import { certificates, experience, hero, journey, nav, overview, projects, scrol
  * its sticky containing block would end with the hero. It also stays outside
  * <main>, so the page's only navigation landmark is not buried inside it.
  *
- * `data-section` marks the five screens: the pager jumps from the first to the
- * second and animates nav links to any of them, reading the order off the DOM.
- * The hero's marker sits on <header> even though the nav and cue below it close
- * that screen — they are sticky and full-bleed, and wrapping them would end the
- * nav's sticky containing block at the hero's foot.
+ * `data-section` marks the five screens. It is what the hairline between them
+ * and their `scroll-margin-top` hang off (theme.css), so a nav link lands under
+ * the sticky bar rather than behind it. The hero's marker sits on <header> even
+ * though the nav and cue below it close that screen — they are sticky and
+ * full-bleed, and wrapping them would end the nav's sticky containing block at
+ * the hero's foot.
+ *
+ * Nothing touches the scroller: a jump to an anchor is the browser's own smooth
+ * scroll. An earlier build swallowed the first wheel notch on the hero and
+ * animated the reader down to Projects instead; it fought anyone who meant to
+ * scroll a little, and the screens are no longer one viewport each for it to
+ * land on.
  *
  * The components come from @ballbot/shared and hold no copy of their own: this
  * file is the whole of what makes the page Korean, which is what lets the
@@ -45,7 +51,6 @@ export default function Home() {
 				<Certificates content={certificates} />
 				<Journey content={journey} />
 			</main>
-			<SectionPager />
 		</>
 	);
 }

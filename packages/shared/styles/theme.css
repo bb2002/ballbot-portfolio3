@@ -51,6 +51,10 @@
 	--text-lead: 15px;
 	--text-body: 15px;
 	--text-meta: 13px;
+
+	/* The image viewer's entrance. Short and small: it covers the page, so the
+	   only thing the motion has to say is that the page is still under it. */
+	--animate-lightbox-in: lightbox-in 0.28s var(--ease-smooth) both;
 }
 
 /* ------------------------------------------------------------------ *
@@ -59,13 +63,18 @@
  * `--page-x` steps that gutter down on smaller viewports; `--nav-h`
  * and `--cue-h` are what the hero subtracts to sit exactly one
  * viewport tall (Hero frame 982 = body 831 + bottom nav 151).
- * Both measure the *whole* block including its hairlines, so the
- * subtraction leaves no overflowing pixel.
+ * Both measure the *whole* block, so the subtraction leaves no
+ * overflowing pixel. The line that closes the hero is not in either
+ * of them — it belongs to Projects, as the rule above its head.
  * ------------------------------------------------------------------ */
 :root {
 	--nav-h: 98px;
 	--cue-h: 39px;
 	--page-x: 20px;
+	/* The air a section head carries, above and below its own text. One value
+	   for both sides and for every screen: the head reads as the start of its
+	   section, and the seams down the page all measure the same. */
+	--label-y: 28px;
 	--ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 	color-scheme: light;
 }
@@ -75,6 +84,7 @@
 	:root {
 		--nav-h: 114px;
 		--page-x: 40px;
+		--label-y: 36px;
 	}
 }
 
@@ -123,59 +133,37 @@ html[lang="ko"] body {
 
 /* ------------------------------------------------------------------ *
  * Screens
- * Anchor targets clear the sticky nav — and because `scroll-margin`
- * also sizes a snap area, this one declaration doubles as the mobile
- * snap offset, so no `scroll-padding-top` is needed (both together
- * would offset a hash jump by two nav heights).
+ * A nav link is a plain anchor and the jump is the browser's own smooth
+ * scroll, so the one thing the screens owe it is room for the sticky bar
+ * that would otherwise cover the head they land on. On the target rather
+ * than as `scroll-padding-top` on the scroller: the two together would
+ * offset every hash jump by two nav heights.
  * ------------------------------------------------------------------ */
 [data-section] {
 	scroll-margin-top: var(--nav-h);
 }
 
-/* Every screen fills at least the viewport. `svh`, not `dvh`: the small
-   viewport is the one that holds still while mobile browser chrome
-   collapses, so a section cannot resize under a scroll in progress.
-   `min-height` keeps the tall ones (Journey, Certificates) scrollable.
-   The hero is exempt — it already measures one viewport *including* the
-   nav bar and scroll cue that close it.
+/* Sections are exactly as tall as what is in them.
 
-   The column layout is the other half of the guarantee: a section whose
-   content is shorter than the viewport hands the slack to whichever blocks
-   inside it carry `flex-1`, so the rows grow instead of the screen ending
-   in a blank band. Sections already taller than the viewport mark nothing
-   `flex-1` and lay out exactly as they did before. */
+   They used to be pinned to `min-height: 100svh`, laid out as columns so the
+   slack fell to whichever blocks carried `flex-1`. Every screen filled the
+   viewport, but nothing on the page actually wanted that: Projects and
+   Experience were stretched open to reach the mark, Journey and Certificates
+   overran it anyway, and the two habits together made the seams look broken
+   rather than deliberate. What separates one screen from the next now is the
+   hairline below and the head's own `--label-y`, which is the same above the
+   head as below it on every section.
+
+   The hero is the exception and keeps its viewport height in hero.tsx — it is
+   the one screen whose job is to be a screen. */
+
+/* Every screen opens on the same full-bleed 2px rule, so the boundary is a line
+   the eye can point at rather than an absence — and a heavier one than any of
+   the hairlines drawn *inside* a section, which is what tells the two apart at a
+   glance. Projects is in this too: the scroll cue above it draws no closing line
+   of its own, it lands on this one. */
 main [data-section] {
-	min-height: 100svh;
-	display: flex;
-	flex-direction: column;
-	/* Air above the section head. Crossing from Projects into Experience has to
-	   read as leaving one screen for another, and the label alone never did —
-	   it looked like the next sub-group of the screen already on show. The pad
-	   is inside the border box, so a section already exactly one viewport tall
-	   spends it out of its own slack rather than growing the page. */
-	padding-top: 56px;
-}
-
-/* …and a rule to land on. The pad opens the gap, this closes it: every screen
-   after the first opens on a full-bleed hairline, so the boundary is a line the
-   eye can point at rather than an absence. Projects needs none — the scroll cue
-   directly above it already ends on one. */
-main [data-section] + [data-section] {
-	border-top: 0.5px solid var(--color-border);
-}
-
-@media (min-width: 640px) {
-	main [data-section] {
-		padding-top: clamp(72px, 10vh, 128px);
-	}
-}
-
-/* While the pager's rAF loop owns the scroller, native smooth scrolling
-   must stand down or the two fight over the same pixels. Touch devices get
-   no snapping at all: the hero overflows a phone viewport, so a snap point
-   would only yank readers off the end of it. */
-html[data-paging] {
-	scroll-behavior: auto;
+	border-top: 2px solid var(--color-border);
 }
 
 ::selection {
@@ -519,9 +507,13 @@ html[data-paging] {
 	}
 }
 
-/* The closing row: the trunk stops on an open ring rather than a dot. */
+/* The closing row: the trunk stops on an open ring rather than a dot. It is
+   nothing but that ring now — the "현재 …" line that used to sit beside it read
+   as one more event — so with no content in the flow the row has to declare
+   the height its ink takes, which is the mark's centre plus its own radius. */
 .jy-now {
-	--jy-mark-y: calc(8px + var(--jy-period-lh) / 2);
+	--jy-mark-y: 18px;
+	height: calc(var(--jy-mark-y) + 7px);
 }
 
 .jy-now .jy-trunk::before {
@@ -534,28 +526,6 @@ html[data-paging] {
 	box-shadow: inset 0 0 0 2px var(--color-text-strong);
 }
 
-.jy-now .jy-head {
-	padding-top: 8px;
-	padding-bottom: 6px;
-}
-
-/* Below lg the detail sits under the label rather than beside it, so it
-   takes the head's indent instead of the branch column's. */
-.jy-now .jy-right {
-	padding-left: var(--jy-head-x);
-}
-
-@media (min-width: 1024px) {
-	.jy-now .jy-head {
-		padding-bottom: 0;
-	}
-
-	.jy-now .jy-right {
-		padding-top: 8px;
-		padding-left: 48px;
-	}
-}
-
 /* ------------------------------------------------------------------ *
  * Motion
  * ------------------------------------------------------------------ */
@@ -563,6 +533,17 @@ html[data-paging] {
 	from {
 		opacity: 0;
 		transform: translate3d(0, 14px, 0);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes lightbox-in {
+	from {
+		opacity: 0;
+		transform: scale(1.01);
 	}
 	to {
 		opacity: 1;
@@ -621,7 +602,8 @@ html.js [data-reveal="shown"] {
 	}
 
 	.anim-in,
-	.anim-cue {
+	.anim-cue,
+	.animate-lightbox-in {
 		animation: none !important;
 	}
 

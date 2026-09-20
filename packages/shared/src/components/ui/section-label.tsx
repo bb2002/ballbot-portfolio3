@@ -25,11 +25,17 @@ const borderClass: Record<NonNullable<Props["border"]>, string> = {
  * bold, a sub-group inside it stays grey and regular. Weight is what carries
  * the distinction where a sub-label happens to sit near the top of a viewport
  * with no screen head in sight to compare it against.
+ *
+ * `--label-y` (theme.css) is the whole of the air a head carries: the same
+ * measure above the text as below it, and the same on every section. The
+ * sections used to open with a separate pad of their own on top of this one,
+ * which put far more space above a head than under it and left each screen
+ * looking detached from the block it was introducing.
  */
 export function SectionLabel({ children, id, border = "none" }: Props) {
 	return (
 		<div className={borderClass[border]}>
-			<div className={`${page} py-6`}>
+			<div className={`${page} py-[var(--label-y)]`}>
 				<h2
 					id={id}
 					className={`font-mono text-[18px] tracking-[-0.01em] ${

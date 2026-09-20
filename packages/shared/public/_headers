@@ -15,5 +15,16 @@
 /mock/*
   Cache-Control: public,max-age=3600,stale-while-revalidate=86400
 
+# Project screenshots. Same trade as the mock art: a stable path rather than a
+# content hash, so not immutable — but these are full-page captures behind one
+# click, and a reader who opens the viewer pages every one of them.
+/projects/*
+  Cache-Control: public,max-age=3600,stale-while-revalidate=604800
+
+# Real brand marks — a product's own app icon, not stand-in art. Same trade as
+# the mock tree: a stable path, so freshness rather than immutability.
+/brand/*
+  Cache-Control: public,max-age=3600,stale-while-revalidate=604800
+
 /favicon.svg
   Cache-Control: public,max-age=86400,stale-while-revalidate=604800

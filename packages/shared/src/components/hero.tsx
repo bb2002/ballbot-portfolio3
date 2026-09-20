@@ -2,11 +2,12 @@ import type { HeroContent, OverviewContent } from "../content-types";
 
 /**
  * One viewport, minus the nav bar and scroll cue that close the hero frame —
- * so the hero screen as a whole is exactly as tall as every section below it.
+ * so the hero and the two rails under it fill the screen the page opens on and
+ * nothing else. It is the only block on the site measured against the viewport;
+ * every section below is as tall as its own content (theme.css).
  * `min-h` rather than `h`: below the design height the columns have to grow
  * instead of spilling their content behind the sticky nav. `svh` rather than
- * `dvh` for the same reason the sections use it — a height that holds still
- * while mobile browser chrome collapses.
+ * `dvh` — a height that holds still while mobile browser chrome collapses.
  */
 const HERO_VIEWPORT = "min-h-[calc(100svh-var(--nav-h)-var(--cue-h))]";
 

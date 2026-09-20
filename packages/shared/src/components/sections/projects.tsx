@@ -1,8 +1,17 @@
 import { Fragment } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import type { ArchiveProject, FeaturedProject, ProjectsContent } from "../../content-types";
+import type {
+	ArchiveProject,
+	FeaturedProject,
+	GalleryLabels,
+	ProjectLinkEntry,
+	ProjectsContent,
+} from "../../content-types";
+import { isLinkGroup } from "../../content-types";
+import { GalleryThumb } from "../ui/gallery-thumb";
 import { ImagePlaceholder, ThumbFrame } from "../ui/image-placeholder";
+import { LinkMenu } from "../ui/link-menu";
 import { Reveal } from "../ui/reveal";
 import { Rule } from "../ui/rule";
 import { SectionLabel } from "../ui/section-label";
@@ -13,23 +22,89 @@ import { page } from "../ui/layout";
  * text beside them always has the wider column; `aspect-ratio` keeps the design's
  * 250×170 and 205×141 proportions without pinning a height.
  */
-const FEATURED_THUMB =
-	"aspect-[25/17] w-full max-w-[320px] rounded-lg sm:w-[clamp(200px,40%,300px)]";
+const FEATURED_THUMB = "aspect-[25/17] w-full max-w-[320px] rounded-lg sm:w-[clamp(200px,40%,300px)]";
 
 const ARCHIVE_THUMB = "aspect-[205/141] w-full max-w-[280px] rounded-[4px] sm:w-[clamp(120px,32%,170px)]";
 
-function FeaturedCard({ project }: { project: FeaturedProject }) {
+/**
+ * Where the thing actually is: the domain a service runs on, each store an app
+ * is published to, or the repositories it was built in — several of those
+ * behind one label, as a menu. The design put the
+ * stack in pills here; on a project that ships, the address is worth more to a
+ * reader than the list of what it was built with — and a pill that is also a
+ * link invites a click the stack name cannot honour. So these read as links,
+ * borrowing the hero's sliding underline.
+ *
+ * Both cards draw the same row, so it lives here rather than twice.
+ */
+function ProjectLinks({ links, title }: { links?: readonly ProjectLinkEntry[]; title: string }) {
+	if (!links?.length) return null;
+
+	return (
+		<ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+			{links.map((link) =>
+				isLinkGroup(link) ? (
+					<li key={link.label}>
+						<LinkMenu group={link} title={title} />
+					</li>
+				) : (
+					<li key={link.href}>
+						<a
+							href={link.href}
+							target="_blank"
+							rel="noreferrer noopener"
+							// The visible label leads, so the accessible name still opens with
+							// the text on screen; the suffix is only there to tell a reader
+							// tabbing a list of links which card it is in.
+							aria-label={`${link.label} — ${title}`}
+							className="group/link text-text-strong inline-flex items-center gap-1 text-[14px] font-semibold"
+						>
+							<span className="relative">
+								{link.label}
+								<span
+									aria-hidden="true"
+									className="bg-text-strong absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:scale-x-100"
+								/>
+							</span>
+							<ArrowUpRight
+								aria-hidden="true"
+								strokeWidth={2}
+								className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:-translate-y-px group-hover/link:translate-x-px"
+							/>
+						</a>
+					</li>
+				),
+			)}
+		</ul>
+	);
+}
+
+function FeaturedCard({ project, galleryLabels }: { project: FeaturedProject; galleryLabels?: GalleryLabels }) {
+	const thumbSizes = "(max-width: 640px) 90vw, 20vw";
+
 	return (
 		// `min-w-0` is what keeps the card inside its column: without it the fixed
 		// thumbnail sets a min-content width the two-up row cannot honour at 1024,
 		// and the card spills across the rule into its neighbour.
 		<article className="group flex min-w-0 flex-1 flex-col justify-center gap-4 py-3">
 			<div className="flex min-w-0 flex-col items-start gap-2.5 sm:flex-row">
-				<ThumbFrame
-					media={project.thumbnail}
-					sizes="(max-width: 640px) 90vw, 20vw"
-					className={FEATURED_THUMB}
-				/>
+				{/* The thumbnail is a door only when there is a room behind it: a
+				    project with screens to page through gets the clickable tile, one
+				    without keeps the plain frame rather than a control that opens
+				    nothing. `galleryLabels` is what the market calls those controls —
+				    with no labels there is no accessible name, so there is no button. */}
+				{project.gallery?.length && galleryLabels ? (
+					<GalleryThumb
+						media={project.thumbnail}
+						gallery={project.gallery}
+						title={project.title}
+						labels={galleryLabels}
+						sizes={thumbSizes}
+						className={`shrink-0 ${FEATURED_THUMB}`}
+					/>
+				) : (
+					<ThumbFrame media={project.thumbnail} sizes={thumbSizes} className={FEATURED_THUMB} />
+				)}
 
 				<div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-3 py-1 sm:px-2.5">
 					<p className="text-text-secondary text-meta font-mono">{project.period}</p>
@@ -41,11 +116,7 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
 					    first line of it. */}
 					<div className="flex min-w-0 items-start gap-2.5">
 						{/* The design draws a bare 32px placeholder here, not a padded surface tile. */}
-						<ImagePlaceholder
-							media={project.appIcon}
-							sizes="32px"
-							className="mt-0.5 h-8 w-8 shrink-0 rounded-lg"
-						/>
+						<ImagePlaceholder media={project.appIcon} sizes="32px" className="mt-0.5 h-8 w-8 shrink-0 rounded-lg" />
 						{/* `lg:text-[26px]`: lg is where the cards go two-up and the text
 						    column drops to ~165px. Holding the title at the stacked layout's
 						    32px there wrapped it and left the two stat feet off each other's
@@ -58,42 +129,7 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
 
 					<p className="text-text-secondary text-body leading-relaxed font-medium">{project.description}</p>
 
-					{/* Where the thing actually is. The design put the stack in pills
-					    here; on a project that ships, the address is worth more to a
-					    reader than the list of what it was built with — and a pill that
-					    is also a link invites a click the stack name cannot honour. So
-					    these read as links, borrowing the hero's sliding underline. */}
-					{project.links?.length ? (
-						<ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-							{project.links.map((link) => (
-								<li key={link.href}>
-									<a
-										href={link.href}
-										target="_blank"
-										rel="noreferrer noopener"
-										// The visible label leads, so the accessible name still
-										// opens with the text on screen; the suffix is only there to
-										// tell a reader tabbing a list of links which card it is in.
-										aria-label={`${link.label} — ${project.title}`}
-										className="group/link text-text-strong inline-flex items-center gap-1 text-[14px] font-semibold"
-									>
-										<span className="relative">
-											{link.label}
-											<span
-												aria-hidden="true"
-												className="bg-text-strong absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:scale-x-100"
-											/>
-										</span>
-										<ArrowUpRight
-											aria-hidden="true"
-											strokeWidth={2}
-											className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:-translate-y-px group-hover/link:translate-x-px"
-										/>
-									</a>
-								</li>
-							))}
-						</ul>
-					) : null}
+					<ProjectLinks links={project.links} title={project.title} />
 				</div>
 			</div>
 
@@ -122,15 +158,29 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
 	);
 }
 
-function ArchiveCard({ project }: { project: ArchiveProject }) {
+function ArchiveCard({ project, galleryLabels }: { project: ArchiveProject; galleryLabels?: GalleryLabels }) {
+	const thumbSizes = "(max-width: 1280px) 28vw, 14vw";
+
 	return (
 		<article className="group flex min-w-0 flex-1 flex-col items-start gap-2.5 py-6 sm:flex-row sm:items-center">
-			<ThumbFrame media={project.thumbnail} sizes="(max-width: 1280px) 28vw, 14vw" className={ARCHIVE_THUMB} />
+			{project.gallery?.length && galleryLabels ? (
+				<GalleryThumb
+					media={project.thumbnail}
+					gallery={project.gallery}
+					title={project.title}
+					labels={galleryLabels}
+					sizes={thumbSizes}
+					className={`shrink-0 ${ARCHIVE_THUMB}`}
+				/>
+			) : (
+				<ThumbFrame media={project.thumbnail} sizes={thumbSizes} className={ARCHIVE_THUMB} />
+			)}
 
 			<div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-3 py-2 sm:px-2.5">
 				<p className="text-text-secondary text-meta font-mono">{project.period}</p>
 				<h3 className="text-text-strong sm:text-subtitle text-[20px] font-bold">{project.title}</h3>
 				<p className="text-text-secondary text-[14px] font-medium">{project.description}</p>
+				<ProjectLinks links={project.links} title={project.title} />
 			</div>
 		</article>
 	);
@@ -141,15 +191,16 @@ export function Projects({ content }: { content: ProjectsContent }) {
 		<section id="projects" data-section aria-labelledby="projects-label">
 			<SectionLabel id="projects-label">{content.label}</SectionLabel>
 
-			{/* The three blocks each take a share of whatever the labels leave over, so
-			    a tall desktop viewport is spent on taller rows rather than a blank foot. */}
-			<div className="border-border flex flex-1 flex-col border-y-[0.5px]">
-				<div className={`${page} flex flex-1 flex-col lg:flex-row lg:gap-3`}>
+			{/* Two featured cards, side by side from `lg`. The rows are as tall as the
+			    cards in them — the section no longer has a viewport to fill, so there is
+			    no slack to hand out and nothing gets stretched to take it. */}
+			<div className="border-border border-y-[0.5px]">
+				<div className={`${page} flex flex-col lg:flex-row lg:gap-3`}>
 					{content.featured.map((project, index) => (
 						<Fragment key={project.title}>
 							{index > 0 ? <Rule /> : null}
 							<Reveal delay={index * 90} className="flex min-w-0 flex-1">
-								<FeaturedCard project={project} />
+								<FeaturedCard project={project} galleryLabels={content.gallery} />
 							</Reveal>
 						</Fragment>
 					))}
@@ -162,13 +213,13 @@ export function Projects({ content }: { content: ProjectsContent }) {
 			    `border-b` only: with no label between them this row sits straight
 			    under the featured row's bottom hairline, and a top border here
 			    would draw the same line twice. */}
-			<div className="border-border flex flex-1 flex-col border-b-[0.5px]">
-				<div className={`${page} flex flex-1 flex-col xl:flex-row xl:gap-3`}>
+			<div className="border-border border-b-[0.5px]">
+				<div className={`${page} flex flex-col xl:flex-row xl:gap-3`}>
 					{content.archive.map((project, index) => (
 						<Fragment key={project.title}>
 							{index > 0 ? <Rule stack="xl" /> : null}
 							<Reveal delay={index * 90} className="flex min-w-0 flex-1">
-								<ArchiveCard project={project} />
+								<ArchiveCard project={project} galleryLabels={content.gallery} />
 							</Reveal>
 						</Fragment>
 					))}

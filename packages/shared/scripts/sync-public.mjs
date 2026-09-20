@@ -9,6 +9,11 @@
  * Run from an app directory:  node ../../packages/shared/scripts/sync-public.mjs
  * Extra sources (the JP font build, say) are passed as arguments and copied on
  * top, in order, so a market can override a shared file.
+ *
+ * That is also where a market's *own* static files belong: an app keeps them in
+ * `assets/` and passes `./assets:` as a source. Dropping them straight into
+ * `public/` would not survive the next run — the first thing this does is empty
+ * it.
  */
 import { cp, rm, stat } from "node:fs/promises";
 import { dirname, resolve } from "node:path";

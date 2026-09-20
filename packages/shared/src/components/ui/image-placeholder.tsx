@@ -8,6 +8,12 @@ type Props = {
 	className?: string;
 	sizes?: string;
 	priority?: boolean;
+	/**
+	 * How the art meets its box. `cover` fills and crops, which is what a logo
+	 * or icon cut to its box wants; `contain` shows the whole picture at its
+	 * own proportions and lets the surface take up the slack.
+	 */
+	fit?: "cover" | "contain";
 };
 
 /**
@@ -16,7 +22,7 @@ type Props = {
  * Once `media.src` is supplied the real image takes over, so dropping assets
  * into the market's content file is the only change needed later.
  */
-export function ImagePlaceholder({ media, className = "", sizes, priority }: Props) {
+export function ImagePlaceholder({ media, className = "", sizes, priority, fit = "cover" }: Props) {
 	if (media.src) {
 		return (
 			<div className={`relative overflow-hidden ${className}`}>
@@ -28,7 +34,7 @@ export function ImagePlaceholder({ media, className = "", sizes, priority }: Pro
 					priority={priority}
 					// The optimizer refuses SVG by default; mock art is vector, so pass it through.
 					unoptimized={media.src.endsWith(".svg")}
-					className="object-cover"
+					className={fit === "contain" ? "object-contain" : "object-cover"}
 				/>
 			</div>
 		);
@@ -68,6 +74,12 @@ type FrameProps = {
  * Thumbnail tiles in the design are a `$surface` box with 8px padding wrapping
  * the placeholder — this reproduces that pairing and scales the inner art on
  * hover when the parent carries the `group` class.
+ *
+ * The art is contained rather than cropped. The tile’s own ratio is set on the
+ * outer box, so the 8px padding leaves an inner box of a different ratio — a
+ * picture cut to the tile would be shaved again on the axis the padding costs
+ * most. Containing it keeps every thumbnail at the proportions it was cut to,
+ * and the surface behind takes up whatever slack is left.
  */
 export function ThumbFrame({ media, className = "", sizes, priority }: FrameProps) {
 	return (
@@ -76,6 +88,7 @@ export function ThumbFrame({ media, className = "", sizes, priority }: FrameProp
 				media={media}
 				sizes={sizes}
 				priority={priority}
+				fit="contain"
 				className="h-full w-full transition-transform duration-500 ease-[var(--ease-smooth)] group-hover:scale-[1.04]"
 			/>
 		</div>

@@ -15,11 +15,10 @@ export function Experience({ content }: { content: ExperienceContent }) {
 			</SectionLabel>
 
 			{/* Company column | rule | highlight entries, capped to the 1512 canvas so the
-			    body stays aligned with the section label above it.
-			    `flex-1` hands this body everything the label leaves over: it is the one
-			    block on the screen, so the two highlight rows below split a full viewport
-			    between them rather than stacking at the top of an empty screen. */}
-			<div className="mx-auto flex w-full max-w-[1512px] flex-1 flex-col lg:flex-row">
+			    body stays aligned with the section label above it. The row is as tall as
+			    the company block, which is the taller of the two columns; `justify-center`
+			    inside each column is what centres the shorter one against it. */}
+			<div className="mx-auto flex w-full max-w-[1512px] flex-col lg:flex-row">
 				<Reveal className="flex flex-col justify-center px-[var(--page-x)] lg:shrink-0">
 					<div className="flex flex-col gap-2.5 py-6">
 						<p className="text-text-strong text-meta font-mono font-light">{company.period}</p>

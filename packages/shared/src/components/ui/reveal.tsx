@@ -21,10 +21,10 @@ function getObserver() {
 				observer?.unobserve(entry.target);
 			}
 		},
-		// A 24px inset, not a viewport percentage: the screens are exactly one
-		// viewport tall, so a row sitting in the last 8% of a screen that has been
-		// jumped to would never intersect and stay invisible until the reader
-		// scrolled past it.
+		// A 24px inset, not a viewport percentage: a percentage deep enough to be
+		// worth having also holds back whatever sits in the last band of the
+		// viewport a deep link lands on, and that row then stays invisible until
+		// the reader scrolls past it.
 		{ rootMargin: "0px 0px -24px 0px", threshold: 0.08 },
 	);
 	return observer;

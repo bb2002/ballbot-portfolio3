@@ -1,5 +1,6 @@
-import type { CertificateCard, CertificatesContent } from "../../content-types";
+import type { CertificateCard, CertificatesContent, GalleryLabels } from "../../content-types";
 import { Emphasised } from "../ui/emphasised";
+import { GalleryThumb } from "../ui/gallery-thumb";
 import { ThumbFrame } from "../ui/image-placeholder";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
@@ -42,19 +43,31 @@ function cellPads(index: number) {
 	return `${two} ${three}`;
 }
 
-function Card({ item }: { item: CertificateCard }) {
+function Card({ item, galleryLabels }: { item: CertificateCard; galleryLabels?: GalleryLabels }) {
+	/* A certificate is a document, so the scan is big enough to read something
+	   off. The tile steps with the column: narrowest at `sm`, where two cells
+	   share the row, widest at `xl`, where three do. 3:4 throughout, the
+	   proportion the design drew. */
+	const thumbSizes = "(max-width: 640px) 32vw, (max-width: 1280px) 16vw, 11vw";
+	const thumbClass = "aspect-[3/4] w-[112px] shrink-0 rounded-[4px] sm:w-[100px] lg:w-[124px] xl:w-[144px]";
+
 	// Top-aligned: a card with a description must not stagger the row.
 	return (
 		<article className="group flex min-w-0 flex-1 items-start gap-2.5 py-6">
-			{/* A certificate is a document, so the scan is big enough to read
-			    something off. The tile steps with the column: narrowest at `sm`,
-			    where two cells share the row, widest at `xl`, where three do.
-			    3:4 throughout, the proportion the design drew. */}
-			<ThumbFrame
-				media={item.image}
-				sizes="(max-width: 640px) 32vw, (max-width: 1280px) 16vw, 11vw"
-				className="aspect-[3/4] w-[112px] shrink-0 rounded-[4px] sm:w-[100px] lg:w-[124px] xl:w-[144px]"
-			/>
+			{/* 144px is nowhere near enough to read a certificate, so where there is
+			    a scan the tile opens it. */}
+			{item.gallery?.length && galleryLabels ? (
+				<GalleryThumb
+					media={item.image}
+					gallery={item.gallery}
+					title={item.title.replace(/\n/g, " ")}
+					labels={galleryLabels}
+					sizes={thumbSizes}
+					className={thumbClass}
+				/>
+			) : (
+				<ThumbFrame media={item.image} sizes={thumbSizes} className={thumbClass} />
+			)}
 			<div className="flex min-w-0 flex-1 flex-col gap-2 px-2.5 py-2 xl:pr-0">
 				<p className="text-text-secondary text-meta font-mono">{item.period}</p>
 				{/* Contest above, prize name below, the title between them: the two
@@ -84,25 +97,22 @@ function Card({ item }: { item: CertificateCard }) {
  * own separators do the rest; the next screen's top border (theme.css) closes
  * it, so no closing rule is drawn here — a second line 16px above that one
  * read as a mistake.
- *
- * `flex-1` on the block: on a display tall enough to hold the whole screen the
- * slack goes into the rows rather than pooling as a blank foot under them.
  */
 export function Certificates({ content }: { content: CertificatesContent }) {
 	return (
 		<section id="certificates" data-section aria-labelledby="certificates-label">
 			<SectionLabel id="certificates-label">{content.label}</SectionLabel>
 
-			<div className="border-border flex flex-1 flex-col border-t-[0.5px]">
-				<div className={`${page} flex flex-1 flex-col`}>
-					<div className={`${GRID} flex-1`}>
+			<div className="border-border border-t-[0.5px]">
+				<div className={page}>
+					<div className={GRID}>
 						{content.items.map((item, index) => (
 							<div
 								key={`${item.title}-${index}`}
 								className={`border-border flex min-w-0 ${cellPads(index)} ${cellRules(index)}`}
 							>
 								<Reveal delay={index * 70} className="flex min-w-0 flex-1">
-									<Card item={item} />
+									<Card item={item} galleryLabels={content.gallery} />
 								</Reveal>
 							</div>
 						))}
@@ -110,7 +120,7 @@ export function Certificates({ content }: { content: CertificatesContent }) {
 				</div>
 			</div>
 
-			<div className="h-4 shrink-0" />
+			<div className="h-4" />
 		</section>
 	);
 }
