@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 	const story = findStory(slug);
 	if (!story) return {};
 	const path = `/experience/${slug}`;
-	const description = story.subtitle ?? story.paragraphs[0];
+	const description = story.subtitle ?? story.body.find((block): block is string => typeof block === "string");
 	return {
 		title: `${story.title} | ballbot.dev`,
 		description,

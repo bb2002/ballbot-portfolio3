@@ -115,6 +115,25 @@ export type HeroContent = {
 };
 
 /* ------------------------------------------------------------------ *
+ * Story bodies
+ * ------------------------------------------------------------------ */
+
+/** A sub-head inside a body — where a long story turns to its next part. */
+export type StoryHeading = { heading: string };
+
+/** A bulleted run inside a body: one entry per row. */
+export type StoryList = { items: readonly string[] };
+
+/**
+ * One block of the prose a project's essay or an experience story is
+ * written in, in reading order: a string is a paragraph, a `Media` is a
+ * figure dropped where the text turns to it, and the two object forms are a
+ * sub-head and a list. A body that is nothing but paragraphs is an array of
+ * strings, which is what most of them are.
+ */
+export type StoryBlock = string | Media | StoryHeading | StoryList;
+
+/* ------------------------------------------------------------------ *
  * Projects
  * ------------------------------------------------------------------ */
 
@@ -157,13 +176,12 @@ export type ProjectStep = {
 
 /**
  * One question the project had to answer, worked through in prose with the
- * diagrams it needs: the body is paragraphs and figures in reading order —
- * a string is a paragraph, a `Media` is a figure dropped between them, at
- * the point the text starts referring to it.
+ * diagrams it needs. The body is a `StoryBlock` run in reading order, so a
+ * figure lands at the point the text starts referring to it.
  */
 export type ProjectEssay = {
 	title: string;
-	body: readonly (string | Media)[];
+	body: readonly StoryBlock[];
 };
 
 /**
@@ -299,6 +317,8 @@ export type ExperienceContent = {
 	};
 	/** One row each on the section's list; each opens its own page. */
 	highlights: readonly ExperienceHighlight[];
+	/** Required once any story carries a figure. The same strings Projects uses. */
+	gallery?: GalleryLabels;
 };
 
 export type ExperienceHighlight = {
@@ -310,8 +330,8 @@ export type ExperienceHighlight = {
 	title: string;
 	/** One quieter line under the title on the list row: the story in a sentence. */
 	subtitle?: string;
-	/** The story page body, one entry per paragraph. */
-	paragraphs: readonly string[];
+	/** The story page body: paragraphs, and on a long story the sub-heads, figures and lists between them. */
+	body: readonly StoryBlock[];
 };
 
 /* ------------------------------------------------------------------ *
@@ -373,6 +393,12 @@ export type JourneyEvent = {
 	stack?: string;
 	/** `**…**` lifts a project's name out of the line, as an award's does. */
 	detail?: string;
+	/**
+	 * Pictures of the thing — the screens of a service, a photograph of the
+	 * moment. Given one, every `**…**` fragment in the row's title and detail
+	 * becomes the way in, so mark the one word the pictures belong to.
+	 */
+	gallery?: readonly Media[];
 };
 
 export type JourneyChapter = {
@@ -386,4 +412,6 @@ export type JourneyChapter = {
 export type JourneyContent = {
 	label: string;
 	chapters: readonly JourneyChapter[];
+	/** Required once any event carries a `gallery`. The same strings Projects uses. */
+	gallery?: GalleryLabels;
 };

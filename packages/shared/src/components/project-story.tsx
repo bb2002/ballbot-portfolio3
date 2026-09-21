@@ -4,7 +4,6 @@ import type {
   ArchiveProject,
   FeaturedProject,
   GalleryLabels,
-  Media,
   ProjectsContent,
   ProjectStoryContent,
 } from "../content-types";
@@ -14,99 +13,15 @@ import { ProjectLinks } from "./ui/project-links";
 import { Reveal } from "./ui/reveal";
 import { ScreenSlider } from "./ui/screen-slider";
 import { SectionLabel } from "./ui/section-label";
+import { Bullet, Paragraphs, PROSE, StoryBody } from "./ui/story-body";
 import { ZoomImage } from "./ui/zoom-image";
 
 type Project = FeaturedProject | ArchiveProject;
 
-/** The reading measure. Prose stops here; the slider and the figures may run the page. */
-const PROSE = "max-w-[760px]";
-
-/**
- * The 4px dot the hero's Overview rows are drawn with, in a 24px column one
- * line box tall — 15 × 1.5 and 17 × 1.5, the two steps the row text takes —
- * so with `items-start` on the row it centres on the *first* line and a row
- * that wraps does not leave it hanging between two.
- */
-function Bullet() {
-  return (
-    <span
-      aria-hidden="true"
-      className="flex h-[22px] w-6 shrink-0 items-center justify-center sm:h-[25px]"
-    >
-      <span className="bg-text-strong h-1 w-1 rounded-full" />
-    </span>
-  );
-}
-
-function Paragraphs({ text }: { text: readonly string[] }) {
-  return (
-    <div className={`flex flex-col gap-4 ${PROSE}`}>
-      {text.map((paragraph, index) => (
-        <p key={index} className="text-text-secondary text-body leading-[1.8]">
-          {paragraph}
-        </p>
-      ))}
-    </div>
-  );
-}
-
-/**
- * A figure in the run of an essay. It runs the width of the page rather than
- * the prose, because a diagram at a reading measure is a diagram nobody can
- * read. Under `lg` the same picture would be narrower still, so there it
- * keeps a floor of its own and the reader slides across it — the viewer
- * behind the click is the other way to read it close.
- */
-function Figure({
-  media,
-  title,
-  labels,
-}: {
-  media: Media;
-  title: string;
-  labels?: GalleryLabels;
-}) {
-  return (
-    <figure className="flex flex-col gap-3">
-      <div className="-mx-[var(--page-x)] overflow-x-auto px-[var(--page-x)]">
-        <div className="min-w-[880px] lg:min-w-0">
-          <ZoomImage
-            media={media}
-            title={title}
-            labels={labels}
-            sizes="(max-width: 1024px) 880px, 1320px"
-          />
-        </div>
-      </div>
-      {media.caption ? (
-        <figcaption className="text-text-secondary font-mono text-[13px]">
-          {media.caption}
-        </figcaption>
-      ) : null}
-    </figure>
-  );
-}
-
-/** Runs of paragraphs become one block each; a figure stands on its own. */
-function groupBody(
-  body: readonly (string | Media)[],
-): (readonly string[] | Media)[] {
-  const blocks: (string[] | Media)[] = [];
-  for (const item of body) {
-    const last = blocks[blocks.length - 1];
-    if (typeof item !== "string") blocks.push(item);
-    else if (Array.isArray(last)) last.push(item);
-    else blocks.push([item]);
-  }
-  return blocks;
-}
-
 /**
  * The design questions, one after another under a single head. Each opens
- * on its own title; the body is paragraphs and figures in the order the
- * content file put them, so a diagram lands where the text turns to it.
- * Consecutive paragraphs share one block so their spacing matches the prose
- * everywhere else on the page.
+ * on its own title; the body is laid out by StoryBody in the order the content
+ * file put it, so a diagram lands where the text turns to it.
  */
 function Architecture({
   content,
@@ -133,19 +48,7 @@ function Architecture({
                 {essay.title}
               </h3>
             </Reveal>
-            {groupBody(essay.body).map((block, at) => (
-              <Reveal key={at}>
-                {Array.isArray(block) ? (
-                  <Paragraphs text={block} />
-                ) : (
-                  <Figure
-                    media={block as Media}
-                    title={title}
-                    labels={labels}
-                  />
-                )}
-              </Reveal>
-            ))}
+            <StoryBody body={essay.body} title={title} labels={labels} />
           </article>
         ))}
       </div>

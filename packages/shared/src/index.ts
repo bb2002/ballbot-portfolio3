@@ -19,6 +19,7 @@ export { Journey } from "./components/sections/journey";
 export { Projects } from "./components/sections/projects";
 
 export { Emphasised } from "./components/ui/emphasised";
+export { GalleryMark } from "./components/ui/gallery-mark";
 export { GalleryThumb } from "./components/ui/gallery-thumb";
 export { ImagePlaceholder, ThumbFrame } from "./components/ui/image-placeholder";
 export { Lightbox } from "./components/ui/lightbox";
@@ -29,4 +30,5 @@ export { Reveal } from "./components/ui/reveal";
 export { Rule } from "./components/ui/rule";
 export { ScreenSlider } from "./components/ui/screen-slider";
 export { SectionLabel } from "./components/ui/section-label";
+export { Bullet, Figure, Paragraphs, PROSE, StoryBody } from "./components/ui/story-body";
 export { ZoomImage } from "./components/ui/zoom-image";

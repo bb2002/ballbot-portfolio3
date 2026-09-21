@@ -5377,7 +5377,8 @@
                               "content": "가상 서버를 빌려 마인크래프트 서버를 올리고 리눅스와 네트워크를 익혔습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5489,7 +5490,8 @@
                               "content": "첫 웹 서비스. 업로드와 다운로드, 댓글까지 직접 짰습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5601,7 +5603,8 @@
                               "content": "화면 글자를 읽어 그 자리에서 번역합니다. 교내 해커톤 2등.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5713,7 +5716,8 @@
                               "content": "MyRunnerGame, 런 켓, VR 호러 게임 Tooth, Unrevived.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5825,7 +5829,8 @@
                               "content": "컴퓨터공학과 입학. 교내 과제를 채점하는 온라인 저지를 만들었습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5937,7 +5942,8 @@
                               "content": "타임스프레드 팀 합류. INT 한계에 닿은 로그 테이블을 BIGINT로 이전.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -6049,7 +6055,8 @@
                               "content": "링커리어 팀에서 자기소개서 서비스를 만들고 레거시 서비스를 옮겼습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -6161,7 +6168,8 @@
                               "content": "돗토리대학 교환학생. 서버 없이 운영하는 학습 서비스를 만들었습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -6375,7 +6383,8 @@
                               "content": "가상 서버를 빌려 마인크래프트 서버를 올리고 리눅스와 네트워크를 익혔습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -6452,7 +6461,8 @@
                               "lineHeight": 1.6,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -6609,7 +6619,8 @@
                               "content": "화면 글자를 읽어 그 자리에서 번역합니다. 교내 해커톤 2등.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -6686,7 +6697,8 @@
                               "lineHeight": 1.6,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -6843,7 +6855,8 @@
                               "content": "컴퓨터공학과 입학. 교내 과제를 채점하는 온라인 저지를 만들었습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -6920,7 +6933,8 @@
                               "lineHeight": 1.6,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -7077,7 +7091,8 @@
                               "content": "링커리어 팀에서 자기소개서 서비스를 만들고 레거시 서비스를 옮겼습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -7154,7 +7169,8 @@
                               "lineHeight": 1.6,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -7559,7 +7575,8 @@
                               "content": "가상 서버를 빌려 24시간 도는 서버를 올리고 리눅스와 네트워크를 익혔습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -7829,7 +7846,8 @@
                               "fill": "$text-secondary",
                               "content": "소프트웨어과",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -8027,7 +8045,8 @@
                               "content": "MyRunnerGame, 런 켓. 처음으로 팀을 이뤄 게임을 끝까지 완성했습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -8210,7 +8229,8 @@
                               "fill": "$text-secondary",
                               "content": "컴퓨터공학과",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -8321,7 +8341,8 @@
                               "content": "교내 프로그래밍 과제를 브라우저에서 채점하는 온라인 저지.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -8504,7 +8525,8 @@
                               "fill": "$text-secondary",
                               "content": "Backend Engineer · 타임스프레드, 링커리어 팀",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -8702,7 +8724,8 @@
                               "content": "INT 한계에 닿은 로그 테이블을 BIGINT로 옮겼습니다. 서비스는 멈추지 않았습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -8900,7 +8923,8 @@
                               "content": "레거시 PHP 서비스를 옮기고 비어 있던 서버를 반납했습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -9262,7 +9286,8 @@
                               "content": "3학년 2학기 파견, 국제교류처 버디 프로그램에서 일본인 유학생을 도왔습니다.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -9373,7 +9398,8 @@
                               "content": "서버 없이 운영하는 학습 서비스. 부산 지역 대회 2등.",
                               "lineHeight": 1.6,
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -9458,7 +9484,8 @@
                               "fill": "$text-secondary",
                               "content": "강원대학교 복학, 코스모의 노트와 enqor 운영 중",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -9809,7 +9836,8 @@
                                               "content": "가상 서버를 빌려 24시간 도는 서버를 올리고 리눅스와 네트워크를 익혔습니다.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -10095,7 +10123,8 @@
                               "lineHeight": 1.5,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -10416,7 +10445,8 @@
                                               "content": "MyRunnerGame, 런 켓. 처음으로 팀을 이뤄 게임을 끝까지 완성했습니다.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -10592,7 +10622,8 @@
                               "lineHeight": 1.5,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -10803,7 +10834,8 @@
                                               "content": "교내 프로그래밍 과제를 브라우저에서 채점하는 온라인 저지.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -10979,7 +11011,8 @@
                               "lineHeight": 1.5,
                               "textAlign": "right",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -11300,7 +11333,8 @@
                                               "content": "INT 한계에 닿은 로그 테이블을 BIGINT로 옮겼습니다. 서비스는 멈추지 않았습니다.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -11545,7 +11579,8 @@
                                               "content": "레거시 PHP 서비스를 옮기고 비어 있던 서버를 반납했습니다.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -12020,7 +12055,8 @@
                                               "content": "3학년 2학기 파견, 국제교류처 버디 프로그램에서 일본인 유학생을 도왔습니다.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -12155,7 +12191,8 @@
                                               "content": "서버 없이 운영하는 학습 서비스. 부산 지역 대회 2등.",
                                               "lineHeight": 1.6,
                                               "fontFamily": "$font-sans",
-                                              "fontSize": 15
+                                              "fontSize": 15,
+                                              "fontWeight": "normal"
                                             }
                                           ]
                                         }
@@ -12254,7 +12291,8 @@
                               "fill": "$text-secondary",
                               "content": "강원대학교 복학, 코스모의 노트와 enqor 운영 중",
                               "fontFamily": "$font-sans",
-                              "fontSize": 15
+                              "fontSize": 15,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -12809,6 +12847,2583 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "UAJCU",
+      "x": 0,
+      "y": 1769.5,
+      "name": "bigint / 01 table",
+      "clip": true,
+      "width": 1200,
+      "height": 440,
+      "fill": "#ffffff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "path",
+          "id": "d2SSPq",
+          "x": 0,
+          "y": 0,
+          "name": "live hatch",
+          "geometry": "M59.8 305.6c10.3-9.4 19-18.3 29.8-29.8m-29.4 59.8c21.7-22.5 39.5-39.9 60.2-59.3m-60.6 90c25.5-26 63.4-63.7 89.9-89.9m-83.2 113.8c34.6-37.2 74-75.5 113.9-114m-84.7 114.2c33.9-32 72.8-72 114.7-114m-84.6 113.2c46-43.4 75.3-72.8 114.3-113.4m-84.1 114.2c30.2-32.5 72-73.6 114.2-114.7m-84.1 114.2c35.8-34 78.4-76.4 113.6-114.3m-83.7 114.4c29.1-27.9 78-76.6 113.8-114.1m-83.8 113.7c34-34.9 75.1-75.8 113.7-113.1m-83.3 113.7c36.2-34.8 85-83.7 113.1-114.4m-83.1 114.7c29.5-28.9 80.7-79.9 113.4-114.6m-83.8 114.5c39.2-39.6 76.2-76.6 114.4-114.3m-84.3 113.8c40-40.5 70.2-70.4 114.1-114.1m-84.5 113.9c45.7-44.5 82.4-81.4 113.9-114.1m-83.5 114.3c32.5-31.4 69.4-68.3 114.4-113.5m-84.9 113.3c37.6-35.4 79.1-77.4 114-113.2m-83.3 113.5c43.6-44.5 71.8-72.3 113.5-114.3m-83.6 114.7c32.6-32.6 74.4-74.7 114.3-114.8m-84.2 114.7c31.3-33.8 82.9-85.1 113.7-114.1m-84.2 113.3c28.5-29.6 77.3-78.5 113.7-113.9m-83.3 114.1c24.9-23.2 68.3-67.4 94.2-93.9m-64 94.1c20.8-22 41.4-42.3 63.8-64.2m-33.8 64.6c9.4-9.8 21.3-21.8 33.6-34.6m-3.5 34.5c0.6-1.4 1.9-2.7 4-4.3",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#e2e2e2",
+          "strokeWidth": 1,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "ELO8y",
+          "x": 0,
+          "y": 0,
+          "name": "table",
+          "geometry": "M59.6 79.1c229.2-1.2 395.9-0.2 639.3 1.2m-639.9 0.7c206-2 475.4-2.1 641.2-0.7m0-0.6c2.8 108.4 1.4 217.5 0.3 311.3m0.3-311.1c-0.1 97.1-0.3 208.4-0.2 311.1m-0.4-2c-244.8 4.2-403.4 4.3-639.7 0.3m640.1-0.5c-207.8 1.5-386.9 1.5-641.7 0.8m2.3 0.2c1-78.8 0.3-219.1-0.1-310.9m-1.5 311c1.8-108.2 1.9-187.5 0.9-308.9",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "WZLtH",
+          "x": 0,
+          "y": 0,
+          "name": "header line",
+          "geometry": "M60.7 123c168.9 0.2 476.8 0.2 638.3-0.2m-638.5 0.1c198-2.7 408.4-1.5 639.9 1.8",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "u7izE",
+          "x": 0,
+          "y": 0,
+          "name": "grid",
+          "geometry": "M250.5 79.8c0.8 112.2 0.7 225.5-0.2 310.7m170-311.1c-2.3 85.1-1.5 217.5 0.2 310.9m-360-228.9c171.3 0.7 434.5 0.7 640.1 0.1m-640.6 38.7c212.4-0.9 426.9-0.8 640.3-0.2m-640.2 37.7c217.3-0.7 425-0.4 639.4 0.4m-639.8 37.3c240.8-0.9 443.1-0.9 640 0.3m-640.1 38.1c186.7-0.7 427.1-0.6 640.3 0.8m-639.7 37.7c233.3-0.6 417.7-0.4 639.8-0.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#b5b5b5",
+          "strokeWidth": 1,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "j9ymwL",
+          "x": 60,
+          "y": 30,
+          "name": "title",
+          "fill": "#1f1f1f",
+          "content": "luckybox   1.9B rows",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 26,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "Z3Wtb",
+          "x": 80,
+          "y": 88,
+          "name": "col id",
+          "fill": "#1f1f1f",
+          "content": "id  INT",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "omHfS",
+          "x": 270,
+          "y": 88,
+          "name": "col cash",
+          "fill": "#1f1f1f",
+          "content": "cash",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "AIA4C",
+          "x": 440,
+          "y": 88,
+          "name": "col created",
+          "fill": "#1f1f1f",
+          "content": "created_at",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "NdD4b",
+          "x": 80,
+          "y": 130,
+          "name": "r0 id",
+          "fill": "#5a5a5a",
+          "content": "1",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "KqRSU",
+          "x": 270,
+          "y": 130,
+          "name": "r0 cash",
+          "fill": "#5a5a5a",
+          "content": "300",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "dfUuj",
+          "x": 440,
+          "y": 130,
+          "name": "r0 at",
+          "fill": "#5a5a5a",
+          "content": "2021-12-01",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "EGb6b",
+          "x": 80,
+          "y": 168,
+          "name": "r1 id",
+          "fill": "#5a5a5a",
+          "content": "2",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "f17M8G",
+          "x": 270,
+          "y": 168,
+          "name": "r1 cash",
+          "fill": "#5a5a5a",
+          "content": "100",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "AOeBG",
+          "x": 440,
+          "y": 168,
+          "name": "r1 at",
+          "fill": "#5a5a5a",
+          "content": "2021-12-01",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "F5g1T",
+          "x": 80,
+          "y": 206,
+          "name": "r2 id",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "r44d8K",
+          "x": 270,
+          "y": 206,
+          "name": "r2 cash",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "Jl8cC",
+          "x": 440,
+          "y": 206,
+          "name": "r2 at",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "Crtfp",
+          "x": 80,
+          "y": 244,
+          "name": "r3 id",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "fVPzo",
+          "x": 270,
+          "y": 244,
+          "name": "r3 cash",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "VCcSe",
+          "x": 440,
+          "y": 244,
+          "name": "r3 at",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "vnqZW",
+          "x": 80,
+          "y": 282,
+          "name": "r4 id",
+          "fill": "#5a5a5a",
+          "content": "1,899,999,998",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "fb4VG",
+          "x": 270,
+          "y": 282,
+          "name": "r4 cash",
+          "fill": "#5a5a5a",
+          "content": "500",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "Wny7N",
+          "x": 440,
+          "y": 282,
+          "name": "r4 at",
+          "fill": "#5a5a5a",
+          "content": "2023-06-29",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "eL00S",
+          "x": 80,
+          "y": 320,
+          "name": "r5 id",
+          "fill": "#5a5a5a",
+          "content": "1,899,999,999",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "W3xMf",
+          "x": 270,
+          "y": 320,
+          "name": "r5 cash",
+          "fill": "#5a5a5a",
+          "content": "1,000",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "TuWwI",
+          "x": 440,
+          "y": 320,
+          "name": "r5 at",
+          "fill": "#5a5a5a",
+          "content": "2023-06-30",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "wi1hW",
+          "x": 80,
+          "y": 358,
+          "name": "r6 id",
+          "fill": "#5a5a5a",
+          "content": "1,900,000,000",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "oZy2J",
+          "x": 270,
+          "y": 358,
+          "name": "r6 cash",
+          "fill": "#5a5a5a",
+          "content": "300",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "wCvgu",
+          "x": 440,
+          "y": 358,
+          "name": "r6 at",
+          "fill": "#5a5a5a",
+          "content": "2023-06-30",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "bugUR",
+          "x": 0,
+          "y": 0,
+          "name": "brace expired",
+          "geometry": "M715.3 123.9c1.6 46.5 1.4 104.9 1.1 143.5m0.4-143.1c-2.1 55.8-2 94.8-0.5 144.3m-0.5-143.9c-3.3-0.8-6.9-0.7-9.8-1.4m9.4 1.3c-2.2-0.6-6.4-0.6-8.6-1.2m8.7 145.2c-3-0.7-6.3-0.6-9.8-0.5m10.3 0.1c-3.6-0.1-6.2-0.1-10.7-0.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#8f8f8f",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "nwKVw",
+          "x": 734,
+          "y": 178,
+          "name": "expired",
+          "fill": "#8f8f8f",
+          "content": "expired, never read",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "zTAFh",
+          "x": 0,
+          "y": 0,
+          "name": "brace live",
+          "geometry": "M716.6 276c0.6 34.6 0.1 82.1 0 113.5m-0.6-113.8c0.3 40.9 0.4 69.7 0.6 114.7m-0.8-113.9c-2.9-0.4-7.1-0.4-10.5-0.1m11.3-0.9c-4.2 0.5-7.9 0.5-10 1m9.3 113.1c-3 0.5-6.3 0.5-9.4 0m9.6 0.8c-2.7-0.3-6.3-0.4-10.7 0.3",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "q6d32M",
+          "x": 734,
+          "y": 310,
+          "name": "live",
+          "fill": "#1f1f1f",
+          "content": "last 1 month = live",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "pGZY5",
+          "x": 734,
+          "y": 344,
+          "name": "live why",
+          "fill": "#8f8f8f",
+          "content": "24h expiry, ranking batch",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "SA6nj",
+          "x": 0,
+          "y": 0,
+          "name": "gauge hatch",
+          "geometry": "M920 115.8c22 22.7 46.1 46.8 70.2 70.1m-70-58c18.9 19.4 42.1 42.7 69.5 70.2m-69.6-58.4c24.3 24.1 45 45 69.7 70.4m-70-57.9c21.4 20.2 44.8 43.7 70.3 69.8m-70.3-58.4c21.4 22.1 49.4 49.8 70.3 70.1m-69.7-57.9c26.5 26.2 42.6 42.7 69.2 69.9m-69.2-57.3c19.2 19.8 47.4 47.7 69.3 69.6m-69.5-58c23.8 23.3 49.4 49 69.6 69.9m-69.7-57.6c17.7 16.9 43.6 42.8 69.7 69.9m-69.9-57.8c23.3 22.5 45.3 44.4 70.4 69.5m-70-57.8c18.8 18.3 49.9 49.8 69.9 70.2m-70.3-58.4c24.4 23.6 52.5 51.8 70.3 69.9m-70-57.5c19.9 19 44.6 44 69.7 69.6m-69.6-57.9c24.9 26.2 48.4 49.6 69.8 69.6m-70.2-57.5c22.8 21.8 50.5 49.8 70.3 70.1m-70.3-58c23.5 22.3 48.4 47.3 70.2 69.5m-70.4-57.7c27.2 26 44.6 43.3 70.3 70m-70.2-57.6c23.3 22.1 45.6 44.6 70.2 69.8m-70-58.5c19.8 19.6 37.5 37.6 57.7 58.3m-57.8-46c13.1 12.8 32.5 32.2 46 45.6m-46-33.7c11.6 11.5 23.5 23.4 34.4 34.2m-34.6-22c7.7 7 15.8 15.2 22.3 21.7m-22-9.7c2.8 2.9 7 7 9.9 9.6m-9.7-0.1c22.9-22.9 42-42 69.7-69.6m-58.3 70.3c22.3-21.7 35.3-35 58.8-58.2m-46 58.1c15.9-15.9 28.1-28.4 45.3-46m-33.4 45.8c9.7-10.3 20.3-21 34-34.3m-22.3 34.5c8.8-8.7 14.6-14.7 22-22.1m-10.4 22.2c3.9-3.8 6.4-6.3 10.5-10.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#9a9a9a",
+          "strokeWidth": 1,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "VHjQP",
+          "x": 0,
+          "y": 0,
+          "name": "gauge",
+          "geometry": "M918.8 80.3c22-0.7 45.5-0.8 71.6 0.1m-69.9-1.2c21.7-0.5 51.8-0.2 70.6 1.8m-1.1-1.5c0.8 90.5 0.6 194-1 309.5m1.2-308.7c0.8 108.6 0.5 228.9 1 310.7m-1.6-1.5c-23.3 0.3-42.2 0.4-69.9-0.4m69.3 2c-24.5 0-46.8-0.6-69.6-2.2m1.4 0.7c-0.7-97.2-0.7-198.3 0.5-308.3m-0.5 309.2c2.6-81 2.5-209.3-2-309.6",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "Xy9KG",
+          "x": 0,
+          "y": 0,
+          "name": "gauge fill line",
+          "geometry": "M921.1 116.3c23.2-1.3 45.7-1.3 68.5-0.7m-69.7 1c25.7 0.7 51.1 0.6 68.8 0",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "PL22X",
+          "x": 1008,
+          "y": 62,
+          "name": "int max",
+          "fill": "#1f1f1f",
+          "content": "2.1B  INT max",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "qzTx3",
+          "x": 1008,
+          "y": 104,
+          "name": "now",
+          "fill": "#1f1f1f",
+          "content": "1.9B  now",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "EsXXV",
+          "x": 0,
+          "y": 0,
+          "name": "brace left",
+          "geometry": "M906.7 79.6c-0.5 12.6-0.4 24.6-0.9 36.8m0.3-36.9c0.4 13 0.2 26.4-0.4 36.5m1-36.4c2 0.5 4.8 0.5 7.4 0.7m-7.4-1c2.4 0.6 4.7 0.6 8 0.3m-9.1 36.9c2.6-0.5 5.8-0.5 8.2-1.1m-7.9 0.1c2.7 0.5 5.3 0.5 8.3 0.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#8f8f8f",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "Z310kY",
+          "x": 784,
+          "y": 82,
+          "name": "months",
+          "fill": "#8f8f8f",
+          "content": "~2 months",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "fR3YD",
+          "x": 924,
+          "y": 398,
+          "name": "range",
+          "fill": "#8f8f8f",
+          "content": "id range",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "CKbbI",
+      "x": 0,
+      "y": 2329.5,
+      "name": "bigint / 02 trigger",
+      "clip": true,
+      "width": 1200,
+      "height": 420,
+      "fill": "#ffffff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "path",
+          "id": "cvc1V",
+          "x": 0,
+          "y": 0,
+          "name": "server",
+          "geometry": "M59.5 190.1c60.6-2.6 113.8-1.3 160.6-0.1m-160.9-0.1c43.9-0.9 106.7-0.5 161.2 0.4m0.6 1c-1.6 23.3-1.6 56.8-0.4 79.6m-1-81.3c2.2 22.8 1.1 49.8 0.8 79.3m-0.2 0.9c-58 2-98.8 1.4-159.8 1.3m159.6-1c-58.2-0.2-108.2-0.2-159.7-0.9m1 0.3c-2.8-22.9-2.5-55.8-0.8-80m-0.1 81.1c-2.1-27.5-1.8-58.4-0.8-81.6",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "S6l03y",
+          "x": 60,
+          "y": 190,
+          "name": "server label",
+          "width": 160,
+          "height": 80,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "yxa15",
+              "name": "server label server",
+              "fill": "#1f1f1f",
+              "content": "server",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "dKIje",
+          "x": 56,
+          "y": 284,
+          "name": "no update",
+          "fill": "#8f8f8f",
+          "content": "no app update",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "liwtn",
+          "x": 0,
+          "y": 0,
+          "name": "insert arrow",
+          "geometry": "M221.6 231.3c29.5 0.6 69.2-0.3 106.4-2m-106 1c40.9-0.7 73.5-0.7 105.3-0.5m0.4 0.1c-3.9 1.9-8.4 4.1-12 6.1m12.3-6.5c-4.2 2.5-9.2 4.9-12 7.2m12.4-6.4c-4.1-2.1-9.4-4.7-13.5-7m13.8 6.9c-4.3-2-8.6-4.1-12.6-6.1",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "Ghjel",
+          "x": 236,
+          "y": 194,
+          "name": "insert",
+          "fill": "#1f1f1f",
+          "content": "INSERT",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "vK7Nv",
+          "x": 0,
+          "y": 0,
+          "name": "trigger",
+          "geometry": "M329.6 169.7c69.4 3.5 168.5 2.6 259.2 1.5m-258.4-1.9c98.2 4.1 159.2 2.1 259.3 1m0 0.8c-2.6 44.4-1.8 79.3 0 118.6m1.3-119c-1.2 43-1.1 71.4-1.5 119.5m0.8-0.2c-74.4-2.2-189.9-1.2-261.2-1m260.1 0.9c-79.2-2.9-166.1-2.6-259.4 0m0.1 0.9c0.4-32.7 0.3-80.7-0.3-120.2m0 118.3c-1-30.1-0.4-83.6 0.8-117.8",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "f32Tx",
+          "x": 330,
+          "y": 170,
+          "name": "trigger label",
+          "width": 260,
+          "height": 120,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "EKJ2U",
+              "name": "trigger label BEFORE INSERT",
+              "fill": "#1f1f1f",
+              "content": "BEFORE INSERT",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "iyCE2",
+              "name": "trigger label id = -seq.next",
+              "fill": "#5a5a5a",
+              "content": "id = -seq.next",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "ezP0s",
+          "x": 0,
+          "y": 0,
+          "name": "seq",
+          "geometry": "M395.5 47.5a65 18.2 0 1 1 130.7 0.9 65 18.2 0 1 1-130.1-1.3m-1.2 0.8a65 18.2 0 1 1 131.2-0.3 65 18.2 0 1 1-132 0m1.4 1.9c0.6 19 0.5 37.5 0 52.9m0.5-53.9c-1 13.3-1 38.1-0.4 54.4m128.2-54.1c1.5 18.8 1.4 38.5-0.1 53m0.3-52.7c0.4 13.7 0.4 32.2 1.7 53.2m-130.7-1.2a65 18.2 0 0 0 130.9 0.7m-131 0.7a65 18.2 0 0 0 130 0.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "U3pbh",
+          "x": 395,
+          "y": 30,
+          "name": "seq label",
+          "width": 130,
+          "height": 90,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ISqD7",
+              "name": "seq label seq",
+              "fill": "#1f1f1f",
+              "content": "seq",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "wDB55",
+          "x": 540,
+          "y": 52,
+          "name": "seq next",
+          "fill": "#8f8f8f",
+          "content": "next = n",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "M0xMNY",
+          "x": 0,
+          "y": 0,
+          "name": "seq link",
+          "geometry": "M460.2 122.4c-0.1 3.1-0.1 6.6 0.2 10m-0.6-11c0.3 4.1 0.3 7.3 0.2 10.7m-0.3 7.8c0.3 4 0.3 7.1 0.8 9.6m-0.7-9.6c0.3 3.8 0.2 6.6-0.3 10.4m0.5 7.8c0.1 3.3 0.1 7.1-0.4 10.3m0.2-10.1c0.2 3.3 0.2 5.8 0.1 10.3",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "EnnM8",
+          "x": 474,
+          "y": 126,
+          "name": "read",
+          "fill": "#8f8f8f",
+          "content": "read",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "iisJo",
+          "x": 0,
+          "y": 0,
+          "name": "id arrow",
+          "geometry": "M592.2 228.8c39.3 3.6 74.4 3.4 107 1.8m-107.8-1.9c35.6-0.6 67.1 0 105.9 2m0.6-0.2c-4 1.3-8.2 3.4-12 5.4m12.1-6.2c-3.4 2-9.1 4.7-11.9 6.7m11.4-5.7c-2.7-2.2-8.8-5.2-12.9-7.3m12.7 7.2c-4.1-2.8-7.8-4.6-11.3-6.1",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "f7OOIU",
+          "x": 598,
+          "y": 194,
+          "name": "id neg",
+          "fill": "#1f1f1f",
+          "content": "id = -n",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "adL3y",
+          "x": 0,
+          "y": 0,
+          "name": "table",
+          "geometry": "M699.9 149c83.2 4.3 185.2 3.1 299.3 0.1m-300 0.2c89.2 2.1 188.6 2 300.1 0.5m0.5-1c-2.2 49.9-1.8 98.7 1 159.9m-0.9-157.6c-0.7 49.7-0.8 100.8-0.4 158m0.4 0.6c-110.9 4.2-220.7 2.3-299.9 1.4m300.3-2c-97.8 1-192 1-300.3 2m0.1-0.6c-2.5-53.3-2.3-107.8-0.2-159.8m-0.3 159.9c-2.1-47.6-1.8-98 1.5-160.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "IVCzA",
+          "x": 716,
+          "y": 152,
+          "name": "table title",
+          "fill": "#1f1f1f",
+          "content": "luckybox",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "TJHKK",
+          "x": 0,
+          "y": 0,
+          "name": "table header",
+          "geometry": "M700.5 196c115.6 3 185.6 3.2 299.6-0.4m-299.4 1.3c114.6 1.2 208 0.5 300.5 0.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "Hwqih",
+          "x": 0,
+          "y": 0,
+          "name": "table col",
+          "geometry": "M900.3 195.9c-0.6 30-0.6 79.3-0.4 114.6",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#b5b5b5",
+          "strokeWidth": 1,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "AzqJm",
+          "x": 716,
+          "y": 200,
+          "name": "row0 id",
+          "fill": "#5a5a5a",
+          "content": "-2,200,000,001",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "p4gxNs",
+          "x": 916,
+          "y": 200,
+          "name": "row0 cash",
+          "fill": "#5a5a5a",
+          "content": "300",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "j9YWqo",
+          "x": 716,
+          "y": 236,
+          "name": "row1 id",
+          "fill": "#5a5a5a",
+          "content": "-2,200,000,002",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "P8kCR",
+          "x": 916,
+          "y": 236,
+          "name": "row1 cash",
+          "fill": "#5a5a5a",
+          "content": "100",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "g3Hbhb",
+          "x": 716,
+          "y": 272,
+          "name": "row2 id",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "f19UJj",
+          "x": 916,
+          "y": 272,
+          "name": "row2 cash",
+          "fill": "#5a5a5a",
+          "content": "...",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "dfPz0",
+          "x": 0,
+          "y": 0,
+          "name": "select arrow",
+          "geometry": "M1000.9 230.8c23.1-2.5 50.2-2.1 77.7-0.3m-77.3-0.5c21-0.4 50.9-0.3 76 0.5m0.6-0.8c-3.8 2.2-8.5 4.5-12.1 6.5m12.2-6.2c-3.5 1.5-8.8 4.1-13.4 5.4m14-4.6c-5.1-3.1-9.3-5.1-13.9-7.2m12.6 5.9c-3.6-1.5-6.9-3.1-12.3-6",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "ydqfo",
+          "x": 1002,
+          "y": 196,
+          "name": "select",
+          "fill": "#1f1f1f",
+          "content": "SELECT",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "OMadJ",
+          "x": 0,
+          "y": 0,
+          "name": "phone",
+          "geometry": "M1079.6 159.2c30.3-1.2 55-0.8 91.7 0.6m-92.3-0.2c32.8 0 68.4 0 90.6-0.6m-0.6 1.1c3.2 55.8 2.5 95.2-0.1 149.7m0.2-150.5c1.4 55.9 1.2 97.1 1.1 150.5m-0.5 1.4c-24.5-0.2-61.6-0.3-90.1-2.1m89.4 0.6c-24.2 0.9-53.2 0.9-89.1 0.2m0.9-1.1c-1.3-51.8-1-107.2-0.3-147.9m-0.9 148.5c-1.5-58.4-1.5-101 1-149.8m31.3 12.1c7.8 0.6 18.5 0.6 25.5 0.8m-26-0.4c8.1-0.4 18.3-0.3 26.9-0.4",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "vrjcN",
+          "x": 1106,
+          "y": 316,
+          "name": "app",
+          "fill": "#1f1f1f",
+          "content": "app",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "QZjAC",
+          "x": 1064,
+          "y": 348,
+          "name": "fits",
+          "fill": "#8f8f8f",
+          "content": "-n fits INT",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Q430Wz",
+      "x": 0,
+      "y": 2869.5,
+      "name": "realtime / 01 item",
+      "clip": true,
+      "width": 1200,
+      "height": 420,
+      "fill": "#ffffff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "ebZxQ",
+          "x": 80,
+          "y": 30,
+          "name": "title",
+          "fill": "#1f1f1f",
+          "content": "DynamoDB  item",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 26,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "G6Hya0",
+          "x": 0,
+          "y": 0,
+          "name": "item",
+          "geometry": "M80.5 80.9c196.6 0.5 354.3-0.1 539.9-1.6m-539.6-0.1c134.5-1.5 342.4-1.1 540.5 1.4m-0.8-0.9c-3.5 91.3-1.7 201.2 0.2 299.8m-1.2-299.5c3.1 91.6 3.1 195.6 0.5 300.3m1.1-1.1c-202.7-2.6-401.2-1.7-540.6 0.5m540.1-0.2c-182.6-1.3-331.4-0.4-541.7 0.7m0.9 0.9c-3.2-119.4-1.2-192.5 0.6-301.7m-0.5 299.5c-1.3-105.1-0.8-212.8-0.4-299.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "uk5ov",
+          "x": 100,
+          "y": 92,
+          "name": "pk",
+          "fill": "#1f1f1f",
+          "content": "pk   user#123  2023-08-01",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "NtERM",
+          "x": 0,
+          "y": 0,
+          "name": "pk line",
+          "geometry": "M79.8 136.5c136.5 1.3 375.6 0.8 539.4-0.1m-539.1-1.2c150-0.9 324.4-0.9 539.1 0.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "qIK2U",
+          "x": 100,
+          "y": 146,
+          "name": "boxes open",
+          "fill": "#1f1f1f",
+          "content": "boxes  [",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "een2N",
+          "x": 130,
+          "y": 190,
+          "name": "box0",
+          "fill": "#5a5a5a",
+          "content": "{ id 1,  cash 100,  opened }",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "fr8IO",
+          "x": 130,
+          "y": 230,
+          "name": "box1",
+          "fill": "#5a5a5a",
+          "content": "{ id 2,  cash 300,  opened }",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "LaVAs",
+          "x": 130,
+          "y": 270,
+          "name": "box2",
+          "fill": "#5a5a5a",
+          "content": "{ id 3,  cash 500,  closed }",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "eOczF",
+          "x": 100,
+          "y": 312,
+          "name": "boxes close",
+          "fill": "#1f1f1f",
+          "content": "]",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "nSf6J",
+          "x": 100,
+          "y": 344,
+          "name": "pk why",
+          "fill": "#8f8f8f",
+          "content": "one partition key = one user, one day",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "e9MTC",
+          "x": 0,
+          "y": 0,
+          "name": "server",
+          "geometry": "M899.7 150.8c73.5-4.3 145.6-2.3 199.4-1m-198.5-0.3c57.8-3.1 119.8-3.5 199.2 0.4m-1-0.7c2.7 38.2 2.1 77.7 2.5 109.9m0-109.7c0.4 40.3-0.3 71.9-1.8 110.5m0.5-0.7c-63.1-1.5-135.4-0.9-199.5 1.5m198.6 0.1c-67.1 3-120.1 3.3-198.9 0.3m-0.2 0.1c1.6-32.4 1.2-73.1-1.1-111.6m1.2 110.9c-0.3-33.5-0.3-72.7 0.8-110.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "ZQNkd",
+          "x": 900,
+          "y": 150,
+          "name": "server label",
+          "width": 200,
+          "height": 110,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "bMwnh",
+              "name": "server label server",
+              "fill": "#1f1f1f",
+              "content": "server",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "d1Fyaz",
+          "x": 0,
+          "y": 0,
+          "name": "append arrow",
+          "geometry": "M898.9 189.5c-70.3 0-186.7 0.1-275.6 1.7m274.5-2c-109 1.7-185.7 1.6-272.9 2.1m-1.2-2c4.2-1.3 9-3.5 12.2-6.1m-11.9 6.9c4.4-2.4 8.5-4.3 12.2-6.7m-12.9 6.5c4.9 2.1 10.2 4.6 13.8 6.3m-12.6-5.6c3.8 1.7 8.7 3.9 12.7 4.7",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "n5QLu",
+          "x": 660,
+          "y": 154,
+          "name": "append",
+          "fill": "#1f1f1f",
+          "content": "new box  =  append",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "RXtoP",
+          "x": 0,
+          "y": 0,
+          "name": "update arrow",
+          "geometry": "M899.3 236.9c-98.6 2.9-178.5 2.2-274.3-0.3m272.4-1.9c-96.5-2.5-189.7-2.5-274.3 1.1m1 0c4.1-2 8.8-4.1 11.8-5.5m-11.4 5.6c3.5-1.9 8.9-4.5 12.9-5.4m-12.8 5.5c4.4 2.3 8.7 4.4 12.1 6m-13.3-5.5c3.8 1.3 9.6 4.1 13.3 5.9",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "pN8ng",
+          "x": 660,
+          "y": 242,
+          "name": "update",
+          "fill": "#1f1f1f",
+          "content": "open box  =  set opened",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "aCbuS",
+          "x": 0,
+          "y": 0,
+          "name": "clear",
+          "geometry": "M1000.5 262.3c-0.5 2.7-0.5 7.1-0.7 10.2m-0.4-10.4c0.6 3 0.6 6.1 0 9.6m0.2 7.8c0.3 3.8 0.3 6.5 0.8 10.7m-0.3-9.7c0 3.1 0 6.6 0.1 8.9m0.3 8.8c-0.4 3.6-0.4 6.1-0.9 10m0.8-10.1c-0.5 2.9-0.4 6-0.8 9.7m0.1 8.2c0.4 2.9 0.4 6.5 0.2 10.3m0.6-10.9c-0.6 4.4-0.5 7.2-0.9 10.8",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "dWfpH",
+          "x": 780,
+          "y": 336,
+          "name": "clear",
+          "fill": "#8f8f8f",
+          "content": "first visit of the day  =  clear",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "YJIHc",
+      "x": 0,
+      "y": 3409.5,
+      "name": "realtime / 02 open",
+      "clip": true,
+      "width": 1200,
+      "height": 440,
+      "fill": "#ffffff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "path",
+          "id": "kZItv",
+          "x": 0,
+          "y": 0,
+          "name": "MySQL",
+          "geometry": "M329.9 61.8a75 21 0 1 1 151.2-1.7 75 21 0 1 1-150.1 2.1m-0.1-1.9a75 21 0 1 1 149.9 0.9 75 21 0 1 1-151.4 0.3m1.4-0.9c-2 17.1-2 31.6-2 48.5m-0.1-46.8c2.5 15.5 1.9 28.4 0.5 46.4m150.9-48.7c0 15 0 35.7-1 48.1m0.1-46.4c0.2 14.6 0.4 33.8-0.3 47m-149.1 1.2a75 21 0 0 0 151.1-0.8m-150.7-1.1a75 21 0 0 0 150.9 1.4",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "M5hWKm",
+          "x": 330,
+          "y": 52,
+          "name": "MySQL label",
+          "width": 150,
+          "height": 78,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "QxATq",
+              "name": "MySQL label MySQL",
+              "fill": "#1f1f1f",
+              "content": "MySQL",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "nK4Y8",
+          "x": 0,
+          "y": 0,
+          "name": "Redis",
+          "geometry": "M559.1 60.2a75 21 0 1 1 151.6 0 75 21 0 1 1-149.9 0.2m-1.6 0.8a75 21 0 1 1 150.1 0.9 75 21 0 1 1-149.8-0.8m0.2-0.8c-0.6 17.2-0.2 35.9-0.1 48.2m1.4-47.5c-1.2 12.5-1.2 32.5-1.7 48.9m151.8-50.1c-2 18.8-2.1 31-2 47.9m0.1-47.8c1.8 13.1 1.7 32.7 1.6 49m-151 0.4a75 21 0 0 0 149.6-1.2m-149 1.8a75 21 0 0 0 148.9-1.4",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "TRq9w",
+          "x": 560,
+          "y": 52,
+          "name": "Redis label",
+          "width": 150,
+          "height": 78,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "XBzeN",
+              "name": "Redis label Redis",
+              "fill": "#1f1f1f",
+              "content": "Redis",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "PgTi9",
+          "x": 0,
+          "y": 0,
+          "name": "DynamoDB",
+          "geometry": "M790.4 60.1a75 21 0 1 1 149.5 0.1 75 21 0 1 1-150 0.9m-0.7 0.8a75 21 0 1 1 151-0.5 75 21 0 1 1-149.1 0.4m-2.2 0.2c1.4 13.6 1.4 29.8 1.5 46.9m0-47c-1.1 12.4-1.1 30.3 0.4 48m148.2-49.7c0.2 16.7 0.6 32.8 0.8 48.9m1.4-49.1c-0.8 15.1-0.8 32.9-0.9 50.3m-150.3-0.2a75 21 0 0 0 150.1-2.1m-150.7 1.4a75 21 0 0 0 150.6 0",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "Pi9yK",
+          "x": 790,
+          "y": 52,
+          "name": "DynamoDB label",
+          "width": 150,
+          "height": 78,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "c3WxDj",
+              "name": "DynamoDB label DynamoDB",
+              "fill": "#1f1f1f",
+              "content": "DynamoDB",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "gRB7F",
+          "x": 0,
+          "y": 0,
+          "name": "server",
+          "geometry": "M430.1 249.5c83.9-0.2 146.7 0 219.8-0.5m-219.8 0.6c59.8 2 144 2.1 220.7-0.4m-0.2 1c1 28.5 1 58-0.3 89.8m-1.2-89c0.3 26.1 0.6 53.5-0.1 89.6m0.9-1.2c-78.8 3.8-150.4 3.1-220.2 1.5m221.6-1.2c-56.3-1.9-150.2-2-221.6 0.6m1.1-1.3c0.1-24.1 0.1-58.2-0.9-88.4m0.1 89.8c0.3-31.2 0.3-66.1-0.3-90.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "StmCf",
+          "x": 430,
+          "y": 250,
+          "name": "server label",
+          "width": 220,
+          "height": 90,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "z1pCx",
+              "name": "server label server",
+              "fill": "#1f1f1f",
+              "content": "server",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "nFKhe",
+          "x": 0,
+          "y": 0,
+          "name": "link 1",
+          "geometry": "M480.3 249.4c-2.3-2.3-4-5-5.3-8.1m4.6 9.3c-1.4-3.3-3.1-6-4.5-8.5m-4.6-7.6c-2.2-2.7-4.2-5.7-6-8m5.4 8.5c-1.4-3-3.5-6.2-5.5-7.9m-3.8-7.9c-2-2.1-3.5-4.4-6-8m6.4 8.5c-2.5-3-4.1-5.5-6.2-8.1m-4.4-6.9c-1.7-3-3.2-5.3-4.6-8.1m5.3 8.6c-2.5-3.5-4.5-6.6-5.6-9m-5.2-6.1c-1.5-3.8-2.9-5.9-5-9.2m5.6 8.1c-1.8-2.1-3.3-4.6-5.6-7.6m-3.7-6.6c-2.3-3.3-4-6-5.4-9.4m5.3 8.8c-2.1-2.3-4.2-5.5-5.8-8.6m-4.8-6.2c-1-2.6-3.5-6.4-5.5-8.3m6 8.3c-2.1-3.3-3.7-5.8-5.6-8.8m-4.7-6.6c-1.6-2.8-3.5-5.9-5.3-8.3m6.2 8.9c-1.8-2.8-4.2-6.5-5.9-9.2m-1.7-2.1c4.3 2.8 9.1 5.7 13.1 8.4m-13.1-6.9c4.4 1.7 9.3 4.6 12.6 6m-12-7.3c0.8 5.1 1.2 9.1 1.6 14.2m-1.3-13c0.2 4.2 0.8 9.1 2.1 12.8",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "y6Erw",
+          "x": 418,
+          "y": 176,
+          "name": "step 1",
+          "fill": "#1f1f1f",
+          "content": "1",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "e7DuZy",
+          "x": 0,
+          "y": 0,
+          "name": "link 2",
+          "geometry": "M540 250.2c2.3-3.1 3.9-5 5.8-8.5m-6 8.9c2.1-2.9 4.8-6.1 6.5-7.8m4.7-6.1c2.4-3.2 4.3-5.5 6.3-8.3m-5.6 8.3c1.6-3 3.6-5.4 6.2-8.6m4.6-5.4c2-2.6 4.8-6.1 6.6-8.9m-5.8 8.3c1.5-2.4 4.2-5.6 6.5-7.4m4.1-6.1c2.7-3.3 4.4-5.4 6.6-7.6m-6.2 6.9c2.4-2.7 4.7-5.4 6.5-7.7m4.4-6.6c2.8-2.1 5.1-5 6.5-6.4m-6 6.7c2-2 4.7-5.3 5.7-7.3m5.7-6c2.2-2.8 4.2-5.4 6.7-8.3m-6.8 7.6c2.4-2.5 4.6-5.2 6.7-7.2m4.2-6.3c3-2.8 5-5.3 7.3-7.2m-7 7.8c1.9-2.7 4.2-5.5 6.5-8.1m5.5-6c1.3-2.4 4.3-6.1 6-7.9m-6.6 7.5c2.2-2.5 4.6-5.4 6.2-7.6m6-6c0.9-2.1 1.9-3.4 3.2-4.4m-3.9 4.5c1.1-1.6 2.9-3.9 3.6-5.1m1-0.5c-1.9 5.3-3.1 10.4-3.7 13.5m2.5-13.2c-0.3 4.2-1.8 10.4-3.1 14m3.2-13.1c-3.5 1-8.3 3.3-12.9 4.8m12.7-5.8c-3.4 2.4-7.9 4.4-12.6 6.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "LNHFF",
+          "x": 598,
+          "y": 180,
+          "name": "step 2",
+          "fill": "#1f1f1f",
+          "content": "2",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "b9bis7",
+          "x": 0,
+          "y": 0,
+          "name": "link 3",
+          "geometry": "M599.5 250.1c4-1.6 6.1-2.5 9.6-3.9m-9.6 3.9c3.1-1.4 6.3-2.8 9.1-3.9m7.6-3.2c3.4-1.4 7.2-3.2 9.2-4.4m-9.4 3.9c3.3-0.8 7-2.5 9-3.9m8.6-3.1c2.2-1.3 5.6-2.7 9.1-4.3m-10.3 4.8c3.5-1.6 6.8-3.1 9.5-4.1m7.6-4c2.7-0.8 5.9-2.2 8.5-2.9m-8.7 3.7c2.7-1.4 6.6-3.1 9.3-4.4m7-3.3c3-1.1 6.3-2.6 10.1-3.9m-9.9 4.3c2.9-1.5 6.1-2.9 9.1-4.5m7.6-2.7c2.9-1.5 5.9-2.9 9.4-4.2m-8.8 3.7c2.7-1.2 6.2-2.7 8.3-3.7m8.2-3.2c2.5-1.6 5.3-2.8 8.1-4.3m-9.2 3.8c4-1 6.3-2.1 9.1-3.1m7.6-3.7c3.7-1.7 6.8-3 9.5-4.4m-8.9 4.7c2.2-1.4 5.5-2.9 8.5-4.5m8.2-3.3c2.4-1.1 5-2.2 8.2-3.3m-8.6 2.9c2.9-0.6 6.2-2.1 8.9-3.9m6.9-3c3.6-0.9 6.2-2 9.1-4.1m-8.9 5.1c3.4-2 6.8-3.5 9.7-4.2m6.8-3.2c3.6-2 6.1-3.1 9.9-5.1m-10.2 4.4c4-1.3 6.5-2.4 10.3-3.2m6.4-3.2c4-2.3 6.6-3.4 9.7-4m-9.1 2.8c2.3-0.5 6.2-2.2 9.4-3m6.4-3.3c3.7-1.8 6.1-2.8 9.6-4.8m-8.7 4.7c2.8-1.5 5.1-2.6 8.5-3.6m7.2-3.7c3-1.4 6.6-2.9 9.1-3.6m-8.9 4c3.4-2 6.7-3.4 9.4-5m7.2-3.3c3.2-0.9 6-2.1 8.8-2.8m-8.2 2.8c2.4-0.9 5.6-2.2 9-3.3m7.1-3.1c3.5-1.9 6.5-3.2 8.7-4m-8.4 3.3c2-0.6 5.2-2 8.6-3.8m7.8-2.4c0-0.7 0.4-0.9 1.4-0.8m-2.1 0.8c0.7-0.8 1.1-0.9 0.9-1.1m-0.1-0.2c-2.5 3.8-5.8 7.7-8.3 11.5m9.5-11.4c-3.8 4.3-6.1 6.8-9.6 11.2m8.6-11.8c-3.1 0.4-9 0.2-13.7-0.5m14.4 0.6c-4.8 0.4-8.7 0.3-13.9-0.6",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "T1O3Kr",
+          "x": 748,
+          "y": 180,
+          "name": "step 3",
+          "fill": "#1f1f1f",
+          "content": "3",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "rt0E0",
+          "x": 0,
+          "y": 0,
+          "name": "phone",
+          "geometry": "M80.3 215.4c23.6-1.2 56.6-0.9 90.5-0.5m-90.2-0.5c26.3 0.3 57.6 0.4 90.6 0.3m-1.7 0.7c-0.6 57-0.7 102.4 0.4 150.5m-0.9-151.8c4.1 47.1 2.7 108.9 1.9 150.1m-1.3 0.1c-27 0.8-65.6 0.8-89.1 0.3m88.4 0.2c-31.1 1-53.9 0.6-89.6-0.6m1.7 1.4c1-38.7 0.4-107.4-0.9-151.5m0 151.8c1.7-47.4 1.3-95.3-1.1-151.8m33.1 12.4c6.4 0.4 18.6 0.4 25.7 0.4m-26-0.1c6.9-0.1 17.3 0 26.1-0.1",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "YSE5V",
+          "x": 108,
+          "y": 368,
+          "name": "app",
+          "fill": "#1f1f1f",
+          "content": "app",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "TswFF",
+          "x": 0,
+          "y": 0,
+          "name": "open arrow",
+          "geometry": "M172.2 294.5c93.3-2 153.7-1.5 255.9 0.6m-255.1 0.4c86.6-4.3 165.8-2 254.1-0.5m1.5 0.3c-4.1 1.1-9.1 3.6-12.9 5.3m12-6c-4.2 2.3-9.1 4.8-12.7 5.8m13.7-5.2c-5.1-2.3-9.8-4.6-13.7-6.5m12.6 6.7c-3.5-2.1-7.2-4-12.7-6.8",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "VzZVh",
+          "x": 236,
+          "y": 258,
+          "name": "open",
+          "fill": "#1f1f1f",
+          "content": "open box",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "Kciil",
+          "x": 0,
+          "y": 0,
+          "name": "cash arrow",
+          "geometry": "M651.2 295.4c68 3 151.6 1.2 247.6-0.1m-246.3 0.8c79.2-3.3 175.4-2.4 248.4-1.9m-0.7 1.4c-4.1 1.5-8 3.4-12.4 5m11.5-5.7c-2.6 1.6-7.9 4.2-12.5 6m12.8-6.5c-3.4-1-8.5-3.6-11.9-5.6m12.8 5.6c-4.7-1.4-8.9-3.4-13.3-6.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "w9Al9N",
+          "x": 712,
+          "y": 258,
+          "name": "cash label",
+          "fill": "#1f1f1f",
+          "content": "+300 cash",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "bCh1k",
+          "x": 0,
+          "y": 0,
+          "name": "cash",
+          "geometry": "M911.2 261.3c42.8-0.7 92.6-1 127.5-1.7m-129.2 1c42.8 1.9 81.7 1.8 130.4-1.3m-0.3 0.6c-1.3 18.2-0.6 42.4-0.4 69.9m0.3-70.5c-0.9 28.1-0.9 44.3-0.1 70.1m-0.6-0.6c-48.2 4.4-77.6 4.1-127.8 0.1m128.7 0.5c-38-0.7-95.6 0-129.8 0.5m1.4 0.6c-1.9-25-1.7-47.4-1-70m-0.6 70.4c0-28.4 0.1-51.9-0.7-69.9",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "BiVbl",
+          "x": 910,
+          "y": 260,
+          "name": "cash box",
+          "width": 130,
+          "height": 70,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "k0PEK",
+              "name": "cash box cash",
+              "fill": "#1f1f1f",
+              "content": "cash",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "CYkhM",
+          "x": 250,
+          "y": 392,
+          "name": "legend",
+          "fill": "#8f8f8f",
+          "content": "1  read odds      2  won big lately?  (user flag with TTL)      3  set opened,  ZSET ranking +cash",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "W4zQi",
+      "x": 0,
+      "y": 3970,
+      "name": "aws / 01 route53",
+      "clip": true,
+      "width": 1200,
+      "height": 420,
+      "fill": "#ffffff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "path",
+          "id": "ltMHi",
+          "x": 0,
+          "y": 0,
+          "name": "phone",
+          "geometry": "M69.3 165.8c29.3 0.7 50.6 0.1 81.7-1.5m-82-0.5c23.4 2.9 53.9 2.6 80.4 0.4m0 1c-1.7 35.2-1.5 90.5 0.4 129.7m1.1-129c-0.5 38.9-0.5 79.1-1.8 130.3m1.1-0.2c-24-1.7-53.7-1.7-80.7-1.3m81.2 0.7c-29 1-53.6 0.9-80.8 0.1m1.4 0.5c1-50 0.7-91-1.7-131.1m0.9 129.4c2.3-38.2 1.7-81.3-1.3-128.4m29.3 10.6c5.6 0.8 14.3 0.7 23.3 1m-23.7-1.1c8.5 0.6 14.3 0.6 24.1 0.1",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "jmyEX",
+          "x": 78,
+          "y": 300,
+          "name": "users",
+          "fill": "#1f1f1f",
+          "content": "users",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "mpe7o",
+          "x": 0,
+          "y": 0,
+          "name": "to r53",
+          "geometry": "M151.9 229.5c35.3 0.8 62 0.8 94.8 1.5m-95.2-1c36.9 1.5 65.1 1.1 96.8 0m-0.5-0.2c-4 2.3-8.5 4.5-12.1 5.6m12.2-5.6c-3.1 1.9-8.4 4.4-13 5.5m12.6-5.3c-3.6-1.8-8.6-4.2-11.4-5.8m11.4 5.8c-3.2-1.6-9-4.3-11.7-5.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "pB6Ph",
+          "x": 0,
+          "y": 0,
+          "name": "route53",
+          "geometry": "M250.1 185.3c70.4 0.2 126.8 0 199.5 0.2m-199.4-0.5c51 2.8 123.8 2.3 199.9 0.6m-0.2-1.6c-0.3 34.6-0.3 60 0.8 92.2m-0.8-90.2c1.2 31.1 1.1 53.9-0.9 89.6m0.4 0.5c-59.4-0.3-129.2-0.5-199.1-0.3m200.5 0.4c-69.9-4.7-135.5-4.7-201.2-0.4m1.3-0.7c-0.6-32.3-0.7-56.3-0.9-89.3m0.7 88.9c1.4-34.9 1-67.1-0.9-90.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "frame",
+          "id": "p7KQw",
+          "x": 250,
+          "y": 185,
+          "name": "route53 label",
+          "width": 200,
+          "height": 90,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "JsTiu",
+              "name": "route53 label Route 53",
+              "fill": "#1f1f1f",
+              "content": "Route 53",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "LFnG1",
+              "name": "route53 label weighted",
+              "fill": "#8f8f8f",
+              "content": "weighted",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "EtWjF",
+          "x": 0,
+          "y": 0,
+          "name": "to intel",
+          "geometry": "M450.8 222.4c64.9-30.6 126.3-61.3 171.6-85.3m-169.9 86.1c42.7-25.4 115.5-60.7 168.9-84.2m0-0.6c-2.1 3.3-4.6 6.5-8.7 10.6m9.4-10.6c-2.6 2.9-5.6 6.8-9.1 11.1m9.3-10.9c-5.3-0.7-9.8-0.6-13.6 0.3m12.7-1.7c-4.8 0.6-9.2 0.8-13.7 0.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "J0hyp",
+          "x": 512,
+          "y": 140,
+          "name": "pct intel",
+          "fill": "#1f1f1f",
+          "content": "90%",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "W2IUSL",
+          "x": 0,
+          "y": 0,
+          "name": "to graviton",
+          "geometry": "M453.1 237.6c59.2 31.7 124.2 63.5 170.1 85.5m-171.8-86c65.3 29.6 123.3 59.4 171.6 84.2m-0.6 0.4c-4.2 0.3-9.5 0.3-14.4-0.1m14.2-0.1c-4 0.3-9.8 0.3-14.4-0.4m13.5 1.5c-1.8-3.9-5.3-8.3-8.2-12.1m9.2 11.2c-3-3.2-6.3-7.5-9.3-11.1",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "VHvu5",
+          "x": 512,
+          "y": 292,
+          "name": "pct graviton",
+          "fill": "#1f1f1f",
+          "content": "10%",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "Jzv0O",
+          "x": 640,
+          "y": 62,
+          "name": "intel title",
+          "fill": "#1f1f1f",
+          "content": "Beanstalk   Intel (x86)",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "cb0nq",
+          "x": 640,
+          "y": 110,
+          "name": "intel ec2 0",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "TUpmR",
+              "name": "intel ec2 0 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "x37AG",
+          "x": 722,
+          "y": 110,
+          "name": "intel ec2 1",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vHTZo",
+              "name": "intel ec2 1 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ElWa3",
+          "x": 804,
+          "y": 110,
+          "name": "intel ec2 2",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "BSTOy",
+              "name": "intel ec2 2 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "E3Ls8",
+          "x": 886,
+          "y": 110,
+          "name": "intel ec2 3",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "O9yv8p",
+              "name": "intel ec2 3 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sI63m",
+          "x": 968,
+          "y": 110,
+          "name": "intel ec2 4",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "xWMgi",
+              "name": "intel ec2 4 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "mppQR",
+          "x": 0,
+          "y": 0,
+          "name": "intel boxes",
+          "geometry": "M640.5 109.7c27.5 1.6 43.5 1.5 68.6-0.2m-69.7 1.1c23.7-0.2 45.5-0.2 70.9-0.6m-0.8 0.4c1.5 18.2 1.4 36.2 1 55.5m-0.7-56.8c1.2 20 1 36.1 0.9 57.7m-0.2-0.8c-20.3-0.3-49.9-0.1-69.9 0m69.8 0.9c-24.9-0.9-44.9-0.9-70.2-1.3m0.5 0c-1-16.2-0.9-33.8-1.6-55.2m0.5 56c0.6-19 0.6-38.1 0-57.4m82.2 0.3c26 0.7 48.2 0.7 69.4 0.5m-69.9 0.3c28.1-0.5 51.1-0.5 71.3 0.7m-0.8-0.8c-0.3 21.2-0.1 39.7 0.4 56.9m-0.5-56.6c1 14 1.1 37.2 0.9 55.8m0-0.4c-23.4-0.6-48.5-0.6-70.9-0.2m70 0.6c-20.6 0.3-42.4 0.2-70.3-0.4m1.2 0.3c-0.9-15.3-0.8-40.2-0.7-56.1m0.4 56.7c0.6-22.2 0.4-41.1 0.5-57.1m80.7 1.2c21.2-0.7 48.6-0.7 69.8-1.7m-69.2 1.4c20.1 0 49.8 0 70.7 0.1m-1.4-1.4c1.2 19.4 1 36 1.5 56.9m-1.3-55c-0.2 16.7 0 39.6 1.3 55.9m-1.6-1c-21.9 1.4-44.4 1-69.4 1m70.8-1.1c-27 0.8-50.3 0.6-70.2-0.3m0.5 0.6c-1.5-21.5-1.3-39.2-1.8-55.6m1.5 56c0.3-22.5-0.1-36.7-1.1-56.6m82.9 0c25.1 1.3 50.6 0.9 68.5 0.9m-68.1-0.5c24.9 0.1 42.4-0.1 69.7-0.1m-0.7 0.1c0.5 17.3 0.3 38.8 1 56.3m-0.7-56.8c-0.3 20.7-0.3 38.5-0.2 56.6m-0.8 0.4c-26.9-0.8-48.9-0.8-69.3-1m69.7-0.2c-24.8 1.8-48.9 1.2-68.8 1.1m-0.1-0.3c-1.3-15-1.4-40.4-1.1-56.4m0 55.3c0.4-14.5 0.4-33.2 0.3-55m81.4-0.5c18.7-0.6 52.1-0.6 71.7 0.3m-70.6-0.7c22.7-0.4 47.2 0 68.8 1.5m1.2 0.1c-1 13.4-0.9 38.5 0 54.5m-0.3-54.8c0.6 18.5 0.2 33.7 0 54.8m-0.2 0.8c-22.2-0.1-52.1-0.1-69.7-0.3m69.5-0.4c-26.1 1.8-49.5 1.2-69.7-0.6m0.5 0.4c-0.1-14-0.1-40.5-1-54.8m-0.4 54.4c1.1-21.3 1.1-38.7 1.8-54.9",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "w02OH",
+          "x": 1060,
+          "y": 122,
+          "name": "intel peak",
+          "fill": "#8f8f8f",
+          "content": "up to 12",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "ig8DS",
+          "x": 640,
+          "y": 246,
+          "name": "graviton title",
+          "fill": "#1f1f1f",
+          "content": "Beanstalk   Graviton (ARM)",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "kEmkV",
+          "x": 640,
+          "y": 294,
+          "name": "graviton ec2 0",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "yh8hD",
+              "name": "graviton ec2 0 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "knJsw",
+          "x": 722,
+          "y": 294,
+          "name": "graviton ec2 1",
+          "width": 70,
+          "height": 56,
+          "layout": "vertical",
+          "gap": 2,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "k9IxN",
+              "name": "graviton ec2 1 EC2",
+              "fill": "#5a5a5a",
+              "content": "EC2",
+              "fontFamily": "Gloria Hallelujah",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "path",
+          "id": "G4fVTy",
+          "x": 0,
+          "y": 0,
+          "name": "graviton boxes",
+          "geometry": "M640.4 293.6c19.1-1 50.5-0.5 69.3 1.1m-69.3-0.8c19.8-0.5 44.4-0.5 69.2-0.2m0.2 1.2c0.2 20.2 0.2 35.5-0.5 54.9m0.5-56.2c-0.8 22.4-0.6 38.6 0.3 57.1m0.5-1.7c-23.3 1-49.5 1-69.6 1m68.4 0.4c-24.5-0.6-46.7-0.7-68.6-0.8m0.1 0.4c-0.5-19.8-0.6-39 0.1-57m-0.7 57.8c0.1-15.1 0.1-36.2 0-57.3m82.5-0.1c23 1.3 45.2 1.3 69.7 0.3m-70.9 1c20.7-1.8 45.5-1.5 71-0.2m0.4 0.2c-1.4 19.9-1.4 39.3-1.1 55.7m-0.9-56.3c2 20.1 1.9 34.8 0.6 56.8m0.8-1.9c-19.8 1.6-45.3 1.6-69.7 0.3m68.7 0.6c-20.9 0.1-50.5 0.1-68.9-0.8m-0.3 0.1c-1.2-19.6-1-33.2 0.7-55.2m-1.3 56.1c1.4-18.8 1.1-36.3 0.8-56.2",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            420
+          ],
+          "width": 1200,
+          "height": 420,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "GQ2vo",
+          "x": 640,
+          "y": 360,
+          "name": "graviton note",
+          "fill": "#8f8f8f",
+          "content": "same Dockerfile,  arm64 image",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "qQuFv",
+      "x": 0,
+      "y": 4530,
+      "name": "api / 01 leak",
+      "clip": true,
+      "width": 1200,
+      "height": 440,
+      "fill": "#ffffff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "path",
+          "id": "A7TFsg",
+          "x": 0,
+          "y": 0,
+          "name": "axes",
+          "geometry": "M159 39c1.3 100.3 1.3 245.3 1.3 339.8m0-339.6c-1.2 128-1.3 237.3-0.3 340.4m0.6-340.1c1.1 3.7 3.8 9.3 5.9 12.3m-5.9-11.4c1.7 4.6 3.5 8.2 5.5 12m-5.7-12.6c-2.1 4.2-4 7.8-6 13.2m5-13.2c-1.6 4.9-3.5 8.7-4.8 12.3m5.4 328.3c383-1.9 681.7-1.8 960-0.6m-959-0.4c313.8 1.7 616.9 1.4 959.6 0m-0.2 1.2c-3.7 0.9-8.2 3.2-12.7 5.5m13-5.5c-5.4 1.6-9.4 3.6-13.8 6.1m13-6.4c-3.6-2.3-7.5-4.1-12.3-6.9m11.7 5.9c-4.1-1.8-7.4-3.4-11.2-5.9",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 1.6,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "IejHG",
+          "x": 184,
+          "y": 26,
+          "name": "y label",
+          "fill": "#1f1f1f",
+          "content": "memory of one API instance",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "UUmUa",
+          "x": 70,
+          "y": 50,
+          "name": "tick 32",
+          "fill": "#5a5a5a",
+          "content": "32 GB",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "aR0lY",
+          "x": 70,
+          "y": 205,
+          "name": "tick 16",
+          "fill": "#5a5a5a",
+          "content": "16 GB",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "c6XlN",
+          "x": 70,
+          "y": 348.3125,
+          "name": "tick 1",
+          "fill": "#5a5a5a",
+          "content": "1 GB",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "ttdcB",
+          "x": 0,
+          "y": 0,
+          "name": "ticks",
+          "geometry": "M150.6 69.8c3.1 0.1 5.8 0.2 9-0.3m-9.3 155.6c3.4 0 6.8 0 9.8-0.7m-9.8 146.3c3.7-0.4 7-0.4 9.7-0.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.2,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "WCmPH",
+          "x": 0,
+          "y": 0,
+          "name": "limit",
+          "geometry": "M159.8 69.5c2.9 0.4 7.5 0.4 10.2 0.9m-10.6-0.4c3.7 0.1 6.8 0.1 10.8-0.2m7.6 0.5c4.2-0.4 6.3-0.4 9.8-0.8m-9 0c3.3 0.5 6.3 0.5 9.9 0m7.7 1.1c2.4-0.5 6.4-0.5 9.5-1.1m-10.2 1c3-0.5 6.9-0.5 10-0.1m8.3-0.2c3.2-0.2 7.1-0.2 10.4 0.1m-9.7-0.8c2.7 0.5 5.6 0.5 9.5 1.1m8.5-0.6c2.1 0 6.3 0 9.9 0.1m-11-0.4c4.2 0.4 8 0.4 11.1 0.3m7.3-0.3c3.6 0.3 6.9 0.3 10.5-0.3m-10.2 0.7c3-0.1 6.7-0.1 10-0.2m8.2 0.7c3-0.6 6.1-0.6 9.8-0.1m-10.4-0.5c3.1 0 7 0 10 0.4m8.6 0c2.4-0.3 6.3-0.4 9.4-0.8m-9.1 0.1c2.3 0.3 5.7 0.3 10 0.7m7.5 0.1c3.7-0.5 7.3-0.5 10.4-0.1m-10.3-0.3c3.8 0 6.9 0 9.7-0.3m7.5 0.3c3.1 0 6.7 0 10.2 0m-10.1 0.3c3.1-0.3 6.6-0.3 11.1 0.1m7.8-0.4c3.1-0.1 6.8-0.1 10.1-0.7m-10.5 0.5c3.6 0.2 6.6 0.1 9.6-0.1m8.6-0.2c2.4 0.5 6.6 0.5 9.7 0.9m-10 0c3.9-0.4 6.3-0.5 10.7-1m7.5 0.8c2.6-0.2 6-0.3 9.3 0.3m-9.6-1.2c3.7 0.5 6.7 0.5 10.5 0m7.4 0.6c3.9 0 7.7 0 10.1-0.6m-9.7 0.7c3.9-0.1 6-0.1 9.3-0.6m8.6 0.1c3.1 0.4 6.4 0.4 10 0.8m-10-1c3.3 0.7 6.9 0.7 10.4 1m7.6-0.8c3.1 0.4 7 0.4 9.5 0.4m-9.9-0.1c4 0.1 6.5 0.1 10 0.3m8.4 0.1c2.6-0.3 6.6-0.3 9.9-0.1m-9.7 0c2.6-0.1 6-0.2 10.1-0.7m7.7 0.5c3.2 0 7.3 0 9.5-0.4m-9 0.4c3.3 0 6.2 0 9.4 0.4m7.9-0.2c3.8-0.2 6.4-0.2 10.7 0.4m-10.7-0.9c3.7 0.3 7.1 0.3 10.2 0.3m8.3 0.6c2.5-0.6 6.7-0.6 9.6-0.2m-10.1-0.7c2.8 0.4 6.8 0.4 9.9 0.8m8.2-0.2c2.8-0.2 6.8-0.3 9.8-0.1m-9.5 0c3.7-0.1 6.3-0.1 10.2-0.7m7.4 0c3 0.5 6.4 0.5 10 1m-10.4-0.2c3.6-0.2 7-0.2 10.8 0.3m8.2-0.5c3.1-0.2 6.4-0.2 9.5 0.2m-10.4-0.8c3.7 0.5 8 0.5 10.2 0.7m7.8 0c4.4-0.3 6.5-0.3 11.1 0.1m-10.7 0.1c3.1-0.5 6.8-0.4 9.9-0.2m8.6-0.8c2.4 0.6 6.9 0.6 9.2 0.9m-9.7 0.3c3.9-0.7 7.5-0.7 10.5 0m7.2 0c4.3-0.5 7-0.5 10.4-0.4m-9.4-0.7c2.7 0.4 6.7 0.4 8.8 0.7m8.4-0.6c3.7 0.5 7.3 0.4 10.6 0.1m-10.1 0.4c3.3-0.1 5.8-0.1 9.7 0.4m8.3 0c2.4-0.5 5.9-0.5 9.7-0.1m-9.5-0.8c2.2 0.5 5.8 0.5 9.3 0.1m8.2-0.1c3.2 0.5 6.2 0.5 10.5 0.3m-10.4 0.6c2.7-0.4 6.4-0.4 9.6-0.7m8.6-0.4c2.8 0.5 6.7 0.6 10.1 0.8m-10.2 0.4c2.4-0.5 6.9-0.5 9.8-0.5m8.2-0.7c2.7 0.5 7 0.5 9.8 1m-10.5-0.2c4.4-0.2 7-0.2 10.3-0.5m7.9 0.8c4.1-0.5 6.5-0.5 10.5-0.4m-10.4 0.3c3-0.4 7.4-0.4 9.8 0.1m7.9 0c3.3-0.5 6.5-0.5 10-0.8m-9 0.6c2.2-0.4 6.5-0.4 9.8-0.3m7.9-0.6c2.8 0.5 7.3 0.5 10.4 0.3m-10.8 0.3c3.9 0 7.6 0 10-0.6m8.1 1.2c2.8-0.6 6.5-0.6 10-0.7m-10.3 0.5c4.3-0.4 6.5-0.4 10-0.9m7.8 0.1c3.8 0.4 7.9 0.4 11.1 0.1m-10.9 0.9c3.5-0.7 7.3-0.7 10-1m8-0.2c4.3 0.6 7.9 0.6 10.6 0.1m-9.7 0.7c3-0.2 6.4-0.2 9.2-0.2m8.5-0.6c2.3 0.6 6.6 0.6 9.5 0.9m-10.1-0.2c3.4 0 7.3 0 10.8 0.4m7.1-0.8c4.3 0.4 6.7 0.4 10.6-0.3m-10.7 0.1c4.2 0.5 7.8 0.5 10.4 0.1m8.8 0c2.6 0.5 6.7 0.4 8.8-0.1m-10 0.6c3.8-0.1 6.9-0.1 11 0.3m7.6-0.6c2.9 0.3 6.2 0.3 10.6 0m-10.3-0.1c3.2 0.2 5.7 0.3 10.1 0.4m7.5-0.5c3.9 0.3 6.3 0.3 9.7 0.1m-9.8 0.3c3.7-0.1 6.5-0.1 10.2 0.6m7.7-0.3c3.5-0.2 7-0.2 9.8-0.2m-9.6-0.5c3.2 0.4 6.6 0.4 10.5 0.1m8.1-0.2c2.6 0.5 6.3 0.5 8.9 0.4m-9.4-0.5c2.8 0.7 7.3 0.7 9.7 1.2m7.9-0.6c4.4 0 6.5 0 10.2-0.3m-10 0.9c3.4-0.7 7.2-0.7 10-0.6m8.4 0c3.5-0.1 6.7-0.1 9.7 0m-9.9 0.3c2.7-0.3 7.1-0.3 9.6 0m8.9-0.9c2.7 0.6 5.8 0.6 8.9 0.9m-9.3 0.1c2.5-0.4 6.4-0.5 10.3-1m7.6 0.9c3.2-0.3 6.2-0.3 10.1 0.1m-9.6-0.8c2.1 0.3 6.7 0.3 9.3 0m7.6 1c4.2-0.7 7.2-0.7 10.3-0.5m-9.2 0.3c2.5-0.3 6.9-0.4 10.1-0.9m7.4 0.4c2.6 0.2 7.2 0.1 10.3 0.3m-10 0.1c3.7-0.2 6.2-0.2 10.2-0.6m6.9 0.3c3.6-0.1 7.7 0 11.1-0.2m-10.5 0.4c3.7-0.2 6.6-0.2 10-0.1m8.4-0.4c2.2 0.4 5.8 0.4 9.6-0.3m-9.6 0.5c3.1 0.1 5.8 0.1 9.2 0.7m8.7-0.7c0.9 0.1 2.2 0.1 3.1-0.2m-3.4 0.4c1.4-0.1 2.6-0.1 4.3-0.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#9a9a9a",
+          "strokeWidth": 1.3,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "VGrha",
+          "x": 720,
+          "y": 36,
+          "name": "limit label",
+          "fill": "#8f8f8f",
+          "content": "instance limit",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "QB46k",
+          "x": 158,
+          "y": 392,
+          "name": "day 1",
+          "fill": "#5a5a5a",
+          "content": "day 1",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "QYQEP",
+          "x": 348,
+          "y": 392,
+          "name": "day 2",
+          "fill": "#5a5a5a",
+          "content": "day 2",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "NcjMh",
+          "x": 538,
+          "y": 392,
+          "name": "day 3",
+          "fill": "#5a5a5a",
+          "content": "day 3",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "YD3HN",
+          "x": 728,
+          "y": 392,
+          "name": "day 4",
+          "fill": "#5a5a5a",
+          "content": "day 4",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "VPYjI",
+          "x": 918,
+          "y": 392,
+          "name": "day 5",
+          "fill": "#5a5a5a",
+          "content": "day 5",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "WBhrA",
+          "x": 0,
+          "y": 0,
+          "name": "usage",
+          "geometry": "M180.5 377.8c5.8-3.6 15.9-9.1 23.3-12.7m0.1-0.2c9.6-4.3 18-7.5 24.4-9.1m0.3-0.7c7.2-5.9 16.7-13 22.9-17.9m0.1-0.5c8.8-1.2 15.9-2.8 23.9-4.8m0.8 0.3c8.4-3.4 15.8-6.1 23.9-9.3m0.4 0.8c5.7-3 14.2-6.6 23.1-10.1m0.5-1c6.3-1.4 17.3-5.2 24.4-7.6m-0.2 0.6c5.7-0.7 14.2-0.3 24-0.3m-0.1 0.6c9.2-2.6 16.9-4.6 24.3-6.9m-1 1.2c7.6-3.7 16.6-7.7 25-11.1m-0.4-0.7c6.7-3.1 16.5-7.7 24.4-11.8m-1 0.7c8.1-3.8 17.9-8.8 24.4-11.7m0.6-0.9c8.5-3.5 14.7-6.4 23.9-10m-0.1-0.8c5.7-3 14.6-7.5 23.8-11.5m-0.1-0.3c8.3-2.6 15.7-5 23.3-7.4m0.9-0.5c7.1-2.8 14.6-5.9 24.3-10.1m-1 1c8.1-1.3 17-2.3 24.2-3.6m-0.1 0.6c9.3-2.3 16.5-4.1 24.9-6.7m-0.8 0.2c9.3-1.2 17.3-2.5 24.2-3.5m0.3-0.2c8.5-4.4 15.1-8.3 23.2-12.7m0.9 0c7.8-4.1 15-7.4 24.1-11.2m-1.1 0.2c9.8-4.2 17.7-7.4 24.3-10m0.4-0.1c8.5-4.4 15.7-7.9 23.6-12.4m0.4 0.9c7.9-3.5 15.5-6.8 23.5-10.7m0.5 0.9c9.1-3.9 17.7-7 24.1-9.1m0.2-0.1c8.4-3.6 16.7-7.1 23.7-10.4m-0.7 0.6c9.9-2.2 18.4-3.8 24.2-5.1m-0.2 0.7c7.1-1.2 15.9-2.2 24.9-2.5m-0.6-0.6c7.7-3.5 17.2-7.9 24.3-10.5m-0.6-0.5c7-3.3 18.1-9 24.2-12.2m0.9-0.5c8.5-4.3 17.3-8.4 23.9-11.8m-0.1 0c6.7-1 17.6-3.3 23.1-4.4m0.6-0.7c6.2-3.7 16.9-11.5 23.4-17.5m0.1 0.6c8.2-1.1 16.7-2.1 24.4-3m0.5-0.2c0.8 0.4 2.4 0.4 4 0.8m-820.4 307.1c8.7-4.6 16.8-9 24.3-13.1m-0.7 0.1c6.7-2.4 15-5.7 23.9-9.8m0.3 0.9c8.7-7.2 14.7-11.6 23.7-17.7m0.1 0c7.1-2.2 16.1-4.2 24.8-5.9m0.2-0.3c5.7-1.9 16.9-6 23.7-8.2m-0.3-0.5c7.4-3.1 17-7.1 23.9-9.9m0-0.3c7.8-2 15.3-4.7 24-7.4m0.6-0.6c8.8 0.2 15.4 0.6 23.7 1.5m0.4-0.3c7.4-2.1 16-4.4 23.8-6.5m-0.9 0.3c7.7-3.6 15.1-6.9 25-10.6m-0.9-0.2c8.6-3.7 16.2-7.6 23.9-11.7m1.1-0.4c6.1-3 16.6-8.3 23-11.2m0.8-0.8c7.7-3.3 16.5-7.4 23.6-10.7m-0.1-0.4c7.2-3.1 17.4-8.2 23.7-11.3m0.2-0.8c6.6-1.8 16.1-4.9 24.3-8m-0.7 0.4c7.5-2.9 17.8-7.1 24.6-9.6m0.3-0.2c7.6-0.6 17-1.6 23.7-2.7m-0.5 0.3c7.1-1.7 16.9-4 24.2-5.7m0.2-0.6c6.4-0.6 16.1-2.2 23.5-3.2m0.7 0.2c7.3-4.5 16.9-9.9 24.5-14.4m-0.3 0.8c6-3.4 14.9-7.4 23.8-11.1m0.5 0.1c7.3-3.3 17.2-7.4 23.3-9.8m0-0.1c9.3-5 17.2-8.7 24.2-12.2m-0.4 0.6c6.9-3.2 16.4-7.1 24.8-10.3m-0.3 0.4c8.7-3.8 14.5-5.7 23.7-9.6m0 1.3c8-4.2 16.7-7.8 23.8-11.2m0.5 0.7c8.9-1.6 17.1-3.3 24-4.5m-0.2-0.5c7.9-0.5 17.3-1.6 23.5-3m0 0.6c8.5-3.8 18.4-8.4 24-11.8m0.7 1c7.2-4.2 15.4-8.4 24-12.8m-0.6 0.8c9.5-5 18.1-9.2 24.8-11.7m-0.4-0.5c8.9-2 17.3-3.8 24.3-5.8m-0.8 0.2c6.5-4.3 16.7-11.5 24.4-17m0.7 0.7c8.5-1.9 15.6-2.7 23-4.1m0.7 0.4c1.2 0.2 2.5 0.2 3.3 0.7",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 2,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "r9C1Py",
+          "x": 0,
+          "y": 0,
+          "name": "oom drop",
+          "geometry": "M1000 69.4c-0.1 3.3 0 5.6-0.2 8.8m0.1-7.8c0.1 2 0.1 5.2 0 8m-0.5 6.9c0.7 2.1 0.7 4.5 0.3 8m-0.2-7.9c0.5 2.6 0.5 4.6 0.6 8m-0.7 6.2c0.6 3.5 0.6 5.7 1.1 8.5m-1.1-7.8c0.5 2.3 0.5 5.3 0.4 7.3m-0.1 8c0.4 2.5 0.3 5.2 0.4 6.8m-0.5-7.1c0.3 2.8 0.4 5 0.9 7.8m-0.2 7.2c-0.3 1.9-0.3 4.9 0 7.1m-0.4-7.6c0.1 2.5 0.1 5.4-0.1 7.8m0.2 6.9c-0.1 3.4-0.1 5.4 0.5 8.3m-0.1-7.5c-0.5 2.4-0.4 5.4-0.1 7.6m-0.6 7.6c0.2 2.1 0.2 4.3 0.3 7.2m-0.6-8.3c0.6 3.3 0.6 5.9 0.1 8.1m-0.1 7.4c0.5 2.4 0.5 5.9 1 8m-0.7-8.3c0.2 3.4 0.2 6 0.8 8.3m-0.4 6.7c0 3.6-0.1 5.2-0.6 7.8m0-7.3c0.4 3 0.4 5.5 0.4 7.6m0.1 6.9c0 3.2 0 6.1 0.3 8.4m-0.3-8c0 3 0 5.9 0.4 7.7m-0.5 7.3c0.1 2.2 0.1 5.3 0.6 8m0.1-7.6c-0.6 2.2-0.6 5.4-0.5 8.1m-0.4 6c0.2 3.1 0.2 5.6-0.3 9.1m0.2-8.3c0.4 2.7 0.4 4.6 1 8m-1 6.8c0.3 2 0.3 5.1 0.6 8.5m-0.4-8.6c0.2 2.3 0.2 6 0.1 8.1m0.1 7.3c-0.1 2 0 4.8-0.5 7.3m0.3-7.9c0.1 3.3 0.2 6-0.1 7.7m-0.2 7.8c0.5 2.2 0.5 5.5 0.4 7.4m0.4-7.8c-0.3 3.2-0.3 5.7-0.3 7.6m0.4 8c-0.3 2.3-0.3 4.6-0.5 7.1m0.7-7.8c-0.7 3.4-0.7 5.7-0.8 8.5m-0.2 6.2c0.4 2.9 0.4 5.6 0 8.1m0.1-8.1c0.2 2.7 0.2 6.1 0.5 8.1m-0.7 7c0.6 2.9 0.5 6 0.4 8.6m0.1-8c0.1 2.8 0 5-0.5 7.9m0.8 7.1c-0.3 2.5-0.3 4.8-0.7 7.7m0.8-7.9c-0.3 2.9-0.3 5.2 0 7.4m-0.7 8.1c0.3 2.3 0.3 4.9-0.3 7.8m0-8.3c0.5 2.8 0.5 5.6 0.1 7.5m0.7 7.1c-0.2 3-0.2 5.8 0 7.9m-0.3-7.8c0 3.4 0 5.6 0.2 8.6",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#5a5a5a",
+          "strokeWidth": 1.4,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "path",
+          "id": "m03Jo",
+          "x": 0,
+          "y": 0,
+          "name": "oom mark",
+          "geometry": "M990.2 61.2c6.2 5.6 12.1 11.4 19.6 17.4m-18.4-17.3c5.4 5.1 12.5 12.3 18.1 17.6m-18.5-0.5c5.9-5.8 12.1-11.8 18.3-16.9m-18.9 18.1c6.6-6.5 13.7-13.6 18-19",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 2,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "L82Za7",
+          "x": 1016,
+          "y": 40,
+          "name": "oom",
+          "fill": "#1f1f1f",
+          "content": "OOM, killed",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 22,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "path",
+          "id": "JHUlX",
+          "x": 0,
+          "y": 0,
+          "name": "restart",
+          "geometry": "M1005.7 370.5c7.6-4.7 12.8-8.1 18.8-12.2m-0.6 0.5c5.1-3.3 13-8.4 18.4-12.1m0.2-0.1c6.5-4.4 11.1-7.3 18-11.5m-0.2 0.2c6.5-4.4 11.3-7.6 17.6-11m0.1-0.4c5.3-3.8 12.9-8.5 17.6-11.4m-90 58.2c5.6-3.6 11.4-7.3 18.1-11.7m-0.2-0.5c6-3.3 11.4-6.8 18-11.8m0.9 0.1c5.4-3.6 12.4-8.1 17.6-10.7m0-0.4c4.6-3.3 12.1-8.1 17.5-12.3m0.8 0.6c4.5-3.5 11.7-8.2 18.2-11.5",
+          "viewBox": [
+            0,
+            0,
+            1200,
+            440
+          ],
+          "width": 1200,
+          "height": 440,
+          "stroke": "#1f1f1f",
+          "strokeWidth": 2,
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round"
+        },
+        {
+          "type": "text",
+          "id": "B3A2O",
+          "x": 1014,
+          "y": 392,
+          "name": "restart label",
+          "fill": "#5a5a5a",
+          "content": "restart",
+          "fontFamily": "Gloria Hallelujah",
+          "fontSize": 18,
+          "fontWeight": "normal"
         }
       ]
     }

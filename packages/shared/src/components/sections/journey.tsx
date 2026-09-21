@@ -1,5 +1,6 @@
-import type { JourneyContent } from "../../content-types";
+import type { JourneyContent, JourneyEvent } from "../../content-types";
 import { Emphasised } from "../ui/emphasised";
+import { GalleryMark } from "../ui/gallery-mark";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
 import { page } from "../ui/layout";
@@ -19,6 +20,17 @@ import { page } from "../ui/layout";
  * nothing here has to carry a pixel offset.
  */
 export function Journey({ content }: { content: JourneyContent }) {
+	const labels = content.gallery;
+
+	/* A row with pictures behind it hands its lines to the mark that opens
+	   them; every other row lifts its names the plain way. */
+	const copy = (event: JourneyEvent, text: string) =>
+		event.gallery?.length && labels ? (
+			<GalleryMark text={text} gallery={event.gallery} title={event.title.replace(/\*\*/g, "")} labels={labels} />
+		) : (
+			<Emphasised text={text} />
+		);
+
 	return (
 		<section id="journey" data-section aria-labelledby="journey-label">
 			<SectionLabel id="journey-label" border="bottom-hairline">
@@ -78,7 +90,7 @@ export function Journey({ content }: { content: JourneyContent }) {
 														: "text-text-strong text-[16px] leading-[1.4] font-semibold"
 												}
 											>
-												<Emphasised text={event.title} />
+												{copy(event, event.title)}
 											</h4>
 
 											{/* A featured row's prose is the chapter's one paragraph and
@@ -92,7 +104,7 @@ export function Journey({ content }: { content: JourneyContent }) {
 														event.featured ? "text-[15px]" : "text-[14px]"
 													}`}
 												>
-													<Emphasised text={event.detail} />
+													{copy(event, event.detail)}
 												</p>
 											) : null}
 										</div>

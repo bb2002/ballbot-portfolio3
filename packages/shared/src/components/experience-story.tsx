@@ -2,18 +2,24 @@ import { ArrowLeft } from "lucide-react";
 
 import type { ExperienceContent, ExperienceHighlight } from "../content-types";
 import { page } from "./ui/layout";
+import { StoryBody } from "./ui/story-body";
+
+/** The column a story is read in: the measure, centred on the page. */
+const COLUMN = "mx-auto w-full max-w-[760px]";
 
 /**
  * One story from the Experience list, on a page of its own: the row the
- * reader clicked becomes the title, and the paragraphs the section used to
- * carry inline sit under it at a reading measure.
+ * reader clicked becomes the title, and the body sits under it at a reading
+ * measure — paragraphs, sub-heads and lists in the centred column, figures
+ * across the page, the way a project's essay is laid out.
  *
  * The bar at the top stands in for the site nav, whose links are `#section`
  * anchors that only resolve on the home page. It goes back to the list the
  * reader came from, not to the top of the site.
  *
- * `anim-in` rather than <Reveal>: everything here is above the fold, so the
- * hero's load-time entrance is the right motion and needs no observer.
+ * `anim-in` on the header and <Reveal> (inside StoryBody) below it: the title
+ * is what the page opens on, so it takes the hero's load-time entrance; a
+ * story long enough to scroll has its blocks arrive as they are reached.
  */
 export function ExperienceStory({ content, story }: { content: ExperienceContent; story: ExperienceHighlight }) {
 	const company = content.company.name.replace(/\n/g, " ");
@@ -37,23 +43,15 @@ export function ExperienceStory({ content, story }: { content: ExperienceContent
 				</div>
 			</div>
 
-			<article className={`${page} flex flex-1 flex-col py-14 sm:py-20`}>
-				<div className="mx-auto flex w-full max-w-[760px] flex-col gap-10">
-					<header className="anim-in flex flex-col gap-3" style={{ animationDelay: "60ms" }}>
-						<p className="text-text-secondary text-meta font-mono font-light">{meta}</p>
-						<h1 className="text-text-strong sm:text-title text-[26px] leading-[1.25] font-bold tracking-[-0.01em]">
-							{story.title}
-						</h1>
-					</header>
+			<article className={`${page} flex flex-1 flex-col gap-12 py-14 sm:gap-14 sm:py-20`}>
+				<header className={`anim-in ${COLUMN} flex flex-col gap-3`} style={{ animationDelay: "60ms" }}>
+					<p className="text-text-secondary text-meta font-mono font-light">{meta}</p>
+					<h1 className="text-text-strong sm:text-title text-[26px] leading-[1.25] font-bold tracking-[-0.01em]">
+						{story.title}
+					</h1>
+				</header>
 
-					<div className="anim-in flex flex-col gap-4" style={{ animationDelay: "160ms" }}>
-						{story.paragraphs.map((paragraph, index) => (
-							<p key={index} className="text-text-secondary text-body leading-[1.8]">
-								{paragraph}
-							</p>
-						))}
-					</div>
-				</div>
+				<StoryBody body={story.body} title={story.title} labels={content.gallery} prose={COLUMN} headingAs="h2" />
 			</article>
 		</main>
 	);
