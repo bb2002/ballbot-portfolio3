@@ -154,6 +154,42 @@ function Architecture({
 }
 
 /**
+ * The recording, under its own head. It sits at the reading measure rather
+ * than running the page the way a figure does: a diagram has detail to read
+ * close, a recording is watched, and at 760px it is the size of a player
+ * rather than a second hero. The frame goes to YouTube's no-cookie host and
+ * is not fetched until it scrolls near, so the page costs nothing extra on
+ * load for carrying one. Fullscreen is granted through `allow` alone: with
+ * the legacy `allowfullscreen` beside it the browser logs that one is
+ * ignored, and it is the same permission twice.
+ */
+function Video({
+  content,
+}: {
+  content: NonNullable<ProjectStoryContent["video"]>;
+}) {
+  return (
+    <section data-section aria-labelledby="story-video">
+      <SectionLabel id="story-video">{content.label}</SectionLabel>
+      <Reveal className={`${page} pb-14`}>
+        <div
+          className={`bg-surface relative aspect-video w-full overflow-hidden rounded-lg ${PROSE}`}
+        >
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${content.youtubeId}`}
+            title={content.title}
+            loading="lazy"
+            allow="fullscreen; encrypted-media; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
+            className="absolute inset-0 h-full w-full border-0"
+          />
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+/**
  * One project, on a page of its own — the long form the card's two lines stand
  * in for. It is built from the same screens as the home page: each block opens
  * on the mono head and the 2px rule every section there opens on, the prose
@@ -277,23 +313,25 @@ export function ProjectStory({
         </dl>
       </header>
 
-      <section data-section aria-labelledby="story-highlights">
-        <SectionLabel id="story-highlights">
-          {story.labels.highlights}
-        </SectionLabel>
-        <Reveal className={`${page} pb-14`}>
-          <ul className={`flex flex-col gap-2.5 ${PROSE}`}>
-            {story.highlights.map((line) => (
-              <li key={line} className="flex items-start">
-                <Bullet />
-                <span className="text-text-strong min-w-0 text-[15px] leading-[1.5] sm:text-[17px]">
-                  {line}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </section>
+      {story.highlights?.length ? (
+        <section data-section aria-labelledby="story-highlights">
+          <SectionLabel id="story-highlights">
+            {story.labels.highlights}
+          </SectionLabel>
+          <Reveal className={`${page} pb-14`}>
+            <ul className={`flex flex-col gap-2.5 ${PROSE}`}>
+              {story.highlights.map((line) => (
+                <li key={line} className="flex items-start">
+                  <Bullet />
+                  <span className="text-text-strong min-w-0 text-[15px] leading-[1.5] sm:text-[17px]">
+                    {line}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </section>
+      ) : null}
 
       <section data-section aria-labelledby="story-motivation">
         <SectionLabel id="story-motivation">
@@ -303,6 +341,8 @@ export function ProjectStory({
           <Paragraphs text={story.motivation} />
         </Reveal>
       </section>
+
+      {story.video ? <Video content={story.video} /> : null}
 
       {story.architecture ? (
         <Architecture

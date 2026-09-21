@@ -179,7 +179,8 @@ const COSMO_SCREENS: readonly Media[] = [
 
 /**
  * WATERFLAKE 화면, 터널 하나가 생겨서 붙기까지의 순서대로. 1280×654 / 1502×768 /
- * 1052×513 로 비율이 제각각이라 각자 자기 크기를 들고 간다.
+ * 1052×513 로 비율이 제각각이라 각자 자기 크기를 들고 간다. 뷰어에는 글이 없다 —
+ * 긴 글은 /projects/waterflake 에 있다.
  */
 const WATERFLAKE_SCREENS: readonly Media[] = [
 	{
@@ -188,8 +189,6 @@ const WATERFLAKE_SCREENS: readonly Media[] = [
 		height: 654,
 		caption: "터널 만들기",
 		alt: "WATERFLAKE 관리 화면. 서버 이름과 마인크래프트 자바 에디션, 서브도메인과 리전을 채워 터널을 만드는 폼",
-		// 본문은 뷰어에 있다. 세 장이 곧 세 문단이다: 무엇인지 → 어떻게 흐르는지 → 누가 관리하는지.
-		note: "워터플레이크는 외부 접속이 막힌 마인크래프트 서버에 접속 가능한 도메인을 만들어 주는 프로그램입니다. 웹 사이트에서 터널을 만들고, 마인크래프트 서버에서 정보를 등록하기만 하면 됩니다.",
 	},
 	{
 		src: "/projects/waterflake/02-overview.png",
@@ -197,7 +196,6 @@ const WATERFLAKE_SCREENS: readonly Media[] = [
 		height: 768,
 		caption: "터널 대시보드",
 		alt: "터널 개요 화면. 발급된 접속 주소와 연결 상태, 플러그인이 쓸 키 한 쌍과 트래픽 사용량이 보인다",
-		note: "마인크래프트 서버에서 터널링 서버로 TCP 커넥션을 여러 개 만듭니다. API 서버는 SRV 레코드를 통해 사용자가 등록한 주소가 터널링 서버의 특정 포트를 가리키도록 합니다. 따라서 SRV 레코드가 터널링 서버의 특정 포트를 가리키고, 그 포트에 연결을 맺으면 패킷이 마인크래프트 서버로 흘러가 연결이 맺어지는 구조입니다.",
 	},
 	{
 		src: "/projects/waterflake/03-server-connect.png",
@@ -205,7 +203,6 @@ const WATERFLAKE_SCREENS: readonly Media[] = [
 		height: 513,
 		caption: "서버 연결",
 		alt: "게임 서버 콘솔. 플러그인이 터널 스무 개를 열고 터널링에 성공해 발급받은 도메인에 붙었다",
-		note: "클라이언트는 터널링 서버와 커넥션 개수를 관리합니다.",
 	},
 ];
 
@@ -300,7 +297,8 @@ const ENQOR_SCREENS: readonly Media[] = [
  * 아니라 이야기 순서로 놓았다.
  *
  * 표지에서는 QR 을 지웠고, 본문 두 장은 진행 막대와 덱 내비게이션이 붙어 있던
- * 위쪽 52px 을 잘라 냈다. 덱의 껍데기지 내용이 아니라서 652 로 낮아졌다.
+ * 위쪽 52px 을 잘라 냈다. 덱의 껍데기지 내용이 아니라서 652 로 낮아졌다. 뷰어에는
+ * 글이 없다 — 긴 글은 /projects/healix 에 있다.
  */
 const HEALIX_SCREENS: readonly Media[] = [
 	{
@@ -309,8 +307,6 @@ const HEALIX_SCREENS: readonly Media[] = [
 		height: 701,
 		caption: "HEALIX",
 		alt: 'HEALIX 발표자료 표지. "증상 분석부터 나와 가까운 병원까지" 문구 옆으로 근처 병원과 예약 정보를 띄운 휴대폰이 놓여 있다',
-		// 본문은 카드가 아니라 뷰어에 있다. 세 장이 곧 세 문단이다: 무엇인지 → 왜 → 어떻게.
-		note: "HEALIX 는 사용자가 증상을 입력하면 가장 방문하기 적절한 의원을 내 주변 위치에서 찾아 주는 서비스입니다.",
 	},
 	{
 		src: "/projects/healix/02-background-1e2c9b10.png",
@@ -318,7 +314,6 @@ const HEALIX_SCREENS: readonly Media[] = [
 		height: 652,
 		caption: "기획 배경",
 		alt: "기획 배경 슬라이드. 통증을 직접 검색해 보는 화면과 꾸준히 이어지는 검색량 그래프로 문제를 짚는다",
-		note: "사람들이 몸이 아플 때 구체적으로 어느 병원에 가야 할지 모를 때가 많습니다. 예를 들어 엉덩이 쪽이 아프면 정형외과를 가야 할지, 비뇨기과를 가야 할지 잘 모릅니다. 이 문제를 해결했습니다.",
 	},
 	{
 		src: "/projects/healix/03-flow-fb243485.png",
@@ -326,13 +321,16 @@ const HEALIX_SCREENS: readonly Media[] = [
 		height: 652,
 		caption: "증상 입력과 병원 예약",
 		alt: "서비스 흐름 슬라이드. 부위를 고르고 증상을 적는 화면과, 분석 결과에서 곧바로 근처 병원을 예약하는 화면이 나란히 있다",
-		note: "사용자는 정해진 순서대로 아픈 곳과 자세한 증상을 적습니다. 서버는 GPS 신호를 바탕으로 주변 의원을 찾아내고 가장 방문하기 적절한 병원을 몇 개 추천합니다. 병원 상세 정보는 공공 데이터를 이용했습니다.",
 	},
 ];
 
 /**
  * 스크린 번역기 화면, 하는 일을 먼저 보여 주고 손잡이를 나중에 여는 순서대로.
  * 2018년 안드로이드 앱이라 넷 다 세로 캡처고, 뷰어가 높이로 잡아 준다.
+ *
+ * 페이지가 따로 없는 프로젝트라 짧은 글은 뷰어 패널에 있고, 첫 장에 다 있다 —
+ * 무엇을 하는 앱인지, 그리고 어떻게 끝났는지. 나머지 장에는 캡션도 없다: 뷰어에
+ * 글자가 하나도 뜨지 않고, 썸네일의 접근성 이름은 `alt` 가 대신한다.
  */
 const SCREEN_TRANSLATOR_SCREENS: readonly Media[] = [
 	{
@@ -341,26 +339,24 @@ const SCREEN_TRANSLATOR_SCREENS: readonly Media[] = [
 		height: 996,
 		caption: "게임 번역",
 		alt: "일본어 게임 공지 위에 한국어 번역문이 덮여 있다. 원문 자리에 그대로 겹쳐 띄운다",
+		note: "휴대폰을 흔들면 즉시 화면을 캡처하고, 이미지를 OCR 해 텍스트를 추출하고, 번역기로 번역해 사용자에게 오버레이 형태로 표시해 주는 번역 서비스입니다.\n\n구글 번역기를 통해 번역을 제공했으나, API 키 관리 관련 지식이 없어 클라이언트 앱에 그대로 키를 저장했습니다. 1천여 명이 다운로드했을 때 즈음 키가 유출되었고, 하루에 수십만 원에 달하는 서버비가 발생한 것을 보고 즉시 서비스를 내려 버린 해프닝이 있었습니다.",
 	},
 	{
 		src: "/projects/screen-translator/02-web.jpg",
 		width: 560,
 		height: 996,
-		caption: "웹 번역",
 		alt: "일본어 웹 문서 위에 한국어 번역문이 덮여 있고, 위쪽에 원어 감지와 번역할 언어를 고르는 줄이 있다",
 	},
 	{
 		src: "/projects/screen-translator/03-settings.jpg",
 		width: 560,
 		height: 996,
-		caption: "기본 설정",
 		alt: "기본 설정 화면. 번역할 언어 쌍과 인식 정확도, 번역기 딜레이와 인공지능 번역 여부를 고른다",
 	},
 	{
 		src: "/projects/screen-translator/04-sensitivity.jpg",
 		width: 560,
 		height: 996,
-		caption: "감도 설정",
 		alt: "감도 설정 화면. 얼마나 세게 흔들어야 인식할지 슬라이더로 맞추고 그 자리에서 흔들어 시험해 본다",
 	},
 ];
@@ -589,6 +585,86 @@ const enqorStory: ProjectStoryContent = {
 	},
 };
 
+/**
+ * HEALIX, 긴 글. /projects/healix 에 놓인다. 화면은 카드의 갤러리(HEALIX_SCREENS)를
+ * 그대로 슬라이더로 넘긴다. 두 달짜리 해커톤 결과물이라 날짜별 이력도, 따로 세울
+ * 설계 고민도 없다 — Highlights 와 History 가 빠지고, 대신 발표 영상이 붙는다.
+ */
+const healixStory: ProjectStoryContent = {
+	tagline: "증상 기반 병원 찾기 서비스",
+	facts: [
+		{ term: "참가 인원", detail: "6명" },
+		{ term: "개발 기간", detail: "2024.07 ~ 2024.08" },
+		{ term: "주요 기술", detail: "ChatGPT API, NestJS" },
+	],
+	motivation: [
+		"사람들은 어디가 아플 때 어느 병원에 가야 할지 모르는 경우가 많습니다. 당장 생각해 봐도 열이 나는 감기에 걸리면 내과를 가야 할지 이비인후과를 가야 할지 모르겠고, 엉덩이 같은 생소한 부위가 아파 오면 그 고민은 더더욱 커집니다. 과거에는 인터넷에서 검색해 적절한 과를 찾고, 지도에서 병원을 찾아야 했습니다. HEALIX 는 이 불편함을 해결하고자 개발되었습니다.",
+	],
+	video: {
+		label: "Video",
+		youtubeId: "p3cPmhgZELg",
+		title: "HEALIX 시연 영상",
+	},
+	labels: {
+		highlights: "Highlights",
+		motivation: "Motivation",
+		process: "History",
+		back: "Projects",
+	},
+};
+
+/**
+ * WATERFLAKE 의 구조도. 코스모·enqor 의 것과 같은 손그림 규칙으로 Pencil 문서에서
+ * 그려 2x 로 내보낸 1200×320 프레임이다 — 바꿀 일이 생기면 코드가 아니라 그 문서를 고친다.
+ */
+const WATERFLAKE_ARCHITECTURE: Media = {
+	src: "/projects/waterflake/story/01-tunnel.png",
+	width: 2400,
+	height: 640,
+	caption: "도메인에서 게임 서버까지",
+	alt: "WATERFLAKE 구조도. 플레이어가 test.example.com 으로 접속하면 SRV 레코드가 1.1.1.1 의 3000번 포트를 가리키고, 그 포트에서 도는 터널링 서버가 마인크래프트 서버와 TCP 소켓 스무 개로 이어져 있다",
+};
+
+/**
+ * WATERFLAKE, 긴 글. /projects/waterflake 에 놓인다. 화면은 카드의 갤러리
+ * (WATERFLAKE_SCREENS)를 그대로 슬라이더로 넘긴다. 날짜별 이력은 없어 History 섹션이 빠진다.
+ */
+const waterflakeStory: ProjectStoryContent = {
+	tagline: "간단한 설치만으로 마인크래프트 도메인 서버 열기",
+	highlights: [
+		"SRV 레코드를 사용해 서브도메인이 특정 IP 의 포트를 가리키도록 자동으로 설정",
+		"게임 서버와 터널링 서버 간 TCP 소켓 터널링",
+	],
+	facts: [
+		{ term: "참가 인원", detail: "개인" },
+		{ term: "개발 기간", detail: "2023.03 ~ 2023.05" },
+		{ term: "주요 기술", detail: "NestJS, Java" },
+	],
+	motivation: [
+		"10여 년 전, 마인크래프트라는 게임에 빠져 모두와 함께할 수 있는 서버를 열어 보는 게 가장 큰 목적이었습니다. 컴퓨터는 전혀 모르는 초등학생이 블로그 글만 읽고 VPS 서버를 대여해 Linux 환경에서 게임 서버를 실행했습니다. 그리고 복잡한 네트워크 설정까지 해 마침내 서버를 열었습니다. 그때의 성취감은 평생 가장 큰 성취감으로, 절대 잊어버릴 수 없는 기억입니다. 지금으로 돌아와서, '만약 복잡한 과정 없이 쉽게 게임 서버를 열 수 있게 도와주는 도구가 있으면 어떨까?'라는 생각에서 시작했습니다.",
+	],
+	architecture: {
+		label: "Architecture",
+		items: [
+			{
+				// TODO(confirm): 원문에는 절 제목이 없어 두 하이라이트를 그대로 제목으로 세웠다.
+				title: "SRV 레코드와 TCP 터널링",
+				body: [
+					WATERFLAKE_ARCHITECTURE,
+					"사용자가 우리 웹 서비스에서 터널을 생성하면 Cloudflare API 를 통해 SRV 레코드를 생성합니다. 그리고 터널링을 담당하는 가상 머신에 랜덤한 포트로 터널링 서버를 띄웁니다. 터널링 서버는 두 개의 연결을 받는데, 한 개는 SRV 레코드를 통해 들어오는 연결, 한 개는 마인크래프트 서버 쪽으로 나가는 연결입니다. 이 두 연결을 파이프해 외부에서 들어오는 패킷이 자연스럽게 마인크래프트 서버로 나갈 수 있습니다. 사용자에게는 마치 도메인 주소를 입력하면 연결 가능한 서버로 보이게 됩니다.",
+					"터널링 서버와 게임 서버 간 TCP 터널은 20개의 소켓으로 관리됩니다. 게임 플레이어가 서버에 접속하면 이 소켓 중 하나를 점유합니다. 플레이어가 게임 서버를 나가면 해당 소켓은 폐기되고, 새 소켓을 생성합니다. 이 주기가 반복되어 소켓의 개수를 관리합니다. 다행히 마인크래프트 서버 설정에는 최대 접속 가능한 인원이 정해져 있기 때문에, 이 값만큼만 소켓을 관리하면 운영에 문제가 없었습니다.",
+				],
+			},
+		],
+	},
+	labels: {
+		highlights: "Highlights",
+		motivation: "Motivation",
+		process: "History",
+		back: "Projects",
+	},
+};
+
 export const projects: ProjectsContent = {
 	label: "Projects",
 	featured: [
@@ -671,6 +747,9 @@ export const projects: ProjectsContent = {
 			// 살아 있는 앱이 아니라 2024년 해커톤 결과물이다. 남은 건 발표자료뿐이라
 			// 표지 → 왜 만들었나 → 어떻게 쓰나 세 장으로 줄였다.
 			gallery: HEALIX_SCREENS,
+			// 제목을 누르면 열리는 긴 글. 갤러리는 저 위의 것을 그대로 슬라이더로 쓴다.
+			slug: "healix",
+			story: healixStory,
 		},
 		{
 			period: "2023",
@@ -696,6 +775,8 @@ export const projects: ProjectsContent = {
 			// 터널을 만들고 → 주소와 키를 받고 → 서버가 붙는다. 마지막 장이 터널링
 			// 성공 로그라, 넘기다 보면 설명이 말한 도메인이 실제로 사는 걸로 끝난다.
 			gallery: WATERFLAKE_SCREENS,
+			slug: "waterflake",
+			story: waterflakeStory,
 		},
 		{
 			period: "2018",

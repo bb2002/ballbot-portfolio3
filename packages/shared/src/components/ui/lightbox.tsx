@@ -78,9 +78,11 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 	const count = items.length;
 	const current = items[index];
 
-	/* One slide with something to say opens the panel for the whole set. Sized
-	   per slide instead, the image would grow and shrink as the reader paged
-	   across the ones that had a note and the ones that did not. */
+	/* A note anywhere turns the panel on for the set — a caption alone never
+	   does, so a gallery of bare screens shows no text at all. Within a set that
+	   has notes, a slide with nothing of its own to say gives the column back
+	   (see the figure below): the image growing on that slide is the lesser
+	   evil next to an empty column pushing it off centre. */
 	const withPanel = items.some((item) => Boolean(item.note));
 
 	/* A certificate has one page. Paging controls for a set of one are chrome
@@ -271,7 +273,13 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 						className="flex h-full transition-transform duration-[450ms] ease-[var(--ease-smooth)] motion-reduce:transition-none"
 						style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
 					>
-						{items.map((item, slide) => (
+						{items.map((item, slide) => {
+							/* The column is only laid out when there is text to put in it. An
+							   empty one still took its width, and the picture sat left of centre
+							   on every slide that had nothing to say. */
+							const panel = withPanel && Boolean(item.caption || item.note);
+
+							return (
 							<figure
 								key={item.src ?? slide}
 								// `inert` on everything but the current slide: the off-screen
@@ -283,7 +291,7 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 									// row layout. Centred, its height is its own content's — and its
 									// only child is the `fill` image, absolutely positioned, which
 									// contributes none. The panel opts back out with `self-center`.
-									withPanel ? "gap-4 lg:flex-row lg:items-stretch lg:gap-8" : ""
+									panel ? "gap-4 lg:flex-row lg:items-stretch lg:gap-8" : ""
 								}`}
 							>
 								{/* The image gets a box of its own rather than sizing against the
@@ -298,7 +306,7 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 											src={item.src}
 											alt={item.alt}
 											fill
-											sizes={sizesFor(item, withPanel)}
+											sizes={sizesFor(item, panel)}
 											// Neighbours load ahead so paging does not wait on a
 											// fetch; the rest stay lazy, which on a ten-screen
 											// gallery is most of the weight left on the shelf.
@@ -318,22 +326,25 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 									) : null}
 								</div>
 
-								{/* The panel is the only text the stage carries, and it is all or
-								    nothing: with no note anywhere in the set the image goes out on
-								    its own, no caption line under it. `caption` still names the
-								    slide on the rail and to a screen reader either way. Beside the
-								    image where there is room, under it where there is not —
-								    `self-center` rather than stretching, or a two-line note pinned
-								    to the top of a 685px column would read as a caption that had
-								    floated away from its picture. */}
-								{withPanel ? (
+								{/* The panel is the only text the stage carries. With no note
+								    anywhere in the set the image goes out on its own, no caption
+								    line under it; `caption` still names the slide on the rail and
+								    to a screen reader either way. Beside the image where there is
+								    room, under it where there is not — `self-center` rather than
+								    stretching, or a two-line note pinned to the top of a 685px
+								    column would read as a caption that had floated away from its
+								    picture. */}
+								{panel ? (
 									<figcaption className="w-full shrink-0 text-center lg:w-[clamp(260px,28%,380px)] lg:self-center lg:text-left">
 										{item.caption ? <p className="text-text-inverse text-[17px] font-bold">{item.caption}</p> : null}
-										{item.note ? <p className="mt-3 text-[15px] leading-[1.7] text-white/70">{item.note}</p> : null}
+										{item.note ? (
+											<p className="mt-3 text-[15px] leading-[1.7] whitespace-pre-line text-white/70">{item.note}</p>
+										) : null}
 									</figcaption>
 								) : null}
 							</figure>
-						))}
+							);
+						})}
 					</div>
 				</div>
 

@@ -31,12 +31,13 @@ export type Media = {
 	caption?: string;
 	/**
 	 * A sentence or two on what the screen is doing, shown beside the image.
+	 * Line breaks are honoured, so a note can hold two short paragraphs.
 	 *
-	 * This is what opens the panel, and it is all or nothing per gallery: one
-	 * `note` anywhere gives every slide in that set a panel — an image that grew
-	 * and shrank as the reader paged past the slides that had one would be worse
-	 * than a little repetition — and with none, the images go out on their own,
-	 * with no caption line under them either.
+	 * This is what opens the panel: one `note` anywhere turns it on for that
+	 * set, and with none the images go out on their own, with no caption line
+	 * under them either. Within a set that has notes, a slide with neither a
+	 * `caption` nor a `note` is shown alone and centred rather than beside an
+	 * empty column.
 	 */
 	note?: string;
 };
@@ -172,8 +173,12 @@ export type ProjectEssay = {
 export type ProjectStoryContent = {
 	/** One line under the title: what the service is, in a phrase. */
 	tagline: string;
-	/** Three or so things worth knowing before the rest — the section is titled by `labels.highlights`. */
-	highlights: readonly string[];
+	/**
+	 * Three or so things worth knowing before the rest — the section is titled
+	 * by `labels.highlights`. Omitted on a project with nothing to lift out of
+	 * the prose, and the section goes with it.
+	 */
+	highlights?: readonly string[];
 	/**
 	 * The facts of the project — team size, period, stack — as term/detail
 	 * pairs. They sit under the title, beside the slider, in the page's head.
@@ -181,6 +186,14 @@ export type ProjectStoryContent = {
 	facts: readonly { term: string; detail: string }[];
 	/** Why it was started. Paragraphs. */
 	motivation: readonly string[];
+	/**
+	 * A recording of the service — a hackathon demo, a walkthrough — under its
+	 * own mono head (`label`, "Video"). YouTube only, and by id rather than by
+	 * URL: the page builds the embed itself, on the host that sets no cookie
+	 * until the reader presses play. `title` is the frame's accessible name,
+	 * so a screen reader hears what the video is, not just that there is one.
+	 */
+	video?: { label: string; youtubeId: string; title: string };
 	/**
 	 * The design questions, under one mono head (`label`, "Architecture").
 	 * Each item opens on its own title, and they are parted by hairlines.
