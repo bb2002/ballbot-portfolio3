@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import { useCallback, useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
 
@@ -190,6 +190,15 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 		});
 	}, [index]);
 
+	/* A recording keeps playing off-screen once paged away from, its sound
+	   with it. Paging pauses every video but the current slide's; closing
+	   unmounts them all, which is its own stop. */
+	useEffect(() => {
+		dialogRef.current?.querySelectorAll("video").forEach((video, slide) => {
+			if (slide !== index) video.pause();
+		});
+	}, [index]);
+
 	// The viewer is only ever mounted by a click, so `document` is always there
 	// by the time it renders and the portal needs no round trip through state to
 	// wait for one. The guard is for a caller that renders it some other way.
@@ -301,7 +310,26 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 								    screen. `flex-1 min-h-0` hands it exactly what is left once the
 								    caption and the gap have been paid for. */}
 								<div className="relative flex min-h-0 w-full min-w-0 flex-1 items-center justify-center">
-									{item.src ? (
+									{item.video ? (
+										/* The browser's own controls, on a player fitted to the stage
+										   the way a picture is. Pointer events stop here as well as
+										   clicks: a drag along the timeline is scrubbing, and read by
+										   the dialog it was a swipe that paged the gallery. Only the
+										   neighbours fetch their metadata ahead; the rest wait to be
+										   paged to, since a recording is the heaviest thing in the set. */
+										<video
+											src={item.video}
+											poster={item.src}
+											controls
+											playsInline
+											preload={Math.abs(slide - index) <= 1 ? "metadata" : "none"}
+											aria-label={item.alt}
+											onClick={(event) => event.stopPropagation()}
+											onPointerDown={(event) => event.stopPropagation()}
+											onPointerUp={(event) => event.stopPropagation()}
+											className="max-h-full max-w-full drop-shadow-[0_18px_40px_rgba(0,0,0,0.55)]"
+										/>
+									) : item.src ? (
 										<Image
 											src={item.src}
 											alt={item.alt}
@@ -408,6 +436,13 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 							>
 								{item.src ? (
 									<Image src={item.src} alt="" fill sizes="80px" className="object-cover object-top" />
+								) : null}
+								{/* A recording's tile carries the glyph a player does, so the rail
+								    says which step plays rather than shows. */}
+								{item.video ? (
+									<span aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
+										<Play strokeWidth={0} className="h-3.5 w-3.5 fill-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" />
+									</span>
 								) : null}
 							</button>
 						))}

@@ -84,9 +84,8 @@ function FeaturedCard({ project, galleryLabels }: { project: FeaturedProject; ga
 						<ImagePlaceholder media={project.appIcon} sizes="32px" className="mt-0.5 h-8 w-8 shrink-0 rounded-lg" />
 						{/* `lg:text-[26px]`: lg is where the cards go two-up and the text
 						    column drops to ~165px. Holding the title at the stacked layout's
-						    32px there wrapped it and left the two stat feet off each other's
-						    line; the display step comes back at xl, where the column is wide
-						    enough to carry it on one line. */}
+						    32px there wrapped it onto a second line; the display step comes
+						    back at xl, where the column is wide enough to carry it on one. */}
 						<h3 className="text-text-strong sm:text-title xl:text-title min-w-0 text-[26px] leading-tight font-bold lg:text-[26px]">
 							<Title project={project} />
 						</h3>
@@ -96,28 +95,6 @@ function FeaturedCard({ project, galleryLabels }: { project: FeaturedProject; ga
 
 					<ProjectLinks links={project.links} title={project.title} />
 				</div>
-			</div>
-
-			{/* The numbers sit under image and copy as a full-width foot, so the text
-			    column beside the thumbnail stays short and the two never fight for width.
-
-			    `lg:mt-auto` is what keeps the two feet on one line once the cards go
-			    two-up. The cards are equal height, but the copy inside them is not —
-			    one description wrapping to a fourth line, or carrying a link row its
-			    neighbour has not got yet, centred the shorter card 30px lower and
-			    split the stat band across two lines. Pinning the foot to the bottom
-			    lands both on the same baseline and tops the titles off each other.
-			    Stacked, each card owns its own row and centring still reads better. */}
-			<div className="border-border flex items-stretch border-t-[0.5px] px-1 pt-4 lg:mt-auto">
-				{project.stats.map((stat, index) => (
-					<Fragment key={stat.label}>
-						{index > 0 ? <div aria-hidden="true" className="bg-border mx-4 w-[0.5px] shrink-0" /> : null}
-						<div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5">
-							<p className="text-text-strong text-[20px] font-bold">{stat.value}</p>
-							<p className="text-text-secondary text-[13px] leading-tight font-light">{stat.label}</p>
-						</div>
-					</Fragment>
-				))}
 			</div>
 		</article>
 	);

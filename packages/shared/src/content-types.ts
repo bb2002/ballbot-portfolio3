@@ -9,9 +9,19 @@
  */
 
 export type Media = {
-	/** Path under /public. Leave undefined to render the placeholder tile. */
+	/**
+	 * Path under /public, or the full address of a file in the asset bucket
+	 * (see `asset()`). Leave undefined to render the placeholder tile.
+	 */
 	src?: string;
 	alt: string;
+	/**
+	 * The address of a recording, when the slide is a video rather than a
+	 * picture — an mp4 the viewer plays in place. `src` is then its poster:
+	 * what the stage shows before play, and what the rail draws. Only the
+	 * viewer plays video; a card or a figure given one shows the poster.
+	 */
+	video?: string;
 	/**
 	 * Intrinsic pixel size. Only the gallery needs it, and not to lay the image
 	 * out — the viewer fits it to the stage. It is the shape: the rail draws
@@ -65,7 +75,12 @@ export type FooterContent = {
  * Hero
  * ------------------------------------------------------------------ */
 
-export type Highlight = { emphasis: string | null; detail: string };
+/**
+ * One Overview row: the lifted fragment, the lighter rest of the line, and
+ * where the fragment goes when pressed — the story or the project the row
+ * is the one-line form of. Without `href` the fragment is emphasis only.
+ */
+export type Highlight = { emphasis: string | null; detail: string; href?: string };
 
 /**
  * One figure in the Overview column: the number, the grey line under it and
@@ -132,6 +147,15 @@ export type StoryList = { items: readonly string[] };
  * strings, which is what most of them are.
  */
 export type StoryBlock = string | Media | StoryHeading | StoryList;
+
+/**
+ * Where a `**…**` name in a line goes when pressed: to an address — the
+ * project's own page — or into a set of pictures of it, the screens of a
+ * game, a photograph of the moment. Matched to the name by its text, so the
+ * line stays readable in the content file and the destination sits beside
+ * it rather than inside it. A name with no entry is emphasis and nothing more.
+ */
+export type NameLink = { name: string } & ({ href: string; gallery?: never } | { gallery: readonly Media[]; href?: never });
 
 /* ------------------------------------------------------------------ *
  * Projects
@@ -238,7 +262,6 @@ export type FeaturedProject = {
 	period: string;
 	title: string;
 	description: string;
-	stats: readonly { value: string; label: string }[];
 	/**
 	 * Omitted on a project with nothing public to open — the row disappears
 	 * rather than leaving an empty foot under the copy.
@@ -353,6 +376,8 @@ export type CertificateCard = {
 	host?: string;
 	/** One line of prose; `**…**` lifts a project's name out of the sentence. */
 	description?: string;
+	/** Where the `**…**` names in the description go when pressed, by their text. */
+	links?: readonly NameLink[];
 	image: Media;
 	/**
 	 * The scans, opened from the tile. A card whose award came with two
@@ -393,12 +418,8 @@ export type JourneyEvent = {
 	stack?: string;
 	/** `**…**` lifts a project's name out of the line, as an award's does. */
 	detail?: string;
-	/**
-	 * Pictures of the thing — the screens of a service, a photograph of the
-	 * moment. Given one, every `**…**` fragment in the row's title and detail
-	 * becomes the way in, so mark the one word the pictures belong to.
-	 */
-	gallery?: readonly Media[];
+	/** Where the `**…**` names in the title and detail go when pressed, by their text. */
+	links?: readonly NameLink[];
 };
 
 export type JourneyChapter = {
@@ -412,6 +433,6 @@ export type JourneyChapter = {
 export type JourneyContent = {
 	label: string;
 	chapters: readonly JourneyChapter[];
-	/** Required once any event carries a `gallery`. The same strings Projects uses. */
+	/** Required once any event's `links` carry a `gallery`. The same strings Projects uses. */
 	gallery?: GalleryLabels;
 };

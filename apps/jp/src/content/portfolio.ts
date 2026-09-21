@@ -116,11 +116,6 @@ export const projects: ProjectsContent = {
 			title: "コスモのノート",
 			description:
 				"動画講義をアップロードすると、画面と音声を解析して要約ノートにまとめるサービスです。サーバーレス構成なので待機中はサーバー費用がかからず、アクセスが集中しても自動でスケールします。",
-			stats: [
-				{ value: "1,300+", label: "累計登録者" },
-				{ value: "48万ウォン", label: "月間売上" },
-				{ value: "160", label: "DAU" },
-			],
 			links: [{ label: "cosmonote.site", href: "https://cosmonote.site" }],
 			thumbnail: { src: "/mock/cosmo-thumb.svg", alt: "コスモのノートの画面。オペレーティングシステム第5週のまとめノートと復習クイズ" },
 			appIcon: { src: "/brand/cosmonote-icon.png", alt: "コスモのノートのアプリアイコン" },
@@ -130,11 +125,6 @@ export const projects: ProjectsContent = {
 			title: "enqor",
 			description:
 				"リアルタイムの映像・音声通話サービスです。バイブコーディングを初めて取り入れたプロジェクトで、AI の応答を改善するためのハーネスや、通話料金の精算をめぐるエンジニアリング上の工夫が詰まっています。",
-			stats: [
-				{ value: "2,400+", label: "累計学習文" },
-				{ value: "31%", label: "7日間再訪率" },
-				{ value: "90", label: "DAU" },
-			],
 			// 韓国ストアのページ。ロケールなしの /app/id… は読み手のストアへ飛ぶため、
 			// 未配信の地域では行き止まりになる。KR ビルドと同じ URL を使う。
 			links: [
@@ -342,7 +332,7 @@ export const journey: JourneyContent = {
 					year: "2020",
 					title: "モバイルゲームの開発",
 					featured: true,
-					detail: "Unreal Engine を使って **RunCatGame**、**MyRunnerGame** のモバイルゲームを開発しました。",
+					detail: "Unreal Engine を使って **MyRunnerGame** のモバイルゲームを開発しました。",
 				},
 			],
 		},

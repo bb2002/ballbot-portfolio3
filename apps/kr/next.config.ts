@@ -25,6 +25,15 @@ const SECURITY_HEADERS = [
 const nextConfig: NextConfig = {
 	/* The framework version is not something a reader needs told. */
 	poweredByHeader: false,
+	/*
+	 * Screenshots and recordings are served from the R2 bucket behind
+	 * assets.ballbot.dev rather than by this Worker, and `next/image` refuses a
+	 * remote host it has not been told about. The same host as ASSET_ORIGIN in
+	 * @ballbot/shared, spelled out: this file runs before that package is built.
+	 */
+	images: {
+		remotePatterns: [{ protocol: "https", hostname: "assets.ballbot.dev", pathname: "/**" }],
+	},
 	async headers() {
 		return [{ source: "/:path*", headers: SECURITY_HEADERS }];
 	},

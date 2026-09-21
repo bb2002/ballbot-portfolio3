@@ -1,6 +1,6 @@
 import type { JourneyContent, JourneyEvent } from "../../content-types";
 import { Emphasised } from "../ui/emphasised";
-import { GalleryMark } from "../ui/gallery-mark";
+import { MarkedText } from "../ui/marked-text";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
 import { page } from "../ui/layout";
@@ -22,11 +22,12 @@ import { page } from "../ui/layout";
 export function Journey({ content }: { content: JourneyContent }) {
 	const labels = content.gallery;
 
-	/* A row with pictures behind it hands its lines to the mark that opens
-	   them; every other row lifts its names the plain way. */
+	/* A row whose names go somewhere — a page, or pictures behind the row —
+	   hands its lines to the mark that takes them there; every other row
+	   lifts its names the plain way. */
 	const copy = (event: JourneyEvent, text: string) =>
-		event.gallery?.length && labels ? (
-			<GalleryMark text={text} gallery={event.gallery} title={event.title.replace(/\*\*/g, "")} labels={labels} />
+		event.links?.length ? (
+			<MarkedText text={text} links={event.links} labels={labels} />
 		) : (
 			<Emphasised text={text} />
 		);

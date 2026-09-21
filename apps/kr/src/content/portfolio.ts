@@ -1,13 +1,16 @@
 /**
  * Copy and asset paths for the Korean build. The text is written for the real
- * site; the artwork under /public/mock is stand-in vector art until real
- * screenshots and scans arrive — swap the `src` paths and nothing else moves.
+ * site. Screenshots, scans and recordings come from the asset bucket through
+ * `asset()` — the bucket holds the only copy; a new file is staged under the
+ * gitignored apps/kr/assets and sent up with `npm run assets:push`. Brand marks
+ * and what is left of the stand-in art under /public/mock stay on the Worker.
  *
  * Every export here fills a type from @ballbot/shared, so a field the shared
  * components expect cannot go missing and the Japanese build cannot drift out
  * of shape from this one.
  */
 
+import { asset } from "@ballbot/shared";
 import type {
 	CertificatesContent,
 	ExperienceContent,
@@ -81,17 +84,17 @@ export const overview: OverviewContent = {
 			value: "2 Years",
 			caption: "넛지헬스케어 타임스프레드, 링커리어 팀 백엔드",
 			items: [
-				{ emphasis: "19억 건의 테이블을", detail: "점검 시간 1시간 내에 마이그레이션" },
-				{ emphasis: "분당 1,500건의 요청을 받는", detail: "서비스 리팩토링" },
-				{ emphasis: "월 1천만원을 넘기던 AWS 비용을", detail: "30% 절감" },
-				{ emphasis: "32GB 넘게 메모리를 점유하고 멈추던", detail: "API 서버 정상화" },
+				{ emphasis: "19억 건의 테이블을", detail: "점검 시간 1시간 내에 마이그레이션", href: "/experience/bigint-migration" },
+				{ emphasis: "분당 1,500건의 요청을 받는", detail: "서비스 리팩토링", href: "/experience/realtime-redesign" },
+				{ emphasis: "월 1천만원을 넘기던 AWS 비용을", detail: "30% 절감", href: "/experience/aws-cost" },
+				{ emphasis: "32GB 넘게 메모리를 점유하고 멈추던", detail: "API 서버 정상화", href: "/experience/api-memory" },
 			],
 		},
 		{
 			value: "2 Awards",
 			items: [
-				{ emphasis: "코스모의 노트,", detail: "전국 대회 최우수상 1위 달성" },
-				{ emphasis: "HEALIX,", detail: "1,500명 규모 전국 해커톤 2위 달성" },
+				{ emphasis: "코스모의 노트,", detail: "전국 대회 최우수상 1위 달성", href: "/projects/cosmonote" },
+				{ emphasis: "HEALIX,", detail: "1,500명 규모 전국 해커톤 2위 달성", href: "/projects/healix" },
 			],
 		},
 		{
@@ -113,63 +116,63 @@ export const overview: OverviewContent = {
  */
 const COSMO_SCREENS: readonly Media[] = [
 	{
-		src: "/projects/cosmonote/01-landing.png",
+		src: asset("/projects/cosmonote/01-landing.png"),
 		width: 1537,
 		height: 763,
 		caption: "랜딩",
 		alt: '코스모의 노트 첫 화면. "동영상 강의에 끌려다니지 마세요" 문구 옆으로 요약노트·퀴즈·스크립트 카드가 떠 있다',
 	},
 	{
-		src: "/projects/cosmonote/02-features.png",
+		src: asset("/projects/cosmonote/02-features.png"),
 		width: 1537,
 		height: 763,
 		caption: "기능",
 		alt: "기능 소개 화면. 요약노트, 영상 타임라인, 퀴즈 자동 생성, 암기카드, 코멘트를 카드로 늘어놓았다",
 	},
 	{
-		src: "/projects/cosmonote/03-note.png",
+		src: asset("/projects/cosmonote/03-note.png"),
 		width: 1537,
 		height: 763,
 		caption: "요약노트",
 		alt: "노트 화면. 왼쪽에 강의 영상과 타임라인, 오른쪽에 EC2 인스턴스 배포 실습을 정리한 요약노트가 있다",
 	},
 	{
-		src: "/projects/cosmonote/04-quiz-create.png",
+		src: asset("/projects/cosmonote/04-quiz-create.png"),
 		width: 1537,
 		height: 763,
 		caption: "퀴즈 만들기",
 		alt: "퀴즈 만들기 대화상자. 문항 수와 선택형·단답형 같은 문항 유형을 고르는 중이다",
 	},
 	{
-		src: "/projects/cosmonote/05-quiz-solve.png",
+		src: asset("/projects/cosmonote/05-quiz-solve.png"),
 		width: 1537,
 		height: 763,
 		caption: "퀴즈 풀기",
 		alt: "퀴즈 풀이 화면. 열 문항 중 첫 문항을 풀고 있고 진행률과 임시 저장 상태가 보인다",
 	},
 	{
-		src: "/projects/cosmonote/06-flashcard-create.png",
+		src: asset("/projects/cosmonote/06-flashcard-create.png"),
 		width: 1537,
 		height: 763,
 		caption: "암기카드 만들기",
 		alt: "암기카드 만들기 대화상자. 노트 내용으로 자동 생성할지 빈 카드로 시작할지 고른다",
 	},
 	{
-		src: "/projects/cosmonote/07-flashcard-study.png",
+		src: asset("/projects/cosmonote/07-flashcard-study.png"),
 		width: 1537,
 		height: 763,
 		caption: "암기카드 학습",
 		alt: "암기카드 학습 화면. 스물다섯 장짜리 덱의 첫 카드와 알아요·몰라요·건너뛰기 집계가 있다",
 	},
 	{
-		src: "/projects/cosmonote/08-public-notes.png",
+		src: asset("/projects/cosmonote/08-public-notes.png"),
 		width: 1537,
 		height: 763,
 		caption: "공개 노트",
 		alt: "공개 노트 찾기 화면. 검색창 아래로 다른 사람이 공개한 노트가 카드로 깔려 있다",
 	},
 	{
-		src: "/projects/cosmonote/09-api.png",
+		src: asset("/projects/cosmonote/09-api.png"),
 		width: 1537,
 		height: 763,
 		caption: "개발자 API",
@@ -184,21 +187,21 @@ const COSMO_SCREENS: readonly Media[] = [
  */
 const WATERFLAKE_SCREENS: readonly Media[] = [
 	{
-		src: "/projects/waterflake/01-tunnel-create.png",
+		src: asset("/projects/waterflake/01-tunnel-create.png"),
 		width: 1280,
 		height: 654,
 		caption: "터널 만들기",
 		alt: "WATERFLAKE 관리 화면. 서버 이름과 마인크래프트 자바 에디션, 서브도메인과 리전을 채워 터널을 만드는 폼",
 	},
 	{
-		src: "/projects/waterflake/02-overview.png",
+		src: asset("/projects/waterflake/02-overview.png"),
 		width: 1502,
 		height: 768,
 		caption: "터널 대시보드",
 		alt: "터널 개요 화면. 발급된 접속 주소와 연결 상태, 플러그인이 쓸 키 한 쌍과 트래픽 사용량이 보인다",
 	},
 	{
-		src: "/projects/waterflake/03-server-connect.png",
+		src: asset("/projects/waterflake/03-server-connect.png"),
 		width: 1052,
 		height: 513,
 		caption: "서버 연결",
@@ -213,77 +216,77 @@ const WATERFLAKE_SCREENS: readonly Media[] = [
  */
 const ENQOR_SCREENS: readonly Media[] = [
 	{
-		src: "/projects/enqor/01-poster.png",
+		src: asset("/projects/enqor/01-poster.png"),
 		width: 1024,
 		height: 500,
 		caption: "enqor",
 		alt: 'enqor 스토어 대표 이미지. "나의 평범함이 빛나는 순간" 문구 아래로 앱 화면을 띄운 휴대폰 두 대가 놓여 있다',
 	},
 	{
-		src: "/projects/enqor/02-login.jpg",
+		src: asset("/projects/enqor/02-login.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "로그인",
 		alt: "enqor 로그인 화면. 휴대폰 번호와 Google, 카카오톡 로그인 버튼이 있다",
 	},
 	{
-		src: "/projects/enqor/03-home.jpg",
+		src: asset("/projects/enqor/03-home.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "전문가 탐색",
 		alt: "홈 화면. 주제별 전문가 카드가 가로로 놓이고 아래에 나와 연결된 전문가와 지금 대화 가능한 전문가가 있다",
 	},
 	{
-		src: "/projects/enqor/04-profile.jpg",
+		src: asset("/projects/enqor/04-profile.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "전문가 프로필",
 		alt: "전문가 프로필 화면. 인증 타이틀과 해시태그가 붙어 있고 아래에 대화 요청 버튼이 있다",
 	},
 	{
-		src: "/projects/enqor/05-request.jpg",
+		src: asset("/projects/enqor/05-request.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "대화 요청",
 		alt: "대화 요청 시트. 보유 클랩과 초당 연결 비용을 보여 주고 영상이나 음성 중 하나를 고르게 한다",
 	},
 	{
-		src: "/projects/enqor/06-clap-station.jpg",
+		src: asset("/projects/enqor/06-clap-station.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "클랩 충전",
 		alt: "클랩 스테이션. 500 클랩부터 25,000 클랩까지 묶음이 가격과 할인율과 함께 놓여 있다",
 	},
 	{
-		src: "/projects/enqor/07-payment.jpg",
+		src: asset("/projects/enqor/07-payment.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "결제",
 		alt: "구글 플레이 인앱 결제 시트. 5,000 클랩 상품과 결제 수단이 올라와 있다",
 	},
 	{
-		src: "/projects/enqor/08-connecting.jpg",
+		src: asset("/projects/enqor/08-connecting.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "연결 중",
 		alt: "거는 쪽 화면. 카메라가 미리 열린 채 대화 연결 중이라 뜨고 남은 시간과 보유 클랩이 보인다",
 	},
 	{
-		src: "/projects/enqor/09-incoming.jpg",
+		src: asset("/projects/enqor/09-incoming.jpg"),
 		width: 1080,
 		height: 2220,
 		caption: "요청 수신",
 		alt: "받는 쪽 화면. 상대의 인증 타이틀과 해시태그가 붙은 요청 카드에 거절과 수락 버튼이 달려 있다",
 	},
 	{
-		src: "/projects/enqor/10-call.jpg",
+		src: asset("/projects/enqor/10-call.jpg"),
 		width: 2000,
 		height: 1500,
 		caption: "통화",
 		alt: "휴대폰 두 대를 나란히 놓고 실제로 영상 통화를 하는 사진. 양쪽 화면에 서로의 카메라가 떠 있다",
 	},
 	{
-		src: "/projects/enqor/11-review.jpg",
+		src: asset("/projects/enqor/11-review.jpg"),
 		width: 1080,
 		height: 2400,
 		caption: "리뷰",
@@ -302,21 +305,21 @@ const ENQOR_SCREENS: readonly Media[] = [
  */
 const HEALIX_SCREENS: readonly Media[] = [
 	{
-		src: "/projects/healix/01-cover-5badd1f3.png",
+		src: asset("/projects/healix/01-cover-5badd1f3.png"),
 		width: 1244,
 		height: 701,
 		caption: "HEALIX",
 		alt: 'HEALIX 발표자료 표지. "증상 분석부터 나와 가까운 병원까지" 문구 옆으로 근처 병원과 예약 정보를 띄운 휴대폰이 놓여 있다',
 	},
 	{
-		src: "/projects/healix/02-background-1e2c9b10.png",
+		src: asset("/projects/healix/02-background-1e2c9b10.png"),
 		width: 1244,
 		height: 652,
 		caption: "기획 배경",
 		alt: "기획 배경 슬라이드. 통증을 직접 검색해 보는 화면과 꾸준히 이어지는 검색량 그래프로 문제를 짚는다",
 	},
 	{
-		src: "/projects/healix/03-flow-fb243485.png",
+		src: asset("/projects/healix/03-flow-fb243485.png"),
 		width: 1244,
 		height: 652,
 		caption: "증상 입력과 병원 예약",
@@ -334,7 +337,7 @@ const HEALIX_SCREENS: readonly Media[] = [
  */
 const SCREEN_TRANSLATOR_SCREENS: readonly Media[] = [
 	{
-		src: "/projects/screen-translator/01-game.jpg",
+		src: asset("/projects/screen-translator/01-game.jpg"),
 		width: 485,
 		height: 996,
 		caption: "게임 번역",
@@ -342,19 +345,19 @@ const SCREEN_TRANSLATOR_SCREENS: readonly Media[] = [
 		note: "휴대폰을 흔들면 즉시 화면을 캡처하고, 이미지를 OCR 해 텍스트를 추출하고, 번역기로 번역해 사용자에게 오버레이 형태로 표시해 주는 번역 서비스입니다.\n\n구글 번역기를 통해 번역을 제공했으나, API 키 관리 관련 지식이 없어 클라이언트 앱에 그대로 키를 저장했습니다. 1천여 명이 다운로드했을 때 즈음 키가 유출되었고, 하루에 수십만 원에 달하는 서버비가 발생한 것을 보고 즉시 서비스를 내려 버린 해프닝이 있었습니다.",
 	},
 	{
-		src: "/projects/screen-translator/02-web.jpg",
+		src: asset("/projects/screen-translator/02-web.jpg"),
 		width: 560,
 		height: 996,
 		alt: "일본어 웹 문서 위에 한국어 번역문이 덮여 있고, 위쪽에 원어 감지와 번역할 언어를 고르는 줄이 있다",
 	},
 	{
-		src: "/projects/screen-translator/03-settings.jpg",
+		src: asset("/projects/screen-translator/03-settings.jpg"),
 		width: 560,
 		height: 996,
 		alt: "기본 설정 화면. 번역할 언어 쌍과 인식 정확도, 번역기 딜레이와 인공지능 번역 여부를 고른다",
 	},
 	{
-		src: "/projects/screen-translator/04-sensitivity.jpg",
+		src: asset("/projects/screen-translator/04-sensitivity.jpg"),
 		width: 560,
 		height: 996,
 		alt: "감도 설정 화면. 얼마나 세게 흔들어야 인식할지 슬라이더로 맞추고 그 자리에서 흔들어 시험해 본다",
@@ -367,35 +370,35 @@ const SCREEN_TRANSLATOR_SCREENS: readonly Media[] = [
  */
 const COSMO_STEP_SCREENS = {
 	downloader: {
-		src: "/projects/cosmonote/story/01-downloader.jpg",
+		src: asset("/projects/cosmonote/story/01-downloader.jpg"),
 		width: 1280,
 		height: 588,
 		caption: "코스모스 다운로더",
 		alt: "학교 강의 사이트의 동영상 뷰어. 익스텐션이 상단 바 오른쪽에 붙인 다운로드 버튼에 빨간 동그라미를 쳐 두었다",
 	},
 	summary: {
-		src: "/projects/cosmonote/story/02-summary-button.jpg",
+		src: asset("/projects/cosmonote/story/02-summary-button.jpg"),
 		width: 898,
 		height: 302,
 		caption: "강의 홈의 요약 버튼",
 		alt: "강의 홈 화면의 주차별 동영상 목록. 각 영상 아래에 다운로드 버튼과 AI 노트로 요약 버튼이 나란히 있다",
 	},
 	webImport: {
-		src: "/projects/cosmonote/story/03-web-import.jpg",
+		src: asset("/projects/cosmonote/story/03-web-import.jpg"),
 		width: 1280,
 		height: 692,
 		caption: "웹에서 영상 불러오기",
 		alt: "코스모의 노트 첫 화면. 학교 LMS 와 동영상 URL, 아이디와 비밀번호를 받는 폼 옆에 학교 강의 사이트 창이 겹쳐 있고, 강의 주소가 폼으로 들어가는 화살표가 그려져 있다",
 	},
 	note: {
-		src: "/projects/cosmonote/story/04-note-page.jpg",
+		src: asset("/projects/cosmonote/story/04-note-page.jpg"),
 		width: 1280,
 		height: 829,
 		caption: "생성된 노트",
 		alt: "노트 화면. 왼쪽에 강의 영상과 스크립트, 오른쪽에 SSH 로 리눅스 서버에 접속하는 수업을 정리한 요약 목차가 있다",
 	},
 	renewal: {
-		src: "/projects/cosmonote/story/05-renewal.png",
+		src: asset("/projects/cosmonote/story/05-renewal.png"),
 		width: 1660,
 		height: 897,
 		caption: "리뉴얼된 노트 화면",
@@ -408,7 +411,7 @@ const COSMO_STEP_SCREENS = {
  * 2x 로 내보낸 1200×320 프레임이다 — 바꿀 일이 생기면 코드가 아니라 그 문서를 고친다.
  */
 const COSMO_ARCHITECTURE: Media = {
-	src: "/projects/cosmonote/story/06-architecture.png",
+	src: asset("/projects/cosmonote/story/06-architecture.png"),
 	width: 2400,
 	height: 640,
 	caption: "업로드부터 노트 생성까지",
@@ -501,28 +504,28 @@ const cosmoStory: ProjectStoryContent = {
  */
 const ENQOR_FIGURES = {
 	billing: {
-		src: "/projects/enqor/story/01-billing-timeline.png",
+		src: asset("/projects/enqor/story/01-billing-timeline.png"),
 		width: 2400,
 		height: 1040,
 		caption: "핑으로 정의한 안정적인 통화",
 		alt: "통화 정산 시퀀스. 발신자와 수신자가 양쪽에, 서버가 가운데에 있고, 매초 핑이 오가는 동안 서버가 비용을 청구하다가 핑이 세 번 빠지면 청구를 멈추고, 다시 오면 재개하고, 일곱 번 빠지면 통화를 끝낸다",
 	},
 	balance: {
-		src: "/projects/enqor/story/02-balance-session.png",
+		src: asset("/projects/enqor/story/02-balance-session.png"),
 		width: 2400,
 		height: 1040,
 		caption: "통화 세션의 잔액",
 		alt: "잔액 처리 구조도. 통화가 시작되면 디비의 캐시를 잠그고 redis 세션으로 복제한다. 잔액은 매초 줄고, 충전하면 오르고, 선물하면 내려간다. 남은 시간은 잔액에서 계산해 클라이언트에 내려 주고, 통화가 끝나면 디비에 다시 쓴다",
 	},
 	docs: {
-		src: "/projects/enqor/story/03-docs-to-code.png",
+		src: asset("/projects/enqor/story/03-docs-to-code.png"),
 		width: 2400,
 		height: 600,
 		caption: "기획서에서 코드까지",
 		alt: "PDF 기획서와 Figma 디자인을 손으로 Markdown 하나로 엮고, 그 문서를 에이전트가 소스 코드로 옮기는 흐름",
 	},
 	harness: {
-		src: "/projects/enqor/story/04-harness-loop.png",
+		src: asset("/projects/enqor/story/04-harness-loop.png"),
 		width: 2400,
 		height: 640,
 		caption: "웹으로 먼저 퍼블리싱하는 하네스",
@@ -618,7 +621,7 @@ const healixStory: ProjectStoryContent = {
  * 그려 2x 로 내보낸 1200×320 프레임이다 — 바꿀 일이 생기면 코드가 아니라 그 문서를 고친다.
  */
 const WATERFLAKE_ARCHITECTURE: Media = {
-	src: "/projects/waterflake/story/01-tunnel.png",
+	src: asset("/projects/waterflake/story/01-tunnel.png"),
 	width: 2400,
 	height: 640,
 	caption: "도메인에서 게임 서버까지",
@@ -673,16 +676,11 @@ export const projects: ProjectsContent = {
 			title: "코스모의 노트",
 			description:
 				"영상 강의를 올리면 화면과 음성을 분석해 요약 노트로 만들어주는 서비스입니다. 서버리스 구조라 대기 중에는 서버 비용이 들지 않고, 접속이 몰려도 자동으로 확장됩니다.",
-			stats: [
-				{ value: "1,300+", label: "누적 가입자" },
-				{ value: "48만 원", label: "월 매출" },
-				{ value: "160", label: "DAU" },
-			],
 			links: [{ label: "cosmonote.site", href: "https://cosmonote.site" }],
 			// 갤러리 첫 장이 그대로 타일이 된다. 25:17 로 잘리지만 헤드라인과 떠 있는
 			// 카드가 모두 그 안에 들어오고, 눌렀을 때 크게 뜨는 화면과 같은 그림이다.
 			thumbnail: {
-				src: "/projects/cosmonote/01-landing.png",
+				src: asset("/projects/cosmonote/01-landing.png"),
 				alt: "코스모의 노트 첫 화면",
 			},
 			appIcon: { src: "/brand/cosmonote-icon.png", alt: "코스모의 노트 앱 아이콘" },
@@ -700,11 +698,6 @@ export const projects: ProjectsContent = {
 			title: "enqor",
 			description:
 				"실시간 영상·음성 통화 서비스입니다. 바이브 코딩을 처음 적용한 프로젝트며, AI 응답을 개선하기 위한 하네스, 통화 비용 정산을 위한 엔지니어링적 고민이 녹아있습니다.",
-			stats: [
-				{ value: "2,400+", label: "누적 학습 문장" },
-				{ value: "31%", label: "7일 재방문율" },
-				{ value: "90", label: "DAU" },
-			],
 			// Both builds point at the Korean storefront. An /app/id… URL with no
 			// locale redirects to whatever storefront the reader is in, which is a
 			// dead end wherever the app is not sold; the kr page stays readable
@@ -719,7 +712,7 @@ export const projects: ProjectsContent = {
 			// 세로 캡처는 25:17 타일에 담기면 띠가 된다. 가로로 짜인 그림은 스토어
 			// 대표 이미지뿐이고, 그게 갤러리의 첫 장이기도 하다.
 			thumbnail: {
-				src: "/projects/enqor/01-poster.png",
+				src: asset("/projects/enqor/01-poster.png"),
 				alt: "enqor 스토어 대표 이미지",
 			},
 			appIcon: { src: "/brand/enqor-icon.png", alt: "enqor 앱 아이콘" },
@@ -741,7 +734,7 @@ export const projects: ProjectsContent = {
 			// 표지를 그대로 담으면 QR 과 팀 크레딧이 들어오고 워드마크가 바로 옆 카드
 			// 제목과 겹친다. 표지에서 폰 목업만 205:141 로 떼어 냈다.
 			thumbnail: {
-				src: "/projects/healix/00-thumb-4ae26d2b.png",
+				src: asset("/projects/healix/00-thumb-4ae26d2b.png"),
 				alt: "HEALIX 화면, 지도 아래로 근처 병원과 예약 정보가 늘어서 있다",
 			},
 			// 살아 있는 앱이 아니라 2024년 해커톤 결과물이다. 남은 건 발표자료뿐이라
@@ -769,7 +762,7 @@ export const projects: ProjectsContent = {
 				},
 			],
 			thumbnail: {
-				src: "/projects/waterflake/01-tunnel-create.png",
+				src: asset("/projects/waterflake/01-tunnel-create.png"),
 				alt: "WATERFLAKE 화면, 새 터널을 만드는 폼",
 			},
 			// 터널을 만들고 → 주소와 키를 받고 → 서버가 붙는다. 마지막 장이 터널링
@@ -789,7 +782,7 @@ export const projects: ProjectsContent = {
 			// 위에 덮인 번역 팝업이 함께 들어오게 잘라 냈다 — 카드 문구가 말하는
 			// 동작이 타일 안에서 그대로 보이고, 누르면 그 장이 먼저 뜬다.
 			thumbnail: {
-				src: "/projects/screen-translator/00-thumb.jpg",
+				src: asset("/projects/screen-translator/00-thumb.jpg"),
 				alt: "게임 화면 위에 한국어 번역문이 덮여 있다",
 			},
 			// 게임에서 쓰고 → 웹에서도 쓰고 → 그제서야 언어와 흔드는 세기를 어디서
@@ -816,7 +809,7 @@ export const projects: ProjectsContent = {
  * 내보냈다 — 바꿀 일이 생기면 코드가 아니라 그 문서를 고친다.
  */
 const BIGINT_TABLE: Media = {
-	src: "/experience/bigint-migration/01-table.png",
+	src: asset("/experience/bigint-migration/01-table.png"),
 	width: 2400,
 	height: 880,
 	caption: "19억 건 가운데 실제로 읽히는 것은 최근 한 달치뿐",
@@ -824,7 +817,7 @@ const BIGINT_TABLE: Media = {
 };
 
 const BIGINT_TRIGGER: Media = {
-	src: "/experience/bigint-migration/02-trigger.png",
+	src: asset("/experience/bigint-migration/02-trigger.png"),
 	width: 2400,
 	height: 840,
 	caption: "트리거가 PK 를 음수로 바꿔 끼우는 흐름",
@@ -836,7 +829,7 @@ const BIGINT_TRIGGER: Media = {
  * `realtime / 02 open` 프레임(1200×420, 1200×440)에서 그려 2x 로 내보냈다.
  */
 const REALTIME_ITEM: Media = {
-	src: "/experience/realtime-redesign/01-item.png",
+	src: asset("/experience/realtime-redesign/01-item.png"),
 	width: 2400,
 	height: 840,
 	caption: "파티션 키 하나에 그날의 상자를 배열로",
@@ -844,7 +837,7 @@ const REALTIME_ITEM: Media = {
 };
 
 const REALTIME_OPEN: Media = {
-	src: "/experience/realtime-redesign/02-open.png",
+	src: asset("/experience/realtime-redesign/02-open.png"),
 	width: 2400,
 	height: 880,
 	caption: "상자를 열 때 저장소 셋을 도는 순서",
@@ -856,7 +849,7 @@ const REALTIME_OPEN: Media = {
  * 그려 2x 로 내보냈다.
  */
 const AWS_ROUTE53: Media = {
-	src: "/experience/aws-cost/01-route53.png",
+	src: asset("/experience/aws-cost/01-route53.png"),
 	width: 2400,
 	height: 840,
 	caption: "Route 53 가중치 라우팅으로 트래픽의 10% 만 새 인스턴스에",
@@ -868,7 +861,7 @@ const AWS_ROUTE53: Media = {
  * 그려 2x 로 내보냈다.
  */
 const API_MEMORY_CHART: Media = {
-	src: "/experience/api-memory/01-leak.png",
+	src: asset("/experience/api-memory/01-leak.png"),
 	width: 2400,
 	height: 880,
 	caption: "인스턴스 한 대의 메모리, 닷새 만에 1GB 에서 32GB 까지",
@@ -1005,10 +998,10 @@ export const certificates: CertificatesContent = {
 			period: "2026.02",
 			title: "JLPT N1",
 			host: "일본국제교류기금",
-			image: { src: "/certificates/02-jlpt-n1-f09f16ac.jpg", alt: "JLPT N1 합격증" },
+			image: { src: asset("/certificates/02-jlpt-n1-f09f16ac.jpg"), alt: "JLPT N1 합격증" },
 			gallery: [
 				{
-					src: "/certificates/02-jlpt-n1-f09f16ac.jpg",
+					src: asset("/certificates/02-jlpt-n1-f09f16ac.jpg"),
 					width: 1400,
 					height: 1988,
 					caption: "JLPT N1",
@@ -1020,10 +1013,10 @@ export const certificates: CertificatesContent = {
 			period: "2026.09",
 			title: "정보처리기사",
 			host: "한국산업인력공단",
-			image: { src: "/certificates/01-gisa-632fa275.jpg", alt: "정보처리기사 자격증" },
+			image: { src: asset("/certificates/01-gisa-632fa275.jpg"), alt: "정보처리기사 자격증" },
 			gallery: [
 				{
-					src: "/certificates/01-gisa-632fa275.jpg",
+					src: asset("/certificates/01-gisa-632fa275.jpg"),
 					width: 1400,
 					height: 1982,
 					caption: "정보처리기사",
@@ -1037,18 +1030,19 @@ export const certificates: CertificatesContent = {
 			title: "최우수상 1등",
 			detail: "동아대학교 총장상",
 			description: "**코스모의 노트**로 전국 13개의 팀이 모인 대회에서 수상했습니다.",
+			links: [{ name: "코스모의 노트", href: "/projects/cosmonote" }],
 			// 같은 수상에 상장이 둘이다. 카드에는 총장상을 세우고, 열면 둘 다 넘긴다.
-			image: { src: "/certificates/01-chongjangsang-7e6f9199.jpg", alt: "동아대학교 총장상 상장" },
+			image: { src: asset("/certificates/01-chongjangsang-7e6f9199.jpg"), alt: "동아대학교 총장상 상장" },
 			gallery: [
 				{
-					src: "/certificates/01-chongjangsang-7e6f9199.jpg",
+					src: asset("/certificates/01-chongjangsang-7e6f9199.jpg"),
 					width: 1400,
 					height: 1980,
 					caption: "총장상",
 					alt: "동아대학교 총장 명의의 상장",
 				},
 				{
-					src: "/certificates/02-choiwoosusang-f026e085.jpg",
+					src: asset("/certificates/02-choiwoosusang-f026e085.jpg"),
 					width: 1054,
 					height: 1440,
 					caption: "최우수상",
@@ -1062,10 +1056,11 @@ export const certificates: CertificatesContent = {
 			title: "최우수상 2등",
 			detail: "영림원소프트랩 특별상",
 			description: "**HEALIX**로 전국 55개 학교 1,500여 명이 모인 대회에서 수상했습니다.",
-			image: { src: "/certificates/03-likelion-e9406103.jpg", alt: "영림원소프트랩 특별상 상장" },
+			links: [{ name: "HEALIX", href: "/projects/healix" }],
+			image: { src: asset("/certificates/03-likelion-e9406103.jpg"), alt: "영림원소프트랩 특별상 상장" },
 			gallery: [
 				{
-					src: "/certificates/03-likelion-e9406103.jpg",
+					src: asset("/certificates/03-likelion-e9406103.jpg"),
 					width: 442,
 					height: 585,
 					caption: "최우수상",
@@ -1108,49 +1103,49 @@ export const certificates: CertificatesContent = {
  */
 const TAXPACK_SCREENS: readonly Media[] = [
 	{
-		src: "/journey/taxpack/01-home.png",
+		src: asset("/journey/taxpack/01-home.png"),
 		width: 600,
 		height: 417,
 		caption: "메인 화면",
 		alt: "택스팩 커뮤니티 메인 화면. 초록 상단 메뉴 아래 게시판 목록과 최근 글, 배너가 놓여 있다",
 	},
 	{
-		src: "/journey/taxpack/02-boards.png",
+		src: asset("/journey/taxpack/02-boards.png"),
 		width: 600,
 		height: 348,
 		caption: "내 게시판 목록",
 		alt: "한 사용자가 운영하는 게시판 목록. 게시판 이름과 운영자, 개설일이 줄지어 있고 관리·폐쇄 버튼이 붙어 있다",
 	},
 	{
-		src: "/journey/taxpack/03-create.png",
+		src: asset("/journey/taxpack/03-create.png"),
 		width: 600,
 		height: 374,
 		caption: "게시판 개설",
 		alt: "게시판 개설 폼. 제목과 유형, 주소를 적고 로고를 올리는 화면",
 	},
 	{
-		src: "/journey/taxpack/04-new-board.png",
+		src: asset("/journey/taxpack/04-new-board.png"),
 		width: 600,
 		height: 466,
 		caption: "새로 만든 게시판",
 		alt: "막 개설된 게시판. 로고를 등록하라는 안내 아래 공지사항과 게시판 목록이 비어 있다",
 	},
 	{
-		src: "/journey/taxpack/05-event.png",
+		src: asset("/journey/taxpack/05-event.png"),
 		width: 600,
 		height: 563,
 		caption: "이벤트 관리",
 		alt: "이벤트 목록과 추가 폼. 제목과 실시 날짜, 켜고 끄는 스위치, 글 편집기가 있다",
 	},
 	{
-		src: "/journey/taxpack/06-gallery.png",
+		src: asset("/journey/taxpack/06-gallery.png"),
 		width: 600,
 		height: 480,
 		caption: "갤러리형 게시판",
 		alt: "한 사용자가 연 포토샵 갤러리 게시판. 날씨 위젯 아래 그림이 타일로 놓여 있다",
 	},
 	{
-		src: "/journey/taxpack/07-admin.png",
+		src: asset("/journey/taxpack/07-admin.png"),
 		width: 600,
 		height: 635,
 		caption: "게시판 관리",
@@ -1161,11 +1156,236 @@ const TAXPACK_SCREENS: readonly Media[] = [
 /** 초등학교 졸업식 사진 한 장. 무대 화면에 장래희망이 컴퓨터 프로그래머라고 적혀 있다. */
 const DREAM_PHOTOS: readonly Media[] = [
 	{
-		src: "/journey/dream/01-note.jpg",
+		src: asset("/journey/dream/01-note.jpg"),
 		width: 2000,
 		height: 1125,
 		caption: "2015년 2월, 초등학교 졸업식",
 		alt: "졸업식 무대 화면을 찍은 사진. '졸업을 축하합니다' 아래 진학 학교와 함께 장래희망이 컴퓨터 프로그래머라고 적혀 있다",
+	},
+];
+
+/**
+ * MyRunnerGame 의 화면. 2020년 8월 폰에서 찍은 20:9 캡처를 그대로 쓴다.
+ * 제목 → 조작법 → 플레이 → 결과 → 랭킹, 한 판을 도는 차례다.
+ */
+const MYRUNNER_SCREENS: readonly Media[] = [
+	{
+		src: asset("/journey/myrunnergame/01-title.jpg"),
+		width: 2400,
+		height: 1080,
+		caption: "제목 화면",
+		alt: "MyRunnerGame 제목 화면. 다다미방 배경에 싱글 플레이 · 1대1 매치 · 랭킹 · 크레딧 메뉴와 닉네임 입력, 튜토리얼 버튼이 있다",
+	},
+	{
+		src: asset("/journey/myrunnergame/02-tutorial.jpg"),
+		width: 2400,
+		height: 1080,
+		caption: "조작법",
+		alt: "조작법 화면. 좌에서 우로 슬라이드하면 오른쪽으로, 우에서 좌로 슬라이드하면 왼쪽으로 움직인다는 안내",
+	},
+	{
+		src: asset("/journey/myrunnergame/03-play.jpg"),
+		width: 2400,
+		height: 1080,
+		caption: "플레이",
+		alt: "플레이 화면. 도심 도로 위를 달리는 캐릭터 앞에 쓰레기통 장애물이 있고, 왼쪽 위에 점수가 오른다",
+	},
+	{
+		src: asset("/journey/myrunnergame/04-result.jpg"),
+		width: 2400,
+		height: 1080,
+		caption: "결과",
+		alt: "결과 화면. 넘어진 캐릭터 위로 점수 152, 랭킹 12위, 기록이 표시된다",
+	},
+	{
+		src: asset("/journey/myrunnergame/05-ranking.jpg"),
+		width: 2400,
+		height: 1080,
+		caption: "랭킹",
+		alt: "랭킹 화면. 닉네임과 점수, 날짜가 순위대로 열 줄 늘어서 있다",
+	},
+];
+
+/**
+ * VR 게임 두 편의 플레이 영상. 포스터와 같이 R2 의 journey/videos 에 있다. 갤러리에서
+ * 영상은 늘 맨 뒤 장이다 — 화면을 먼저 넘겨 보고, 마지막에 튼다.
+ */
+const JOURNEY_VIDEO = asset("/journey/videos");
+
+/**
+ * VRTetris 의 VR 화면 세 장과 플레이 영상. 원본 캡처는 양안이 나란한 스테레오라 왼쪽 눈
+ * 절반만 잘라 썼다 — 1154×1154. 영상은 늘 맨 뒤에 둔다.
+ */
+const VRTETRIS_SCREENS: readonly Media[] = [
+	{
+		src: asset("/journey/vrtetris/01-lobby.jpg"),
+		width: 1154,
+		height: 1154,
+		caption: "로비",
+		alt: "VRTetris 로비. 바다 위 나무 판에 TETRIS 로고와 닉네임 입력칸, 가상 키보드가 떠 있다",
+	},
+	{
+		src: asset("/journey/vrtetris/02-play.jpg"),
+		width: 1154,
+		height: 1154,
+		caption: "플레이",
+		alt: "VRTetris 플레이 화면. 노을 진 들판에 세워진 초록 판 안에 블록이 쌓이고, 왼쪽에 점수 2,290 이 떠 있다",
+	},
+	{
+		src: asset("/journey/vrtetris/03-result.jpg"),
+		width: 1154,
+		height: 1154,
+		caption: "결과와 랭킹",
+		alt: "VRTetris 결과 화면. 내 점수와 글로벌 · 로컬 랭킹 판이 들판 위에 세워져 있다",
+	},
+	{
+		video: `${JOURNEY_VIDEO}/vrtetris.mp4`,
+		src: asset("/journey/videos/vrtetris-poster.jpg"),
+		width: 1280,
+		height: 720,
+		caption: "플레이 영상",
+		alt: "VRTetris 플레이 영상. 바닷가 로비에서 닉네임을 넣고 시작하면, 사막 위에 세워진 판에 VR 컨트롤러로 블록을 내려 줄을 지우고 점수를 올린다",
+	},
+];
+
+/**
+ * Tooth 의 화면 여섯 장. 2019년 캡처라 700px 안팎이다. 로비 → 섬 전경 → 블록 →
+ * 큐브 → 레벨 안내 → 게임 오버, 한 판을 도는 차례다.
+ */
+const TOOTH_SCREENS: readonly Media[] = [
+	{
+		src: asset("/journey/tooth/01-lobby.jpg"),
+		width: 1238,
+		height: 605,
+		caption: "로비",
+		alt: "Tooth 로비. Tooth 로고 아래 이름 입력과 PLAY 버튼, EASY 부터 EXPERT 까지 난이도 선택, 옆에 서버 랭킹과 내 랭킹 판이 있다",
+	},
+	{
+		src: asset("/journey/tooth/02-island.jpg"),
+		width: 831,
+		height: 720,
+		caption: "섬 전경",
+		alt: "바다 위에 떠 있는 풀밭 섬과 그 위의 블록 더미, 하늘에 떠 있는 큐브를 내려다본 전경",
+	},
+	{
+		src: asset("/journey/tooth/03-blocks.jpg"),
+		width: 747,
+		height: 710,
+		caption: "블록",
+		alt: "섬 위에 촘촘히 놓인 자주색 블록들과 나무, 울타리를 가까이서 본 화면",
+	},
+	{
+		src: asset("/journey/tooth/04-cube.jpg"),
+		width: 744,
+		height: 706,
+		caption: "큐브",
+		alt: "어두운 하늘에 떠 있는 블록 큐브. 칸마다 색이 다른 블록이 쌓여 있다",
+	},
+	{
+		src: asset("/journey/tooth/05-level.jpg"),
+		width: 745,
+		height: 705,
+		caption: "레벨 안내",
+		alt: "구름 낀 하늘 위에 LEVEL: HARD, STAGE: 2 Lv 라고 떠 있는 화면",
+	},
+	{
+		src: asset("/journey/tooth/06-game-over.jpg"),
+		width: 738,
+		height: 702,
+		caption: "게임 오버",
+		alt: "GAME OVER 화면. 점수 180, 레벨 6 과 HOME 버튼이 있다",
+	},
+];
+
+/**
+ * Unrevived 의 화면 네 장과 플레이 영상. 총을 든 두 장은 스테레오 캡처의 왼쪽 눈 절반이라
+ * 480px 밖에 안 된다. 영상은 늘 맨 뒤에 둔다.
+ */
+const UNREVIVED_SCREENS: readonly Media[] = [
+	{
+		src: asset("/journey/unrevived/01-lobby.jpg"),
+		width: 1235,
+		height: 673,
+		caption: "로비",
+		alt: "Unrevived 로비. 유적 사이에 떠 있는 판에 unrevived 로고와 이름 입력칸, 맵 고르기와 가상 키보드가 있다",
+	},
+	{
+		src: asset("/journey/unrevived/02-village.jpg"),
+		width: 1271,
+		height: 711,
+		caption: "마을",
+		alt: "달이 뜬 저녁의 중세풍 마을. 돌바닥 위에 캐릭터 하나가 서 있다",
+	},
+	{
+		src: asset("/journey/unrevived/03-pistol.jpg"),
+		width: 480,
+		height: 479,
+		caption: "권총",
+		alt: "권총을 든 1인칭 시점. 총 옆에 Pistol 이라는 이름과 남은 탄 수 100 이 떠 있다",
+	},
+	{
+		src: asset("/journey/unrevived/04-smg.jpg"),
+		width: 480,
+		height: 479,
+		caption: "기관단총",
+		alt: "노을 진 거리에서 SMG11 을 든 1인칭 시점. 탄 수 261 과 30 이 떠 있다",
+	},
+	{
+		video: `${JOURNEY_VIDEO}/unrevived.mp4`,
+		src: asset("/journey/videos/unrevived-poster.jpg"),
+		width: 1280,
+		height: 720,
+		caption: "플레이 영상",
+		alt: "Unrevived 플레이 영상. 폐허가 된 유적 사이를 VR 로 돌아다니며 SMG 로 적을 쏘는 1인칭 슈팅 게임",
+	},
+];
+
+/**
+ * KNU 코딩플랫폼의 화면 여섯 장. 2021년 1800×1080 캡처 그대로. 홈 → 공지 → 대회 →
+ * 문제 풀이 → 성취도 → 역할, 대회 하나를 여는 차례다.
+ */
+const CODEDURI_SCREENS: readonly Media[] = [
+	{
+		src: asset("/journey/codeduri/01-home.png"),
+		width: 1800,
+		height: 1080,
+		caption: "홈",
+		alt: "KNU 코딩플랫폼 홈. 공지사항과 FAQ 상자 아래 프로그래밍 경진대회 카드 세 장이 놓여 있고, 아래에 강원대학교 푸터가 있다",
+	},
+	{
+		src: asset("/journey/codeduri/02-notice.png"),
+		width: 1800,
+		height: 1080,
+		caption: "공지사항",
+		alt: "공지사항 글 하나를 연 화면. 공지사항 · FAQ · 전체 강좌 · 경진대회 탭 아래 제목과 작성자, 본문이 있다",
+	},
+	{
+		src: asset("/journey/codeduri/03-contest.png"),
+		width: 1800,
+		height: 1080,
+		caption: "대회 페이지",
+		alt: "강원대 코딩 경진대회 페이지. 감자 사진의 배너 아래 대회 소개 · 문제 · 성취도 · 역할 · Q&A 탭이 있고, Overview 와 Introduction, 교수자와 공지 칸이 이어진다",
+	},
+	{
+		src: asset("/journey/codeduri/04-problem.png"),
+		width: 1800,
+		height: 1080,
+		caption: "문제 풀이",
+		alt: "문제 풀이 화면. 왼쪽에 문제 설명과 제약 사항, 입출력 예시가 있고 오른쪽 어두운 코드 편집기에 답을 적어 제출한다",
+	},
+	{
+		src: asset("/journey/codeduri/05-scores.png"),
+		width: 1800,
+		height: 1080,
+		caption: "성취도",
+		alt: "대회의 성취도 화면. 배너 아래 문제별 통과 여부가 초록 표시로 나오고, 참가자마다 점수와 순위가 표로 정리돼 있다",
+	},
+	{
+		src: asset("/journey/codeduri/06-roles.png"),
+		width: 1800,
+		height: 1080,
+		caption: "역할 관리",
+		alt: "대회의 역할 페이지. 참가자를 검색해 학번과 학과, 이름별로 역할을 배정하는 표",
 	},
 ];
 
@@ -1186,14 +1406,14 @@ export const journey: JourneyContent = {
 					year: "2015",
 					title: "초등학교 졸업",
 					detail: "컴퓨터 프로그래머를 **장래희망**으로 하여 지금까지 이어지고 있습니다.",
-					gallery: DREAM_PHOTOS,
+					links: [{ name: "장래희망", gallery: DREAM_PHOTOS }],
 				},
 				{
 					year: "2015",
 					title: "**택스팩 커뮤니티** 개발",
 					featured: true,
 					detail: "PHP로 동작하는 소모임 서비스를 개발하여 가입자 100여 명을 달성했습니다.",
-					gallery: TAXPACK_SCREENS,
+					links: [{ name: "택스팩 커뮤니티", gallery: TAXPACK_SCREENS }],
 				},
 				{
 					year: "2017",
@@ -1201,6 +1421,7 @@ export const journey: JourneyContent = {
 					featured: true,
 					detail:
 						"휴대폰을 흔들면 화면 위에 번역 오버레이를 띄워주는 앱을 개발해 1천 다운로드와 수익화를 경험했습니다.",
+					links: [{ name: "스크린번역기", gallery: SCREEN_TRANSLATOR_SCREENS }],
 				},
 			],
 		},
@@ -1213,18 +1434,25 @@ export const journey: JourneyContent = {
 					year: "2018",
 					title: "모바일콘텐츠경진대회 수상",
 					detail: "**스크린번역기**로 교내 대회에서 2등을 수상했습니다.",
+					links: [{ name: "스크린번역기", gallery: SCREEN_TRANSLATOR_SCREENS }],
 				},
 				{
 					year: "2019",
 					title: "VR 게임 개발",
 					featured: true,
 					detail: "언리얼 엔진을 활용해 **VRTetris**, **Tooth**, **Unrevived** VR 게임을 개발했습니다.",
+					links: [
+						{ name: "VRTetris", gallery: VRTETRIS_SCREENS },
+						{ name: "Tooth", gallery: TOOTH_SCREENS },
+						{ name: "Unrevived", gallery: UNREVIVED_SCREENS },
+					],
 				},
 				{
 					year: "2020",
 					title: "모바일 게임 개발",
 					featured: true,
-					detail: "언리얼 엔진을 활용해 **RunCatGame**, **MyRunnerGame** 모바일 게임을 개발했습니다.",
+					detail: "언리얼 엔진을 활용해 **MyRunnerGame** 모바일 게임을 개발했습니다.",
+					links: [{ name: "MyRunnerGame", gallery: MYRUNNER_SCREENS }],
 				},
 			],
 		},
@@ -1235,8 +1463,9 @@ export const journey: JourneyContent = {
 			events: [
 				{
 					year: "2021",
-					title: "KNU 코딩플랫폼 개발",
+					title: "**KNU 코딩플랫폼** 개발",
 					detail: "강원대학교 SW중심대학사업단에서 진행한 코딩 플랫폼 구축 사업에서 팀장 역할을 맡았습니다.",
+					links: [{ name: "KNU 코딩플랫폼", gallery: CODEDURI_SCREENS }],
 				},
 			],
 		},
@@ -1280,6 +1509,7 @@ export const journey: JourneyContent = {
 					year: "2024",
 					title: "멋쟁이사자처럼 대학 12기 중앙 해커톤 2등",
 					detail: "**HEALIX**로 전국 55개 학교 1,500여 명이 모인 대회에서 수상했습니다.",
+					links: [{ name: "HEALIX", href: "/projects/healix" }],
 				},
 				{
 					year: "2024",
@@ -1303,11 +1533,13 @@ export const journey: JourneyContent = {
 					title: "제3회 전국대학 소프트웨어 성과 공유포럼 1등",
 					featured: true,
 					detail: "**코스모의 노트**로 전국 13개의 팀이 모인 대회에서 수상했습니다.",
+					links: [{ name: "코스모의 노트", href: "/projects/cosmonote" }],
 				},
 				{
 					year: "2026",
-					title: "enqor 개발",
-					detail: "Align Networks에서 모든 개발 부문을 책임지고 있습니다.",
+					title: "Align Networks 리드 엔지니어",
+					detail: "**enqor** 프로젝트 개발 전체를 담당하고 있습니다.",
+					links: [{ name: "enqor", href: "/projects/enqor" }],
 				},
 			],
 		},

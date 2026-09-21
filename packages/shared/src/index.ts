@@ -5,6 +5,7 @@
  */
 
 export * from "./content-types";
+export { asset, ASSET_ORIGIN } from "./assets";
 
 export { ExperienceStory } from "./components/experience-story";
 export { Footer } from "./components/footer";
@@ -19,12 +20,12 @@ export { Journey } from "./components/sections/journey";
 export { Projects } from "./components/sections/projects";
 
 export { Emphasised } from "./components/ui/emphasised";
-export { GalleryMark } from "./components/ui/gallery-mark";
 export { GalleryThumb } from "./components/ui/gallery-thumb";
 export { ImagePlaceholder, ThumbFrame } from "./components/ui/image-placeholder";
 export { Lightbox } from "./components/ui/lightbox";
 export { page } from "./components/ui/layout";
 export { LinkMenu } from "./components/ui/link-menu";
+export { MarkedText } from "./components/ui/marked-text";
 export { ProjectLinks } from "./components/ui/project-links";
 export { Reveal } from "./components/ui/reveal";
 export { Rule } from "./components/ui/rule";

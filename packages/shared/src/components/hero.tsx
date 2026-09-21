@@ -35,8 +35,13 @@ function Bullet() {
 	);
 }
 
-/** Bullet row: an underlined emphasis fragment followed by lighter detail. */
-function HighlightRow({ emphasis, detail }: { emphasis: string | null; detail: string }) {
+/**
+ * Bullet row: an underlined emphasis fragment followed by lighter detail.
+ * With an `href` the fragment is the way into the page the row summarises —
+ * same ink as the plain fragment, and only the cursor and the hover tint
+ * say it opens something, as the names on the Journey rail do.
+ */
+function HighlightRow({ emphasis, detail, href }: { emphasis: string | null; detail: string; href?: string }) {
 	return (
 		<li className="flex items-start">
 			<Bullet />
@@ -46,7 +51,16 @@ function HighlightRow({ emphasis, detail }: { emphasis: string | null; detail: s
 			<span className="text-text-strong min-w-0 text-[15px] leading-[1.35] sm:text-[17px]">
 				{emphasis ? (
 					<>
-						<span className="border-text-strong border-b font-bold">{emphasis}</span>{" "}
+						{href ? (
+							<a
+								href={href}
+								className="border-text-strong hover:bg-surface rounded-[2px] border-b font-bold transition-colors duration-300"
+							>
+								{emphasis}
+							</a>
+						) : (
+							<span className="border-text-strong border-b font-bold">{emphasis}</span>
+						)}{" "}
 					</>
 				) : null}
 				<span className={emphasis ? "font-light" : "font-normal"}>{detail.trim()}</span>
@@ -182,6 +196,7 @@ export function Hero({ content, overview }: { content: HeroContent; overview: Ov
 										<HighlightRow
 											key={`${item.emphasis ?? ""}${item.detail}`}
 											emphasis={item.emphasis}
+											href={item.href}
 											detail={item.detail}
 										/>
 									))}

@@ -1,6 +1,7 @@
 import type { CertificateCard, CertificatesContent, GalleryLabels } from "../../content-types";
 import { Emphasised } from "../ui/emphasised";
 import { GalleryThumb } from "../ui/gallery-thumb";
+import { MarkedText } from "../ui/marked-text";
 import { ThumbFrame } from "../ui/image-placeholder";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
@@ -84,7 +85,11 @@ function Card({ item, galleryLabels }: { item: CertificateCard; galleryLabels?: 
 				{item.host ? <p className="text-text-secondary text-[13px] font-medium">{item.host}</p> : null}
 				{item.description ? (
 					<p className="text-text-secondary text-body leading-relaxed">
-						<Emphasised text={item.description} />
+						{item.links?.length ? (
+							<MarkedText text={item.description} links={item.links} />
+						) : (
+							<Emphasised text={item.description} />
+						)}
 					</p>
 				) : null}
 			</div>

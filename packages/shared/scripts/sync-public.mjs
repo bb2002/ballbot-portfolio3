@@ -10,10 +10,11 @@
  * Extra sources (the JP font build, say) are passed as arguments and copied on
  * top, in order, so a market can override a shared file.
  *
- * That is also where a market's *own* static files belong: an app keeps them in
- * `assets/` and passes `./assets:` as a source. Dropping them straight into
- * `public/` would not survive the next run — the first thing this does is empty
- * it.
+ * A market's screenshots and recordings do not come through here: its `assets/`
+ * tree goes to R2 by push-assets.mjs and is served from assets.ballbot.dev.
+ * Anything else an app has to ship itself is passed as a source the same way —
+ * dropped straight into `public/` it would not survive the next run, since the
+ * first thing this does is empty it.
  */
 import { cp, rm, stat } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
