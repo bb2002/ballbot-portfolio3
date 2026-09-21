@@ -563,9 +563,19 @@ main [data-section] {
 	}
 }
 
-/* Hero entrance — runs on load, staggered via inline animation-delay. */
+/* Hero entrance — runs on load, staggered via inline animation-delay.
+
+   `backwards`, not `both`: the animation lands on the element's own resting
+   style, so holding the last keyframe adds nothing — except that a filled
+   animation is still *applied*, and Chrome then reports the transform as an
+   identity matrix rather than `none`. Any transform but `none` is a stacking
+   context, so every block kept one for good, and a menu opened in one block
+   (the link row on a story page) was painted under, and clicked through to,
+   the block after it. With `backwards` the delay is still covered — the
+   element sits at the first keyframe until its turn — and once the animation
+   has run it is out of the picture. */
 .anim-in {
-	animation: fade-up 0.7s var(--ease-smooth) both;
+	animation: fade-up 0.7s var(--ease-smooth) backwards;
 }
 
 .anim-cue {
