@@ -42,8 +42,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
 	metadataBase: new URL(MARKETS.ja),
 	title: "ballbot.dev | Software Engineer",
-	description:
-		"バックエンドエンジニア ballbot のポートフォリオ。19億件規模の無停止マイグレーション、プロジェクト、資格、日本語能力試験 N1 までをまとめています。",
+	description: "バックエンドエンジニア ballbot のポートフォリオ。プロジェクト、経歴、受賞歴と、これまでの歩みを紹介します。",
 	alternates: {
 		canonical: "/",
 		languages: LANGUAGE_ALTERNATES,
