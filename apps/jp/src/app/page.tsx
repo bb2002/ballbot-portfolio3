@@ -35,8 +35,8 @@ import { certificates, experience, hero, journey, nav, overview, projects, scrol
  *
  * The components come from @ballbot/shared and hold no copy of their own: this
  * file and src/content are the whole of what makes the page Japanese. The
- * order below matches the Korean build; what differs on this market is what
- * the Overview column leads with, which src/content decides.
+ * order below matches the Korean build, and src/content is its copy
+ * translated line for line.
  */
 export default function Home() {
 	return (
