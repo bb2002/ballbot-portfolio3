@@ -19,6 +19,14 @@ import { ZoomImage } from "./ui/zoom-image";
 type Project = FeaturedProject | ArchiveProject;
 
 /**
+ * Where a Highlights line jumps to. The two lists are the same list when there
+ * is one essay per line — Highlights names the questions, Architecture answers
+ * them — so the anchor is the index rather than anything the content file has
+ * to carry and keep in sync.
+ */
+const essayId = (index: number) => `story-essay-${index}`;
+
+/**
  * The design questions, one after another under a single head. Each opens
  * on its own title; the body is laid out by StoryBody in the order the content
  * file put it, so a diagram lands where the text turns to it.
@@ -39,7 +47,8 @@ function Architecture({
         {content.items.map((essay, index) => (
           <article
             key={essay.title}
-            className={`flex flex-col gap-8 py-10 sm:gap-10 ${index > 0 ? "border-border border-t-[0.5px]" : "pt-0"}`}
+            id={essayId(index)}
+            className={`flex scroll-mt-16 flex-col gap-8 py-10 sm:gap-10 ${index > 0 ? "border-border border-t-[0.5px]" : "pt-0"}`}
           >
             <Reveal>
               <h3
@@ -117,6 +126,8 @@ export function ProjectStory({
 }) {
   const labels = content.gallery;
   const appIcon = "appIcon" in project ? project.appIcon : undefined;
+  const linked =
+    story.architecture?.items.length === story.highlights?.length;
 
   return (
     <main className="flex min-h-svh flex-col">
@@ -222,15 +233,37 @@ export function ProjectStory({
             {story.labels.highlights}
           </SectionLabel>
           <Reveal className={`${page} pb-14`}>
-            <ul className={`flex flex-col gap-2.5 ${PROSE}`}>
-              {story.highlights.map((line) => (
-                <li key={line} className="flex items-start">
-                  <Bullet />
-                  <span className="text-text-strong min-w-0 text-[15px] leading-[1.5] sm:text-[17px]">
-                    {line}
-                  </span>
-                </li>
-              ))}
+            <ul className={`flex flex-col gap-1.5 ${PROSE}`}>
+              {story.highlights.map((line, index) => {
+                const row = (
+                  <>
+                    <Bullet />
+                    <span className="text-text-strong min-w-0 text-[15px] leading-[1.5] sm:text-[17px]">
+                      {line}
+                    </span>
+                  </>
+                );
+                return (
+                  <li key={line}>
+                    {/* A line goes to the essay that answers it, and only when
+                        every line has one: half a list that responds to a press
+                        reads as a list that is partly broken. The tint under
+                        the pointer is the one a name in the prose carries — a
+                        row this long wraps, and a sliding underline cannot
+                        follow it onto the second line. */}
+                    {linked ? (
+                      <a
+                        href={`#${essayId(index)}`}
+                        className="hover:bg-surface -mx-2 flex items-start rounded-[3px] px-2 py-1 transition-colors duration-300"
+                      >
+                        {row}
+                      </a>
+                    ) : (
+                      <div className="flex items-start px-2 py-1">{row}</div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </Reveal>
         </section>
@@ -246,14 +279,6 @@ export function ProjectStory({
       </section>
 
       {story.video ? <Video content={story.video} /> : null}
-
-      {story.architecture ? (
-        <Architecture
-          content={story.architecture}
-          title={project.title}
-          labels={labels}
-        />
-      ) : null}
 
       {story.steps?.length ? (
         <section data-section aria-labelledby="story-process">
@@ -299,6 +324,28 @@ export function ProjectStory({
               ))}
             </ol>
           </div>
+        </section>
+      ) : null}
+
+      {story.architecture ? (
+        <Architecture
+          content={story.architecture}
+          title={project.title}
+          labels={labels}
+        />
+      ) : null}
+
+      {/* The last word, at the reading measure: it answers none of the
+          Highlights lines, so it stands outside Architecture rather than
+          becoming a fourth essay the first line would anchor to. */}
+      {story.retrospective ? (
+        <section data-section aria-labelledby="story-retrospective">
+          <SectionLabel id="story-retrospective">
+            {story.retrospective.label}
+          </SectionLabel>
+          <Reveal className={`${page} pb-14`}>
+            <Paragraphs text={story.retrospective.paragraphs} />
+          </Reveal>
         </section>
       ) : null}
     </main>

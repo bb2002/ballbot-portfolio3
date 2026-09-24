@@ -8,6 +8,14 @@ import { StoryBody } from "./ui/story-body";
 const COLUMN = "mx-auto w-full max-w-[760px]";
 
 /**
+ * And the figures on the same axis. A figure runs wider than the measure, so
+ * it needs its own centring — left-aligned it would hang 160px off the column
+ * it belongs to. Under `lg` it is a full-bleed scroll strip and there is
+ * nothing to centre.
+ */
+const FIGURE = "lg:mx-auto lg:max-w-[var(--figure-w)]";
+
+/**
  * One story from the Experience list, on a page of its own: the row the
  * reader clicked becomes the title, and the body sits under it at a reading
  * measure — paragraphs, sub-heads and lists in the centred column, figures
@@ -51,7 +59,14 @@ export function ExperienceStory({ content, story }: { content: ExperienceContent
 					</h1>
 				</header>
 
-				<StoryBody body={story.body} title={story.title} labels={content.gallery} prose={COLUMN} headingAs="h2" />
+				<StoryBody
+					body={story.body}
+					title={story.title}
+					labels={content.gallery}
+					prose={COLUMN}
+					figure={FIGURE}
+					headingAs="h2"
+				/>
 			</article>
 		</main>
 	);

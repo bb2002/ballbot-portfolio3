@@ -47,18 +47,36 @@ function List({ items, className }: { items: readonly string[]; className: strin
 }
 
 /**
- * A figure in the run of a body. It runs the width of the page rather than
- * the prose, because a diagram at a reading measure is a diagram nobody can
- * read. Under `lg` the same picture would be narrower still, so there it
- * keeps a floor of its own and the reader slides across it — the viewer
- * behind the click is the other way to read it close.
+ * A figure in the run of a body. It runs wider than the prose, because a
+ * diagram at a reading measure is a diagram nobody can read — but only to
+ * `--figure-w`, which is what the diagrams are actually drawn at. Let it have
+ * the whole page and a wide viewport blows a 1200px drawing up past its own
+ * size: the strokes go soft and the figure swamps the column it belongs to.
+ * Under `lg` the same picture would be narrower still, so there it keeps a
+ * floor of its own and the reader slides across it — the viewer behind the
+ * click is the other way to read it close.
+ *
+ * `className` is how a page that centres its prose keeps the two on one axis:
+ * left-aligned prose (a project's essay) wants a left-aligned figure, a
+ * centred column (an experience story) wants `lg:mx-auto`. Above `lg` only —
+ * below it the figure is a full-bleed scroll strip either way.
  */
-export function Figure({ media, title, labels }: { media: Media; title: string; labels?: GalleryLabels }) {
+export function Figure({
+	media,
+	title,
+	labels,
+	className = "",
+}: {
+	media: Media;
+	title: string;
+	labels?: GalleryLabels;
+	className?: string;
+}) {
 	return (
-		<figure className="flex flex-col gap-3">
+		<figure className={`flex flex-col gap-3 ${className}`}>
 			<div className="-mx-[var(--page-x)] overflow-x-auto px-[var(--page-x)]">
-				<div className="min-w-[880px] lg:min-w-0">
-					<ZoomImage media={media} title={title} labels={labels} sizes="(max-width: 1024px) 880px, 1320px" />
+				<div className="min-w-[880px] lg:min-w-0 lg:max-w-[var(--figure-w)]">
+					<ZoomImage media={media} title={title} labels={labels} sizes="(max-width: 1024px) 880px, 1000px" />
 				</div>
 			</div>
 			{media.caption ? (
@@ -105,6 +123,12 @@ type Props = {
 	 * its column, the margins that centre it. Figures ignore it and run the page.
 	 */
 	prose?: string;
+	/**
+	 * What a figure adds to its own box, so it lands on the prose's axis: a
+	 * page whose column is centred passes `lg:mx-auto`. Left-aligned by default,
+	 * which is where a left-aligned measure wants it.
+	 */
+	figure?: string;
 	/** The element a sub-head renders as — one step under whatever heads the body. */
 	headingAs?: "h2" | "h3" | "h4";
 };
@@ -119,7 +143,7 @@ type Props = {
  *
  * Every block arrives as it is scrolled to, like the sections on the home page.
  */
-export function StoryBody({ body, title, labels, prose = PROSE, headingAs: Heading = "h3" }: Props) {
+export function StoryBody({ body, title, labels, prose = PROSE, figure = "", headingAs: Heading = "h3" }: Props) {
 	const render = (run: Run, key: string) => (
 		<Reveal key={key}>
 			{Array.isArray(run) ? (
@@ -127,7 +151,7 @@ export function StoryBody({ body, title, labels, prose = PROSE, headingAs: Headi
 			) : "items" in run ? (
 				<List items={run.items} className={prose} />
 			) : (
-				<Figure media={run} title={title} labels={labels} />
+				<Figure media={run} title={title} labels={labels} className={figure} />
 			)}
 		</Reveal>
 	);

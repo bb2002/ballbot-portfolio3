@@ -241,6 +241,14 @@ export type ProjectStoryContent = {
 	 * Each item opens on its own title, and they are parted by hairlines.
 	 */
 	architecture?: { label: string; items: readonly ProjectEssay[] };
+	/**
+	 * What the project left the writer with, under its own mono head (`label`,
+	 * "Retrospective"). It closes the page because it is what the design
+	 * questions add up to rather than one more of them — a Highlights line has
+	 * nothing to jump to here, and the count the anchors are built from stays
+	 * the essays' own.
+	 */
+	retrospective?: { label: string; paragraphs: readonly string[] };
 	/** The build, step by step. Omitted on a project that has no dated history to tell. */
 	steps?: readonly ProjectStep[];
 	/**

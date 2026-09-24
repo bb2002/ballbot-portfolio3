@@ -69,6 +69,9 @@
  * ------------------------------------------------------------------ */
 :root {
 	--nav-h: 98px;
+	/* The width the hand-drawn figures are exported at. A figure stops here
+	   rather than running the page, so it is never scaled up past its own size. */
+	--figure-w: 1000px;
 	--cue-h: 39px;
 	--page-x: 20px;
 	/* The air a section head carries, above and below its own text. One value
