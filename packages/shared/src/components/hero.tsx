@@ -91,8 +91,14 @@ export function Hero({ content, overview }: { content: HeroContent; overview: Ov
 						>
 							{content.eyebrow}
 						</p>
+						{/* Japanese sets every kana and kanji a full em wide, so the headline's
+						    ten-character second line outgrows the column at the sizes the Korean
+						    one was drawn at and breaks onto a third. Under `:lang(ja)` each step
+						    keeps its design size but gives way to 9.6cqw — ten characters at
+						    -0.02em tracking with a little air — so the headline holds two lines
+						    on every screen. */}
 						<h1
-							className="anim-in text-text-primary text-[34px] leading-[1.1875] font-bold tracking-[-0.02em] whitespace-pre-line sm:text-[48px] lg:text-[clamp(40px,11.2cqw,64px)]"
+							className="anim-in text-text-primary text-[34px] leading-[1.1875] font-bold tracking-[-0.02em] whitespace-pre-line sm:text-[48px] lg:text-[clamp(40px,11.2cqw,64px)] [&:lang(ja)]:text-[min(34px,9.6cqw)] sm:[&:lang(ja)]:text-[min(48px,9.6cqw)] lg:[&:lang(ja)]:text-[min(64px,9.6cqw)]"
 							style={{ animationDelay: "140ms" }}
 						>
 							{content.headline}
