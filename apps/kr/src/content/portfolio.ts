@@ -1118,31 +1118,48 @@ export const certificates: CertificatesContent = {
 			detail: "영림원소프트랩 특별상",
 			description: "**HEALIX**로 전국 55개 학교 1,500여 명이 모인 대회에서 수상했습니다.",
 			links: [{ name: "HEALIX", href: "/projects/healix" }],
-			image: { src: asset("/certificates/03-likelion-e9406103.jpg"), alt: "영림원소프트랩 특별상 상장" },
+			image: { src: asset("/certificates/03-likelion-cf3e21eb.jpg"), alt: "영림원소프트랩 특별상 상장" },
 			gallery: [
 				{
-					src: asset("/certificates/03-likelion-e9406103.jpg"),
-					width: 442,
-					height: 585,
+					src: asset("/certificates/03-likelion-cf3e21eb.jpg"),
+					width: 1400,
+					height: 1980,
 					caption: "최우수상",
 					alt: "멋쟁이사자처럼 대학 12기 중앙 해커톤 최우수상, 영림원소프트랩 특별상 상장",
 				},
 			],
 		},
 		{
-			period: "2024",
+			period: "2025",
 			title: "국가우수장학(이공계)",
 			detail: "과학기술정보통신부장관 증서",
-			description: "전국에서 약 1,000여 명만 선발되는 국가우수장학금(이공계)를 수여받았습니다.",
-			image: { src: "/mock/scholarship.svg", alt: "국가우수장학(이공계) 증서" },
+			description: "전국에서 약 1,000여 명만 선발되는 국가우수장학금(이공계)을 수여받았습니다.",
+			image: { src: asset("/certificates/04-scholarship-06cee5e1.jpg"), alt: "국가우수장학(이공계) 증서" },
+			gallery: [
+				{
+					src: asset("/certificates/04-scholarship-06cee5e1.jpg"),
+					width: 1400,
+					height: 1986,
+					caption: "장학증서",
+					alt: "과학기술정보통신부장관 명의의 국가우수(이공계) 장학증서. 생년월일과 증서번호는 가렸다",
+				},
+			],
 		},
 		{
 			period: "2025",
 			title: "Daangn Builder’s Camp",
 			detail: "당근마켓 수료증",
 			description: "당근마켓에서 선발한 20여 명의 소수정예 해커톤에 선발되었습니다.",
-			// Scan pending: an omitted `src` renders the design's placeholder tile.
-			image: { alt: "당근 빌더스캠프 수료증" },
+			image: { src: asset("/certificates/05-daangn-2d3fb1c4.jpg"), alt: "당근 빌더스캠프 수료증" },
+			gallery: [
+				{
+					src: asset("/certificates/05-daangn-2d3fb1c4.jpg"),
+					width: 1400,
+					height: 2052,
+					caption: "수료증",
+					alt: "주식회사 당근마켓 명의의 2025 Daangn Builder’s Camp 수료증",
+				},
+			],
 		},
 	],
 };
