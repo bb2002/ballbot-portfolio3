@@ -179,6 +179,35 @@ main [data-section] {
 	outline-offset: 2px;
 }
 
+/* The skip link (layout.tsx): the first thing in the tab order, kept above the
+   viewport until it holds focus, then pinned to the top-left corner over
+   everything — the sticky nav included. `fixed`, not `absolute`: a reader who
+   tabs to it halfway down the page must see it where they are, not at the top
+   of the document. The button's colours, so it reads as a control. */
+.skip-link {
+	position: fixed;
+	top: 8px;
+	left: 8px;
+	z-index: 100;
+	padding: 10px 14px;
+	border-radius: 4px;
+	background: var(--color-button-bg);
+	color: var(--color-text-inverse);
+	font-size: 14px;
+	font-weight: 700;
+	transform: translateY(calc(-100% - 16px));
+}
+
+.skip-link:focus-visible {
+	transform: none;
+}
+
+/* Where the skip link lands. `tabindex="-1"` is what lets <main> take focus at
+   all; the ring the rule above draws is for controls, not for a whole page. */
+#main:focus-visible {
+	outline: none;
+}
+
 /* ------------------------------------------------------------------ *
  * Journey — trunk and branches
  *

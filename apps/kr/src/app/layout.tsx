@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import { Footer } from "@ballbot/shared";
-import { LANGUAGE_ALTERNATES, MARKETS } from "@ballbot/shared/markets";
+import { LANGUAGE_ALTERNATES, MARKETS, openGraphBase } from "@ballbot/shared/markets";
 
-import { footer } from "@/content/portfolio";
+import { footer, hero } from "@/content/portfolio";
 
 import "./globals.css";
 
@@ -34,7 +34,10 @@ const ibmPlexMono = IBM_Plex_Mono({
 /**
  * Each market is its own host, so this build's canonical URL is its own and the
  * `languages` map is how a crawler finds the other one. `x-default` points at
- * the apex, which is the only URL that decides for the reader.
+ * the apex, which is the only URL that decides for the reader. The story pages
+ * restate both maps for their own path — Next merges metadata shallowly, so a
+ * page that sets `alternates` or `openGraph` replaces the whole object — which
+ * is why the shared parts come from markets.ts rather than being written here.
  */
 export const metadata: Metadata = {
 	metadataBase: new URL(MARKETS.ko),
@@ -45,10 +48,10 @@ export const metadata: Metadata = {
 		languages: LANGUAGE_ALTERNATES,
 	},
 	openGraph: {
+		...openGraphBase("ko"),
 		title: "ballbot.dev | Software Engineer",
 		description: "백엔드 엔지니어 ballbot의 포트폴리오.",
 		url: MARKETS.ko,
-		locale: "ko_KR",
 		type: "website",
 	},
 };
@@ -57,6 +60,40 @@ export const viewport: Viewport = {
 	themeColor: "#ffffff",
 	colorScheme: "light",
 };
+
+/**
+ * The two lines of chrome this build writes in its own language. They sit here
+ * rather than in src/content while that file is under a separate copy review
+ * (docs/tech-review-2026-09-26.md, D8); moving them later is a two-line change.
+ */
+const PERSON_NAME = "김수빈";
+const SKIP_LINK = "본문으로 건너뛰기";
+
+/**
+ * Who this site is about, for search engines: one Person and one WebSite in a
+ * graph. `sameAs` is the hero's outbound links, minus any that is still a bare
+ * host — a placeholder, not a profile — and the key is left out when nothing is
+ * left. `<` is escaped so no string in it could ever close the script tag.
+ */
+function structuredData(): string {
+	const sameAs = hero.actions.secondary
+		.map((action) => action.href)
+		.filter((href) => href.startsWith("http") && new URL(href).pathname !== "/");
+	return JSON.stringify({
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Person",
+				name: PERSON_NAME,
+				alternateName: "ballbot",
+				jobTitle: "Software Engineer",
+				url: MARKETS.ko,
+				...(sameAs.length ? { sameAs } : {}),
+			},
+			{ "@type": "WebSite", name: "ballbot.dev", url: MARKETS.ko, inLanguage: "ko" },
+		],
+	}).replace(/</g, "\\u003c");
+}
 
 export default function RootLayout({
 	children,
@@ -84,8 +121,17 @@ export default function RootLayout({
 							'setTimeout(function(){if(!r.classList.contains("hydrated"))r.classList.remove("js")},4000)',
 					}}
 				/>
+				{/* Structured data is data, not a script to run: a plain tag, as the
+				    Next JSON-LD guide has it, not next/script. */}
+				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData() }} />
 			</head>
 			<body className="antialiased">
+				{/* First in the tab order on every page: one press past it lands a
+				    keyboard reader on <main id="main"> instead of on the hero's links
+				    and the nav. Invisible until it holds focus (theme.css). */}
+				<a href="#main" className="skip-link">
+					{SKIP_LINK}
+				</a>
 				{children}
 				{/* Here rather than in each page: it closes the story pages too. */}
 				<Footer content={footer} />

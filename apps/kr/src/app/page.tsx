@@ -19,6 +19,8 @@ import { certificates, experience, hero, journey, nav, overview, projects, scrol
  * NavBar must stay a direct child of this flow (not nested inside the hero) or
  * its sticky containing block would end with the hero. It also stays outside
  * <main>, so the page's only navigation landmark is not buried inside it.
+ * `id="main"` is where the layout's skip link lands, and `tabIndex={-1}` is
+ * what lets a <main> take that focus at all.
  *
  * `data-section` marks the five screens. It is what the hairline between them
  * and their `scroll-margin-top` hang off (theme.css), so a nav link lands under
@@ -45,7 +47,7 @@ export default function Home() {
 			</header>
 			<NavBar content={nav} />
 			<ScrollCue content={scrollCue} />
-			<main>
+			<main id="main" tabIndex={-1}>
 				<Projects content={projects} />
 				<Experience content={experience} />
 				<Certificates content={certificates} />

@@ -35,6 +35,16 @@
 		"test": {
 			"dependsOn": ["^build"]
 		},
+		/*
+		 * A root task, not a package one: the slug-parity test reads both markets'
+		 * content files, and a package-scoped task would hash only its own package
+		 * — replaying a stale "passed" after the *other* market's file changed,
+		 * the same trap the note at the top describes. Its inputs are the two files
+		 * it reads and itself.
+		 */
+		"//#check:slugs": {
+			"inputs": ["apps/*/src/content/portfolio.ts", "scripts/slugs.test.mjs"]
+		},
 		"typecheck": {
 			"dependsOn": ["sync-public", "^build"]
 		},

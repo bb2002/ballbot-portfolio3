@@ -12,6 +12,7 @@
 	"scripts": {
 		"build": "node -e \"console.log('@ballbot/shared is consumed as source; nothing to build.')\"",
 		"lint": "eslint",
+		"test": "node --test \"src/**/*.test.ts\"",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {

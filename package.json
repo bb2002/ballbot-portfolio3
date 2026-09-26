@@ -10,7 +10,9 @@
 		"dev": "turbo run dev",
 		"build": "turbo run build",
 		"lint": "turbo run lint",
-		"test": "turbo run test",
+		"test": "turbo run test check:slugs",
+		"check:slugs": "node --test scripts/slugs.test.mjs",
+		"check:live": "node scripts/check-live.mjs",
 		"typecheck": "turbo run typecheck",
 		"deploy": "turbo run deploy"
 	},

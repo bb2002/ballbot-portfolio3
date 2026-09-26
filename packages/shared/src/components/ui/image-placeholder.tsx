@@ -7,7 +7,8 @@ type Props = {
 	/** Extra classes for the outer box (sizing, radius, …). */
 	className?: string;
 	sizes?: string;
-	priority?: boolean;
+	/** Announce the file from <head>: for the one image that is the page's largest paint. */
+	preload?: boolean;
 	/**
 	 * How the art meets its box. `cover` fills and crops, which is what a logo
 	 * or icon cut to its box wants; `contain` shows the whole picture at its
@@ -22,7 +23,7 @@ type Props = {
  * Once `media.src` is supplied the real image takes over, so dropping assets
  * into the market's content file is the only change needed later.
  */
-export function ImagePlaceholder({ media, className = "", sizes, priority, fit = "cover" }: Props) {
+export function ImagePlaceholder({ media, className = "", sizes, preload, fit = "cover" }: Props) {
 	if (media.src) {
 		return (
 			<div className={`relative overflow-hidden ${className}`}>
@@ -31,7 +32,7 @@ export function ImagePlaceholder({ media, className = "", sizes, priority, fit =
 					alt={media.alt}
 					fill
 					sizes={sizes ?? "(max-width: 1024px) 100vw, 33vw"}
-					priority={priority}
+					preload={preload}
 					// The optimizer refuses SVG by default; mock art is vector, so pass it through.
 					unoptimized={media.src.endsWith(".svg")}
 					className={fit === "contain" ? "object-contain" : "object-cover"}
@@ -67,7 +68,7 @@ type FrameProps = {
 	/** Outer surface tile: sizing + corner radius. */
 	className?: string;
 	sizes?: string;
-	priority?: boolean;
+	preload?: boolean;
 };
 
 /**
@@ -81,13 +82,13 @@ type FrameProps = {
  * most. Containing it keeps every thumbnail at the proportions it was cut to,
  * and the surface behind takes up whatever slack is left.
  */
-export function ThumbFrame({ media, className = "", sizes, priority }: FrameProps) {
+export function ThumbFrame({ media, className = "", sizes, preload }: FrameProps) {
 	return (
 		<div className={`bg-surface flex shrink-0 items-center justify-center overflow-hidden p-2 ${className}`}>
 			<ImagePlaceholder
 				media={media}
 				sizes={sizes}
-				priority={priority}
+				preload={preload}
 				fit="contain"
 				className="h-full w-full transition-transform duration-500 ease-[var(--ease-smooth)] group-hover:scale-[1.04]"
 			/>

@@ -40,6 +40,26 @@ const NO_STORE = {
 } as const;
 
 /**
+ * On every answer. HSTS pins the apex itself to https for two years and stops
+ * there on purpose: `includeSubDomains` sent from this host would bind every
+ * current and future *.ballbot.dev — the asset bucket's domain included — and
+ * `preload` is an entry on a list that is all but permanent. The market builds
+ * send both for their own subtrees; widening the apex is the owner's call.
+ */
+const STRICT = {
+	"strict-transport-security": "max-age=63072000",
+} as const;
+
+/**
+ * Only on `?geo`, which answers with a body a crawler could index. The
+ * redirects carry no such header: a robots directive on a bodyless 302 is read
+ * on the target, not here, so it would be a line that does nothing.
+ */
+const NOINDEX = {
+	"x-robots-tag": "noindex",
+} as const;
+
+/**
  * The request as it arrives at the edge: `cf` carries the geolocation, which
  * the bare `Request` type leaves as an open bag.
  */
@@ -111,7 +131,7 @@ export default {
 			url.hostname = url.hostname.slice("www.".length);
 			return new Response(null, {
 				status: 301,
-				headers: { location: url.toString(), "cache-control": "no-store" },
+				headers: { location: url.toString(), "cache-control": "no-store", ...STRICT },
 			});
 		}
 
@@ -127,6 +147,7 @@ export default {
 					location: `${MARKETS[locale]}/`,
 					"set-cookie": remember(locale),
 					...NO_STORE,
+					...STRICT,
 				},
 			});
 		}
@@ -137,7 +158,7 @@ export default {
 		// be faked from outside — Cloudflare overwrites the header at the edge —
 		// so this is the only way to see what the edge actually reported for you.
 		if (url.searchParams.has("geo")) {
-			return Response.json(decision, { headers: { ...NO_STORE } });
+			return Response.json(decision, { headers: { ...NO_STORE, ...STRICT, ...NOINDEX } });
 		}
 
 		// Path and query carry over, so a deep link into either build survives
@@ -149,6 +170,7 @@ export default {
 				location: target.toString(),
 				"x-bb-decision": decision.source,
 				...NO_STORE,
+				...STRICT,
 			},
 		});
 	},

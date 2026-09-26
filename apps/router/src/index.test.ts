@@ -98,3 +98,23 @@ test("?geo reports the decision instead of acting on it", async () => {
 	assert.deepEqual(await response.json(), { locale: "ja", source: "geo", country: "JP" });
 	assert.equal(response.headers.get("cache-control"), "no-store");
 });
+
+test("?geo is the one answer with a body, and it stays out of the index", async () => {
+	const response = await answer("https://ballbot.dev/?geo", { "cf-ipcountry": "JP" });
+	assert.equal(response.headers.get("x-robots-tag"), "noindex");
+	// A robots header on a bodyless redirect is read on its target, not here —
+	// so the redirects carry none rather than a line that does nothing.
+	const redirect = await answer("https://ballbot.dev/go/ja");
+	assert.equal(redirect.headers.get("x-robots-tag"), null);
+});
+
+test("every answer pins the apex to https — and only the apex", async () => {
+	for (const url of ["https://ballbot.dev/", "https://ballbot.dev/go/ja", "https://www.ballbot.dev/", "https://ballbot.dev/?geo"]) {
+		const response = await answer(url, { "cf-ipcountry": "KR" });
+		const hsts = response.headers.get("strict-transport-security");
+		assert.equal(hsts, "max-age=63072000", url);
+		// `includeSubDomains` from the apex would bind every *.ballbot.dev and
+		// `preload` is all but permanent: neither is this Worker's call to make.
+		assert.doesNotMatch(hsts!, /includeSubDomains|preload/i, url);
+	}
+});

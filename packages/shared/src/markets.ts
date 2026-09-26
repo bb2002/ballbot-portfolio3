@@ -21,12 +21,55 @@ export type MarketLocale = keyof typeof MARKETS;
 export const APEX = "https://ballbot.dev";
 
 /**
- * The `hreflang` map for `<link rel="alternate">` and for sitemap entries.
- * `x-default` is the apex because it is the one URL that decides for a reader
- * instead of assuming.
+ * A page's address on a market host. The root is the bare host: that is what
+ * Next emits as the home canonical and what the sitemap has published all
+ * along, so the home keeps its spelling. Any other path is simply appended.
  */
-export const LANGUAGE_ALTERNATES = {
-	ko: MARKETS.ko,
-	ja: MARKETS.ja,
-	"x-default": APEX,
+export function marketUrl(locale: MarketLocale, path: `/${string}` = "/"): string {
+	return path === "/" ? MARKETS[locale] : `${MARKETS[locale]}${path}`;
+}
+
+/**
+ * The `hreflang` map for one path, for `<link rel="alternate">` and for the
+ * sitemap entry of that page. `x-default` is the apex at the same path — the
+ * router carries the path over, so a crawler that follows it lands on the same
+ * page in whichever market it belongs to — because it is the one URL that
+ * decides for a reader instead of assuming.
+ *
+ * Every page needs its own map, not the home's: a page that sets `alternates`
+ * replaces the layout's whole object (Next merges metadata shallowly), so a
+ * story page that only restated its canonical carried no hreflang at all.
+ * Both builds publish the same slugs, which scripts/slugs.test.mjs enforces.
+ */
+export function languageAlternates(path: `/${string}` = "/") {
+	return {
+		ko: marketUrl("ko", path),
+		ja: marketUrl("ja", path),
+		"x-default": path === "/" ? APEX : `${APEX}${path}`,
+	} as const;
+}
+
+/** The home page's map — what the root layouts link. */
+export const LANGUAGE_ALTERNATES = languageAlternates();
+
+/** The Open Graph locale tag of each market. */
+export const OG_LOCALES = {
+	ko: "ko_KR",
+	ja: "ja_JP",
 } as const;
+
+/**
+ * The Open Graph fields every page shares: which site, which language, and
+ * which other language it is also written in. Spread into each page's
+ * `openGraph` for the same reason `languageAlternates` exists — the page's
+ * object replaces the layout's, and `og:locale` went missing with it.
+ */
+export function openGraphBase(locale: MarketLocale) {
+	return {
+		siteName: "ballbot.dev",
+		locale: OG_LOCALES[locale],
+		alternateLocale: (Object.keys(OG_LOCALES) as MarketLocale[])
+			.filter((other) => other !== locale)
+			.map((other) => OG_LOCALES[other]),
+	};
+}

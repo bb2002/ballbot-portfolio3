@@ -57,7 +57,9 @@ function Architecture({
                 {essay.title}
               </h3>
             </Reveal>
-            <StoryBody body={essay.body} title={title} labels={labels} />
+            {/* One step under the essay's own <h3>, so a sub-head reads as part
+                of the essay in the outline rather than as its sibling. */}
+            <StoryBody body={essay.body} title={title} labels={labels} headingAs="h4" />
           </article>
         ))}
       </div>
@@ -129,8 +131,10 @@ export function ProjectStory({
   const linked =
     story.architecture?.items.length === story.highlights?.length;
 
+  // `id="main"` is where the layout's skip link lands; `tabIndex={-1}` is what
+  // lets a <main> take that focus at all.
   return (
-    <main className="flex min-h-svh flex-col">
+    <main id="main" tabIndex={-1} className="flex min-h-svh flex-col">
       <div className="border-border border-b-[0.5px]">
         <div className={`${page} py-6`}>
           <a

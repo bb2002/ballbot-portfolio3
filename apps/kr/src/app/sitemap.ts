@@ -1,24 +1,28 @@
 import type { MetadataRoute } from "next";
 
-import { LANGUAGE_ALTERNATES, MARKETS } from "@ballbot/shared/markets";
+import { languageAlternates, marketUrl } from "@ballbot/shared/markets";
 
 import { experience, projects } from "@/content/portfolio";
 
 /**
- * The home page carries the language map, which is how a crawler learns the
- * two market builds are the same document in two languages rather than
- * duplicates competing with each other. The story pages follow it: one per
- * row on the Experience list, and one per project that has a page of its own.
+ * Every entry carries the language map for its own path, which is how a
+ * crawler learns the two market builds are the same document in two languages
+ * rather than duplicates competing with each other — the home page and the
+ * story pages alike. One story per row on the Experience list, and one per
+ * project that has a page of its own. Both builds publish the same slugs
+ * (scripts/slugs.test.mjs holds them to it), so every map points at a page
+ * that exists.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
+	const entry = (path: `/${string}`) => ({
+		url: marketUrl("ko", path),
+		alternates: { languages: languageAlternates(path) },
+	});
 	return [
-		{
-			url: MARKETS.ko,
-			alternates: { languages: LANGUAGE_ALTERNATES },
-		},
-		...experience.highlights.map(({ slug }) => ({ url: `${MARKETS.ko}/experience/${slug}` })),
+		entry("/"),
+		...experience.highlights.map(({ slug }) => entry(`/experience/${slug}`)),
 		...[...projects.featured, ...projects.archive]
 			.filter((project) => project.slug && project.story)
-			.map(({ slug }) => ({ url: `${MARKETS.ko}/projects/${slug}` })),
+			.map(({ slug }) => entry(`/projects/${slug}`)),
 	];
 }

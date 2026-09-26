@@ -141,9 +141,18 @@ export function ScreenSlider({ items, title, labels }: Props) {
                   alt={item.alt}
                   fill
                   sizes="(max-width: 1024px) 92vw, 62vw"
-                  // Neighbours load ahead so paging does not wait on a fetch;
-                  // the rest stay lazy until they come round.
-                  loading={Math.abs(slide - index) <= 1 ? "eager" : "lazy"}
+                  // The first screen is the page's largest paint, so it is
+                  // announced from <head> (`preload`) instead of being found
+                  // when the parser reaches it — and it carries no `loading`
+                  // at all: next/image throws when `preload` meets
+                  // `loading="lazy"`, and the value below is recomputed as
+                  // the reader pages, so the first slide would turn lazy two
+                  // screens in. The others fetch their neighbours ahead so
+                  // paging does not wait on a fetch; the rest stay lazy until
+                  // they come round.
+                  {...(slide === 0
+                    ? { preload: true }
+                    : { loading: Math.abs(slide - index) <= 1 ? "eager" : "lazy" })}
                   // Padded rather than the button: `object-fit` fits the
                   // picture to the content box, so the 8px the tile keeps
                   // around a thumbnail is kept here too.

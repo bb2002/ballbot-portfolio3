@@ -33,8 +33,10 @@ export function ExperienceStory({ content, story }: { content: ExperienceContent
 	const company = content.company.name.replace(/\n/g, " ");
 	const meta = [story.year, company].filter(Boolean).join(" · ");
 
+	// `id="main"` is where the layout's skip link lands; `tabIndex={-1}` is what
+	// lets a <main> take that focus at all.
 	return (
-		<main className="flex min-h-svh flex-col">
+		<main id="main" tabIndex={-1} className="flex min-h-svh flex-col">
 			<div className="border-border border-b-[0.5px]">
 				<div className={`${page} py-6`}>
 					<a

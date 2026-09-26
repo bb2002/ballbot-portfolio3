@@ -46,10 +46,17 @@ npx turbo run deploy --filter=@ballbot/router
 Each app previews on the real runtime with `npm run preview` inside it
 (`opennextjs-cloudflare build && … preview`).
 
-Resume delivery is off until the mailbox is wired: `/api/resume` answers `503`
-and the form hands the reader the direct address instead. Turning it on means
-adding a `send_email` binding to the market's `wrangler.jsonc` and setting
-`RESUME_FROM` — the route handler carries the details.
+Deploy through these scripts, not a bare `wrangler deploy`: the OpenNext CLI's
+deploy step is what copies the prerendered story pages into the Worker's
+static assets (`open-next.config.ts`), and without it every `/projects/*` and
+`/experience/*` answers 404 while the sitemap still lists them. After a deploy,
+`npm run check:live` proves the live site from the outside — every sitemap URL
+200 and served from that cache, hreflang in place, the apex redirecting.
+
+Screenshots, scans and recordings live in the R2 bucket behind
+`assets.ballbot.dev`, not in the repository or the Worker: stage a new file
+under the app's gitignored `assets/` and send it up with `npm run assets:push`
+(apps/kr).
 
 ## Reference
 
