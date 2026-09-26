@@ -34,9 +34,10 @@ import { certificates, experience, hero, journey, nav, overview, projects, scrol
  * land on.
  *
  * The components come from @ballbot/shared and hold no copy of their own: this
- * file and src/content are the whole of what makes the page Japanese. The
- * order below matches the Korean build, and src/content is its copy
- * translated line for line.
+ * file and src/content are the whole of what makes the page Japanese.
+ * src/content is the Korean copy translated line for line, but the order
+ * below is this build's own, with Journey first. The nav items and the
+ * scroll cue follow it (src/content).
  */
 export default function Home() {
 	return (
@@ -47,10 +48,10 @@ export default function Home() {
 			<NavBar content={nav} />
 			<ScrollCue content={scrollCue} />
 			<main>
+				<Journey content={journey} />
 				<Projects content={projects} />
 				<Experience content={experience} />
 				<Certificates content={certificates} />
-				<Journey content={journey} />
 			</main>
 		</>
 	);

@@ -36,10 +36,10 @@ function Bullet() {
 }
 
 /**
- * Bullet row: an underlined emphasis fragment followed by lighter detail.
- * With an `href` the fragment is the way into the page the row summarises —
- * same ink as the plain fragment, and only the cursor and the hover tint
- * say it opens something, as the names on the Journey rail do.
+ * Bullet row: a bold emphasis fragment followed by lighter detail.
+ * With an `href` the fragment is the way into the page the row summarises,
+ * and the underline is what says so: without one it stays plain bold, since
+ * a line under a fragment that opens nothing reads as a dead link.
  */
 function HighlightRow({ emphasis, detail, href }: { emphasis: string | null; detail: string; href?: string }) {
 	return (
@@ -59,7 +59,7 @@ function HighlightRow({ emphasis, detail, href }: { emphasis: string | null; det
 								{emphasis}
 							</a>
 						) : (
-							<span className="border-text-strong border-b font-bold">{emphasis}</span>
+							<span className="font-bold">{emphasis}</span>
 						)}{" "}
 					</>
 				) : null}

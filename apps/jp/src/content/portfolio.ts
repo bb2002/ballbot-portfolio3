@@ -32,16 +32,16 @@ const KOREAN_BUILD = "https://ballbot.dev/go/ko";
 export const nav: NavContent = {
 	ariaLabel: "セクションへ移動",
 	items: [
+		{ id: "journey", label: "Journey" },
 		{ id: "projects", label: "Projects" },
 		{ id: "experience", label: "Experience" },
 		{ id: "certificates", label: "Certificates" },
-		{ id: "journey", label: "Journey" },
 	],
 };
 
 export const scrollCue: ScrollCueContent = {
-	ariaLabel: "プロジェクトのセクションへ移動",
-	href: "#projects",
+	ariaLabel: "Journey のセクションへ移動",
+	href: "#journey",
 };
 
 export const footer: FooterContent = {
@@ -67,7 +67,7 @@ export const hero: HeroContent = {
 	headline: "816万ユーザーの\nサービスを支えてきた",
 	subtitle: "ソフトウェアエンジニアのキム・スビンです。",
 	actions: {
-		primary: { label: "プロジェクトを見る", href: "#projects" },
+		primary: { label: "旅を見る", href: "#journey" },
 		secondary: [{ label: "GitHub ↗", href: "https://github.com/" }],
 	},
 	otherMarket: {
@@ -83,20 +83,21 @@ export const overview: OverviewContent = {
 	label: "Overview",
 	blocks: [
 		{
+			value: "語学・留学",
+			caption: "日本語で働ける準備をしてきました",
+			items: [
+				{ emphasis: "JLPT N1", detail: "取得" },
+				{ emphasis: "鳥取大学", detail: "交換留学（2025年度後期）" },
+			],
+		},
+		{
 			value: "2 Years",
 			caption: "Nudge Healthcare Timespread・Linkareer チームのバックエンド",
 			items: [
 				{ emphasis: "19億件のテーブルを", detail: "メンテナンス1時間以内にマイグレーション", href: "/experience/bigint-migration" },
 				{ emphasis: "毎分1,500件のリクエストを受ける", detail: "サービスのリファクタリング", href: "/experience/realtime-redesign" },
-				{ emphasis: "月1,000万ウォンを超えていた AWS 費用を", detail: "30%削減", href: "/experience/aws-cost" },
+				{ emphasis: "月100万円を超えていた AWS 費用を", detail: "30%削減", href: "/experience/aws-cost" },
 				{ emphasis: "32GB を超えるメモリを占有して停止していた", detail: "API サーバーの正常化", href: "/experience/api-memory" },
-			],
-		},
-		{
-			value: "2 Awards",
-			items: [
-				{ emphasis: "コスモのノート、", detail: "全国大会で最優秀賞1位を獲得", href: "/projects/cosmonote" },
-				{ emphasis: "HEALIX、", detail: "1,500人規模の全国ハッカソンで2位を獲得", href: "/projects/healix" },
 			],
 		},
 		{
@@ -344,7 +345,7 @@ const SCREEN_TRANSLATOR_SCREENS: readonly Media[] = [
 		height: 996,
 		caption: "ゲームの翻訳",
 		alt: "日本語のゲームのお知らせの上に、韓国語の訳文が重なっている。原文の位置にそのまま重ねて表示する",
-		note: "スマートフォンを振るとすぐに画面をキャプチャし、画像を OCR にかけてテキストを抽出し、翻訳機で翻訳してオーバーレイの形でユーザーに表示する翻訳サービスです。\n\nGoogle 翻訳で翻訳を提供していましたが、API キーの管理に関する知識がなく、クライアントアプリにそのままキーを保存していました。1,000人ほどがダウンロードした頃にキーが流出し、1日に数十万ウォンものサーバー費用が発生しているのを見て、すぐにサービスを取り下げてしまったというハプニングがありました。",
+		note: "スマートフォンを振るとすぐに画面をキャプチャし、画像を OCR にかけてテキストを抽出し、翻訳機で翻訳してオーバーレイの形でユーザーに表示する翻訳サービスです。\n\nGoogle 翻訳で翻訳を提供していましたが、API キーの管理に関する知識がなく、クライアントアプリにそのままキーを保存していました。1,000人ほどがダウンロードした頃にキーが流出し、1日に数万円ものサーバー費用が発生しているのを見て、すぐにサービスを取り下げてしまったというハプニングがありました。",
 	},
 	{
 		src: asset("/projects/screen-translator/02-web.jpg"),
@@ -523,13 +524,13 @@ const cosmoStory: ProjectStoryContent = {
 					COSMO_ARCHITECTURE,
 					"Workers は最大100MB までしかアップロードを受け付けられません。100MB 未満の動画はほとんどないので、サーバーはバケットに直接アップロードできる Presigned URL を発行してクライアントに渡します。ファイルはクライアントから R2 に直接アップロードされます。",
 					"アップロードされたファイルは、estimator が検査します。壊れたファイルや不正なファイルでないかを確認し、問題がなければサンプリングして費用を見積もります。ユーザーが見積もられた金額を支払うと、ノートの生成が始まります。見積もりより分析すべき量が多いと損をすることもありますが、平均コストに倍率を掛けることで、この問題を最小限に抑えました。",
-					"この構成が、そのまま料金プランになりました。2時間の動画で、およそ1,300ウォンほどかかります。他社のサービスが3時間分の動画を分析するのに月7,900ウォンを求めることを考えると、試験期間にまとめて使う学生にとってはとても合理的な仕組みです。インフラも使った分だけ請求される構成なので、持続可能なシステムです。",
+					"この構成が、そのまま料金プランになりました。2時間の動画で、およそ130円ほどかかります。他社のサービスが3時間分の動画を分析するのに月790円を求めることを考えると、試験期間にまとめて使う学生にとってはとても合理的な仕組みです。インフラも使った分だけ請求される構成なので、持続可能なシステムです。",
 				],
 			},
 			{
 				title: "フラッグシップモデルを高効率モデルに替えながら、ノートの品質は守り抜く",
 				body: [
-					"開発初期は、Claude のようなフラッグシップモデルを使っていました。プロンプトのチューニングやタイムラインの整理をあまりしなくても満足できる結果が出ましたが、ノートを1本生成するのにお金がかかりすぎました。2時間の動画を Claude で要約するのに1,300ウォンというのは、慈善団体でもなければ難しい話です。",
+					"開発初期は、Claude のようなフラッグシップモデルを使っていました。プロンプトのチューニングやタイムラインの整理をあまりしなくても満足できる結果が出ましたが、ノートを1本生成するのにお金がかかりすぎました。2時間の動画を Claude で要約するのに130円というのは、慈善団体でもなければ難しい話です。",
 					COSMO_PIPELINE,
 					"今は Gemini や DeepSeek のような、低コストで高効率のモデルを使っています。その代わり、一度にすべての作業を任せず、目次の生成、本文の生成、画像の配置、推敲などにパイプラインを分けました。小さなモデルは特にコンテキストが大きくなると品質が急激に落ちますが、先に目次を作って1項目ずつ書かせるように仕事を分ければ、品質はそれほど落ちません。また、キャッシングによって費用が一部削減されることもあります。",
 					"コンテキストのせいで品質が落ちる問題は解決しましたが、思考力の差が問題でした。そこで Fable のようなフラッグシップモデルと今のパイプラインの結果を比較するハーネスを作り、定期的に実行しています。Fable ほどの性能は出せませんが、コストのわりに良い品質が出ています。",
@@ -995,11 +996,11 @@ export const experience: ExperienceContent = {
 		{
 			slug: "aws-cost",
 			year: "2022",
-			title: "月1,000万ウォンを超えていた AWS 費用を30%削減",
+			title: "月100万円を超えていた AWS 費用を30%削減",
 			subtitle: "安くて性能の良い Graviton インスタンスに移し、インスタンスの増減ルールを組み直しました。",
 			body: [
 				{ heading: "背景" },
-				"Timespread は、サーバー費用として毎月1,000万ウォン近くを使っていました。チームリーダーから、この費用を減らす方法を探してみようと言われました。",
+				"Timespread は、サーバー費用として毎月100万円近くを使っていました。チームリーダーから、この費用を減らす方法を探してみようと言われました。",
 				{ heading: "どこにお金がかかっているのか" },
 				"Cost Management で確認すると、費用が最もかかっているのは3か所でした。",
 				{ items: ["RDS", "Beanstalk (EC2)", "ネットワークトラフィック"] },
@@ -1238,7 +1239,8 @@ const DREAM_PHOTOS: readonly Media[] = [
 		src: asset("/journey/dream/01-note.jpg"),
 		width: 2000,
 		height: 1125,
-		caption: "2015年2月、小学校の卒業式",
+		caption: "小学校時代の写真",
+		note: "卒業式のスクリーンに映った、当時の将来の夢は「コンピュータープログラマー」。その夢は今も続いています。",
 		alt: "卒業式の舞台スクリーンを撮った写真。「卒業おめでとうございます」の下に、進学先の学校とともに、将来の夢がコンピュータープログラマーと書かれている",
 	},
 ];
@@ -1562,7 +1564,7 @@ export const journey: JourneyContent = {
 				},
 				{
 					year: "2022",
-					title: "月1,000万ウォンを超えていた AWS 費用を30%削減",
+					title: "月100万円を超えていた AWS 費用を30%削減",
 					detail: "安くて性能の良い Graviton インスタンスに移し、インスタンスの増減ルールを組み直しました。",
 				},
 				{
