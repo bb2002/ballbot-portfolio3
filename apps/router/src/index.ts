@@ -59,14 +59,17 @@ const NO_STORE_BY_AGENT = {
 } as const;
 
 /**
- * On every answer. HSTS pins the apex itself to https for two years and stops
- * there on purpose: `includeSubDomains` sent from this host would bind every
- * current and future *.ballbot.dev — the asset bucket's domain included — and
- * `preload` is an entry on a list that is all but permanent. The market builds
- * send both for their own subtrees; widening the apex is the owner's call.
+ * On every answer, redirects included. HSTS for two years over the whole
+ * registrable domain, and a request to be on the browsers' preload list —
+ * which only reads this header from the apex. `includeSubDomains` binds every
+ * current and future *.ballbot.dev to https (the asset bucket's domain
+ * included), and a preload entry is all but permanent: the owner chose both
+ * once the zone's "Always Use HTTPS" was on (2026-09-26), since that is what
+ * sends http://ballbot.dev to https on the same host first, as the list
+ * requires. The market builds send the same value for their own subtrees.
  */
 const STRICT = {
-	"strict-transport-security": "max-age=63072000",
+	"strict-transport-security": "max-age=63072000; includeSubDomains; preload",
 } as const;
 
 /**

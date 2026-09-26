@@ -166,14 +166,12 @@ test("?geo answers with a body, and it stays out of the index", async () => {
 	assert.equal(redirect.headers.get("x-robots-tag"), null);
 });
 
-test("every answer pins the apex to https — and only the apex", async () => {
+test("every answer, redirects included, carries the preload-ready HSTS value", async () => {
+	// The preload list reads the header from the apex, and wants it on the
+	// redirects too — not only on the page they lead to.
 	for (const url of ["https://ballbot.dev/", "https://ballbot.dev/go/ja", "https://www.ballbot.dev/", "https://ballbot.dev/?geo"]) {
 		const response = await answer(url, { "cf-ipcountry": "KR" });
-		const hsts = response.headers.get("strict-transport-security");
-		assert.equal(hsts, "max-age=63072000", url);
-		// `includeSubDomains` from the apex would bind every *.ballbot.dev and
-		// `preload` is all but permanent: neither is this Worker's call to make.
-		assert.doesNotMatch(hsts!, /includeSubDomains|preload/i, url);
+		assert.equal(response.headers.get("strict-transport-security"), "max-age=63072000; includeSubDomains; preload", url);
 	}
 });
 
@@ -202,7 +200,7 @@ test("a link preview of the root gets the Japanese card, not a redirect", async 
 	assert.equal(response.headers.get("cache-control"), "no-store");
 	assert.equal(response.headers.get("vary"), "cookie, user-agent");
 	assert.equal(response.headers.get("x-robots-tag"), "noindex");
-	assert.equal(response.headers.get("strict-transport-security"), "max-age=63072000");
+	assert.equal(response.headers.get("strict-transport-security"), "max-age=63072000; includeSubDomains; preload");
 
 	const html = await response.text();
 	assert.match(html, /<html lang="ja">/);

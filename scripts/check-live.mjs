@@ -8,8 +8,9 @@
  * itself canonical, carries the three hreflang links and a JSON-LD block that
  * parses; an unknown story is a 404. For the apex — a 302 to a market that is
  * never cached, the deep-link path carried over, `/go/ja` setting its cookie,
- * `?geo` answering and staying out of the index, and a link-preview fetcher on
- * the root getting the Japanese card, whose image answers, instead.
+ * `?geo` answering and staying out of the index, a link-preview fetcher on the
+ * root getting the Japanese card, whose image answers, instead, preload-ready
+ * HSTS, and plain http going to https on the apex itself first.
  *
  * The sitemap listing all eight story pages while every one of them was a 404
  * is how a broken deploy went unnoticed for days; this is what would have
@@ -24,6 +25,8 @@ const MARKETS = {
 	ja: "https://jp.ballbot.dev",
 };
 const APEX = "https://ballbot.dev";
+/** What the apex and both builds send, and what the preload list asks of the apex. */
+const HSTS = "max-age=63072000; includeSubDomains; preload";
 const USER_AGENT = "ballbot-check-live/1 (+https://ballbot.dev)";
 /** A link-preview fetcher, for the one apex answer that depends on who asks. */
 const PREVIEW_AGENT = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)";
@@ -123,7 +126,24 @@ async function checkApex() {
 			home.headers.get("cache-control") === "no-store" && home.headers.get("vary") === "cookie, user-agent",
 			`${APEX}/ is never cached`,
 		);
-		check((home.headers.get("strict-transport-security") ?? "").startsWith("max-age="), `${APEX}/ sends HSTS`);
+		check(
+			home.headers.get("strict-transport-security") === HSTS,
+			`${APEX}/ sends preload-ready HSTS`,
+			home.headers.get("strict-transport-security") ?? "none",
+		);
+	});
+
+	// The preload list's first requirement, met by the zone's "Always Use
+	// HTTPS", not by the Worker: plain http goes to https on the same host
+	// before anything decides where the reader belongs.
+	await group(`http://${new URL(APEX).host}/`, async () => {
+		const plain = await get(`http://${new URL(APEX).host}/`);
+		const target = plain.headers.get("location") ?? "";
+		check(
+			plain.status === 301 && target === `${APEX}/`,
+			`http://${new URL(APEX).host}/ → 301 to ${APEX}/`,
+			`${plain.status} ${target}`,
+		);
 	});
 
 	await group(`${APEX}/ link preview`, async () => {
