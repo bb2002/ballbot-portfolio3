@@ -3,7 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { Footer } from "@ballbot/shared";
 import { LANGUAGE_ALTERNATES, MARKETS, openGraphBase } from "@ballbot/shared/markets";
 
-import { footer, hero } from "@/content/portfolio";
+import { chrome, footer, hero } from "@/content/portfolio";
 
 import "./globals.css";
 
@@ -42,7 +42,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
 	metadataBase: new URL(MARKETS.ko),
 	title: "ballbot.dev | Software Engineer",
-	description: "백엔드 엔지니어 ballbot의 포트폴리오. 프로젝트, 경력, 수상 이력과 지금까지의 여정을 소개합니다.",
+	description: "소프트웨어 엔지니어 ballbot의 포트폴리오. 프로젝트, 경력, 수상 이력과 지금까지의 여정을 소개합니다.",
 	alternates: {
 		canonical: "/",
 		languages: LANGUAGE_ALTERNATES,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		...openGraphBase("ko"),
 		title: "ballbot.dev | Software Engineer",
-		description: "백엔드 엔지니어 ballbot의 포트폴리오.",
+		description: "소프트웨어 엔지니어 ballbot의 포트폴리오.",
 		url: MARKETS.ko,
 		type: "website",
 	},
@@ -62,18 +62,12 @@ export const viewport: Viewport = {
 };
 
 /**
- * The two lines of chrome this build writes in its own language. They sit here
- * rather than in src/content while that file is under a separate copy review
- * (docs/tech-review-2026-09-26.md, D8); moving them later is a two-line change.
- */
-const PERSON_NAME = "김수빈";
-const SKIP_LINK = "본문으로 건너뛰기";
-
-/**
  * Who this site is about, for search engines: one Person and one WebSite in a
- * graph. `sameAs` is the hero's outbound links, minus any that is still a bare
- * host — a placeholder, not a profile — and the key is left out when nothing is
- * left. `<` is escaped so no string in it could ever close the script tag.
+ * graph. The name, like the skip link below, is the market's copy and comes
+ * from `chrome` in src/content. `sameAs` is the hero's outbound links, minus
+ * any that is still a bare host — a placeholder, not a profile — and the key is
+ * left out when nothing is left. `<` is escaped so no string in it could ever
+ * close the script tag.
  */
 function structuredData(): string {
 	const sameAs = hero.actions.secondary
@@ -84,7 +78,7 @@ function structuredData(): string {
 		"@graph": [
 			{
 				"@type": "Person",
-				name: PERSON_NAME,
+				name: chrome.personName,
 				alternateName: "ballbot",
 				jobTitle: "Software Engineer",
 				url: MARKETS.ko,
@@ -130,7 +124,7 @@ export default function RootLayout({
 				    keyboard reader on <main id="main"> instead of on the hero's links
 				    and the nav. Invisible until it holds focus (theme.css). */}
 				<a href="#main" className="skip-link">
-					{SKIP_LINK}
+					{chrome.skipLink}
 				</a>
 				{children}
 				{/* Here rather than in each page: it closes the story pages too. */}

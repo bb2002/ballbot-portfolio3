@@ -134,6 +134,11 @@ html[lang="ko"] body {
 	word-break: keep-all;
 }
 
+/* Japanese: no line may start with a small kana or a prolonged sound mark. */
+html[lang="ja"] body {
+	line-break: strict;
+}
+
 /* ------------------------------------------------------------------ *
  * Screens
  * A nav link is a plain anchor and the jump is the browser's own smooth

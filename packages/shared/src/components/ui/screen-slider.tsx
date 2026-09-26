@@ -182,7 +182,7 @@ export function ScreenSlider({ items, title, labels }: Props) {
       {/* Caption, count, arrows: one line, the caption first because it is
 			    the thing being looked at and the controls only serve it. */}
       <div className="flex items-center gap-3">
-        <p className="text-text-secondary min-w-0 flex-1 truncate font-mono text-[13px]">
+        <p className="text-text-secondary min-w-0 flex-1 truncate text-[13px]">
           {current.caption ?? current.alt}
         </p>
         <p

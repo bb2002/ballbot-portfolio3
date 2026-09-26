@@ -220,7 +220,7 @@ export function ProjectStory({
               key={fact.term}
               className="border-border flex flex-col gap-1 border-t-[0.5px] py-4"
             >
-              <dt className="text-text-secondary text-meta font-mono">
+              <dt className="text-text-secondary text-meta">
                 {fact.term}
               </dt>
               <dd className="text-text-strong text-[17px] leading-snug font-semibold">

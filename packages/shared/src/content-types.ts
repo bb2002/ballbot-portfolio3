@@ -71,6 +71,19 @@ export type FooterContent = {
 	notice: string;
 };
 
+/**
+ * The words each app writes around the sections rather than in them: the
+ * root layout's JSON-LD name and skip link, and the page behind an address
+ * nothing matches.
+ */
+export type ChromeContent = {
+	/** The person's name as the market writes it — the Person entry's `name`. */
+	personName: string;
+	/** First stop in the tab order; lands on `<main id="main">`. */
+	skipLink: string;
+	notFound: { title: string; home: string };
+};
+
 /* ------------------------------------------------------------------ *
  * Hero
  * ------------------------------------------------------------------ */

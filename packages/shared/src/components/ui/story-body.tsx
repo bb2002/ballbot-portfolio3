@@ -80,7 +80,7 @@ export function Figure({
 				</div>
 			</div>
 			{media.caption ? (
-				<figcaption className="text-text-secondary font-mono text-[13px]">{media.caption}</figcaption>
+				<figcaption className="text-text-secondary text-[13px]">{media.caption}</figcaption>
 			) : null}
 		</figure>
 	);
