@@ -1,4 +1,4 @@
-import type { JourneyContent, JourneyEvent } from "../../content-types";
+import type { JourneyChapter, JourneyContent, JourneyEvent } from "../../content-types";
 import { Emphasised } from "../ui/emphasised";
 import { MarkedText } from "../ui/marked-text";
 import { Reveal } from "../ui/reveal";
@@ -19,6 +19,27 @@ import { page } from "../ui/layout";
  * are pseudo-elements positioned off the line box they have to meet, so
  * nothing here has to carry a pixel offset.
  */
+/**
+ * The chapter title, with its reading set over the one run that has one. The
+ * extra height the reading takes above the first line is what
+ * `.jy-chapter--ruby` adds to the mark's position (theme.css).
+ */
+function ChapterTitle({ chapter }: { chapter: JourneyChapter }) {
+	const ruby = chapter.titleRuby;
+	const at = ruby ? chapter.title.indexOf(ruby.base) : -1;
+	if (!ruby || at < 0) return chapter.title;
+	return (
+		<>
+			{chapter.title.slice(0, at)}
+			<ruby>
+				{ruby.base}
+				<rt>{ruby.text}</rt>
+			</ruby>
+			{chapter.title.slice(at + ruby.base.length)}
+		</>
+	);
+}
+
 export function Journey({ content }: { content: JourneyContent }) {
 	const labels = content.gallery;
 
@@ -42,7 +63,7 @@ export function Journey({ content }: { content: JourneyContent }) {
 				{content.chapters.map((chapter, chapterIndex) => (
 					<Reveal
 						key={`${chapter.period}-${chapter.title}`}
-						className={`jy-chapter${chapterIndex === 0 ? " jy-chapter--first" : ""}`}
+						className={`jy-chapter${chapterIndex === 0 ? " jy-chapter--first" : ""}${chapter.titleRuby ? " jy-chapter--ruby" : ""}`}
 					>
 						<div aria-hidden="true" className="jy-trunk" />
 
@@ -53,8 +74,8 @@ export function Journey({ content }: { content: JourneyContent }) {
 							<p className="text-text-secondary font-mono text-[15px] leading-[1.4] font-light">
 								{chapter.period}
 							</p>
-							<h3 className="text-text-strong text-[26px] leading-[1.2] font-semibold lg:text-[32px]">
-								{chapter.title}
+							<h3 className="text-text-strong text-[26px] leading-[1.2] font-semibold whitespace-pre-line lg:text-[32px]">
+								<ChapterTitle chapter={chapter} />
 							</h3>
 							{chapter.subtitle ? (
 								<p className="text-text-secondary text-[15px] leading-[1.5] whitespace-pre-line">

@@ -445,7 +445,14 @@ export type JourneyEvent = {
 
 export type JourneyChapter = {
 	period: string;
+	/** Line breaks are honoured — for a long name that must break in one place. */
 	title: string;
+	/**
+	 * A reading set small over one run of the title, for a name the market's
+	 * reader would otherwise read wrong: a Korean school's hanja, read the
+	 * Japanese way. `base` is found in `title` by its text.
+	 */
+	titleRuby?: { base: string; text: string };
 	/** Course, team or title. Line breaks are honoured. */
 	subtitle?: string;
 	events: readonly JourneyEvent[];

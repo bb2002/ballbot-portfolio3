@@ -288,7 +288,25 @@ main [data-section] {
    substituted where it is *declared*, so a `--jy-pt` the first chapter
    overrides below would never reach a sum computed one level up. */
 .jy-chapter {
-	--jy-mark-y: calc(var(--jy-pt) + var(--jy-period-lh) + var(--jy-head-gap) + var(--jy-ctitle-lh) / 2);
+	--jy-mark-y: calc(
+		var(--jy-pt) + var(--jy-period-lh) + var(--jy-head-gap) + var(--jy-ruby-h, 0px) + var(--jy-ctitle-lh) / 2
+	);
+}
+
+/* A title with a reading over it (`titleRuby`). The reading is half the
+   title's size on a line of its own height, so it stands 0.5em above the
+   base text and the title's half-leading (0.1em) absorbs part of that:
+   the first line grows by 0.4em, a third of its 1.2em line box. The mark
+   moves down by the same amount to stay on the base text. */
+.jy-chapter--ruby {
+	--jy-ruby-h: calc(var(--jy-ctitle-lh) / 3);
+}
+
+.jy-chapter--ruby rt {
+	font-size: 0.5em;
+	line-height: 1;
+	font-weight: 500;
+	color: var(--color-text-secondary);
 }
 
 @media (min-width: 1024px) {

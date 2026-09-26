@@ -1527,7 +1527,10 @@ export const journey: JourneyContent = {
 		},
 		{
 			period: "2018 ~ 2021",
-			title: "善隣インターネット高等学校",
+			// Read the Korean way (ソンリン), not as 善隣 would be read in Japanese.
+			// The break keeps 高等学校 whole; left to itself the line split off 校.
+			title: "善隣インターネット\n高等学校",
+			titleRuby: { base: "善隣", text: "ソンリン" },
 			subtitle: "ソフトウェア科",
 			events: [
 				{
