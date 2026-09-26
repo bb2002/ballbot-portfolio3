@@ -1562,6 +1562,7 @@ export const journey: JourneyContent = {
 		{
 			period: "2021",
 			title: "江原大学校",
+			titleRuby: { base: "江原", text: "カンウォン" },
 			subtitle: "コンピュータ工学科",
 			events: [
 				{
@@ -1604,6 +1605,7 @@ export const journey: JourneyContent = {
 		{
 			period: "2024 ~ 現在",
 			title: "江原大学校",
+			titleRuby: { base: "江原", text: "カンウォン" },
 			subtitle: "コンピュータ工学科",
 			events: [
 				{

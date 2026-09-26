@@ -293,17 +293,19 @@ main [data-section] {
 	);
 }
 
-/* A title with a reading over it (`titleRuby`). The reading is half the
-   title's size on a line of its own height, so it stands 0.5em above the
-   base text and the title's half-leading (0.1em) absorbs part of that:
-   the first line grows by 0.4em, a third of its 1.2em line box. The mark
-   moves down by the same amount to stay on the base text. */
+/* A title with a reading over it (`titleRuby`). The reading is 0.4 of the
+   title's size — at half size カンウォン outgrew 江原 and the browser spread
+   the two kanji apart; at 0.4 five kana span two kanji exactly. On a line
+   of its own height it stands 0.4em above the base text, the title's
+   half-leading (0.1em) absorbs part of that, and the first line grows by
+   0.3em, a quarter of its 1.2em line box. The mark moves down by the same
+   amount to stay on the base text. */
 .jy-chapter--ruby {
-	--jy-ruby-h: calc(var(--jy-ctitle-lh) / 3);
+	--jy-ruby-h: calc(var(--jy-ctitle-lh) / 4);
 }
 
 .jy-chapter--ruby rt {
-	font-size: 0.5em;
+	font-size: 0.4em;
 	line-height: 1;
 	font-weight: 500;
 	color: var(--color-text-secondary);
