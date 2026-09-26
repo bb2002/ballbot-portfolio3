@@ -7,7 +7,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { APEX, LANGUAGE_ALTERNATES, MARKETS, languageAlternates, marketUrl, openGraphBase } from "./markets.ts";
+import { APEX, LANGUAGE_ALTERNATES, MARKETS, OG_IMAGE, languageAlternates, marketUrl, openGraphBase } from "./markets.ts";
 
 test("the root of a market is the bare host, as Next spells the home canonical", () => {
 	assert.equal(marketUrl("ko"), "https://kr.ballbot.dev");
@@ -34,9 +34,10 @@ test("the home map is the root map, and its x-default is the apex itself", () =>
 	assert.equal(LANGUAGE_ALTERNATES.ja, MARKETS.ja);
 });
 
-test("Open Graph names the site, the market's locale, and the other market's as alternate", () => {
-	assert.deepEqual(openGraphBase("ko"), { siteName: "ballbot.dev", locale: "ko_KR", alternateLocale: ["ja_JP"] });
-	assert.deepEqual(openGraphBase("ja"), { siteName: "ballbot.dev", locale: "ja_JP", alternateLocale: ["ko_KR"] });
+test("Open Graph names the site, the market's locale, the other market's as alternate, and the card image", () => {
+	assert.deepEqual(openGraphBase("ko"), { siteName: "ballbot.dev", locale: "ko_KR", alternateLocale: ["ja_JP"], images: [OG_IMAGE] });
+	assert.deepEqual(openGraphBase("ja"), { siteName: "ballbot.dev", locale: "ja_JP", alternateLocale: ["ko_KR"], images: [OG_IMAGE] });
+	assert.deepEqual(OG_IMAGE, { url: "/opengraph-image.png", width: 1200, height: 630, type: "image/png" });
 });
 
 test("a market is never its own alternate locale", () => {

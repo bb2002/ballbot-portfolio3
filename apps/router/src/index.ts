@@ -1,6 +1,15 @@
 /**
- * ballbot.dev — the apex. It renders nothing; it decides which market build a
- * reader belongs to and sends them there.
+ * ballbot.dev — the apex. For a reader it renders nothing; it decides which
+ * market build they belong to and sends them there.
+ *
+ * The one page it writes is a link card. A chat app or a social network handed
+ * a ballbot.dev link sends a preview fetcher, which reads the Open Graph tags of
+ * wherever it lands — and a redirect decided by country lands it, from almost
+ * anywhere, on the Korean build. So the root answers those fetchers, and only
+ * them, with a bare page carrying the Japanese build's card (`CARD`). Search
+ * engines are not among them: Googlebot follows the redirect as a reader does,
+ * so the hreflang map the builds publish stays the one account of which page
+ * is which.
  *
  * The order is deliberate: a choice the reader made themselves beats where
  * they happen to be sitting. Cloudflare tells us the country at the edge, so
@@ -40,6 +49,16 @@ const NO_STORE = {
 } as const;
 
 /**
+ * The root answers per user agent as well as per cookie — the card for a
+ * preview fetcher, the redirect for everyone else — so both its answers say
+ * so. A deep link answers every agent alike and keeps `NO_STORE`.
+ */
+const NO_STORE_BY_AGENT = {
+	"cache-control": "no-store",
+	vary: "cookie, user-agent",
+} as const;
+
+/**
  * On every answer. HSTS pins the apex itself to https for two years and stops
  * there on purpose: `includeSubDomains` sent from this host would bind every
  * current and future *.ballbot.dev — the asset bucket's domain included — and
@@ -51,9 +70,10 @@ const STRICT = {
 } as const;
 
 /**
- * Only on `?geo`, which answers with a body a crawler could index. The
- * redirects carry no such header: a robots directive on a bodyless 302 is read
- * on the target, not here, so it would be a line that does nothing.
+ * Only on the two answers with a body a crawler could index: `?geo` and the
+ * link card. The redirects carry no such header: a robots directive on a
+ * bodyless 302 is read on the target, not here, so it would be a line that
+ * does nothing.
  */
 const NOINDEX = {
 	"x-robots-tag": "noindex",
@@ -121,6 +141,96 @@ export function carry(url: URL, base: string): URL {
 	return target;
 }
 
+/**
+ * The link-preview fetchers the root writes its card for, matched anywhere in
+ * the User-Agent, in any case. Each is the fetcher's own token and never a bare
+ * "bot": Googlebot, bingbot and every other search crawler keep the redirect,
+ * and so does a person — including one inside a chat app's in-app browser.
+ *
+ * - facebookexternalhit, Facebot: Facebook, Messenger, Instagram. iMessage
+ *   sends both, with Twitterbot, in one string.
+ * - line-poker: LINE's preview fetcher, `facebookexternalhit/1.1;line-poker/1.0`.
+ *   Not `Line/`: that is LINE's in-app browser (`… Safari Line/15.12.0`, or
+ *   `… Line/15.12.0/IAB` on Android), which is a person opening the link.
+ * - pinterest/<n>, pinterestbot/<n>: the crawler is `Pinterest/0.2` or
+ *   `Pinterestbot/1.0`; Pinterest's in-app browser says `[Pinterest/iOS]`.
+ * - whatsapp/: the fetcher is `WhatsApp/2.x`.
+ * - twitterbot, linkedinbot, slackbot (`Slackbot-LinkExpanding` too),
+ *   discordbot, kakaotalk-scrap, telegrambot: each app's fetcher, named as it
+ *   names itself; none of their in-app browsers carries the token.
+ * - skypeuripreview: Microsoft Teams and Skype, `… SkypeUriPreview Preview/0.5 …`.
+ */
+export const LINK_PREVIEW_AGENTS =
+	/facebookexternalhit|facebot|twitterbot|linkedinbot|slackbot|discordbot|kakaotalk-scrap|line-poker|telegrambot|skypeuripreview|whatsapp\/|pinterest(?:bot)?\/\d/i;
+
+export function isLinkPreview(userAgent: string | null): boolean {
+	return userAgent !== null && LINK_PREVIEW_AGENTS.test(userAgent);
+}
+
+/** For element text and double-quoted attribute values alike. */
+export function escapeHtml(value: string): string {
+	return value
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;");
+}
+
+/**
+ * The apex's card is the Japanese build's home card, restated: the title,
+ * description and Open Graph title/description of apps/jp/src/app/layout.tsx,
+ * and the image Next serves for apps/jp/src/app/opengraph-image.png. A file
+ * convention in the root segment answers at `/opengraph-image.png`; the build's
+ * own tag adds a `?<content hash>` this Worker cannot know, and the file
+ * answers without it. Like MARKETS, a copy on purpose — when the jp layout's
+ * wording changes, this changes with it.
+ */
+const PREVIEW = {
+	title: "ballbot.dev | Software Engineer",
+	description:
+		"ソフトウェアエンジニア ballbot のポートフォリオ。プロジェクト、経歴、受賞歴と、これまでの歩みを紹介します。",
+	ogTitle: "ballbot.dev | Software Engineer",
+	ogDescription: "ソフトウェアエンジニア ballbot のポートフォリオ。",
+	image: { url: `${MARKETS.ja}/opengraph-image.png`, width: 1200, height: 630, type: "image/png" },
+} as const;
+
+/**
+ * The whole page: the tags a preview fetcher reads, and one link to the build
+ * for anything that renders it anyway. The canonical and `og:url` name the
+ * Japanese build, so a fetcher that follows them lands on the same card.
+ */
+function card(): string {
+	const meta = (key: "name" | "property", name: string, content: string | number) =>
+		`<meta ${key}="${name}" content="${escapeHtml(String(content))}">`;
+	return [
+		"<!doctype html>",
+		'<html lang="ja">',
+		"<head>",
+		'<meta charset="utf-8">',
+		`<title>${escapeHtml(PREVIEW.title)}</title>`,
+		meta("name", "description", PREVIEW.description),
+		`<link rel="canonical" href="${escapeHtml(MARKETS.ja)}">`,
+		meta("property", "og:type", "website"),
+		meta("property", "og:url", MARKETS.ja),
+		meta("property", "og:site_name", "ballbot.dev"),
+		meta("property", "og:locale", "ja_JP"),
+		meta("property", "og:title", PREVIEW.ogTitle),
+		meta("property", "og:description", PREVIEW.ogDescription),
+		meta("property", "og:image", PREVIEW.image.url),
+		meta("property", "og:image:width", PREVIEW.image.width),
+		meta("property", "og:image:height", PREVIEW.image.height),
+		meta("property", "og:image:type", PREVIEW.image.type),
+		meta("name", "twitter:card", "summary_large_image"),
+		"</head>",
+		`<body><a href="${escapeHtml(MARKETS.ja)}">${escapeHtml(new URL(MARKETS.ja).host)}</a></body>`,
+		"</html>",
+		"",
+	].join("\n");
+}
+
+export const CARD = card();
+
 export default {
 	fetch(request: EdgeRequest): Response {
 		const url = new URL(request.url);
@@ -161,6 +271,27 @@ export default {
 			return Response.json(decision, { headers: { ...NO_STORE, ...STRICT, ...NOINDEX } });
 		}
 
+		// The root, fetched for a link preview, gets the card instead of a
+		// redirect. GET and HEAD only, since a preview is a read — and HEAD is
+		// answered as GET is, as `?geo` is: some fetchers ask HEAD first, and the
+		// runtime drops the body from a HEAD answer. A deep link is left to the
+		// redirect, which carries its path to the page the link is about.
+		const root = url.pathname === "/";
+		if (
+			root &&
+			(request.method === "GET" || request.method === "HEAD") &&
+			isLinkPreview(request.headers.get("user-agent"))
+		) {
+			return new Response(CARD, {
+				headers: {
+					"content-type": "text/html; charset=utf-8",
+					...NO_STORE_BY_AGENT,
+					...STRICT,
+					...NOINDEX,
+				},
+			});
+		}
+
 		// Path and query carry over, so a deep link into either build survives
 		// being shared as an apex URL.
 		const target = carry(url, MARKETS[decision.locale]);
@@ -169,7 +300,7 @@ export default {
 			headers: {
 				location: target.toString(),
 				"x-bb-decision": decision.source,
-				...NO_STORE,
+				...(root ? NO_STORE_BY_AGENT : NO_STORE),
 				...STRICT,
 			},
 		});

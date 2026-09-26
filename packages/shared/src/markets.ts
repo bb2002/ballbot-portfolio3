@@ -17,7 +17,11 @@ export const MARKETS = {
 
 export type MarketLocale = keyof typeof MARKETS;
 
-/** Renders nothing — it redirects to whichever market the reader belongs to. */
+/**
+ * Redirects to whichever market the reader belongs to. The one page it renders
+ * is the link-preview card a chat app's fetcher gets for the bare root (the
+ * Japanese build's, apps/router).
+ */
 export const APEX = "https://ballbot.dev";
 
 /**
@@ -59,10 +63,19 @@ export const OG_LOCALES = {
 } as const;
 
 /**
- * The Open Graph fields every page shares: which site, which language, and
- * which other language it is also written in. Spread into each page's
- * `openGraph` for the same reason `languageAlternates` exists — the page's
- * object replaces the layout's, and `og:locale` went missing with it.
+ * Each build's card image: the file convention at src/app/opengraph-image.png,
+ * which answers at this path on the market's own host (the path resolves
+ * against the layout's `metadataBase`). The home page gets it from the file
+ * itself, with a content hash; the story pages get it through `openGraphBase`.
+ */
+export const OG_IMAGE = { url: "/opengraph-image.png", width: 1200, height: 630, type: "image/png" } as const;
+
+/**
+ * The Open Graph fields every page shares: which site, which language, which
+ * other language it is also written in, and the card image. Spread into each
+ * page's `openGraph` for the same reason `languageAlternates` exists — the
+ * page's object replaces the layout's, and `og:locale` and the image the root
+ * segment's file convention supplies went missing with it.
  */
 export function openGraphBase(locale: MarketLocale) {
 	return {
@@ -71,5 +84,6 @@ export function openGraphBase(locale: MarketLocale) {
 		alternateLocale: (Object.keys(OG_LOCALES) as MarketLocale[])
 			.filter((other) => other !== locale)
 			.map((other) => OG_LOCALES[other]),
+		images: [OG_IMAGE],
 	};
 }
