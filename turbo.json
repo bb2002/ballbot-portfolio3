@@ -15,8 +15,8 @@
 			"dependsOn": ["^build"],
 			/*
 			 * The whole tree, not the three subpaths it used to name: `public/` is
-			 * generated in full (gitignored) and `favicon.svg` sits at its root, so
-			 * a narrower list let a cache hit restore a site with no favicon.
+			 * generated in full (gitignored) and `_headers` sits at its root, so a
+			 * narrower list let a cache hit restore a site without its header rules.
 			 */
 			"outputs": ["public/**"]
 		},

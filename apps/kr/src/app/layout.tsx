@@ -97,7 +97,6 @@ export default function RootLayout({
 	return (
 		<html lang="ko" className={ibmPlexMono.variable} suppressHydrationWarning>
 			<head>
-				<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 				{/* React 19 hoists this and emits its own <link rel="preload" as="style">
 				    for it, so an explicit preload here would only duplicate that tag. */}
 				<link rel="stylesheet" href={PRETENDARD_CSS} />
