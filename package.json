@@ -14,7 +14,9 @@
 		"check:slugs": "node --test scripts/slugs.test.mjs",
 		"check:live": "node scripts/check-live.mjs",
 		"typecheck": "turbo run typecheck",
-		"deploy": "turbo run deploy"
+		"deploy": "turbo run deploy",
+		"pdf": "turbo run pdf --continue --",
+		"pdf:push": "turbo run pdf:push --continue --"
 	},
 	"devDependencies": {
 		"turbo": "^2.10.12"

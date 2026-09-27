@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
+import { Fragment } from "react";
 
-import type { ProjectLinkEntry } from "../../content-types";
+import type { ProjectLink, ProjectLinkEntry } from "../../content-types";
 import { isLinkGroup } from "../../content-types";
 import { LinkMenu } from "./link-menu";
 
@@ -15,6 +16,10 @@ import { LinkMenu } from "./link-menu";
  *
  * Both cards and the story page draw the same row, so it lives here rather
  * than three times.
+ *
+ * A menu needs a press to open, and paper has none: in print the addresses
+ * behind one are set out in the row as links of their own, so the PDF still
+ * leads to every repository the card stands for.
  */
 export function ProjectLinks({ links, title }: { links?: readonly ProjectLinkEntry[]; title: string }) {
 	if (!links?.length) return null;
@@ -23,37 +28,50 @@ export function ProjectLinks({ links, title }: { links?: readonly ProjectLinkEnt
 		<ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
 			{links.map((link) =>
 				isLinkGroup(link) ? (
-					<li key={link.label}>
-						<LinkMenu group={link} title={title} />
-					</li>
+					<Fragment key={link.label}>
+						<li className="print:hidden">
+							<LinkMenu group={link} title={title} />
+						</li>
+						{link.items.map((item) => (
+							<li key={item.href} className="hidden print:block">
+								<Outbound link={item} title={title} />
+							</li>
+						))}
+					</Fragment>
 				) : (
 					<li key={link.href}>
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noreferrer noopener"
-							// The visible label leads, so the accessible name still opens with
-							// the text on screen; the suffix is only there to tell a reader
-							// tabbing a list of links which card it is in.
-							aria-label={`${link.label} — ${title}`}
-							className="group/link text-text-strong inline-flex items-center gap-1 text-[14px] font-semibold"
-						>
-							<span className="relative">
-								{link.label}
-								<span
-									aria-hidden="true"
-									className="bg-text-strong absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:scale-x-100"
-								/>
-							</span>
-							<ArrowUpRight
-								aria-hidden="true"
-								strokeWidth={2}
-								className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:-translate-y-px group-hover/link:translate-x-px"
-							/>
-						</a>
+						<Outbound link={link} title={title} />
 					</li>
 				),
 			)}
 		</ul>
+	);
+}
+
+function Outbound({ link, title }: { link: ProjectLink; title: string }) {
+	return (
+		<a
+			href={link.href}
+			target="_blank"
+			rel="noreferrer noopener"
+			// The visible label leads, so the accessible name still opens with
+			// the text on screen; the suffix is only there to tell a reader
+			// tabbing a list of links which card it is in.
+			aria-label={`${link.label} — ${title}`}
+			className="group/link text-text-strong inline-flex items-center gap-1 text-[14px] font-semibold"
+		>
+			<span className="relative">
+				{link.label}
+				<span
+					aria-hidden="true"
+					className="bg-text-strong absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:scale-x-100"
+				/>
+			</span>
+			<ArrowUpRight
+				aria-hidden="true"
+				strokeWidth={2}
+				className="h-4 w-4 shrink-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover/link:-translate-y-px group-hover/link:translate-x-px"
+			/>
+		</a>
 	);
 }

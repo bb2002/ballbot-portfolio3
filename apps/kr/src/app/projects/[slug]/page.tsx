@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProjectStory, type ArchiveProject, type FeaturedProject, type ProjectStoryContent } from "@ballbot/shared";
+import { ProjectStory, projectStories } from "@ballbot/shared";
 import { languageAlternates, openGraphBase } from "@ballbot/shared/markets";
 
 import { projects } from "@/content/portfolio";
 
 type Params = { slug: string };
 
-type Project = FeaturedProject | ArchiveProject;
-type Told = Project & { slug: string; story: ProjectStoryContent };
-
-/** A project with a page of its own: it has an address, and something to put at it. */
-function isTold(project: Project): project is Told {
-	return Boolean(project.slug && project.story);
-}
-
-const told: readonly Told[] = [...projects.featured, ...projects.archive].filter(isTold);
+/** The projects with a page of their own — the list the sitemap and /print read too. */
+const told = projectStories(projects);
 
 /** Every page is known at build time: they prerender, and any other slug is a 404. */
 export const dynamicParams = false;

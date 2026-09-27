@@ -113,6 +113,31 @@ export type OverviewContent = {
 
 export type HeroAction = { label: string; href: string };
 
+/**
+ * The whole site as one file to keep: the home page and every story, printed
+ * A4 landscape from the app's /print route by
+ * packages/shared/scripts/render-pdf.mjs and served from the asset bucket
+ * (`asset("/pdf/<market>/…")`). It is refreshed on its own schedule, not with
+ * the deploy — docs/how-to-portfolio-to-pdf is the procedure — so it can
+ * trail the site for a while.
+ *
+ * The render script reads `filename` and `title` back off the rendered page,
+ * so this entry is the only place either is written: `filename` is the
+ * localised name in the `Content-Disposition` the file is stored with, and
+ * `title` the PDF's own. That header is what names the saved file: the bucket
+ * is another origin, and a browser ignores the link's `download` attribute
+ * across origins. `href` is read back too, but it is not this entry's to
+ * choose: it must be `asset("/pdf/<market>/portfolio.pdf")`, the one key the
+ * site's owner approved for each market, which the script holds it to and
+ * refuses any other — a new key takes the owner's word, and a change there.
+ */
+export type HeroDownload = HeroAction & {
+	/** What the saved file is called, in the market's language. */
+	filename: string;
+	/** The document's own title: /print's <title>, which Chromium writes into the PDF as its Title. */
+	title: string;
+};
+
 export type HeroContent = {
 	ariaLabel: string;
 	eyebrow: string;
@@ -126,7 +151,12 @@ export type HeroContent = {
 	 * Line breaks are honoured.
 	 */
 	subtitle?: string;
-	actions: { primary: HeroAction; secondary: readonly HeroAction[] };
+	/**
+	 * `download` sits after the secondary links and looks like one of them, but
+	 * it never opens a new tab and never joins the JSON-LD `sameAs` list the
+	 * layouts build from `secondary` — it is a file to keep, not a profile.
+	 */
+	actions: { primary: HeroAction; secondary: readonly HeroAction[]; download: HeroDownload };
 	/**
 	 * Points a reader who landed on the wrong market at their own build,
 	 * written in that market's language. The href goes through the apex
@@ -342,6 +372,21 @@ export type ProjectsContent = {
 	/** Required once any project in either row carries a `gallery`. */
 	gallery?: GalleryLabels;
 };
+
+/** A project with a page of its own: it has an address, and something to put at it. */
+export type ToldProject = (FeaturedProject | ArchiveProject) & { slug: string; story: ProjectStoryContent };
+
+/**
+ * Every project with a page of its own, in the order the section lists them —
+ * the featured row, then the archive. The story route prerenders exactly
+ * these, the sitemap lists them and the print document binds them in, so the
+ * three read one list and cannot disagree about which projects have a page.
+ */
+export function projectStories(content: ProjectsContent): ToldProject[] {
+	return [...content.featured, ...content.archive].filter((project): project is ToldProject =>
+		Boolean(project.slug && project.story),
+	);
+}
 
 /* ------------------------------------------------------------------ *
  * Experience

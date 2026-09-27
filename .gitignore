@@ -66,3 +66,7 @@ next-env.d.ts
 # 사진과 영상은 R2 에 올린다 (npm run assets:push). assets/ 는 올리기 전에 잠깐 두는
 # 로컬 사본일 뿐이라 저장소에는 넣지 않는다 — 원본은 버킷에 있다.
 apps/*/assets/
+
+# npm run pdf 가 인쇄한 PDF 와 검증 결과(report.json, 쪽 PNG, 한눈에 보기). 올릴 곳은 R2 이고
+# (npm run pdf:push), 저장소에는 넣지 않는다 — docs/how-to-portfolio-to-pdf/SKILL.md.
+/apps/*/pdf/

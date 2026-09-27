@@ -238,7 +238,9 @@ export function Lightbox({ items, index, title, labels, onIndexChange, onClose }
 				swiped.current = true;
 				go(travel < 0 ? 1 : -1);
 			}}
-			className="animate-lightbox-in fixed inset-0 z-50 flex flex-col bg-[#0d0d0d]/95 backdrop-blur-md outline-none"
+			// `print:hidden`: a fixed layer is printed on every sheet, so a viewer
+			// left open when the page is printed would black out the whole document.
+			className="animate-lightbox-in fixed inset-0 z-50 flex flex-col bg-[#0d0d0d]/95 backdrop-blur-md outline-none print:hidden"
 		>
 			{/* Head: what is being looked at, where in the set, and the way out. */}
 			<div className="flex shrink-0 items-center gap-4 px-[var(--page-x)] pt-5 pb-4 sm:pt-7">

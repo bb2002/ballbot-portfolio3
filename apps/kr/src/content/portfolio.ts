@@ -76,6 +76,16 @@ export const hero: HeroContent = {
 	actions: {
 		primary: { label: "프로젝트 보기", href: "#projects" },
 		secondary: [{ label: "GitHub ↗", href: "https://github.com/bb2002" }],
+		// The whole site as one PDF, on the asset bucket at this key (npm run pdf,
+		// then npm run pdf:push — docs/how-to-portfolio-to-pdf). The render script
+		// reads the key and the file name back off the rendered link, and the
+		// upload names the file with `filename`; `title` is the PDF's own.
+		download: {
+			label: "PDF ↓",
+			href: asset("/pdf/kr/portfolio.pdf"),
+			filename: "김수빈_포트폴리오.pdf",
+			title: "김수빈 포트폴리오",
+		},
 	},
 	otherMarket: {
 		lang: "ja",

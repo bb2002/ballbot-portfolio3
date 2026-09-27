@@ -37,7 +37,7 @@ function List({ items, className }: { items: readonly string[]; className: strin
 	return (
 		<ul className={`flex flex-col gap-2 ${className}`}>
 			{items.map((item) => (
-				<li key={item} className="flex items-start">
+				<li key={item} className="flex items-start print:break-inside-avoid">
 					<Bullet className="h-[22px] sm:h-6" />
 					<span className="text-text-secondary text-body min-w-0 leading-[1.6]">{item}</span>
 				</li>
@@ -60,6 +60,13 @@ function List({ items, className }: { items: readonly string[]; className: strin
  * left-aligned prose (a project's essay) wants a left-aligned figure, a
  * centred column (an experience story) wants `lg:mx-auto`. Above `lg` only —
  * below it the figure is a full-bleed scroll strip either way.
+ *
+ * On paper it keeps to the reading measure. A figure is never cut across two
+ * sheets, so at the full width one that did not fit under the text before it
+ * went over whole, left that much of the sheet empty and pushed everything
+ * after it down — until a chapter's last lines spilled onto a sheet of their
+ * own. At the measure it is a quarter shorter, and the diagrams, drawn at
+ * `--figure-w`, still print about 17cm across.
  */
 export function Figure({
 	media,
@@ -73,7 +80,7 @@ export function Figure({
 	className?: string;
 }) {
 	return (
-		<figure className={`flex flex-col gap-3 ${className}`}>
+		<figure className={`flex flex-col gap-3 print:max-w-[760px] print:break-inside-avoid ${className}`}>
 			<div className="-mx-[var(--page-x)] overflow-x-auto px-[var(--page-x)]">
 				<div className="min-w-[880px] lg:min-w-0 lg:max-w-[var(--figure-w)]">
 					<ZoomImage media={media} title={title} labels={labels} sizes="(max-width: 1024px) 880px, 1000px" />
@@ -161,7 +168,8 @@ export function StoryBody({ body, title, labels, prose = PROSE, figure = "", hea
 			{partition(body).map((part, at) =>
 				part.heading ? (
 					<section key={`p${at}`} className="flex flex-col gap-5 sm:gap-6">
-						<Reveal>
+						{/* On paper a sub-head goes over with the part it opens. */}
+						<Reveal className="print:break-after-avoid">
 							<Heading
 								className={`text-text-strong text-[20px] leading-[1.3] font-bold tracking-[-0.01em] sm:text-[22px] ${prose}`}
 							>

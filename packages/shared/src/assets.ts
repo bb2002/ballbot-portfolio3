@@ -9,6 +9,10 @@
  * and a path is the same string on disk and in the URL. Fonts and the shared
  * brand marks stay in `public/`, on the Worker.
  *
+ * The site's PDFs sit in the same bucket under `pdf/<market>/`, but they are
+ * not staged under `assets/`: render-pdf.mjs prints and verifies them and
+ * `npm run pdf:push` writes them (docs/how-to-portfolio-to-pdf).
+ *
  * `next/image` only optimises a remote host it has been told about, so each
  * app's next.config.ts lists this host under `images.remotePatterns`.
  */

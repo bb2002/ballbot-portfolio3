@@ -61,7 +61,10 @@ export function Experience({ content }: { content: ExperienceContent }) {
 				<div className="flex min-w-0 flex-1 flex-col justify-center px-[var(--page-x)] py-8 lg:px-10 lg:py-10">
 					<ul className="flex flex-col">
 						{highlights.map((story, index) => (
-							<li key={story.slug} className={index > 0 ? "border-border border-t-[0.5px]" : ""}>
+							<li
+								key={story.slug}
+								className={`print:break-inside-avoid ${index > 0 ? "border-border border-t-[0.5px]" : ""}`}
+							>
 								<Reveal delay={index * 70}>
 									<a
 										href={`/experience/${story.slug}`}

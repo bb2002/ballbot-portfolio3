@@ -34,7 +34,8 @@ const borderClass: Record<NonNullable<Props["border"]>, string> = {
  */
 export function SectionLabel({ children, id, border = "none" }: Props) {
 	return (
-		<div className={borderClass[border]}>
+		// On paper a head never ends a sheet: it goes over with the block it opens.
+		<div className={`${borderClass[border]} print:break-after-avoid`}>
 			<div className={`${page} py-[var(--label-y)]`}>
 				<h2
 					id={id}

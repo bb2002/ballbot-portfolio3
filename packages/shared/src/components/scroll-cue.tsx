@@ -13,7 +13,7 @@ export function ScrollCue({ content }: { content: ScrollCueContent }) {
 		<a
 			href={content.href}
 			aria-label={content.ariaLabel}
-			className="group flex h-[var(--cue-h)] w-full items-center justify-center"
+			className="group flex h-[var(--cue-h)] w-full items-center justify-center print:hidden"
 		>
 			<ChevronsDown
 				aria-hidden="true"

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { projectStories } from "@ballbot/shared";
 import { languageAlternates, marketUrl } from "@ballbot/shared/markets";
 
 import { experience, projects } from "@/content/portfolio";
@@ -21,8 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		entry("/"),
 		...experience.highlights.map(({ slug }) => entry(`/experience/${slug}`)),
-		...[...projects.featured, ...projects.archive]
-			.filter((project) => project.slug && project.story)
-			.map(({ slug }) => entry(`/projects/${slug}`)),
+		...projectStories(projects).map(({ slug }) => entry(`/projects/${slug}`)),
 	];
 }

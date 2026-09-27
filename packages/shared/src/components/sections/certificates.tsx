@@ -114,7 +114,7 @@ export function Certificates({ content }: { content: CertificatesContent }) {
 						{content.items.map((item, index) => (
 							<div
 								key={`${item.title}-${index}`}
-								className={`border-border flex min-w-0 ${cellPads(index)} ${cellRules(index)}`}
+								className={`border-border flex min-w-0 print:break-inside-avoid ${cellPads(index)} ${cellRules(index)}`}
 							>
 								<Reveal delay={index * 70} className="flex min-w-0 flex-1">
 									<Card item={item} galleryLabels={content.gallery} />

@@ -55,7 +55,8 @@ export function ZoomImage({ media, title, labels, sizes = "(max-width: 1024px) 9
 			</div>
 		);
 
-	const tile = `bg-surface relative block w-full overflow-hidden rounded-lg p-2 ${className}`;
+	// `break-inside-avoid`: on paper a picture is never cut across two sheets.
+	const tile = `bg-surface relative block w-full overflow-hidden rounded-lg p-2 print:break-inside-avoid ${className}`;
 
 	if (!labels) return <div className={tile}>{picture}</div>;
 
@@ -78,7 +79,7 @@ export function ZoomImage({ media, title, labels, sizes = "(max-width: 1024px) 9
 
 				<span
 					aria-hidden="true"
-					className="text-text-inverse pointer-events-none absolute right-4 bottom-4 flex h-7 w-7 items-center justify-center rounded-md bg-[#0d0d0d]/45 backdrop-blur-[2px] transition-colors duration-300 ease-[var(--ease-smooth)] group-hover/zoom:bg-[#0d0d0d]/80"
+					className="text-text-inverse pointer-events-none absolute right-4 bottom-4 flex h-7 w-7 items-center justify-center rounded-md bg-[#0d0d0d]/45 backdrop-blur-[2px] transition-colors duration-300 ease-[var(--ease-smooth)] group-hover/zoom:bg-[#0d0d0d]/80 print:hidden"
 				>
 					<Maximize2 aria-hidden="true" strokeWidth={2} className="h-3.5 w-3.5" />
 				</span>

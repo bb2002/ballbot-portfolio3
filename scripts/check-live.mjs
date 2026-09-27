@@ -6,16 +6,20 @@
  * is a MISS means the static-assets cache was not populated, which is what a
  * bare `wrangler deploy` does — see apps/kr/open-next.config.ts), declares
  * itself canonical, carries the three hreflang links and a JSON-LD block that
- * parses; an unknown story is a 404. For the apex — a 302 to a market that is
- * never cached, the deep-link path carried over, `/go/ja` setting its cookie,
- * `?geo` answering and staying out of the index, a link-preview fetcher on the
- * root getting the Japanese card, whose image answers, instead, preload-ready
- * HSTS, and plain http going to https on the apex itself first.
+ * parses; an unknown story is a 404; the PDF the hero links to is the
+ * market's one key in the asset bucket and answers as a PDF saved under the
+ * name the link gives it (the file is pushed on its own, `npm run pdf:push`,
+ * so a link can ship before its file does — docs/how-to-portfolio-to-pdf).
+ * For the apex — a 302 to a market that is never cached, the deep-link path
+ * carried over, `/go/ja` setting its cookie, `?geo` answering and staying out
+ * of the index, a link-preview fetcher on the root getting the Japanese card,
+ * whose image answers, instead, preload-ready HSTS, and plain http going to
+ * https on the apex itself first.
  *
  * The sitemap listing all eight story pages while every one of them was a 404
  * is how a broken deploy went unnoticed for days; this is what would have
- * caught it. Read-only GETs, no dependencies. Exit 1 if anything fails, with
- * the failing check named.
+ * caught it. Read-only GETs and HEADs, no dependencies. Exit 1 if anything
+ * fails, with the failing check named.
  *
  *   npm run check:live
  */
@@ -25,6 +29,16 @@ const MARKETS = {
 	ja: "https://jp.ballbot.dev",
 };
 const APEX = "https://ballbot.dev";
+/**
+ * Where the site's PDFs live: the asset bucket, one folder per market, and in
+ * it the one key the site's owner approved for that market's file — the only
+ * one `npm run pdf:push` ever writes (render-pdf.mjs, `downloadLink`). A link
+ * to any other address is failed without being fetched: the bucket's host
+ * caches a 404 for hours, so an address is asked for only once it is known to
+ * be one a push fills.
+ */
+const PDF_HOME = "https://assets.ballbot.dev/pdf/";
+const pdfKey = (host) => `${PDF_HOME}${new URL(host).hostname.split(".")[0]}/portfolio.pdf`;
 /** What the apex and both builds send, and what the preload list asks of the apex. */
 const HSTS = "max-age=63072000; includeSubDomains; preload";
 const USER_AGENT = "ballbot-check-live/1 (+https://ballbot.dev)";
@@ -58,6 +72,27 @@ async function group(what, run) {
 	} catch (error) {
 		check(false, what, error instanceof Error ? error.message : String(error));
 	}
+}
+
+/**
+ * The name a `Content-Disposition` header gives its file: the `filename*`
+ * parameter (RFC 6266), decoded from its UTF-8 percent-encoding (RFC 8187).
+ * Read back rather than compared with an encoding made here, which would be
+ * the same code as the one that wrote the header and pass whatever it got wrong.
+ */
+function savedAs(disposition) {
+	const value = /filename\*=UTF-8''([^;\s]+)/i.exec(disposition)?.[1];
+	if (!value) return null;
+	try {
+		return decodeURIComponent(value);
+	} catch {
+		return null;
+	}
+}
+
+/** An attribute's value as React writes it into HTML, read back. */
+function unescapeHtml(value) {
+	return value.replace(/&(amp|quot|#x27|#39|lt|gt);/g, (_, entity) => ({ amp: "&", quot: '"', "#x27": "'", "#39": "'", lt: "<", gt: ">" })[entity]);
 }
 
 function locations(sitemap) {
@@ -110,6 +145,44 @@ async function checkMarket(host) {
 	await group(`${host} unknown story`, async () => {
 		const missing = await get(`${host}/projects/does-not-exist`);
 		check(missing.status === 404, `${host}/projects/does-not-exist → 404`, `got ${missing.status}`);
+	});
+
+	// The file and its name are read off the hero's download link, which is
+	// where the content file puts them. HEAD, not GET: the answer is the check,
+	// and the body is several megabytes of PDF.
+	await group(`${host} PDF`, async () => {
+		const home = await get(`${host}/`);
+		const link = home.body.match(/<a [^>]*\bdownload="([^"]+)"[^>]*>/);
+		const href = link?.[0].match(/\bhref="([^"]+)"/)?.[1];
+		check(
+			Boolean(link && href),
+			`${host}/ links its PDF`,
+			"the live home page has no download link: the site has not been deployed since the PDF link was added — deploying is the owner's decision (npm run deploy)",
+		);
+		if (!link || !href) return;
+		const url = new URL(unescapeHtml(href), host).href;
+		const name = unescapeHtml(link[1]);
+		check(url === pdfKey(host), `${host}/ links its PDF at ${pdfKey(host)}`, `${url} — not this market's key, the one pdf:push writes; not fetched`);
+		if (url !== pdfKey(host)) return;
+		const pdf = await fetch(url, {
+			method: "HEAD",
+			redirect: "manual",
+			headers: { "user-agent": USER_AGENT },
+			signal: AbortSignal.timeout(20_000),
+		});
+		check(
+			pdf.status === 200 && pdf.headers.get("content-type") === "application/pdf",
+			`${url} → 200 application/pdf`,
+			`${pdf.status} ${pdf.headers.get("content-type")}`,
+		);
+		// Across origins a browser ignores `download`: the object's own header
+		// has to save it, under the same name.
+		const disposition = pdf.headers.get("content-disposition") ?? "";
+		check(
+			/^attachment\b/i.test(disposition) && savedAs(disposition) === name,
+			`${url} is saved as ${name}`,
+			disposition || "no Content-Disposition — push it with npm run pdf:push",
+		);
 	});
 }
 

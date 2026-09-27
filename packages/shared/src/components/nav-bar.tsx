@@ -65,7 +65,7 @@ export function NavBar({ content }: { content: NavContent }) {
 	return (
 		<div
 			ref={barRef}
-			className={`bg-bg border-border sticky top-0 z-50 border-y transition-shadow duration-300 ${
+			className={`bg-bg border-border sticky top-0 z-50 border-y transition-shadow duration-300 print:hidden ${
 				stuck ? "shadow-[0_1px_12px_rgba(0,0,0,0.05)]" : ""
 			}`}
 		>

@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Play } from "lucide-react";
 
 import type {
   ArchiveProject,
@@ -11,6 +11,7 @@ import { ImagePlaceholder } from "./ui/image-placeholder";
 import { page } from "./ui/layout";
 import { ProjectLinks } from "./ui/project-links";
 import { Reveal } from "./ui/reveal";
+import { ScreenSheet } from "./ui/screen-sheet";
 import { ScreenSlider } from "./ui/screen-slider";
 import { SectionLabel } from "./ui/section-label";
 import { Bullet, Paragraphs, PROSE, StoryBody } from "./ui/story-body";
@@ -27,9 +28,35 @@ type Project = FeaturedProject | ArchiveProject;
 const essayId = (index: number) => `story-essay-${index}`;
 
 /**
+ * The air under a block, before the next head or hairline. On paper it is a
+ * margin instead: Chromium will not end a sheet inside a box's closing
+ * padding, so a block whose last lines fitted but whose padding did not went
+ * over whole and left half a sheet empty behind it. A margin at a break
+ * simply goes — as long as it can reach the break, which is why the page and
+ * the Architecture column are plain blocks in print rather than flex columns:
+ * a margin collapses out of a block, and at the chapter's end it is dropped
+ * with the break instead of spilling onto a sheet of its own.
+ */
+const CLOSE = "pb-14 print:mb-14 print:pb-0";
+
+/**
  * The design questions, one after another under a single head. Each opens
  * on its own title; the body is laid out by StoryBody in the order the content
  * file put it, so a diagram lands where the text turns to it.
+ *
+ * On paper the hairline between two essays and the air under it belong to
+ * the title, not to the essay's box. The title goes over to the next sheet
+ * with the block it opens (`break-after-avoid`), and a rule and padding left
+ * on the box stayed behind at the foot of the sheet before — a lone rule over
+ * nothing, and the essay's anchor, which the Highlights line jumps to, on
+ * the wrong page. Carried by the title's own wrapper, which is never cut
+ * (`break-inside-avoid`: a two-line title once split across the break), the
+ * rule opens the sheet the title lands on, and the box's top is the rule's.
+ *
+ * The blocks of an essay also sit at the phone's step on paper (32px, not
+ * 40): the essays are the longest run in a chapter, and the air a scrolling
+ * page spends between their blocks is paid for in sheets — at 40 a
+ * chapter's last lines went over onto a sheet of their own.
  */
 function Architecture({
   content,
@@ -43,14 +70,16 @@ function Architecture({
   return (
     <section data-section aria-labelledby="story-architecture">
       <SectionLabel id="story-architecture">{content.label}</SectionLabel>
-      <div className={`${page} flex flex-col pb-6`}>
+      <div className={`${page} flex flex-col pb-6 print:mb-6 print:block print:pb-0`}>
         {content.items.map((essay, index) => (
           <article
             key={essay.title}
             id={essayId(index)}
-            className={`flex scroll-mt-16 flex-col gap-8 py-10 sm:gap-10 ${index > 0 ? "border-border border-t-[0.5px]" : "pt-0"}`}
+            className={`flex scroll-mt-16 flex-col gap-8 py-10 sm:gap-10 print:mb-8 print:gap-8 print:py-0 ${index > 0 ? "border-border border-t-[0.5px] print:border-t-0" : "pt-0"}`}
           >
-            <Reveal>
+            <Reveal
+              className={`print:break-inside-avoid print:break-after-avoid ${index > 0 ? "print:border-border print:border-t-[0.5px] print:pt-8" : ""}`}
+            >
               <h3
                 className={`text-text-strong text-heading leading-[1.25] font-bold tracking-[-0.01em] ${PROSE}`}
               >
@@ -76,18 +105,41 @@ function Architecture({
  * load for carrying one. Fullscreen is granted through `allow` alone: with
  * the legacy `allowfullscreen` beside it the browser logs that one is
  * ignored, and it is the same permission twice.
+ *
+ * Paper cannot play it, so in print the frame gives way to a line naming the
+ * recording and the address it is watched at — on YouTube itself, since the
+ * no-cookie host only serves the embed.
  */
 function Video({
   content,
 }: {
   content: NonNullable<ProjectStoryContent["video"]>;
 }) {
+  const watch = `https://www.youtube.com/watch?v=${content.youtubeId}`;
   return (
     <section data-section aria-labelledby="story-video">
       <SectionLabel id="story-video">{content.label}</SectionLabel>
-      <Reveal className={`${page} pb-14`}>
+      <Reveal className={`${page} ${CLOSE}`}>
+        <a
+          href={watch}
+          className={`bg-surface hidden items-center gap-4 rounded-lg px-5 py-4 print:flex ${PROSE}`}
+        >
+          <Play
+            aria-hidden="true"
+            strokeWidth={1.75}
+            className="text-text-strong h-6 w-6 shrink-0"
+          />
+          <span className="flex min-w-0 flex-col gap-0.5">
+            <span className="text-text-strong text-[15px] font-semibold">
+              {content.title}
+            </span>
+            <span className="text-text-secondary text-meta font-mono">
+              {watch}
+            </span>
+          </span>
+        </a>
         <div
-          className={`bg-surface relative aspect-video w-full overflow-hidden rounded-lg ${PROSE}`}
+          className={`bg-surface relative aspect-video w-full overflow-hidden rounded-lg print:hidden ${PROSE}`}
         >
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${content.youtubeId}`}
@@ -116,26 +168,43 @@ function Video({
  * `anim-in` on the header and <Reveal> below it: the title block is what the
  * page opens on, so it takes the hero's load-time entrance; everything under
  * it arrives as it is scrolled to, like the sections on the home page.
+ *
+ * `bound` is set by the print document (the app's /print route), which binds
+ * the story in as a chapter; at the story's own address it is left off. Only
+ * the chapter sets the rest of the gallery out after the head (ScreenSheet):
+ * the document is printed by a script that loads every picture first, while a
+ * reader printing the page from the browser would get a grid of tiles whose
+ * pictures were never fetched — and every reader of the page would carry the
+ * sheet's markup for nothing. Printed from its own address, the story keeps
+ * the slider's one screen, which is already loaded. A prop, not a context:
+ * the story is a server component, and the chapter around it is too.
  */
 export function ProjectStory({
   content,
   project,
   story,
+  bound = false,
 }: {
   content: ProjectsContent;
   project: Project;
   story: ProjectStoryContent;
+  bound?: boolean;
 }) {
   const labels = content.gallery;
   const appIcon = "appIcon" in project ? project.appIcon : undefined;
   const linked =
     story.architecture?.items.length === story.highlights?.length;
+  // The screens the stage does not already show large: in the print document
+  // nothing pages the slider, so it prints the first.
+  const rest = bound && labels ? (project.gallery?.slice(1) ?? []) : [];
 
   // `id="main"` is where the layout's skip link lands; `tabIndex={-1}` is what
   // lets a <main> take that focus at all.
   return (
-    <main id="main" tabIndex={-1} className="flex min-h-svh flex-col">
-      <div className="border-border border-b-[0.5px]">
+    <main id="main" tabIndex={-1} className="flex min-h-svh flex-col print:block print:min-h-0">
+      {/* Back to the list — a way around the site, which a printed chapter
+          has no use for. */}
+      <div className="border-border border-b-[0.5px] print:hidden">
         <div className={`${page} py-6`}>
           <a
             href="/#projects"
@@ -157,7 +226,7 @@ export function ProjectStory({
 			    the screens, then the facts — while from `lg` the grid puts the facts
 			    back under the title and hands the slider the wider column. */}
       <header
-        className={`${page} flex flex-col gap-10 pt-12 pb-12 sm:pt-16 sm:pb-16 lg:grid lg:grid-cols-[400px_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-10`}
+        className={`${page} flex flex-col gap-10 pt-12 pb-12 sm:pt-16 sm:pb-16 print:mb-16 print:pb-0 lg:grid lg:grid-cols-[400px_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-10`}
       >
         <div className="flex flex-col gap-4 sm:gap-5 lg:col-start-1 lg:row-start-1">
           <p
@@ -231,12 +300,18 @@ export function ProjectStory({
         </dl>
       </header>
 
+      {/* The slider shows one screen on paper and cannot page, so in the print
+          document the rest of the set follows the head, across the page. */}
+      {rest.length ? (
+        <ScreenSheet items={rest} className={`${page} mb-12`} />
+      ) : null}
+
       {story.highlights?.length ? (
         <section data-section aria-labelledby="story-highlights">
           <SectionLabel id="story-highlights">
             {story.labels.highlights}
           </SectionLabel>
-          <Reveal className={`${page} pb-14`}>
+          <Reveal className={`${page} ${CLOSE}`}>
             <ul className={`flex flex-col gap-1.5 ${PROSE}`}>
               {story.highlights.map((line, index) => {
                 const row = (
@@ -248,7 +323,7 @@ export function ProjectStory({
                   </>
                 );
                 return (
-                  <li key={line}>
+                  <li key={line} className="print:break-inside-avoid">
                     {/* A line goes to the essay that answers it, and only when
                         every line has one: half a list that responds to a press
                         reads as a list that is partly broken. The tint under
@@ -277,7 +352,7 @@ export function ProjectStory({
         <SectionLabel id="story-motivation">
           {story.labels.motivation}
         </SectionLabel>
-        <Reveal className={`${page} pb-14`}>
+        <Reveal className={`${page} ${CLOSE}`}>
           <Paragraphs text={story.motivation} />
         </Reveal>
       </section>
@@ -287,7 +362,7 @@ export function ProjectStory({
       {story.steps?.length ? (
         <section data-section aria-labelledby="story-process">
           <SectionLabel id="story-process">{story.labels.process}</SectionLabel>
-          <div className={`${page} pb-4`}>
+          <div className={`${page} pb-4 print:mb-4 print:pb-0`}>
             {/* One row per step, split by hairlines: when and what on the left,
 					    the screen it left behind and the account of it on the right.
 					    Below `lg` the head stacks over the body, the period still first. */}
@@ -297,7 +372,7 @@ export function ProjectStory({
                   key={step.title}
                   className={index > 0 ? "border-border border-t-[0.5px]" : ""}
                 >
-                  <Reveal className="flex flex-col gap-5 py-10 lg:flex-row lg:gap-10">
+                  <Reveal className="flex flex-col gap-5 py-10 print:mb-10 print:pb-0 lg:flex-row lg:gap-10">
                     <div className="flex flex-col gap-2 lg:w-[260px] lg:shrink-0">
                       <p className="text-text-secondary text-meta font-mono">
                         {step.period}
@@ -309,8 +384,19 @@ export function ProjectStory({
                     <div
                       className={`flex min-w-0 flex-1 flex-col gap-6 ${PROSE}`}
                     >
+                      {/* On paper the screens are set smaller than the measure:
+                          each is kept whole on a sheet, and at full size a step
+                          would not fit under the one before it. Two or more sit
+                          side by side — stacked, the second went over on its
+                          own with the text after it, half a sheet left empty
+                          behind each and the step's words cut off from its
+                          title — and one alone stops at 600px, the record of
+                          what the product looked like rather than a figure to
+                          read close. */}
                       {step.images?.length ? (
-                        <div className="flex flex-col gap-3">
+                        <div
+                          className={`flex flex-col gap-3 ${step.images.length > 1 ? "print:grid print:grid-cols-2 print:items-start" : "print:max-w-[600px]"}`}
+                        >
                           {step.images.map((media, at) => (
                             <ZoomImage
                               key={media.src ?? at}
@@ -341,13 +427,19 @@ export function ProjectStory({
 
       {/* The last word, at the reading measure: it answers none of the
           Highlights lines, so it stands outside Architecture rather than
-          becoming a fourth essay the first line would anchor to. */}
+          becoming a fourth essay the first line would anchor to. On paper it
+          is never cut: it is a few paragraphs, far short of a sheet, and a
+          break inside it left its closing sentence alone on the next one. */}
       {story.retrospective ? (
-        <section data-section aria-labelledby="story-retrospective">
+        <section
+          data-section
+          aria-labelledby="story-retrospective"
+          className="print:break-inside-avoid"
+        >
           <SectionLabel id="story-retrospective">
             {story.retrospective.label}
           </SectionLabel>
-          <Reveal className={`${page} pb-14`}>
+          <Reveal className={`${page} ${CLOSE}`}>
             <Paragraphs text={story.retrospective.paragraphs} />
           </Reveal>
         </section>

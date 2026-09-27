@@ -69,6 +69,24 @@ function HighlightRow({ emphasis, detail, href }: { emphasis: string | null; det
 	);
 }
 
+/**
+ * The quiet actions after the primary button: grey, bold, and a rule that
+ * slides in under the label on hover (`SlideRule`). The outbound links and
+ * the download share it, so the row reads as one kind of thing after the
+ * button however many of them a market lists.
+ */
+const SECONDARY =
+	"group text-text-secondary hover:text-text-strong relative px-2 py-3 text-[16px] font-bold transition-colors duration-300 sm:px-4";
+
+function SlideRule() {
+	return (
+		<span
+			aria-hidden="true"
+			className="bg-text-strong absolute inset-x-2 bottom-2 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover:scale-x-100 sm:inset-x-4"
+		/>
+	);
+}
+
 /** The figure the Overview column is built from. */
 function Value({ children }: { children: string }) {
 	return <p className="text-text-strong text-[28px] font-semibold sm:text-[32px]">{children}</p>;
@@ -131,23 +149,36 @@ export function Hero({ content, overview }: { content: HeroContent; overview: Ov
 								href={action.href}
 								target={action.href.startsWith("http") ? "_blank" : undefined}
 								rel={action.href.startsWith("http") ? "noreferrer noopener" : undefined}
-								className="group text-text-secondary hover:text-text-strong relative px-2 py-3 text-[16px] font-bold transition-colors duration-300 sm:px-4"
+								className={SECONDARY}
 							>
 								{action.label}
-								<span
-									aria-hidden="true"
-									className="bg-text-strong absolute inset-x-2 bottom-2 h-px origin-left scale-x-0 transition-transform duration-300 ease-[var(--ease-smooth)] group-hover:scale-x-100 sm:inset-x-4"
-								/>
+								<SlideRule />
 							</a>
 						))}
+						{/* The site as a PDF, from the asset bucket. It stays in this tab, where
+						    the save lands. Across origins a browser ignores `download`, so the
+						    file itself is stored with a `Content-Disposition` that saves it
+						    under this name (render-pdf.mjs --push). The attribute stays: it is
+						    how the render script and check:live find the link and the name it
+						    promises. Not on the PDF itself: a printed page has nothing to save. */}
+						<a
+							href={content.actions.download.href}
+							download={content.actions.download.filename}
+							className={`${SECONDARY} print:hidden`}
+						>
+							{content.actions.download.label}
+							<SlideRule />
+						</a>
 					</div>
 
 					{/* The one line on the page written for the other market's reader. It
 					    is not a translation of anything around it, so it carries its own
-					    `lang` and the browser picks the right face for it. */}
+					    `lang` and the browser picks the right face for it. Not on paper:
+					    it is a way off a site a visitor landed on by mistake, and a
+					    document handed out in one language has no wrong host to leave. */}
 					<p
 						lang={content.otherMarket.lang}
-						className="anim-in text-text-secondary flex min-h-10 items-end text-[14px]"
+						className="anim-in text-text-secondary flex min-h-10 items-end text-[14px] print:hidden"
 						style={{ animationDelay: "360ms" }}
 					>
 						{/* One flex item, not three: a flex container drops the whitespace

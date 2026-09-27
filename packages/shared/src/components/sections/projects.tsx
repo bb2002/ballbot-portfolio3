@@ -51,7 +51,7 @@ function FeaturedCard({ project, galleryLabels }: { project: FeaturedProject; ga
 		// `min-w-0` is what keeps the card inside its column: without it the fixed
 		// thumbnail sets a min-content width the two-up row cannot honour at 1024,
 		// and the card spills across the rule into its neighbour.
-		<article className="group flex min-w-0 flex-1 flex-col justify-center gap-4 py-3">
+		<article className="group flex min-w-0 flex-1 flex-col justify-center gap-4 py-3 print:break-inside-avoid">
 			<div className="flex min-w-0 flex-col items-start gap-2.5 sm:flex-row">
 				{/* The thumbnail is a door only when there is a room behind it: a
 				    project with screens to page through gets the clickable tile, one
@@ -104,7 +104,7 @@ function ArchiveCard({ project, galleryLabels }: { project: ArchiveProject; gall
 	const thumbSizes = "(max-width: 1280px) 28vw, 14vw";
 
 	return (
-		<article className="group flex min-w-0 flex-1 flex-col items-start gap-2.5 py-6 sm:flex-row sm:items-center">
+		<article className="group flex min-w-0 flex-1 flex-col items-start gap-2.5 py-6 sm:flex-row sm:items-center print:break-inside-avoid">
 			{project.gallery?.length && galleryLabels ? (
 				<GalleryThumb
 					media={project.thumbnail}

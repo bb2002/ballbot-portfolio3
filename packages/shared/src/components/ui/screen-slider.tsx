@@ -42,6 +42,12 @@ function boxRatio(items: readonly Media[]) {
  * under those. The stage is the viewer's own track — every slide on one strip,
  * moved by whole widths — at the size the column allows, and a click on the
  * slide opens the viewer on it for a closer look.
+ *
+ * On paper it is the stage and its caption alone, on whichever screen it is
+ * on — for a reader who prints the page, the one they were looking at.
+ * Nothing on paper pages, so the count, the arrows and the rail go. The print
+ * document never pages it, so there the stage is the first screen, and the
+ * project's chapter lays the rest out after its head (ScreenSheet).
  */
 export function ScreenSlider({ items, title, labels }: Props) {
   const [index, setIndex] = useState(0);
@@ -109,8 +115,10 @@ export function ScreenSlider({ items, title, labels }: Props) {
           go(travel < 0 ? 1 : -1);
         }}
       >
+        {/* In print the one slide left is the only one on the strip, so the
+            strip stays put rather than following `index` off the stage. */}
         <div
-          className="flex h-full transition-transform duration-[450ms] ease-[var(--ease-smooth)] motion-reduce:transition-none"
+          className="flex h-full transition-transform duration-[450ms] ease-[var(--ease-smooth)] motion-reduce:transition-none print:transform-none!"
           style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
         >
           {items.map((item, slide) => (
@@ -133,7 +141,9 @@ export function ScreenSlider({ items, title, labels }: Props) {
               }}
               aria-label={`${labels.open} — ${item.caption ?? title}`}
               aria-haspopup="dialog"
-              className="group/zoom relative h-full w-full shrink-0 cursor-zoom-in"
+              className={`group/zoom relative h-full w-full shrink-0 cursor-zoom-in ${
+                slide === index ? "" : "print:hidden"
+              }`}
             >
               {item.src ? (
                 <Image
@@ -166,7 +176,7 @@ export function ScreenSlider({ items, title, labels }: Props) {
               />
               <span
                 aria-hidden="true"
-                className="text-text-inverse pointer-events-none absolute right-4 bottom-4 flex h-7 w-7 items-center justify-center rounded-md bg-[#0d0d0d]/45 backdrop-blur-[2px] transition-colors duration-300 ease-[var(--ease-smooth)] group-hover/zoom:bg-[#0d0d0d]/80"
+                className="text-text-inverse pointer-events-none absolute right-4 bottom-4 flex h-7 w-7 items-center justify-center rounded-md bg-[#0d0d0d]/45 backdrop-blur-[2px] transition-colors duration-300 ease-[var(--ease-smooth)] group-hover/zoom:bg-[#0d0d0d]/80 print:hidden"
               >
                 <Maximize2
                   aria-hidden="true"
@@ -187,12 +197,12 @@ export function ScreenSlider({ items, title, labels }: Props) {
         </p>
         <p
           aria-hidden="true"
-          className="text-text-secondary shrink-0 font-mono text-[13px] font-light tabular-nums"
+          className="text-text-secondary shrink-0 font-mono text-[13px] font-light tabular-nums print:hidden"
         >
           {String(index + 1).padStart(2, "0")} /{" "}
           {String(count).padStart(2, "0")}
         </p>
-        <div className="flex shrink-0 gap-1.5">
+        <div className="flex shrink-0 gap-1.5 print:hidden">
           <Arrow side="left" label={labels.previous} onClick={() => go(-1)} />
           <Arrow side="right" label={labels.next} onClick={() => go(1)} />
         </div>
@@ -202,7 +212,7 @@ export function ScreenSlider({ items, title, labels }: Props) {
 			    centred flex container whose content overflows pushes the first item
 			    past its own left edge, where no amount of scrolling reaches it. The
 			    1px of padding is room for the active tile's ring. */}
-      <div className="-mx-1 overflow-x-auto px-1 py-1">
+      <div className="-mx-1 overflow-x-auto px-1 py-1 print:hidden">
         <div
           ref={railRef}
           role="group"

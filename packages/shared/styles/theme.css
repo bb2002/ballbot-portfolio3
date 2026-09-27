@@ -657,11 +657,11 @@ html.js [data-reveal="shown"] {
 	transform: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
-
+/* Every block that would arrive is simply there — for a reader who asked for
+   less motion, and on paper, where nothing waits for a scroll or a timer and
+   nothing may be caught mid-entrance. One rule for both, so a change to the
+   reveal cannot leave the printed page behind. */
+@media print, (prefers-reduced-motion: reduce) {
 	html.js [data-reveal] {
 		opacity: 1 !important;
 		transform: none !important;
@@ -673,6 +673,12 @@ html.js [data-reveal="shown"] {
 	.animate-lightbox-in {
 		animation: none !important;
 	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 
 	*,
 	*::before,
@@ -680,5 +686,91 @@ html.js [data-reveal="shown"] {
 		transition-duration: 0.01ms !important;
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
+	}
+}
+
+/* ------------------------------------------------------------------ *
+ * Print
+ *
+ * What the PDF behind the hero's download link is printed with:
+ * packages/shared/scripts/render-pdf.mjs prints the app's /print route
+ * — the home page, then every story as a chapter — A4 landscape, and
+ * its `scale` lays the sheet out at a desktop width, so the paper reads
+ * as the site does on a wide screen rather than reflowing to a phone.
+ * The rules here are the document's: the sheet, the cover, where the
+ * sheets turn between screens and chapters. What one component keeps,
+ * drops or holds together on paper sits on that component as a `print:`
+ * utility. (The reveal and entrance overrides are shared with reduced
+ * motion, above.)
+ * ------------------------------------------------------------------ */
+@page {
+	size: A4 landscape;
+	/* No side margin: the full-bleed rules still run to the edge of the
+	   sheet, and the gutter is the page's own `--page-x`. Top and bottom
+	   give a continued sheet the air a screen gets from its own edge, and
+	   the foot carries the folio. */
+	margin: 10mm 0 12mm;
+
+	/* Margin boxes are not scaled with the page, so this is the size on
+	   paper: the mono of the periods and labels, at a whisper. */
+	@bottom-center {
+		content: counter(page) " / " counter(pages);
+		font: 300 7.5pt "IBM Plex Mono", ui-monospace, monospace;
+		color: var(--color-text-secondary);
+	}
+}
+
+/* The cover bleeds to every edge and carries no folio. It is a page of its
+   own name (the hero's header asks for it below) rather than `:first`, which
+   is whatever sheet comes first: a reader printing one story from its own
+   address got a first sheet with no margin and no number. The cover is also
+   the sheet whose box `vh` is measured against — Chromium sizes the viewport
+   units off the first page for the whole document — and the hero is the one
+   block that uses them, so it fills this sheet and no other box matters. */
+@page cover {
+	margin: 0;
+
+	@bottom-center {
+		content: none;
+	}
+}
+
+@media print {
+	:root {
+		/* The nav and the cue are not printed, so the hero is the whole cover. */
+		--nav-h: 0px;
+		--cue-h: 0px;
+	}
+
+	html {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	/* Fixed, so it would be printed at the top of every sheet. */
+	.skip-link {
+		display: none;
+	}
+
+	/* The cover is the first sheet and nothing else. Then each screen of the
+	   home page opens a sheet of its own, and so does each story bound in
+	   after it — a chapter's sections run on inside it, the way they scroll.
+	   The home page is the <main> that follows the hero's <header>: a story
+	   printed from its own address is a <main> straight under <body> too, and
+	   should read on the same way. */
+	body > header[data-section] {
+		page: cover;
+		break-after: page;
+	}
+
+	body > header[data-section] ~ main > [data-section],
+	[data-chapter] {
+		break-before: page;
+	}
+
+	/* One Journey row is never cut in two. The rails are drawn per row and per
+	   chapter, so a chapter that crosses a sheet carries its trunk over with it. */
+	.jy-event {
+		break-inside: avoid;
 	}
 }

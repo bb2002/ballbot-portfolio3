@@ -51,6 +51,39 @@
 		"deploy": {
 			"dependsOn": ["sync-public", "^build"],
 			"cache": false
+		},
+		/*
+		 * The site as a PDF, on the asset bucket (docs/how-to-portfolio-to-pdf).
+		 * Neither is ever a cache hit: `pdf` prints whatever the live site — or,
+		 * with `--local`, a build it makes itself — serves at that moment, which
+		 * no file in the repository hashes, and `pdf:push` writes to R2. No
+		 * `dependsOn` either: `pdf --local` runs sync-public and the build on its
+		 * own, and `pdf:push` must send the file `pdf` already verified, never
+		 * print a fresh one on its way. The root scripts end in `--`, so
+		 * `npm run pdf -- --local` hands the flag to both markets' tasks, and
+		 * run with `--continue`: by default turbo interrupts every other task
+		 * when one fails, which cut the other market's render short, or its
+		 * upload between the put and the record of it.
+		 */
+		"pdf": {
+			"cache": false,
+			/*
+			 * Turborepo's strict environment mode strips TMPDIR as well, and a
+			 * task without it takes /tmp for the system's temporary folder. A
+			 * render makes its own under that folder for the build, the preview
+			 * and Chromium, and SKILL §6-10 looks for what a killed one left in
+			 * $TMPDIR: run from the root, it would have been in /tmp, unseen.
+			 */
+			"passThroughEnv": ["TMPDIR"]
+		},
+		"pdf:push": {
+			"cache": false,
+			/*
+			 * Turborepo hands a task only the environment it is told about. An
+			 * API token in the environment is how wrangler authenticates when it
+			 * is not logged in through the browser.
+			 */
+			"passThroughEnv": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"]
 		}
 	}
 }

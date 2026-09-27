@@ -11,6 +11,7 @@ export { ExperienceStory } from "./components/experience-story";
 export { Footer } from "./components/footer";
 export { Hero } from "./components/hero";
 export { NavBar } from "./components/nav-bar";
+export { PrintChapter } from "./components/print-chapter";
 export { ProjectStory } from "./components/project-story";
 export { ScrollCue } from "./components/scroll-cue";
 

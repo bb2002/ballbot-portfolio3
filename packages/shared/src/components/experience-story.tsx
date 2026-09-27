@@ -36,8 +36,10 @@ export function ExperienceStory({ content, story }: { content: ExperienceContent
 	// `id="main"` is where the layout's skip link lands; `tabIndex={-1}` is what
 	// lets a <main> take that focus at all.
 	return (
-		<main id="main" tabIndex={-1} className="flex min-h-svh flex-col">
-			<div className="border-border border-b-[0.5px]">
+		<main id="main" tabIndex={-1} className="flex min-h-svh flex-col print:block print:min-h-0">
+			{/* Back to the list — a way around the site, which a printed chapter
+			    has no use for. */}
+			<div className="border-border border-b-[0.5px] print:hidden">
 				<div className={`${page} py-6`}>
 					<a
 						href="/#experience"
@@ -53,7 +55,16 @@ export function ExperienceStory({ content, story }: { content: ExperienceContent
 				</div>
 			</div>
 
-			<article className={`${page} flex flex-1 flex-col gap-12 py-14 sm:gap-14 sm:py-20`}>
+			{/* No closing padding on paper: the chapter ends there, and Chromium would
+			    rather carry the last lines over to a sheet of their own than end a
+			    sheet inside it. A margin instead, as ProjectStory's blocks close, and
+			    for the same reason <main> is a plain block in print rather than a
+			    flex column: a margin collapses out of a block, so at the break before
+			    the next chapter it simply goes, and after the last chapter it is the
+			    air between the last line and the footer's rule. Left inside a flex
+			    column it could not reach the break, and what did not fit on the sheet
+			    spilled onto the next chapter's first one and set its title lower. */}
+			<article className={`${page} flex flex-1 flex-col gap-12 py-14 sm:gap-14 sm:py-20 print:mb-14 print:pb-0`}>
 				<header className={`anim-in ${COLUMN} flex flex-col gap-3`} style={{ animationDelay: "60ms" }}>
 					<p className="text-text-secondary text-meta font-mono font-light">{meta}</p>
 					<h1 className="text-text-strong sm:text-title text-[26px] leading-[1.25] font-bold tracking-[-0.01em]">

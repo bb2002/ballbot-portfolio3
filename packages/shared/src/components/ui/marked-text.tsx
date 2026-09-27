@@ -52,6 +52,9 @@ export function MarkedText({ text, links, labels }: Props) {
 						);
 					}
 					if (!link || !link.gallery.length || !labels) return <span className={EMPHASIS_CLASS}>{name}</span>;
+					// Without its rule on paper: the viewer it opens cannot open there,
+					// and beside the names that do go somewhere, a ruled name that leads
+					// nowhere reads as a broken link. A name that goes to a page keeps it.
 					return (
 						<button
 							type="button"
@@ -61,7 +64,7 @@ export function MarkedText({ text, links, labels }: Props) {
 							}}
 							aria-label={`${labels.open} — ${name}`}
 							aria-haspopup="dialog"
-							className={`${CONTROL} inline cursor-zoom-in`}
+							className={`${CONTROL} inline cursor-zoom-in print:border-b-0`}
 						>
 							{name}
 						</button>

@@ -56,7 +56,7 @@ export function GalleryThumb({ media, gallery, title, labels, className = "", si
 
 				<span
 					aria-hidden="true"
-					className="text-text-inverse pointer-events-none absolute right-2 bottom-2 flex h-7 w-7 items-center justify-center rounded-md bg-[#0d0d0d]/45 backdrop-blur-[2px] transition-colors duration-300 ease-[var(--ease-smooth)] group-hover/zoom:bg-[#0d0d0d]/80"
+					className="text-text-inverse pointer-events-none absolute right-2 bottom-2 flex h-7 w-7 items-center justify-center rounded-md bg-[#0d0d0d]/45 backdrop-blur-[2px] transition-colors duration-300 ease-[var(--ease-smooth)] group-hover/zoom:bg-[#0d0d0d]/80 print:hidden"
 				>
 					<Maximize2 aria-hidden="true" strokeWidth={2} className="h-3.5 w-3.5" />
 				</span>
