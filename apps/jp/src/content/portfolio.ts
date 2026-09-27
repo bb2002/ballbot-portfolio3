@@ -98,7 +98,6 @@ export const overview: OverviewContent = {
 			items: [
 				{ emphasis: "JLPT N1", detail: "取得" },
 				{ emphasis: "鳥取大学", detail: "交換留学（2025年度後期）" },
-				{ emphasis: "希望勤務地", detail: "日本全国" },
 			],
 		},
 		{
