@@ -104,7 +104,7 @@ export const overview: OverviewContent = {
 			caption: "넛지헬스케어 타임스프레드, 링커리어 팀 백엔드",
 			items: [
 				{ emphasis: "19억 건의 테이블을", detail: "점검 시간 1시간 내에 마이그레이션", href: "/experience/bigint-migration" },
-				{ emphasis: "분당 1,500건의 요청을 받는", detail: "서비스 리팩토링", href: "/experience/realtime-redesign" },
+				{ emphasis: "분당 2,500건의 요청을 받는", detail: "서비스 리팩토링", href: "/experience/realtime-redesign" },
 				{ emphasis: "월 1,000만 원을 넘기던 AWS 비용을", detail: "30% 절감", href: "/experience/aws-cost" },
 				{ emphasis: "메모리 32GB 를 다 쓰고 멈추던", detail: "API 서버 정상화", href: "/experience/api-memory" },
 			],
@@ -995,11 +995,11 @@ export const experience: ExperienceContent = {
 		{
 			slug: "realtime-redesign",
 			year: "2023",
-			title: "분당 1,500건의 요청을 받는 서비스 리팩토링",
+			title: "분당 2,500건의 요청을 받는 서비스 리팩토링",
 			subtitle: "DynamoDB 와 Redis 로 다시 설계해, 6시간에 한 번 갱신되던 랭킹을 실시간으로 움직이게 했습니다.",
 			body: [
 				{ heading: "배경" },
-				"앞선 마이그레이션으로 시간을 번 직후부터 다음 작업을 준비했습니다. 먼저 앱이 ID 를 정수로 다루던 것을 String 으로 바꿨고, 그 배포가 사용자의 99% 에 닿을 때까지 기다렸습니다. 마침 운영팀에서 랜덤 상자의 확률 조정 기능을 파악하기 어려우니 리뉴얼하자는 요청이 왔고, 대표님께서도 승인해주셔서 드디어 리팩토링에 착수할 수 있었습니다. 상자 서비스의 /luckybox 엔드포인트는 그때 분당 1,500건 안팎의 요청을 받고 있었습니다.",
+				"앞선 마이그레이션으로 시간을 번 직후부터 다음 작업을 준비했습니다. 먼저 앱이 ID 를 정수로 다루던 것을 String 으로 바꿨고, 그 배포가 사용자의 99% 에 닿을 때까지 기다렸습니다. 마침 운영팀에서 랜덤 상자의 확률 조정 기능을 파악하기 어려우니 리뉴얼하자는 요청이 왔고, 대표님께서도 승인해주셔서 드디어 리팩토링에 착수할 수 있었습니다. 상자 서비스의 /luckybox 엔드포인트는 그때 분당 2,500건 안팎의 요청을 받고 있었습니다.",
 				{ heading: "상자를 어디에 저장할 것인가" },
 				"먼저 상자를 어디에 저장할지 고민했습니다. 예전 설계는 상자를 전부 MySQL 에 저장해, 상자를 만들 때마다 INSERT 가, 상자를 열 때마다 UPDATE 가 발생했습니다. 이를 DynamoDB 로 옮기고, 파티션 키로 읽고 쓰는 속도가 빠르다는 장점을 최대한 활용하기로 했습니다.",
 				REALTIME_ITEM,
@@ -1595,9 +1595,9 @@ export const journey: JourneyContent = {
 				},
 				{
 					year: "2023",
-					title: "**분당 1,500건의 요청을 받는** 서비스 리팩토링",
+					title: "**분당 2,500건의 요청을 받는** 서비스 리팩토링",
 					featured: true,
-					links: [{ name: "분당 1,500건의 요청을 받는", href: "/experience/realtime-redesign" }],
+					links: [{ name: "분당 2,500건의 요청을 받는", href: "/experience/realtime-redesign" }],
 				},
 			],
 		},

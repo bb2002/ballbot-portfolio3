@@ -115,7 +115,7 @@ export const overview: OverviewContent = {
 			caption: "Nudge Healthcare（韓国のヘルスケア企業）のバックエンド",
 			items: [
 				{ emphasis: "19億件のテーブルを", detail: "メンテナンス1時間以内にマイグレーション", href: "/experience/bigint-migration" },
-				{ emphasis: "毎分1,500件のリクエストを受ける", detail: "サービスのリファクタリング", href: "/experience/realtime-redesign" },
+				{ emphasis: "毎分2,500件のリクエストを受ける", detail: "サービスのリファクタリング", href: "/experience/realtime-redesign" },
 				{ emphasis: "月100万円を超えていた AWS 費用を", detail: "30%削減", href: "/experience/aws-cost" },
 				{ emphasis: "メモリ 32GB を使い切って停止していた", detail: "API サーバーの正常化", href: "/experience/api-memory" },
 			],
@@ -1000,11 +1000,11 @@ export const experience: ExperienceContent = {
 		{
 			slug: "realtime-redesign",
 			year: "2023",
-			title: "毎分1,500件のリクエストを受けるサービスのリファクタリング",
+			title: "毎分2,500件のリクエストを受けるサービスのリファクタリング",
 			subtitle: "DynamoDB と Redis で設計し直し、6時間に一度更新されていたランキングを、リアルタイムで動くようにしました。",
 			body: [
 				{ heading: "背景" },
-				"先のマイグレーションで時間を稼いだ直後から、次の作業の準備に入りました。まず、アプリで ID を整数として扱っていたのを String に変え、そのリリースがユーザーの99%に行き渡るまで待ちました。ちょうど運営チームから、ランダムボックスの確率調整機能がわかりにくいのでリニューアルしてほしいという要望があり、代表の承認も得られたので、ようやくリファクタリングに着手できました。ボックスサービスの /luckybox エンドポイントは、当時毎分1,500件前後のリクエストを受けていました。",
+				"先のマイグレーションで時間を稼いだ直後から、次の作業の準備に入りました。まず、アプリで ID を整数として扱っていたのを String に変え、そのリリースがユーザーの99%に行き渡るまで待ちました。ちょうど運営チームから、ランダムボックスの確率調整機能がわかりにくいのでリニューアルしてほしいという要望があり、代表の承認も得られたので、ようやくリファクタリングに着手できました。ボックスサービスの /luckybox エンドポイントは、当時毎分2,500件前後のリクエストを受けていました。",
 				{ heading: "ボックスをどこに保存するか" },
 				"まず、ボックスをどこに保存するかを考えました。以前の設計ではボックスをすべて MySQL に保存していたため、ボックスを作るたびに INSERT が、開けるたびに UPDATE が発生していました。これを DynamoDB に移し、パーティションキーで読み書きする速度が速いという長所を、最大限に活かすことにしました。",
 				REALTIME_ITEM,
@@ -1605,9 +1605,9 @@ export const journey: JourneyContent = {
 				},
 				{
 					year: "2023",
-					title: "**毎分1,500件のリクエストを受ける**サービスのリファクタリング",
+					title: "**毎分2,500件のリクエストを受ける**サービスのリファクタリング",
 					featured: true,
-					links: [{ name: "毎分1,500件のリクエストを受ける", href: "/experience/realtime-redesign" }],
+					links: [{ name: "毎分2,500件のリクエストを受ける", href: "/experience/realtime-redesign" }],
 				},
 			],
 		},
