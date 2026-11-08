@@ -1,4 +1,5 @@
 import type { HeroContent, OverviewContent } from "../content-types";
+import { Reading } from "./ui/reading";
 
 /**
  * One viewport, minus the nav bar and scroll cue that close the hero frame —
@@ -93,7 +94,11 @@ function Value({ children }: { children: string }) {
 }
 
 function Caption({ children }: { children: string }) {
-	return <p className="text-text-secondary text-[15px] sm:text-[17px]">{children}</p>;
+	return (
+		<p className="text-text-secondary text-[15px] sm:text-[17px]">
+			<Reading text={children} />
+		</p>
+	);
 }
 
 export function Hero({ content, overview }: { content: HeroContent; overview: OverviewContent }) {

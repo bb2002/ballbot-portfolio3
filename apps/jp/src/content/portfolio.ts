@@ -122,7 +122,7 @@ export const overview: OverviewContent = {
 		},
 		{
 			value: "4.43 / 4.5",
-			caption: "江原大学校 コンピュータ工学科 在学中",
+			caption: "{江原|カンウォン}大学 コンピュータ工学科 在学中",
 			items: [{ emphasis: "2027年2月", detail: "卒業予定" }],
 		},
 	],
@@ -1117,25 +1117,25 @@ export const certificates: CertificatesContent = {
 			period: "2026",
 			event: "第3回 全国大学ソフトウェア成果共有フォーラム",
 			title: "最優秀賞（全体1位）",
-			detail: "東亜大学校 総長賞",
+			detail: "{東亜|トンア}大学 総長賞",
 			description: "**コスモのノート**で、韓国全土から13チームが集まった大会で受賞しました。",
 			links: [{ name: "コスモのノート", href: "/projects/cosmonote" }],
 			// 같은 수상에 상장이 둘이다. 카드에는 총장상을 세우고, 열면 둘 다 넘긴다.
-			image: { src: asset("/certificates/01-chongjangsang-7e6f9199.jpg"), alt: "東亜大学校 総長賞の賞状" },
+			image: { src: asset("/certificates/01-chongjangsang-7e6f9199.jpg"), alt: "東亜大学 総長賞の賞状" },
 			gallery: [
 				{
 					src: asset("/certificates/01-chongjangsang-7e6f9199.jpg"),
 					width: 1400,
 					height: 1980,
 					caption: "総長賞",
-					alt: "東亜大学校 総長名義の賞状",
+					alt: "東亜大学 総長名義の賞状",
 				},
 				{
 					src: asset("/certificates/02-choiwoosusang-f026e085.jpg"),
 					width: 1054,
 					height: 1440,
 					caption: "最優秀賞",
-					alt: "東亜大学校 ソフトウェア革新センター長名義の最優秀賞の賞状",
+					alt: "東亜大学 ソフトウェア革新センター長名義の最優秀賞の賞状",
 				},
 			],
 		},
@@ -1457,7 +1457,7 @@ const CODEDURI_SCREENS: readonly Media[] = [
 		width: 1800,
 		height: 1080,
 		caption: "ホーム",
-		alt: "KNU コーディングプラットフォームのホーム。お知らせと FAQ のボックスの下にプログラミングコンテストのカードが3枚並び、その下に江原大学校のフッターがある",
+		alt: "KNU コーディングプラットフォームのホーム。お知らせと FAQ のボックスの下にプログラミングコンテストのカードが3枚並び、その下に江原大学のフッターがある",
 	},
 	{
 		src: asset("/journey/codeduri/02-notice.png"),
@@ -1471,7 +1471,7 @@ const CODEDURI_SCREENS: readonly Media[] = [
 		width: 1800,
 		height: 1080,
 		caption: "コンテストのページ",
-		alt: "江原大学校コーディングコンテストのページ。ジャガイモの写真のバナーの下に、大会紹介・問題・達成度・役割・Q&A のタブがあり、Overview と Introduction、教員とお知らせの欄が続く",
+		alt: "江原大学コーディングコンテストのページ。ジャガイモの写真のバナーの下に、大会紹介・問題・達成度・役割・Q&A のタブがあり、Overview と Introduction、教員とお知らせの欄が続く",
 	},
 	{
 		src: asset("/journey/codeduri/04-problem.png"),
@@ -1570,14 +1570,14 @@ export const journey: JourneyContent = {
 		},
 		{
 			period: "2021",
-			title: "江原大学校",
+			title: "江原大学",
 			titleRuby: { base: "江原", text: "カンウォン" },
 			subtitle: "コンピュータ工学科",
 			events: [
 				{
 					year: "2021",
 					title: "**KNU コーディングプラットフォーム**の開発",
-					detail: "江原大学校 SW 中心大学事業団が進めたコーディングプラットフォームの構築事業で、チームリーダーを務めました。",
+					detail: "江原大学 SW 中心大学事業団が進めたコーディングプラットフォームの構築事業で、チームリーダーを務めました。",
 					links: [{ name: "KNU コーディングプラットフォーム", gallery: CODEDURI_SCREENS }],
 				},
 			],
@@ -1613,7 +1613,7 @@ export const journey: JourneyContent = {
 		},
 		{
 			period: "2024 ~ 現在",
-			title: "江原大学校",
+			title: "江原大学",
 			titleRuby: { base: "江原", text: "カンウォン" },
 			subtitle: "コンピュータ工学科",
 			events: [

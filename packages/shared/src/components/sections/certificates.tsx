@@ -3,6 +3,7 @@ import { Emphasised } from "../ui/emphasised";
 import { GalleryThumb } from "../ui/gallery-thumb";
 import { MarkedText } from "../ui/marked-text";
 import { ThumbFrame } from "../ui/image-placeholder";
+import { Reading } from "../ui/reading";
 import { Reveal } from "../ui/reveal";
 import { SectionLabel } from "../ui/section-label";
 import { page } from "../ui/layout";
@@ -80,7 +81,11 @@ function Card({ item, galleryLabels }: { item: CertificateCard; galleryLabels?: 
 					<h3 className="text-text-strong sm:text-subtitle text-[19px] leading-snug font-bold whitespace-pre-line">
 						{item.title}
 					</h3>
-					{item.detail ? <p className="text-text-primary text-[13px] font-medium">{item.detail}</p> : null}
+					{item.detail ? (
+						<p className="text-text-primary text-[13px] font-medium">
+							<Reading text={item.detail} />
+						</p>
+					) : null}
 				</div>
 				{item.host ? <p className="text-text-secondary text-[13px] font-medium">{item.host}</p> : null}
 				{item.description ? (

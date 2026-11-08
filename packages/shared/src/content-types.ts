@@ -102,6 +102,7 @@ export type Highlight = { emphasis: string | null; detail: string; href?: string
  */
 export type OverviewBlock = {
 	value: string;
+	/** `{base|reading}` sets a reading small over the base — a school's hanja, read the Japanese way. */
 	caption?: string;
 	items?: readonly Highlight[];
 };
@@ -436,6 +437,7 @@ export type CertificateCard = {
 	/**
 	 * The line under the title: a prize's name, a level, a score. Sits at the
 	 * issuer's type size, so the title stays the loudest thing on the card.
+	 * `{base|reading}` sets a reading small over the base.
 	 */
 	detail?: string;
 	/** Who issued or hosted it — the card's last line. */

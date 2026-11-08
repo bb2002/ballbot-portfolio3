@@ -311,6 +311,23 @@ main [data-section] {
 	color: var(--color-text-secondary);
 }
 
+/* A reading set inside a line of copy (`{base|reading}`, ui/reading.tsx) — the
+   Overview caption, a card's detail line. The type here is 13–17px, so the
+   0.4 the Journey titles use would leave the kana at 5–7px: half the size,
+   and never under 8px. A reading longer than its base (カンウォン over 江原)
+   would spread the two kanji apart by default; centred, the base stays whole
+   and the line makes room on either side of it. */
+ruby.reading {
+	ruby-align: center;
+}
+
+ruby.reading rt {
+	font-size: max(0.5em, 8px);
+	line-height: 1;
+	font-weight: 500;
+	color: var(--color-text-secondary);
+}
+
 @media (min-width: 1024px) {
 	.jy-chapter,
 	.jy-now {
